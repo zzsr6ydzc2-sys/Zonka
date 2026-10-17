@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zonka (ZNK) | The Arctic Awakens</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Solana Web3 Kütüphanesi (Cüzdan Bağlantısı İçin) -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <style>
         :root {
             --bg-light: #e0f2fe; 
@@ -15,6 +17,7 @@
             --text-dark: #0f172a;
             --text-muted: #475569;
             --white: #ffffff;
+            --success: #22c55e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -123,7 +126,7 @@
             color: var(--text-muted);
         }
 
-        /* Yüklediğin Kutup Ayısı Resmi */
+        /* Resim Alanı */
         .hero-image-container {
             width: 200px;
             height: 200px;
@@ -132,7 +135,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('logo.png.JPG');
+            background-image: url('logo.jpg'); /* Senin yüklediğin resim */
             background-size: cover;
             border-radius: 50%;
             border: 4px solid var(--primary);
@@ -222,7 +225,27 @@
         .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px;}
         .price-info strong { font-size: 1.2rem; color: var(--primary); }
 
-        /* Satın Alma Butonu */
+        /* Cüzdan Bağla ve Satın Al Butonları */
+        .wallet-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .wallet-btn:hover { background: var(--primary); }
+
         .buy-btn {
             display: block;
             width: 100%;
@@ -239,13 +262,15 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
-            position: relative;
-            overflow: hidden;
         }
 
-        .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(2, 132, 199, 0.4);
+        .buy-btn:hover { transform: translateY(-3px); }
+
+        .buy-btn:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         /* Bölümler */
@@ -361,10 +386,8 @@
             color: var(--white); 
             transform: translateY(-3px); 
             border-color: var(--primary);
-            box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);
         }
 
-        /* Footer */
         footer { 
             text-align: center; 
             padding: 30px; 
@@ -405,7 +428,7 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Senin Yüklediğin Kutup Ayısı Resmi -->
+        <!-- Resim Alanı -->
         <div class="hero-image-container"></div>
 
         <!-- Satın Alma Kutusu -->
@@ -430,7 +453,12 @@
                 </div>
             </div>
 
-            <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
+            <!-- Cüzdan Bağla Butonu -->
+            <button id="connectWallet" class="wallet-btn">Connect Wallet</button>
+
+            <!-- Satın Al Butonu -->
+            <button id="buyButton" class="buy-btn" disabled>Buy $ZNK Now</button>
+            <p id="walletStatus" style="margin-top:10px; font-size:0.8rem; color:var(--text-muted);">Wallet not connected.</p>
         </div>
 
         <!-- Sosyal Medya Butonları -->
@@ -515,6 +543,54 @@
                 setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
+
+        // --- CÜZDAN BAĞLANTI MANTIĞI ---
+        const connectBtn = document.getElementById('connectWallet');
+        const buyBtn = document.getElementById('buyButton');
+        const walletStatus = document.getElementById('walletStatus');
+        let userPublicKey = null;
+
+        // Phantom veya Solflare cüzdanını kontrol et
+        const getProvider = () => {
+            if ('phantom' in window) {
+                const provider = window.phantom?.solana;
+                if (provider?.isPhantom) return provider;
+            }
+            if ('solflare' in window) {
+                return window.solflare;
+            }
+            return null;
+        };
+
+        const provider = getProvider();
+
+        connectBtn.addEventListener('click', async () => {
+            if (!provider) {
+                alert("Lütfen Phantom veya Solflare cüzdanınızı yükleyin!");
+                return;
+            }
+
+            try {
+                const response = await provider.connect();
+                userPublicKey = response.publicKey.toString();
+                walletStatus.innerText = "Connected: " + userPublicKey.substring(0, 5) + "..." + userPublicKey.substring(userPublicKey.length - 4);
+                connectBtn.innerText = "Wallet Connected";
+                connectBtn.style.background = "#22c55e"; // Yeşil renk
+                buyBtn.disabled = false; // Satın al butonunu aktif et
+            } catch (err) {
+                console.error(err);
+                alert("Cüzdan bağlantısı reddedildi.");
+            }
+        });
+
+        buyBtn.addEventListener('click', async () => {
+            if (!userPublicKey) return;
+
+            // Burada normalde Solana Pay ile ödeme başlatılır.
+            // Ancak bu işlem için Cloudflare Worker'a ihtiyacımız var.
+            // Şimdilik kullanıcıya adresi gösterelim.
+            alert("Ödeme Adresi: D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF\n\nLütfen bu adrese SOL gönderin ve Telegram üzerinden bize ulaşın. Tokenleriniz manuel olarak gönderilecektir.");
+        });
     </script>
 </body>
 </html>
