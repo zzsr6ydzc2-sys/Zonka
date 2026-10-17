@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Lüks ve Premium Renk Paleti */
             --bg-dark: #050814;
             --bg-deep: #0f172a;
             --gold: #f59e0b;
@@ -31,7 +30,7 @@
             position: relative;
         }
 
-        /* --- EFSANE KAR TANELERİ --- */
+        /* Kar Taneleri */
         .snowflake {
             position: fixed;
             top: -10px;
@@ -155,7 +154,7 @@
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
-        /* --- LOGO ALANI --- */
+        /* Logo Alanı */
         .hero-image-container {
             width: 280px;
             height: 280px;
@@ -515,7 +514,7 @@
             box-shadow: 0 15px 25px rgba(245, 158, 11, 0.3);
         }
 
-        /* --- FOOTER (TELİF HAKKI VE SSL) --- */
+        /* Footer (En Alt Kısım) */
         footer { 
             text-align: center; 
             padding: 40px 20px; 
@@ -529,6 +528,14 @@
             z-index: 10;
         }
 
+        .footer-verified {
+            font-size: 0.8rem; 
+            color: var(--gold-light); 
+            display: block; 
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
         .ssl-badge {
             display: inline-flex;
             align-items: center;
@@ -539,7 +546,6 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-top: 15px;
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
@@ -580,17 +586,20 @@
         </div>
     </div>
 
-    <!-- Üst Menü -->
+    <!-- Üst Menü (Sadece Çizgi) -->
     <nav></nav>
 
     <section class="hero">
         <h1>ZONKA</h1>
         <h2>THE ARCTIC AWAKENS</h2>
         
+        <!-- Zafer ve Heybet Dolu Açıklama -->
         <p>The Arctic has awakened. <span>Power, sovereignty, and absolute control</span> in the palm of your hand. The future belongs to those who seize it. Secure your legacy today.</p>
 
+        <!-- Resim Alanı (Logo) -->
         <div class="hero-image-container"></div>
 
+        <!-- Satın Alma Kutusu -->
         <div class="buy-box-container">
             <h3>Buy $ZNK Tokens Now</h3>
             
@@ -612,10 +621,12 @@
                 </div>
             </div>
 
+            <!-- Telegram Butonu (Yaldızlı) -->
             <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
             <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted); font-weight: 400;">Click to join our Telegram and purchase securely.</p>
         </div>
 
+        <!-- Sosyal Medya -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank">Telegram</a>
             <a href="https://x.com/zonka_coin" target="_blank">X (Twitter)</a>
@@ -624,6 +635,7 @@
         </div>
     </section>
 
+    <!-- Nasıl Alınır (How to Buy) -->
     <section class="section" id="how-to-buy">
         <h2 class="section-title">How to Buy</h2>
         <div class="steps-grid">
@@ -650,6 +662,7 @@
         </div>
     </section>
 
+    <!-- Yol Haritası (Roadmap) -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-grid">
@@ -683,6 +696,7 @@
         </div>
     </section>
 
+    <!-- Vizyon -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision</h2>
         <div class="vision-box">
@@ -690,6 +704,7 @@
         </div>
     </section>
 
+    <!-- Tokenomics -->
     <section class="section" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
         <table class="tokenomics-table">
@@ -743,9 +758,10 @@
         </div>
     </section>
 
-    <!-- FOOTER (2026 ve SSL Eklendi) -->
+    <!-- Footer -->
     <footer>
-        &copy; 2026 Zonka Coin. All rights reserved. <br>
+        &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
+        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
         <div class="ssl-badge">256-bit SSL Secured Connection</div>
     </footer>
 
