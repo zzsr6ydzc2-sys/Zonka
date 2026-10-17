@@ -169,7 +169,7 @@
             line-height: 1.8;
         }
 
-        /* Resim Alanı - Rengarenk Dönen Halka */
+        /* Resim Alanı - Logonun Kesinlikle Göründüğünden Emin Olduğumuz Yer */
         .hero-image-container {
             width: 280px;
             height: 280px;
@@ -178,11 +178,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('logo.jpg');
+            background-image: url('logo.jpg'); /* Logo burada */
             background-size: cover;
+            background-position: center;
             border-radius: 50%;
             border: 4px solid transparent;
-            background-clip: padding-box;
             box-shadow: 0 0 50px rgba(6, 182, 212, 0.4), inset 0 0 30px rgba(0,0,0,0.8);
             z-index: 10;
             animation: floatImage 6s ease-in-out infinite;
@@ -571,7 +571,7 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Resim Alanı (Rengarenk Işıltılı) -->
+        <!-- Resim Alanı (Logon Burada Görünecek) -->
         <div class="hero-image-container"></div>
 
         <!-- Satın Alma Kutusu -->
@@ -713,3 +713,77 @@
                 <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out or the countdown timer reaches zero.</div>
             </div>
             <div class="faq-item">
+                <div class="faq-question">How do I claim my tokens? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">After sending SOL to the designated address, your ZNK tokens will be sent manually to your wallet by our team within minutes. Please contact us on Telegram for confirmation.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Which blockchain is ZNK on? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka (ZNK) is built on the Solana blockchain (SPL Token standard).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontrat -->
+    <section class="section" id="contract">
+        <h2 class="section-title">Contract Address</h2>
+        <div class="contract-box">
+            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">Copy the address below to add ZNK to your wallet.</p>
+            <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
+            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Zonka Coin. The Arctic Awakens. All rights reserved.
+    </footer>
+
+    <script>
+        // Geri Sayım Sayacı
+        var countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector('.countdown').innerHTML = "<h3 style='color:var(--primary)'>PRESALE ENDED</h3>";
+            }
+        }, 1000);
+
+        // Kopyalama Fonksiyonu
+        function copyAddress() {
+            const address = document.getElementById("address").innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+            });
+        }
+
+        // SSS (Accordion) Mantığı
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
