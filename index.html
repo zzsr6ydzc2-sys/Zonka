@@ -248,7 +248,6 @@
         }
         .telegram-btn:hover { background: #1a7cb3; transform: scale(1.02); box-shadow: 0 0 20px rgba(34, 158, 217, 0.5); }
         
-        /* Kapatma Butonu (Overlay İçin) */
         .close-overlay-btn {
             position: absolute; top: 15px; right: 15px;
             background: transparent; border: none; color: #fff; font-size: 1.5rem;
@@ -310,7 +309,6 @@
         </div>
     </section>
 
-    <!-- --- PREMIUM FROST FLIGHT --- -->
     <section class="section" id="game">
         <h2 class="section-title">Zonka Frost Flight</h2>
         
@@ -318,7 +316,6 @@
             <div class="game-ui-top">
                 <div>Score: <span id="scoreDisplay">0</span></div>
                 <div>Best: <span id="highScoreDisplay">0</span></div>
-                <!-- Ses Ayar Çubuğu Eklendi -->
                 <div class="sound-control">
                     <span>🔊</span>
                     <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
@@ -334,18 +331,15 @@
     <button id="exitFsBtn" class="exit-fs-btn">X</button>
 
     <div id="gameOverBox" class="game-over-overlay">
-        <!-- Kapatma Butonu Eklendi -->
         <button id="closeOverlayBtn" class="close-overlay-btn">✖</button>
         <h4>GAME OVER</h4>
         <p>Your Score: <span id="finalScore">0</span></p>
         <div class="overlay-buttons">
             <button id="retryBtn" class="retry-btn">PLAY AGAIN</button>
-            <!-- Telegram Butonu Güncellendi -->
             <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">SEND SCORE & CLAIM ZNK</a>
         </div>
     </div>
 
-    <!-- Vizyon -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision</h2>
         <div class="vision-box" style="background: var(--glass); backdrop-filter: blur(15px); padding: 50px; border-radius: 24px; border-left: 3px solid var(--gold); text-align: center; color: var(--text-muted); font-weight: 300; line-height: 2; font-size: 1.1rem; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
@@ -353,7 +347,6 @@
         </div>
     </section>
 
-    <!-- SSS (FAQ) -->
     <section class="section" id="faq">
         <h2 class="section-title">FAQ</h2>
         <div class="faq-container" style="max-width: 850px; margin: 0 auto;">
@@ -385,36 +378,45 @@
 
     <script>
         // --- SES AYAR ÇUBUĞU MANTIĞI ---
-        let masterVolume = 0.5; // Başlangıç ses seviyesi
+        let masterVolume = 0.5; 
         const volumeSlider = document.getElementById('volumeSlider');
 
+        // Ses çubuğu değiştiğinde ses seviyesini güncelle
         volumeSlider.addEventListener('input', (e) => {
             masterVolume = parseFloat(e.target.value);
+            // Ses seviyesini anında test etmek için küçük bir tık sesi çal
+            playSound('jump'); 
         });
 
         // --- WEB AUDIO API İLE SES EFEKTLERİ ---
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx;
 
+        // Tarayıcılar, kullanıcı ekrana dokunmadan ses çalınmasına izin vermez. 
+        // Bu yüzden ilk tıklamada ses motorunu başlatıyoruz.
         function initAudio() {
-            if (!audioCtx) audioCtx = new AudioContext();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
         }
 
         function playSound(type) {
-            if (masterVolume === 0 || !audioCtx) return; 
+            if (!audioCtx || masterVolume <= 0) return; 
+            
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
 
-            // Ses seviyesini masterVolume ile çarp
             let finalVolume = 0;
             if (type === 'jump') {
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(400, audioCtx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
-                finalVolume = 0.1 * masterVolume;
+                finalVolume = 0.15 * masterVolume; // Ses seviyesini masterVolume ile çarp
                 gain.gain.setValueAtTime(finalVolume, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
                 osc.start(); osc.stop(audioCtx.currentTime + 0.1);
@@ -422,7 +424,7 @@
                 osc.type = 'square';
                 osc.frequency.setValueAtTime(800, audioCtx.currentTime);
                 osc.frequency.setValueAtTime(1200, audioCtx.currentTime + 0.1);
-                finalVolume = 0.05 * masterVolume;
+                finalVolume = 0.08 * masterVolume;
                 gain.gain.setValueAtTime(finalVolume, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
                 osc.start(); osc.stop(audioCtx.currentTime + 0.2);
@@ -457,19 +459,11 @@
 
         highScoreDisplay.innerText = highScore;
 
-        // Kutup Ayısı (Oyuncu)
-        const bear = {
-            x: 50, y: 250, width: 45, height: 45,
-            velocity: 0, gravity: 0.45, jump: -7.5
-        };
-
-        // Buz Canavarları (Engeller)
+        const bear = { x: 50, y: 250, width: 45, height: 45, velocity: 0, gravity: 0.45, jump: -7.5 };
         let pipes = [];
         const pipeWidth = 60;
         const gap = 170; 
         let pipeSpeed = 3.5;
-
-        // Tokenler ve Partiküller
         let tokens = [];
         let particles = [];
 
@@ -487,7 +481,7 @@
 
         function jump(e) {
             if (e) e.preventDefault();
-            initAudio();
+            initAudio(); // Ses motorunu kullanıcı etkileşimiyle başlat
             if (!isGameOver) {
                 bear.velocity = bear.jump;
                 playSound('jump');
@@ -506,7 +500,7 @@
         document.addEventListener('keydown', (e) => { if(e.code === 'Space') jump(); });
 
         function startGame() {
-            initAudio();
+            initAudio(); // Oyun başlarken ses motorunu başlat
             const canvasElement = document.getElementById('flappyCanvas');
             if (canvasElement.requestFullscreen) {
                 canvasElement.requestFullscreen().catch(err => console.log(err));
@@ -614,7 +608,6 @@
         }
 
         function draw() {
-            // Aurora Arka Plan
             let grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
             grad.addColorStop(0, '#020617');
             grad.addColorStop(0.5, '#0f172a');
@@ -622,7 +615,6 @@
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Kuzey Işıkları
             ctx.fillStyle = 'rgba(6, 182, 212, 0.05)';
             ctx.beginPath();
             ctx.moveTo(0, canvas.height * 0.6);
@@ -632,20 +624,16 @@
             ctx.lineTo(canvas.width, canvas.height); ctx.lineTo(0, canvas.height);
             ctx.fill();
 
-            // Yıldızlar
             ctx.fillStyle = '#fff';
             for(let i=0; i<40; i++){
                 ctx.fillRect((i*137 + frameCount*0.2)%canvas.width, (i*71)%canvas.height, 2, 2);
             }
 
-            // Buz Canavarları
             pipes.forEach(p => {
                 ctx.fillStyle = '#0284c7';
                 ctx.shadowBlur = 20; ctx.shadowColor = '#38bdf8';
                 
-                // Üst Canavar
                 ctx.fillRect(p.x, 0, pipeWidth, p.topHeight);
-                // Dişler (Üst)
                 ctx.fillStyle = '#38bdf8';
                 for(let i=0; i<pipeWidth; i+=15) {
                     ctx.beginPath();
@@ -654,16 +642,12 @@
                     ctx.lineTo(p.x + i + 15, p.topHeight);
                     ctx.fill();
                 }
-                // Gözler (Üst)
                 ctx.fillStyle = '#ef4444';
                 ctx.beginPath(); ctx.arc(p.x + 15, p.topHeight - 30, 5, 0, Math.PI*2); ctx.fill();
                 ctx.beginPath(); ctx.arc(p.x + 45, p.topHeight - 30, 5, 0, Math.PI*2); ctx.fill();
-                ctx.fillStyle = '#0284c7'; // Rengi geri al
-
-                // Alt Canavar
                 ctx.fillStyle = '#0284c7';
+
                 ctx.fillRect(p.x, p.topHeight + gap, pipeWidth, canvas.height);
-                // Dişler (Alt)
                 ctx.fillStyle = '#38bdf8';
                 for(let i=0; i<pipeWidth; i+=15) {
                     ctx.beginPath();
@@ -672,7 +656,6 @@
                     ctx.lineTo(p.x + i + 15, p.topHeight + gap);
                     ctx.fill();
                 }
-                // Gözler (Alt)
                 ctx.fillStyle = '#ef4444';
                 ctx.beginPath(); ctx.arc(p.x + 15, p.topHeight + gap + 30, 5, 0, Math.PI*2); ctx.fill();
                 ctx.beginPath(); ctx.arc(p.x + 45, p.topHeight + gap + 30, 5, 0, Math.PI*2); ctx.fill();
@@ -680,7 +663,6 @@
             });
             ctx.shadowBlur = 0;
 
-            // Tokenler
             tokens.forEach(t => {
                 ctx.fillStyle = '#f59e0b';
                 ctx.shadowBlur = 20; ctx.shadowColor = '#f59e0b';
@@ -692,7 +674,6 @@
             });
             ctx.shadowBlur = 0;
 
-            // Partiküller
             particles.forEach(p => {
                 ctx.fillStyle = p.color;
                 ctx.globalAlpha = p.life / 30;
@@ -700,9 +681,7 @@
             });
             ctx.globalAlpha = 1;
 
-            // Kutup Ayısı
             ctx.save();
-            // Jetpack Alevi
             if(bear.velocity < 0) {
                 ctx.fillStyle = '#06b6d4';
                 ctx.shadowBlur = 25; ctx.shadowColor = '#06b6d4';
@@ -713,22 +692,17 @@
                 ctx.fill();
             }
             
-            // Gövde
             ctx.fillStyle = '#ffffff';
             ctx.shadowBlur = 15; ctx.shadowColor = '#fff';
             ctx.beginPath(); ctx.roundRect(bear.x, bear.y, bear.width, bear.height, 15); ctx.fill();
-            // Kulaklar
             ctx.beginPath(); ctx.arc(bear.x + 10, bear.y, 10, 0, Math.PI*2); ctx.fill();
             ctx.beginPath(); ctx.arc(bear.x + bear.width - 10, bear.y, 10, 0, Math.PI*2); ctx.fill();
-            // Gözler
             ctx.fillStyle = '#0f172a';
             ctx.beginPath(); ctx.arc(bear.x + 15, bear.y + 20, 5, 0, Math.PI*2); ctx.fill();
             ctx.beginPath(); ctx.arc(bear.x + bear.width - 15, bear.y + 20, 5, 0, Math.PI*2); ctx.fill();
-            // Burun
             ctx.fillStyle = '#000';
             ctx.beginPath(); ctx.arc(bear.x + bear.width/2, bear.y + 32, 5, 0, Math.PI*2); ctx.fill();
             
-            // Jetpack
             ctx.fillStyle = '#f59e0b';
             ctx.fillRect(bear.x - 10, bear.y + 10, 10, 25);
             
@@ -759,7 +733,6 @@
             if (document.fullscreenElement) document.exitFullscreen();
         });
 
-        // Kapatma butonu (Overlay'i kapat ve baştan başlat butonunu göster)
         closeOverlayBtn.addEventListener('click', () => {
             gameOverBox.style.display = 'none';
             startBtn.style.display = 'block';
