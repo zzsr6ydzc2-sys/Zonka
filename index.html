@@ -27,6 +27,7 @@
             min-height: 100vh;
         }
 
+        /* Kırmızı Son Dakika Şeridi */
         .news-banner {
             background-color: #ef4444;
             color: white;
@@ -54,6 +55,7 @@
             100% { transform: translateX(-100%); }
         }
 
+        /* Üst Menü */
         nav {
             display: flex;
             justify-content: space-between;
@@ -62,6 +64,9 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 99;
         }
 
         .logo-text {
@@ -74,6 +79,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
+        /* Hero Bölümü */
         .hero {
             text-align: center;
             padding: 40px 20px;
@@ -119,6 +125,7 @@
             color: var(--text-muted);
         }
 
+        /* Resim Alanı */
         .hero-image-container {
             width: 200px;
             height: 200px;
@@ -148,6 +155,7 @@
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
+        /* Satın Alma Kutusu */
         .buy-box-container {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
@@ -173,10 +181,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .time-block {
+            margin-bottom:         .time-block {
             background: var(--bg-light);
             border: 1px solid var(--secondary);
             padding: 10px 15px;
@@ -213,26 +218,6 @@
         .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px;}
         .price-info strong { font-size: 1.2rem; color: var(--primary); }
 
-        .wallet-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: var(--secondary);
-            color: var(--white);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 15px;
-        }
-
-        .wallet-btn:hover { background: var(--primary); }
-
         .buy-btn {
             display: block;
             width: 100%;
@@ -253,37 +238,118 @@
 
         .buy-btn:hover { transform: translateY(-3px); }
 
-        .buy-btn:disabled {
-            background: #cbd5e1;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .section { padding: 50px 5%; max-width: 900px; margin: 0 auto; }
+        /* Bölümler */
+        .section { padding: 60px 5%; max-width: 1000px; margin: 0 auto; }
         
         .section-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 900;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             color: var(--text-dark);
+            position: relative;
         }
 
-        .vision-box {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Nasıl Alınır (Adımlar) */
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .step-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+        .step-card:hover { transform: translateY(-5px); }
+        .step-icon { font-size: 2rem; margin-bottom: 15px; }
+        .step-card h4 { color: var(--primary); margin-bottom: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
+        .step-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Yol Haritası (Roadmap) */
+        .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .phase-card {
             background: var(--white);
             padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+            position: relative;
+        }
+        .phase-card h3 { color: var(--primary); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; font-size: 1.2rem;}
+        .phase-card ul { list-style: none; }
+        .phase-card ul li { margin-bottom: 12px; font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;}
+        .phase-card ul li::before { content: '❄️'; font-size: 0.9rem; margin-top: 2px; }
+
+        /* Vizyon */
+        .vision-box {
+            background: var(--white);
+            padding: 40px;
             border-radius: 20px;
             border-left: 6px solid var(--primary);
-            font-size: 1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
             color: var(--text-muted);
         }
 
+        /* SSS (Accordion) */
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            transition: background 0.3s;
+        }
+        .faq-question:hover { background: #f8fafc; }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* İçeriğe göre değişebilir */
+            padding: 0 20px 20px;
+        }
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Tokenomics */
         .tokenomics-table {
             width: 100%;
             margin: 0 auto;
@@ -294,27 +360,30 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .tokenomics-table th, .Texttokenomics-table td {
-            padding: 15px 20px;
+        .tokenomics-table th, .tokenomics-table td {
+            padding: 18px 20px;
             border-bottom: 1px solid #e2e8f0;
             color: var(--text-dark);
         }
         .tokenomics-table th { background: var(--bg-light); color: var(--primary); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
+        .tokenomics-table tr:hover { background: #f8fafc; }
 
+        /* Kontrat Kutusu */
         .contract-box {
             background: var(--white);
-            padding: 25px;
+            padding: 30px;
             border-radius: 16px;
             text-align: center;
             margin: 0 auto;
             border: 2px solid var(--bg-deep);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 700px;
         }
         .contract-box code {
             display: block;
             font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
+            font-size: 1rem;
             background: var(--bg-light);
             padding: 15px;
             border-radius: 8px;
@@ -326,7 +395,7 @@
         .copy-btn {
             background: var(--primary);
             color: var(--white);
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 8px;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
@@ -336,13 +405,15 @@
         }
         .copy-btn:hover { background: var(--primary-hover); }
 
+        /* Sosyal Medya */
         .socials-hero {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
             margin-top: 10px;
-            max-width: 500px;
+            max-width: 600px;
+            margin: 20px auto 0;
         }
 
         .socials-hero a {
@@ -352,15 +423,15 @@
             background: var(--white);
             color: var(--primary);
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 15px 25px;
             border-radius: 10px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border: 2px solid var(--bg-deep);
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             flex: 1;
-            min-width: 100px;
+            min-width: 120px;
         }
 
         .socials-hero a:hover { 
@@ -372,11 +443,11 @@
 
         footer { 
             text-align: center; 
-            padding: 30px; 
+            padding: 40px 20px; 
             background: var(--white); 
             color: var(--text-muted); 
             font-size: 0.9rem; 
-            margin-top: 40px; 
+            margin-top: 60px; 
             border-top: 1px solid #e2e8f0;
             font-weight: 600;
         }
@@ -394,6 +465,7 @@
 </head>
 <body>
 
+    <!-- Kırmızı Duyuru Şeridi -->
     <div class="news-banner">
         <div class="marquee-content">
             BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
@@ -432,14 +504,12 @@
                 </div>
             </div>
 
-            <!-- Cüzdan Bağla Butonu -->
-            <button id="connectWallet" class="wallet-btn">Connect Wallet</button>
-
-            <!-- Satın Al Butonu -->
-            <button id="buyButton" class="buy-btn" disabled>Buy $ZNK Now</button>
-            <p id="walletStatus" style="margin-top:10px; font-size:0.8rem; color:var(--text-muted);">Wallet not connected.</p>
+            <!-- Telegram'a Yönlendiren Buton (Hatasız) -->
+            <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
+            <p style="margin-top:15px; font-size:0.85rem; color:var(--text-muted);">Click to join our Telegram and purchase securely.</p>
         </div>
 
+        <!-- Sosyal Medya Butonları -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank">Telegram</a>
             <a href="https://x.com/zonka_coin" target="_blank">X (Twitter)</a>
@@ -448,6 +518,7 @@
         </div>
     </section>
 
+    <!-- Vizyon (Neden Zonka?) -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision</h2>
         <div class="vision-box">
@@ -455,6 +526,68 @@
         </div>
     </section>
 
+    <!-- Nasıl Alınır (How to Buy) -->
+    <section class="section" id="how-to-buy">
+        <h2 class="section-title">How to Buy</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon">👛</div>
+                <h4>1. Get a Wallet</h4>
+                <p>Download Phantom or Solflare wallet on your phone or PC.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">💸</div>
+                <h4>2. Fund with SOL</h4>
+                <p>Buy SOL from an exchange and send it to your wallet.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">✈️</div>
+                <h4>3. Join Telegram</h4>
+                <p>Click the presale button and contact our admins on Telegram.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">❄️</div>
+                <h4>4. Receive $ZNK</h4>
+                <p>Send SOL to the provided address and get your tokens instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yol Haritası (Roadmap) -->
+    <section class="section" id="roadmap">
+        <h2 class="section-title">Roadmap</h2>
+        <div class="roadmap-grid">
+            <div class="phase-card">
+                <h3>Phase 1: Awakening</h3>
+                <ul>
+                    <li>Website & Social Media Launch</li>
+                    <li>Smart Contract Deployment</li>
+                    <li>Presale Launch ($0.003)</li>
+                    <li>Community Building</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <h3>Phase 2: The Thaw</h3>
+                <ul>
+                    <li>Presale Sell-out (20M ZNK)</li>
+                    <li>Raydium Liquidity Pool</li>
+                    <li>CoinGecko / CoinMarketCap</li>
+                    <li>Marketing Campaign</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <h3>Phase 3: Arctic Empire</h3>
+                <ul>
+                    <li>CEX Listings (MEXC, Gate.io)</li>
+                    <li>Zonka Staking Platform</li>
+                    <li>Partnerships</li>
+                    <li>Global Expansion</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics -->
     <section class="section" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
         <table class="tokenomics-table">
@@ -475,10 +608,34 @@
         </table>
     </section>
 
+    <!-- SSS (Frequently Asked Questions) -->
+    <section class="section" id="faq">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">What is Zonka Coin (ZNK)? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka is a community-driven digital asset built on the Solana network, designed for fast, low-cost global payments.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out or the countdown timer reaches zero.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I claim my tokens? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">After sending SOL to the designated address, your ZNK tokens will be sent manually to your wallet by our team within minutes. Please contact us on Telegram for confirmation.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Which blockchain is ZNK on? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka (ZNK) is built on the Solana blockchain (SPL Token standard).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontrat -->
     <section class="section" id="contract">
         <h2 class="section-title">Contract Address</h2>
         <div class="contract-box">
-            <p style="margin-bottom: 10px; color: var(--text-muted); font-size: 0.9rem;">Copy the address below to add ZNK to your wallet.</p>
+            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.95rem;">Copy the address below to add ZNK to your wallet.</p>
             <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
             <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
         </div>
@@ -488,23 +645,24 @@
         &copy; 2026 Zonka Coin. The Arctic Awakens. All rights reserved.
     </footer>
 
-    <!-- Solana Web3 ve Wallet Adapter Kütüphaneleri (Tüm Cüzdanlar İçin) -->
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    
     <script>
         // Geri Sayım Sayacı
         var countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
+
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
             if (distance < 0) {
                 clearInterval(x);
                 document.querySelector('.countdown').innerHTML = "<h3 style='color:var(--primary)'>PRESALE ENDED</h3>";
@@ -517,64 +675,24 @@
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-btn");
                 btn.innerText = "Copied!";
-                setTimeout(() => { btn.inner = "Copy Address"; }, 2000);
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
 
-        // --- TÜM CÜZDANLARI DESTEKLEYEN BAĞLANTI MANTIĞI ---
-        const connectBtn = document.getElementById('connectWallet');
-        const buyBtn = document.getElementById('buyButton');
-        const walletStatus = document.getElementById('walletStatus');
-        let userPublicKey = null;
-
-        // Evrensel Cüzdan Bulucu (Phantom, Solflare, Backpack, Trust vb.)
-        const getProvider = () => {
-            // Phantom
-            if (window.phantom?.solana?.isPhantom) return window.phantom.solana;
-            // Solflare
-            if (window.solflare?.isSolflare) return window.solflare;
-            // Backpack
-            if (window.backpack) return window.backpack;
-            // Trust Wallet (Solana)
-            if (window.trustwallet?.solana) return window.trustwallet.solana;
-            // Coinbase Wallet (Solana)
-            if (window.coinbaseSolana) return window.coinbaseSolana;
-            // Nightly
-            if (window.nightly?.solana) return window.nightly.solana;
-            // Glow
-            if (window.glow) return window.glow;
-            // Genel Solana sağlayıcısı
-            if (window.solana) return window.solana;
-            
-            return null;
-        };
-
-        connectBtn.addEventListener('click', async () => {
-            const provider = getProvider();
-
-            if (!provider) {
-                alert("Cüzdan bulunamadı! Lütfen Phantom, Solflare, Backpack veya Trust Wallet gibi bir Solana cüzdanı yükleyin.");
-                return;
-            }
-
-            try {
-                const response = await provider.connect();
-                userPublicKey = response.publicKey.toString();
-                walletStatus.innerText = "Connected: " + userPublicKey.substring(0, 5) + "..." + userPublicKey.substring(userPublicKey.length - 4);
-                connectBtn.innerText = "Wallet Connected";
-                connectBtn.style.background = "#22c55e";
-                buyBtn.disabled = false;
-            } catch (err) {
-                console.error(err);
-                alert("Cüzdan bağlantısı reddedildi veya bir hata oluştu.");
-            }
-        });
-
-        buyBtn.addEventListener('click', async () => {
-            if (!userPublicKey) return;
-
-            // Ödeme yönlendirmesi (Manuel)
-            alert("Ödeme Adresi: D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF\n\nLütfen bu adrese SOL gönderin ve Telegram üzerinden bize ulaşın. Tokenleriniz manuel olarak gönderilecektir.");
+        // SSS (Accordion) Mantığı
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Diğer açık olanları kapat
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Tıklananı aç/kapat
+                item.classList.toggle('active');
+            });
         });
     </script>
 </body>
