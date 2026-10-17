@@ -164,51 +164,54 @@
             margin: 20px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
-        /* --- SAVAŞ OYUNU ALANI (TAM EKRAN İÇİN) --- */
-        .game-section-wrapper {
+        /* --- OYUN ALANI --- */
+        .game-wrapper {
             background: var(--glass); backdrop-filter: blur(15px);
-            padding: 30px; border-radius: 24px; border: 2px solid var(--gold);
+            padding: 20px; border-radius: 24px; border: 2px solid var(--gold);
             text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             max-width: 800px; margin: 0 auto; position: relative;
         }
 
-        /* Tam ekran canvas */
         #gameCanvas {
-            background: #020617;
-            border-radius: 12px; border: 2px solid var(--gold-light);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-            width: 100%; max-width: 700px; height: 400px; display: block; margin: 0 auto;
-            touch-action: none; cursor: crosshair;
+            background: #020617; border-radius: 12px; border: 2px solid var(--gold-light);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); width: 100%; height: 400px;
+            display: block; margin: 0 auto; touch-action: none; cursor: none;
         }
 
-        /* Tam ekran modu için özel stil */
-        #gameCanvas:fullscreen {
-            width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none;
-        }
-        #gameCanvas:-webkit-full-screen {
-            width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none;
-        }
+        /* TAM EKRAN STİLİ */
+        #gameCanvas:fullscreen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; background: #020617;}
+        #gameCanvas:-webkit-full-screen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; background: #020617;}
 
         .game-ui-top {
             display: flex; justify-content: space-between;
-            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
-            color: var(--gold-light); font-weight: 900; margin-bottom: 15px; padding: 0 10px;
+            font-family: 'Montserrat', sans-serif; font-size: 1.2rem;
+            color: var(--gold-light); font-weight: 900; margin-bottom: 10px; padding: 0 10px;
         }
 
         .play-game-btn {
             background: linear-gradient(90deg, var(--cyan), var(--purple));
-            color: #fff; padding: 20px 50px; border-radius: 16px;
-            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem;
-            border: none; cursor: pointer; margin-top: 20px;
+            color: #fff; padding: 15px 40px; border-radius: 12px;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem;
+            border: none; cursor: pointer; margin-top: 15px;
             box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3); transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 2px;
+            text-transform: uppercase;
         }
         .play-game-btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
 
+        /* Çıkış Butonu (Tam ekranda görünür) */
+        .exit-fs-btn {
+            display: none; position: fixed; top: 20px; right: 20px; z-index: 9999;
+            background: rgba(255, 0, 0, 0.8); color: white; border: 2px solid white;
+            border-radius: 50%; width: 50px; height: 50px; font-size: 24px; font-weight: bold;
+            cursor: pointer; align-items: center; justify-content: center;
+        }
+        .exit-fs-btn:fullscreen { display: flex; }
+        .exit-fs-btn:-webkit-full-screen { display: flex; }
+
         .game-over-overlay {
-            display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.9); padding: 40px; border-radius: 20px;
-            border: 3px solid var(--gold); text-align: center; z-index: 30;
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.95); padding: 40px; border-radius: 20px;
+            border: 3px solid var(--gold); text-align: center; z-index: 10000;
             box-shadow: 0 20px 50px rgba(0,0,0,0.8); width: 90%; max-width: 400px;
         }
         .game-over-overlay h4 { color: var(--gold); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 2.5rem; text-shadow: 0 0 15px rgba(245,158,11,0.5);}
@@ -290,26 +293,31 @@
     <section class="section" id="game">
         <h2 class="section-title">Zonka: Arctic Defender</h2>
         
-        <div class="game-section-wrapper">
+        <div class="game-wrapper">
             <div class="game-ui-top">
                 <div>Score: <span id="scoreDisplay">0</span></div>
+                <div>Level: <span id="levelDisplay">1</span></div>
                 <div>Health: <span id="healthDisplay">100</span>%</div>
             </div>
 
             <canvas id="gameCanvas"></canvas>
             
             <button id="startBtn" class="play-game-btn">PLAY FULLSCREEN</button>
-
-            <div id="gameOverBox" class="game-over-overlay">
-                <h4>GAME OVER</h4>
-                <p>Your Score: <span id="finalScore">0</span></p>
-                <div class="overlay-buttons">
-                    <button id="retryBtn" class="retry-btn">PLAY AGAIN</button>
-                    <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">CLAIM REWARD</a>
-                </div>
-            </div>
         </div>
     </section>
+
+    <!-- Çıkış Butonu (Sadece tam ekranda görünür) -->
+    <button id="exitFsBtn" class="exit-fs-btn">X</button>
+
+    <!-- Oyun Bitti Ekranı -->
+    <div id="gameOverBox" class="game-over-overlay">
+        <h4>GAME OVER</h4>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <div class="overlay-buttons">
+            <button id="retryBtn" class="retry-btn">PLAY AGAIN</button>
+            <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">CLAIM REWARD</a>
+        </div>
+    </div>
 
     <!-- Vizyon -->
     <section class="section" id="vision">
@@ -382,17 +390,36 @@
             });
         });
 
-        // --- ZONKA ARCTIC DEFENDER SAVAŞ OYUNU ---
+        // --- ZONKA ARCTIC DEFENDER SAVAŞ OYUNU (GELİŞMİŞ) ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreDisplay = document.getElementById('scoreDisplay');
         const healthDisplay = document.getElementById('healthDisplay');
+        const levelDisplay = document.getElementById('levelDisplay');
         const startBtn = document.getElementById('startBtn');
         const retryBtn = document.getElementById('retryBtn');
         const gameOverBox = document.getElementById('gameOverBox');
         const finalScore = document.getElementById('finalScore');
+        const exitFsBtn = document.getElementById('exitFsBtn');
 
-        // Canvas boyutlarını ayarla (tam ekranda düzgün çalışması için)
+        let score = 0;
+        let health = 100;
+        let level = 1;
+        let gameLoop;
+        let isGameOver = true;
+        let frameCount = 0;
+        let touchX = null;
+
+        // Oyuncu (Kutup Ayısı)
+        const player = {
+            x: 0, y: 0, width: 60, height: 60, speed: 8
+        };
+
+        let bullets = [];
+        let enemies = [];
+        let particles = []; // Patlama efektleri için
+
+        // Canvas boyutlarını ayarla
         function resizeCanvas() {
             if (document.fullscreenElement) {
                 canvas.width = window.innerWidth;
@@ -401,37 +428,13 @@
                 canvas.width = canvas.clientWidth;
                 canvas.height = canvas.clientHeight;
             }
+            player.y = canvas.height - player.height - 30;
+            if(isGameOver) player.x = canvas.width / 2 - player.width / 2;
         }
         window.addEventListener('resize', resizeCanvas);
-        canvas.addEventListener('fullscreenchange', resizeCanvas); // Event listener düzeltildi
-
-        let score = 0;
-        let health = 100;
-        let gameLoop;
-        let isGameOver = true;
-        let keys = {};
-        let frameCount = 0;
-
-        // Oyuncu (Kutup Ayısı)
-        const player = {
-            x: 0,
-            y: 0,
-            width: 50,
-            height: 50,
-            speed: 7,
-            lastShot: 0
-        };
-
-        // Mermiler ve Düşmanlar
-        let bullets = [];
-        let enemies = [];
+        canvas.addEventListener('fullscreenchange', resizeCanvas);
 
         // Kontroller
-        document.addEventListener('keydown', (e) => keys[e.code] = true);
-        document.addEventListener('keyup', (e) => keys[e.code] = false);
-        
-        // Mobil ve fare kontrolleri (ekranın soluna/sağına basınca hareket)
-        let touchX = null;
         canvas.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; e.preventDefault(); }, {passive: false});
         canvas.addEventListener('touchmove', (e) => { touchX = e.touches[0].clientX; e.preventDefault(); }, {passive: false});
         canvas.addEventListener('touchend', () => touchX = null);
@@ -443,64 +446,74 @@
             }
         });
 
+        // Çıkış Butonu
+        exitFsBtn.addEventListener('click', () => {
+            if (document.fullscreenElement) document.exitFullscreen();
+        });
+
         function startGame() {
-            // Tam ekran yap
-            const wrapper = document.getElementById('gameCanvas');
-            if (wrapper.requestFullscreen) {
-                wrapper.requestFullscreen();
-            } else if (wrapper.webkitRequestFullscreen) {
-                wrapper.webkitRequestFullscreen();
+            const canvasElement = document.getElementById('gameCanvas');
+            if (canvasElement.requestFullscreen) {
+                canvasElement.requestFullscreen().catch(err => console.log(err));
             }
 
-            resizeCanvas();
+            setTimeout(() => {
+                resizeCanvas();
+                isGameOver = false;
+                score = 0;
+                health = 100;
+                level = 1;
+                frameCount = 0;
+                bullets = [];
+                enemies = [];
+                particles = [];
+                player.x = canvas.width / 2 - player.width / 2;
+                player.y = canvas.height - player.height - 30;
 
-            isGameOver = false;
-            score = 0;
-            health = 100;
-            frameCount = 0;
-            bullets = [];
-            enemies = [];
-            player.x = canvas.width / 2 - player.width / 2;
-            player.y = canvas.height - 80;
-
-            scoreDisplay.innerText = score;
-            healthDisplay.innerText = health;
-            
-            startBtn.style.display = 'none';
-            gameOverBox.style.display = 'none';
-            
-            if (gameLoop) clearInterval(gameLoop);
-            gameLoop = setInterval(updateGame, 1000 / 60);
+                scoreDisplay.innerText = score;
+                healthDisplay.innerText = health;
+                levelDisplay.innerText = level;
+                
+                startBtn.style.display = 'none';
+                gameOverBox.style.display = 'none';
+                
+                if (gameLoop) clearInterval(gameLoop);
+                gameLoop = setInterval(updateGame, 1000 / 60);
+            }, 500); // Tam ekranın oturması için bekle
         }
 
         function updateGame() {
             if (isGameOver) return;
             frameCount++;
 
-            // Oyuncu Hareketi (Klavye)
-            if (keys['ArrowLeft'] || keys['KeyA']) player.x -= player.speed;
-            if (keys['ArrowRight'] || keys['KeyD']) player.x += player.speed;
+            // Zorluk Artışı (Her 50 puanda seviye atla)
+            if (score > 0 && score % 50 === 0 && level < Math.floor(score/50) + 1) {
+                level = Math.floor(score/50) + 1;
+                levelDisplay.innerText = level;
+                // Seviye atlayınca ekranı hafifçe salla (Görsel efekt)
+                canvas.style.transform = "translate(2px, 2px)";
+                setTimeout(() => canvas.style.transform = "none", 100);
+            }
 
-            // Oyuncu Hareketi (Dokunma)
+            // Oyuncu Hareketi
             if (touchX !== null) {
                 const rect = canvas.getBoundingClientRect();
                 const targetX = touchX - rect.left;
-                if (targetX < player.x + player.width/2) player.x -= player.speed;
-                else player.x += player.speed;
+                // Pürüzsüz hareket
+                if (targetX < player.x + player.width/2 - 10) player.x -= player.speed;
+                else if (targetX > player.x + player.width/2 + 10) player.x += player.speed;
             }
 
-            // Sınırları kontrol et
             if (player.x < 0) player.x = 0;
             if (player.x + player.width > canvas.width) player.x = canvas.width - player.width;
 
-            // Otomatik Ateş Etme
-            if (frameCount % 10 === 0) {
+            // Ateş Etme (Seviye arttıkça hızlanır)
+            const fireRate = Math.max(5, 15 - level * 2); 
+            if (frameCount % fireRate === 0) {
                 bullets.push({
-                    x: player.x + player.width / 2 - 3,
+                    x: player.x + player.width / 2 - 4,
                     y: player.y,
-                    width: 6,
-                    height: 15,
-                    speed: 10
+                    width: 8, height: 20, speed: 12 + level
                 });
             }
 
@@ -510,33 +523,35 @@
                 if (bullets[i].y + bullets[i].height < 0) bullets.splice(i, 1);
             }
 
-            // Düşman Oluşturma
-            if (frameCount % 50 === 0) {
+            // Düşman Oluşturma (Seviye arttıkça sıklaşır)
+            const spawnRate = Math.max(20, 60 - level * 5);
+            if (frameCount % spawnRate === 0) {
                 enemies.push({
-                    x: Math.random() * (canvas.width - 40),
-                    y: -40,
-                    width: 40,
-                    height: 40,
-                    speed: 2 + Math.random() * 2
+                    x: Math.random() * (canvas.width - 50),
+                    y: -50,
+                    width: 50, height: 50,
+                    speed: 2 + (level * 0.5) + Math.random() * 2,
+                    hp: 1 + Math.floor(level / 3) // Yüksek seviyede daha çok can
                 });
             }
 
-            // Düşmanları Güncelle ve Çarpışma Kontrolü
+            // Düşmanları Güncelle
             for (let i = enemies.length - 1; i >= 0; i--) {
                 const e = enemies[i];
                 e.y += e.speed;
 
-                // Oyuncuya çarparsa
+                // Çarpışma (Oyuncu)
                 if (e.x < player.x + player.width && e.x + e.width > player.x &&
                     e.y < player.y + player.height && e.y + e.height > player.y) {
                     health -= 20;
                     healthDisplay.innerText = health;
+                    createExplosion(e.x + e.width/2, e.y + e.height/2, '#ef4444');
                     enemies.splice(i, 1);
                     if (health <= 0) endGame();
                     continue;
                 }
 
-                // Ekrandan çıkarsa (kaçarsa hasar al)
+                // Ekrandan çıktıysa
                 if (e.y > canvas.height) {
                     health -= 10;
                     healthDisplay.innerText = health;
@@ -545,81 +560,163 @@
                     continue;
                 }
 
-                // Mermiye çarparsa
+                // Mermi Çarpışması
                 for (let j = bullets.length - 1; j >= 0; j--) {
                     const b = bullets[j];
                     if (b.x < e.x + e.width && b.x + b.width > e.x &&
                         b.y < e.y + e.height && b.y + b.height > e.y) {
-                        enemies.splice(i, 1);
+                        
+                        e.hp--;
                         bullets.splice(j, 1);
-                        score += 10;
-                        scoreDisplay.innerText = score;
+                        createExplosion(b.x, b.y, '#38bdf8'); // Mermi patlaması
+
+                        if (e.hp <= 0) {
+                            createExplosion(e.x + e.width/2, e.y + e.height/2, '#ef4444');
+                            enemies.splice(i, 1);
+                            score += 10;
+                            scoreDisplay.innerText = score;
+                        }
                         break;
                     }
                 }
             }
 
+            // Patlamaları Güncelle
+            for(let i=particles.length-1; i>=0; i--){
+                particles[i].life--;
+                particles[i].y += particles[i].vy;
+                particles[i].x += particles[i].vx;
+                if(particles[i].life <= 0) particles.splice(i, 1);
+            }
+
             draw();
         }
 
+        function createExplosion(x, y, color) {
+            for(let i=0; i<8; i++){
+                particles.push({
+                    x: x, y: y,
+                    vx: (Math.random() - 0.5) * 6,
+                    vy: (Math.random() - 0.5) * 6,
+                    life: 20 + Math.random() * 20,
+                    color: color,
+                    size: Math.random() * 4 + 2
+                });
+            }
+        }
+
         function draw() {
-            // Arka plan temizle
-            ctx.fillStyle = '#020617';
+            // Arka plan (Uzay/Buzul)
+            let grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            grad.addColorStop(0, '#020617');
+            grad.addColorStop(1, '#1e1b4b');
+            ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Yıldızlar
-            ctx.fillStyle = '#fff';
-            for(let i=0; i<50; i++){
-                let sx = (i * 137 + frameCount * 0.2) % canvas.width;
-                let sy = (i * 71) % canvas.height;
-                ctx.fillRect(sx, sy, 2, 2);
+            // Yıldızlar (Kayan efekt)
+            ctx.fillStyle = 'rgba(255,255,255,0.8)';
+            for(let i=0; i<60; i++){
+                let sx = (i * 137 + frameCount * 0.5) % canvas.width;
+                let sy = (i * 71 + frameCount * 1.5) % canvas.height;
+                let size = (i%3===0) ? 2 : 1;
+                ctx.fillRect(sx, sy, size, size);
             }
 
-            // Oyuncu (Kutup Ayısı)
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(player.x, player.y, player.width, player.height); // Basit kare
+            // Patlamalar (Particles)
+            particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life / 40;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            // Oyuncu (Kutup Ayısı - Daha Detaylı)
+            ctx.save();
+            ctx.shadowBlur = 20;
+            ctx.shadowColor = '#38bdf8';
+            // Vücut
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.roundRect(player.x, player.y, player.width, player.height, [20, 20, 5, 5]);
+            ctx.fill();
+            // Kulaklar
+            ctx.beginPath(); ctx.arc(player.x + 10, player.y, 12, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(player.x + player.width - 10, player.y, 12, 0, Math.PI*2); ctx.fill();
             // Gözler
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath(); ctx.arc(player.x + 18, player.y + 20, 5, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(player.x + player.width - 18, player.y + 20, 5, 0, Math.PI*2); ctx.fill();
+            // Burun
             ctx.fillStyle = '#000';
-            ctx.fillRect(player.x + 10, player.y + 15, 5, 5);
-            ctx.fillRect(player.x + 35, player.y + 15, 5, 5);
+            ctx.beginPath(); ctx.arc(player.x + player.width/2, player.y + 35, 6, 0, Math.PI*2); ctx.fill();
+            ctx.restore();
 
             // Mermiler
             ctx.fillStyle = '#38bdf8';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#38bdf8';
-            bullets.forEach(b => ctx.fillRect(b.x, b.y, b.width, b.height));
-            ctx.shadowBlur = 0;
-
-            // Düşmanlar (Kırmızı Buz Canavarları)
-            ctx.fillStyle = '#ef4444';
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = '#ef4444';
-            enemies.forEach(e => {
-                ctx.fillRect(e.x, e.y, e.width, e.height);
-                // Gözler (Beyaz)
-                ctx.fillStyle = '#fff';
-                ctx.fillRect(e.x + 5, e.y + 10, 8, 8);
-                ctx.fillRect(e.x + 27, e.y + 10, 8, 8);
-                ctx.fillStyle = '#ef4444'; // Rengi geri al
+            ctx.shadowBlur = 10; ctx.shadowColor = '#38bdf8';
+            bullets.forEach(b => {
+                ctx.beginPath();
+                ctx.roundRect(b.x, b.y, b.width, b.height, 5);
+                ctx.fill();
             });
             ctx.shadowBlur = 0;
+
+            // Düşmanlar (Buz Canavarları)
+            enemies.forEach(e => {
+                ctx.save();
+                // Dış gövde (Kırmızı)
+                ctx.fillStyle = e.hp > 1 ? '#b91c1c' : '#ef4444'; // Canı çoksa koyu kırmızı
+                ctx.shadowBlur = 15; ctx.shadowColor = '#ef4444';
+                ctx.beginPath();
+                ctx.roundRect(e.x, e.y, e.width, e.height, [10,10,25,25]);
+                ctx.fill();
+                
+                // İç gövde (Buz efekti)
+                ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                ctx.beginPath();
+                ctx.roundRect(e.x + 5, e.y + 5, e.width - 10, e.height - 10, [5,5,20,20]);
+                ctx.fill();
+
+                // Gözler
+                ctx.fillStyle = '#fff';
+                ctx.shadowBlur = 10; ctx.shadowColor = '#fff';
+                ctx.beginPath(); ctx.arc(e.x + 15, e.y + 20, 5, 0, Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.arc(e.x + e.width - 15, e.y + 20, 5, 0, Math.PI*2); ctx.fill();
+                ctx.restore();
+            });
         }
 
         function endGame() {
             isGameOver = true;
             clearInterval(gameLoop);
-            
             finalScore.innerText = score;
             gameOverBox.style.display = 'block';
-
-            // Tam ekrandan çık
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            }
+            if (document.fullscreenElement) document.exitFullscreen();
         }
 
         startBtn.addEventListener('click', startGame);
         retryBtn.addEventListener('click', startGame);
+        
+        // Canvas'ın roundRect desteği yoksa ekle (eski tarayıcılar için)
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+                if (w < 2 * r) r = w / 2;
+                if (h < 2 * r) r = h / 2;
+                this.beginPath();
+                this.moveTo(x + r, y);
+                this.arcTo(x + w, y, x + w, y + h, r);
+                this.arcTo(x + w, y + h, x, y + h, r);
+                this.arcTo(x, y + h, x, y, r);
+                this.arcTo(x, y, x + w, y, r);
+                this.closePath();
+                return this;
+            };
+        }
+        
+        // Başlangıçta boyutları ayarla
+        resizeCanvas();
     </script>
 </body>
 </html>
