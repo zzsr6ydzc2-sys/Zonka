@@ -40,9 +40,7 @@
             pointer-events: none;
             opacity: 0.7;
         }
-        @keyframes fall {
-            to { transform: translateY(100vh) rotate(360deg); }
-        }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
         .snowflake:nth-child(1) { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
         .snowflake:nth-child(2) { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
         .snowflake:nth-child(3) { color: var(--purple); text-shadow: 0 0 10px var(--purple); }
@@ -67,58 +65,29 @@
             border-bottom: 1px solid var(--gold);
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+        .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
         nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(5, 8, 20, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            height: 60px;
+            display: flex; justify-content: center; align-items: center;
+            padding: 20px 5%; background: rgba(5, 8, 20, 0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            position: sticky; top: 0; z-index: 99; height: 60px;
         }
 
         .hero {
-            text-align: center;
-            padding: 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
+            text-align: center; padding: 60px 20px;
+            display: flex; flex-direction: column; align-items: center;
+            max-width: 900px; margin: 0 auto; position: relative; z-index: 10;
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900;
+            line-height: 1.1; text-transform: uppercase;
             background: linear-gradient(180deg, #fff, var(--gold-light), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4));
-            margin-bottom: 10px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)); margin-bottom: 10px;
             animation: floatText 4s ease-in-out infinite;
         }
 
@@ -129,43 +98,24 @@
         }
 
         .hero h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: var(--gold-light);
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(252, 211, 77, 0.5);
+            font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 600;
+            margin-bottom: 30px; color: var(--gold-light); letter-spacing: 8px;
+            text-transform: uppercase; text-shadow: 0 0 15px rgba(252, 211, 77, 0.5);
         }
 
         .hero p {
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-weight: 300;
-            color: var(--text-muted);
-            line-height: 1.9;
-            letter-spacing: 0.5px;
+            font-size: 1.15rem; max-width: 700px; margin: 0 auto 50px;
+            font-weight: 300; color: var(--text-muted); line-height: 1.9; letter-spacing: 0.5px;
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
         .hero-image-container {
-            width: 280px;
-            height: 280px;
-            margin: 0 auto 50px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('logo.jpg'); 
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
+            width: 280px; height: 280px; margin: 0 auto 50px; position: relative;
+            display: flex; justify-content: center; align-items: center;
+            background-image: url('logo.jpg'); background-size: cover; background-position: center;
+            border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 50px rgba(245, 158, 11, 0.3), inset 0 0 30px rgba(0,0,0,0.9);
-            z-index: 10;
-            animation: floatImage 6s ease-in-out infinite;
+            z-index: 10; animation: floatImage 6s ease-in-out infinite;
         }
 
         @keyframes floatImage {
@@ -175,190 +125,119 @@
         }
 
         .hero-image-container::before {
-            content: '';
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px;
-            border-radius: 50%;
-            border: 2px dashed var(--gold-light);
-            animation: spin 20s linear infinite;
-            opacity: 0.6;
-            z-index: -1;
+            content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
+            border-radius: 50%; border: 2px dashed var(--gold-light);
+            animation: spin 20s linear infinite; opacity: 0.6; z-index: -1;
         }
-
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         .buy-box-container {
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 45px 35px;
-            width: 100%;
-            max-width: 550px;
-            margin: 0 auto 40px;
+            background: var(--glass); backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-radius: 30px;
+            padding: 45px 35px; width: 100%; max-width: 550px; margin: 0 auto 40px;
             box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(245, 158, 11, 0.2);
-            text-align: center;
-            position: relative;
+            text-align: center; position: relative;
         }
 
         .buy-box-container h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: var(--gold);
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 30px;
+            color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 2px;
         }
 
         .price-info {
-            display: flex;
-            justify-content: space-between;
-            background: rgba(0,0,0,0.4);
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; background: rgba(0,0,0,0.4);
+            padding: 25px; border-radius: 16px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05);
         }
-
         .price-info div { text-align: center; }
         .price-info span { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px;}
         .price-info strong { font-size: 1.6rem; color: var(--gold); text-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
 
         .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 22px;
+            display: block; width: 100%; padding: 22px;
             background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));
-            background-size: 200% auto;
-            color: #000;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 16px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 1px;
-            animation: gradientMove 3s linear infinite;
+            background-size: 200% auto; color: #000;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem;
+            text-decoration: none; text-transform: uppercase; border-radius: 16px; border: none;
+            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            position: relative; overflow: hidden; letter-spacing: 1px; animation: gradientMove 3s linear infinite;
         }
-
         .buy-btn::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
             animation: shine 3s infinite;
         }
-
         @keyframes shine { 100% { left: 200%; } }
-
         .buy-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(245, 158, 11, 0.6); color: #000;}
 
         .section { padding: 80px 5%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 10;}
-        
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            color: #fff;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900;
+            text-align: center; margin-bottom: 50px; text-transform: uppercase;
+            color: #fff; letter-spacing: 2px;
         }
-
         .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 2px;
+            content: ''; display: block; width: 100px; height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 20px auto 0;
-            box-shadow: 0 0 10px var(--gold);
+            margin: 20px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
-        /* --- OYUN ALANI --- */
+        /* --- YENİ NESİL OYUN ALANI --- */
         .game-container {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 30px;
-            border-radius: 24px;
-            border: 2px solid var(--gold);
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            max-width: 800px;
-            margin: 0 auto;
+            background: var(--glass); backdrop-filter: blur(15px);
+            padding: 30px; border-radius: 24px; border: 2px solid var(--gold);
+            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            max-width: 800px; margin: 0 auto;
         }
         
         canvas {
             background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
-            border-radius: 12px;
-            border: 2px solid var(--gold-light);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-            width: 100%;
-            max-width: 700px;
-            height: 300px;
-            display: block;
-            margin: 0 auto;
+            border-radius: 12px; border: 2px solid var(--gold-light);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); width: 100%;
+            max-width: 700px; height: 400px; display: block; margin: 0 auto;
+            touch-action: none; /* Mobilde kaydırmayı engeller */
         }
 
         .game-ui {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            color: var(--gold-light);
-            font-weight: 800;
+            margin-top: 20px; display: flex; justify-content: space-between;
+            align-items: center; font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem; color: var(--gold-light); font-weight: 800;
         }
 
         .play-btn {
             background: linear-gradient(90deg, var(--cyan), var(--purple));
-            color: #fff;
-            padding: 15px 40px;
-            border-radius: 12px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
-            transition: 0.3s;
+            color: #fff; padding: 15px 40px; border-radius: 12px;
+            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem;
+            border: none; cursor: pointer; margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3); transition: 0.3s;
         }
         .play-btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
 
         .game-over-box {
-            display: none;
-            margin-top: 20px;
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--gold);
+            display: none; margin-top: 20px; background: rgba(0,0,0,0.8);
+            padding: 30px; border-radius: 16px; border: 2px solid var(--gold);
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        .game-over-box h4 { color: var(--gold); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 1.5rem;}
+        .game-over-box h4 { color: var(--gold); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 2rem;}
         .game-over-box p { color: #fff; margin-bottom: 20px; font-size: 1.2rem;}
         
-        .telegram-btn {
-            background: #229ED9;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            display: inline-block;
-            transition: 0.3s;
+        .game-buttons {
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;
         }
-        .telegram-btn:hover { background: #1a7cb3; transform: translateY(-3px); }
+
+        .retry-btn {
+            background: linear-gradient(90deg, var(--gold), #d97706);
+            color: #000; padding: 15px 30px; border-radius: 10px;
+            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem;
+            border: none; cursor: pointer; transition: 0.3s;
+        }
+        .retry-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+        .telegram-btn {
+            background: #229ED9; color: white; padding: 15px 30px; border-radius: 10px;
+            text-decoration: none; font-family: 'Montserrat', sans-serif;
+            font-weight: 800; font-size: 1.1rem; display: inline-block; transition: 0.3s;
+        }
+        .telegram-btn:hover { background: #1a7cb3; transform: scale(1.05); box-shadow: 0 0 20px rgba(34, 158, 217, 0.5); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
@@ -368,6 +247,7 @@
             .section-title { font-size: 2rem; margin-top: 60px; }
             .buy-box-container { padding: 30px 20px; }
             .game-ui { flex-direction: column; gap: 10px; }
+            canvas { height: 300px; }
         }
     </style>
 </head>
@@ -415,11 +295,11 @@
         </div>
     </section>
 
-    <!-- --- OYUN BÖLÜMÜ (ZONKA ICE RUNNER) --- -->
+    <!-- --- YENİ OYUN BÖLÜMÜ (ZONKA FLYER) --- -->
     <section class="section" id="game">
         <h2 class="section-title">Zonka Game</h2>
         <div class="game-container">
-            <canvas id="gameCanvas" width="700" height="300"></canvas>
+            <canvas id="gameCanvas" width="700" height="400"></canvas>
             
             <div class="game-ui">
                 <div>Score: <span id="scoreDisplay">0</span></div>
@@ -431,8 +311,10 @@
             <div id="gameOverBox" class="game-over-box">
                 <h4>Game Over!</h4>
                 <p>Your Score: <span id="finalScore">0</span></p>
-                <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 20px;">Screenshot your score and send it to our Telegram to claim your ZNK reward!</p>
-                <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">Claim Reward on Telegram</a>
+                <div class="game-buttons">
+                    <button id="retryBtn" class="retry-btn">Play Again</button>
+                    <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">Claim Reward</a>
+                </div>
             </div>
         </div>
     </section>
@@ -510,16 +392,16 @@
             });
         });
 
-        // --- ZONKA ICE RUNNER OYUNU ---
+        // --- ZONKA FLYER OYUNU (Yukarı Doğru Uçan) ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreDisplay = document.getElementById('scoreDisplay');
         const highScoreDisplay = document.getElementById('highScoreDisplay');
         const startBtn = document.getElementById('startBtn');
+        const retryBtn = document.getElementById('retryBtn');
         const gameOverBox = document.getElementById('gameOverBox');
         const finalScore = document.getElementById('finalScore');
 
-        // Oyun Değişkenleri
         let score = 0;
         let highScore = localStorage.getItem('zonkaHighScore') || 0;
         let gameLoop;
@@ -528,48 +410,35 @@
 
         highScoreDisplay.innerText = highScore;
 
-        // Kutup Ayısı
+        // Oyuncu (Kutup Ayısı)
         const bear = {
             x: 50,
             y: 200,
             width: 40,
             height: 40,
             velocityY: 0,
-            gravity: 0.6,
-            jumpPower: -12,
-            isJumping: false
+            gravity: 0.5,
+            lift: -8, // Yukarı itme gücü
+            isThrusting: false
         };
 
-        // Engeller (Buz Kütleleri)
+        // Engeller (Buz Sütunları)
         let obstacles = [];
-        const obstacleWidth = 30;
-        const obstacleHeight = 40;
+        const obstacleWidth = 50;
+        const gapHeight = 130; // Geçiş boşluğu
 
-        // Zemin
-        const groundY = 240;
+        // Kontroller
+        const startThrust = (e) => { e.preventDefault(); if(!isGameOver) bear.isThrusting = true; };
+        const stopThrust = (e) => { e.preventDefault(); bear.isThrusting = false; };
 
-        // Kutup Ayısı Çizimi (Basit)
-        function drawBear() {
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            ctx.arc(bear.x + 20, bear.y + 20, 20, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.fillStyle = '#000';
-            ctx.beginPath();
-            ctx.arc(bear.x + 15, bear.y + 15, 3, 0, Math.PI * 2);
-            ctx.arc(bear.x + 25, bear.y + 15, 3, 0, Math.PI * 2);
-            ctx.fill();
-        }
+        document.addEventListener('keydown', (e) => { if(e.code === 'Space') { if(!isGameOver) bear.isThrusting = true; }});
+        document.addEventListener('keyup', (e) => { if(e.code === 'Space') { bear.isThrusting = false; }});
+        
+        canvas.addEventListener('mousedown', startThrust);
+        canvas.addEventListener('mouseup', stopThrust);
+        canvas.addEventListener('touchstart', startThrust);
+        canvas.addEventListener('touchend', stopThrust);
 
-        // Engel Çizimi
-        function drawObstacle(obs) {
-            ctx.fillStyle = '#38bdf8';
-            ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
-            ctx.fillStyle = '#0284c7';
-            ctx.fillRect(obs.x + 5, obs.y + 5, obs.width - 10, obs.height - 10);
-        }
-
-        // Oyunu Başlat
         function startGame() {
             isGameOver = false;
             score = 0;
@@ -577,100 +446,142 @@
             obstacles = [];
             bear.y = 200;
             bear.velocityY = 0;
-            bear.isJumping = false;
             scoreDisplay.innerText = score;
             startBtn.style.display = 'none';
             gameOverBox.style.display = 'none';
             
             if (gameLoop) clearInterval(gameLoop);
-            gameLoop = setInterval(updateGame, 1000 / 60); // 60 FPS
+            gameLoop = setInterval(updateGame, 1000 / 60);
         }
 
-        // Zıplama
-        function jump() {
-            if (!bear.isJumping && !isGameOver) {
-                bear.velocityY = bear.jumpPower;
-                bear.isJumping = true;
-            }
-        }
-
-        // Kontroller
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') jump();
-        });
-        canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            jump();
-        });
-        canvas.addEventListener('mousedown', jump);
-
-        // Oyun Döngüsü
         function updateGame() {
             if (isGameOver) return;
-
             frameCount++;
-            
+
             // Skor Artışı
             if (frameCount % 10 === 0) {
                 score++;
                 scoreDisplay.innerText = score;
             }
 
-            // Fizik
-            bear.velocityY += bear.gravity;
+            // Fizik (Yer Çekimi ve İtme)
+            if (bear.isThrusting) {
+                bear.velocityY = bear.lift;
+            } else {
+                bear.velocityY += bear.gravity;
+            }
+            
+            // Hız sınırlaması
+            if (bear.velocityY > 10) bear.velocityY = 10;
+            if (bear.velocityY < -10) bear.velocityY = -10;
+
             bear.y += bear.velocityY;
 
-            // Zemine Çarpma
-            if (bear.y >= groundY - bear.height) {
-                bear.y = groundY - bear.height;
+            // Zemin ve Tavan Çarpışması
+            if (bear.y + bear.height > canvas.height) {
+                bear.y = canvas.height - bear.height;
                 bear.velocityY = 0;
-                bear.isJumping = false;
+                endGame();
+            }
+            if (bear.y < 0) {
+                bear.y = 0;
+                bear.velocityY = 0;
             }
 
-            // Engel Oluşturma
-            if (frameCount % 80 === 0) {
+            // Engel Oluşturma (Buz Sütunları)
+            if (frameCount % 90 === 0) {
+                const minHeight = 50;
+                const maxHeight = canvas.height - gapHeight - minHeight;
+                const topHeight = Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
+                
                 obstacles.push({
                     x: canvas.width,
-                    y: groundY - obstacleHeight,
-                    width: obstacleWidth,
-                    height: obstacleHeight
+                    topHeight: topHeight,
+                    bottomY: topHeight + gapHeight,
+                    passed: false
                 });
             }
 
-            // Engelleri Güncelle ve Çarpışma Kontrolü
+            // Engelleri Güncelle
             for (let i = obstacles.length - 1; i >= 0; i--) {
-                obstacles[i].x -= 6; // Hız
+                const obs = obstacles[i];
+                obs.x -= 4; // Hız
 
-                // Çarpışma Kontrolü (Basit kutu çarpışması)
-                if (
-                    bear.x < obstacles[i].x + obstacles[i].width &&
-                    bear.x + bear.width > obstacles[i].x &&
-                    bear.y < obstacles[i].y + obstacles[i].height &&
-                    bear.y + bear.height > obstacles[i].y
-                ) {
+                // Çarpışma Kontrolü
+                // Üst Sütun
+                if (bear.x < obs.x + obstacleWidth && bear.x + bear.width > obs.x &&
+                    bear.y < obs.topHeight) {
+                    endGame();
+                }
+                // Alt Sütun
+                if (bear.x < obs.x + obstacleWidth && bear.x + bear.width > obs.x &&
+                    bear.y + bear.height > obs.bottomY) {
                     endGame();
                 }
 
+                // Skor Verme (Geçince)
+                if (!obs.passed && obs.x + obstacleWidth < bear.x) {
+                    obs.passed = true;
+                    score += 5;
+                    scoreDisplay.innerText = score;
+                }
+
                 // Ekrandan Çıkanları Sil
-                if (obstacles[i].x + obstacles[i].width < 0) {
+                if (obs.x + obstacleWidth < 0) {
                     obstacles.splice(i, 1);
                 }
             }
 
-            // Çizim
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Zemin Çizimi
-            ctx.fillStyle = '#1e293b';
-            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
-            ctx.fillStyle = '#334155';
-            ctx.fillRect(0, groundY, canvas.width, 5);
-
-            drawBear();
-            obstacles.forEach(drawObstacle);
+            draw();
         }
 
-        // Oyunu Bitir
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Arka Plan (Yıldızlar)
+            ctx.fillStyle = '#fff';
+            for(let i=0; i<20; i++){
+                ctx.fillRect((i*37 + frameCount) % canvas.width, (i*53) % canvas.height, 2, 2);
+            }
+
+            // Buz Sütunlarını Çiz
+            ctx.fillStyle = '#38bdf8';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#06b6d4';
+            
+            obstacles.forEach(obs => {
+                // Üst
+                ctx.fillRect(obs.x, 0, obstacleWidth, obs.topHeight);
+                ctx.fillStyle = '#0284c7';
+                ctx.fillRect(obs.x + 5, 0, obstacleWidth - 10, obs.topHeight - 5);
+                ctx.fillStyle = '#38bdf8';
+
+                // Alt
+                ctx.fillRect(obs.x, obs.bottomY, obstacleWidth, canvas.height - obs.bottomY);
+                ctx.fillStyle = '#0284c7';
+                ctx.fillRect(obs.x + 5, obs.bottomY + 5, obstacleWidth - 10, canvas.height - obs.bottomY - 5);
+                ctx.fillStyle = '#38bdf8';
+            });
+            ctx.shadowBlur = 0;
+
+            // Kutup Ayısını Çiz
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(bear.x + 20, bear.y + 20, 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Gözler
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.arc(bear.x + 25, bear.y + 15, 4, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Ağız
+            ctx.beginPath();
+            ctx.arc(bear.x + 30, bear.y + 25, 5, 0, Math.PI);
+            ctx.stroke();
+        }
+
         function endGame() {
             isGameOver = true;
             clearInterval(gameLoop);
@@ -686,8 +597,8 @@
             gameOverBox.style.display = 'block';
         }
 
-        // Başlat Butonu
         startBtn.addEventListener('click', startGame);
+        retryBtn.addEventListener('click', startGame);
     </script>
 </body>
 </html>
