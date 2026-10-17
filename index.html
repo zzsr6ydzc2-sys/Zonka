@@ -381,10 +381,9 @@
         let masterVolume = 0.5; 
         const volumeSlider = document.getElementById('volumeSlider');
 
-        // Ses çubuğu değiştiğinde ses seviyesini güncelle
+        // Ses çubuğu kaydırıldığında ses seviyesini güncelle ve test et
         volumeSlider.addEventListener('input', (e) => {
             masterVolume = parseFloat(e.target.value);
-            // Ses seviyesini anında test etmek için küçük bir tık sesi çal
             playSound('jump'); 
         });
 
@@ -392,18 +391,22 @@
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx;
 
-        // Tarayıcılar, kullanıcı ekrana dokunmadan ses çalınmasına izin vermez. 
-        // Bu yüzden ilk tıklamada ses motorunu başlatıyoruz.
+        // Ses motorunu başlat (Kullanıcı etkileşimiyle)
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new AudioContext();
             }
+            // Eğer ses motoru uyku modundaysa zorla uyandır
             if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
+                audioCtx.resume().then(() => {
+                    // Motor uyandığında ilk sesi çal
+                    playSound('jump');
+                });
             }
         }
 
         function playSound(type) {
+            // Ses motoru yoksa veya ses seviyesi 0'sa çık
             if (!audioCtx || masterVolume <= 0) return; 
             
             const osc = audioCtx.createOscillator();
@@ -481,7 +484,7 @@
 
         function jump(e) {
             if (e) e.preventDefault();
-            initAudio(); // Ses motorunu kullanıcı etkileşimiyle başlat
+            initAudio(); // Ses motorunu tetikle
             if (!isGameOver) {
                 bear.velocity = bear.jump;
                 playSound('jump');
