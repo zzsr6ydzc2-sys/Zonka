@@ -7,24 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Premium Uzay / Buzul Teması Renkleri */
-            --bg-dark: #020617;
-            --bg-glow: #0b1120;
-            --primary: #818cf8; /* İndigo */
-            --secondary: #22d3ee; /* Turkuaz */
-            --accent: #c084fc; /* Mor */
-            --pink: #f472b6; /* Neon Pembe */
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            /* Rengarenk Aurora Paleti */
+            --color1: #06b6d4; /* Turkuaz */
+            --color2: #8b5cf6; /* Mor */
+            --color3: #ec4899; /* Pembe */
+            --color4: #f59e0b; /* Altın */
+            --text-light: #ffffff;
+            --text-muted: #cbd5e1;
+            --glass-bg: rgba(15, 23, 42, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* Derin Uzay/Buzul Arka Planı */
-            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, var(--bg-dark) 70%);
+            /* Hareketli ve Çok Renkli Aurora Arka Planı */
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -32,28 +32,33 @@
             position: relative;
         }
 
-        /* --- HAREKETLİ PREMIUM KAR TANELERİ --- */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- RENGARENK PREMIUM KAR TANELERİ --- */
         .snowflake {
             position: fixed;
             top: -10px;
-            color: #fff;
-            font-size: 1em;
+            font-size: 1.5em;
             font-family: Arial, sans-serif;
-            text-shadow: 0 0 10px #fff, 0 0 20px var(--secondary);
             animation: fall linear infinite;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.6;
         }
         @keyframes fall {
             to { transform: translateY(100vh) rotate(360deg); }
         }
-        .snowflake:nth-child(even) { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); color: var(--accent); opacity: 0.8;}
-        .snowflake:nth-child(3n) { text-shadow: 0 0 10px var(--pink), 0 0 20px var(--pink); color: var(--pink); opacity: 0.7;}
+        .snowflake:nth-child(1) { color: var(--color1); text-shadow: 0 0 10px var(--color1); }
+        .snowflake:nth-child(2) { color: var(--color3); text-shadow: 0 0 10px var(--color3); }
+        .snowflake:nth-child(3) { color: var(--color4); text-shadow: 0 0 10px var(--color4); }
+        .snowflake:nth-child(4) { color: var(--color2); text-shadow: 0 0 10px var(--color2); }
 
         /* Kırmızı Son Dakika Şeridi */
         .news-banner {
-            background: linear-gradient(90deg, #be123c, #e11d48, #be123c);
+            background: linear-gradient(90deg, #ef4444, #f97316, #ef4444);
             background-size: 200% auto;
             animation: gradientMove 3s linear infinite;
             color: white;
@@ -64,7 +69,7 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             width: 100%;
-            box-shadow: 0 4px 20px rgba(225, 29, 72, 0.4);
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
             position: relative;
             z-index: 100;
             overflow: hidden;
@@ -92,7 +97,7 @@
             justify-content: center;
             align-items: center;
             padding: 25px 5%;
-            background: rgba(2, 6, 23, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             position: sticky;
@@ -104,13 +109,17 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
             font-weight: 900;
-            background: linear-gradient(90deg, #fff, var(--secondary), var(--accent), #fff);
+            background: linear-gradient(90deg, var(--color1), var(--color3), var(--color4), var(--color2), var(--color1));
             background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 5px;
             animation: textShine 5s linear infinite;
+        }
+
+        @keyframes textShine {
+            to { background-position: 300% center; }
         }
 
         /* Hero Bölümü */
@@ -126,7 +135,7 @@
             z-index: 10;
         }
 
-        /* TÜM BAŞLIKLAR: PREMIUM GLOW EFEKTİ */
+        /* TÜM BAŞLIKLAR: RENGARENK GLOW EFEKTİ */
         h1, .section-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -134,21 +143,21 @@
             text-transform: uppercase;
             margin-bottom: 15px;
             color: #fff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px var(--secondary);
+            text-shadow: 0 0 20px rgba(255,255,255,0.2), 0 0 40px var(--color1);
         }
 
-        .hero h1 { font-size: 5rem; letter-spacing: 2px;}
-        .section-title { font-size: 2.5rem; margin: 80px 0 50px; text-align: center; color: var(--text-light);}
+        .hero h1 { font-size: 5rem; letter-spacing: 2px; text-shadow: 0 0 20px var(--color1), 0 0 40px var(--color2);}
+        .section-title { font-size: 2.5rem; margin: 80px 0 50px; text-align: center; text-shadow: 0 0 20px var(--color3);}
 
         .hero h2 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 30px;
-            color: var(--secondary);
+            color: var(--color4);
             letter-spacing: 6px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
         }
 
         .hero p {
@@ -160,7 +169,7 @@
             line-height: 1.8;
         }
 
-        /* Resim Alanı - Premium Işıltı */
+        /* Resim Alanı - Rengarenk Dönen Halka */
         .hero-image-container {
             width: 280px;
             height: 280px;
@@ -172,31 +181,34 @@
             background-image: url('logo.jpg');
             background-size: cover;
             border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.2);
-            box-shadow: 0 0 50px rgba(34, 211, 238, 0.3), inset 0 0 30px rgba(0,0,0,0.8);
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 0 50px rgba(6, 182, 212, 0.4), inset 0 0 30px rgba(0,0,0,0.8);
             z-index: 10;
             animation: floatImage 6s ease-in-out infinite;
         }
 
         @keyframes floatImage {
-            0% { transform: translateY(0) scale(1); box-shadow: 0 0 50px rgba(34, 211, 238, 0.3);}
-            50% { transform: translateY(-15px) scale(1.02); box-shadow: 0 0 80px rgba(192, 132, 252, 0.5);}
-            100% { transform: translateY(0) scale(1); box-shadow: 0 0 50px rgba(34, 211, 238, 0.3);}
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); box-shadow: 0 0 80px rgba(236, 72, 153, 0.6);}
+            100% { transform: translateY(0) scale(1); }
         }
 
+        /* Resmin etrafındaki renkli dönen halka */
         .hero-image-container::before {
             content: '';
             position: absolute;
-            top: -20px; left: -20px; right: -20px; bottom: -20px;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
             border-radius: 50%;
-            border: 1px dashed rgba(255,255,255,0.3);
-            animation: spin 20s linear infinite;
+            background: conic-gradient(var(--color1), var(--color2), var(--color3), var(--color4), var(--color1));
+            animation: spin 10s linear infinite;
             z-index: -1;
+            filter: blur(5px);
         }
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Satın Alma Kutusu - Premium Cam Efektli */
+        /* Satın Alma Kutusu - Cam Efektli */
         .buy-box-container {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
@@ -206,7 +218,7 @@
             width: 100%;
             max-width: 550px;
             margin: 0 auto 40px;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.2);
             text-align: center;
             position: relative;
         }
@@ -219,6 +231,7 @@
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 1px;
+            text-shadow: 0 0 15px var(--color3);
         }
 
         .countdown {
@@ -230,11 +243,18 @@
 
         .time-block {
             background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(34, 211, 238, 0.2);
+            border: 1px solid rgba(255,255,255,0.1);
             padding: 15px;
             border-radius: 16px;
             min-width: 80px;
             box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .time-block::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--color1), var(--color3));
         }
 
         .time-block span {
@@ -242,8 +262,8 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
             font-weight: 900;
-            color: var(--secondary);
-            text-shadow: 0 0 15px var(--secondary);
+            color: #fff;
+            text-shadow: 0 0 15px var(--color1);
         }
 
         .time-block small {
@@ -266,14 +286,15 @@
 
         .price-info div { text-align: center; }
         .price-info span { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px;}
-        .price-info strong { font-size: 1.6rem; color: var(--accent); text-shadow: 0 0 15px rgba(192, 132, 252, 0.6); }
+        .price-info strong { font-size: 1.6rem; color: var(--color4); text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
 
         .buy-btn {
             display: block;
             width: 100%;
             padding: 22px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            color: var(--bg-dark);
+            background: linear-gradient(90deg, var(--color2), var(--color3), var(--color1), var(--color2));
+            background-size: 300% auto;
+            color: #fff;
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: 1.3rem;
@@ -283,21 +304,14 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.4);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
             position: relative;
             overflow: hidden;
             letter-spacing: 1px;
+            animation: textShine 3s linear infinite;
         }
 
-        .buy-btn::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            animation: shine 3s infinite;
-        }
-
-        .buy-btn:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 15px 40px rgba(192, 132, 252, 0.6); color: #fff;}
+        .buy-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);}
 
         /* Bölümler */
         .section { padding: 80px 5%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 10;}
@@ -306,10 +320,10 @@
             content: '';
             display: block;
             width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color3), transparent);
             margin: 20px auto 0;
-            box-shadow: 0 0 10px var(--secondary);
+            box-shadow: 0 0 10px var(--color3);
         }
 
         /* Nasıl Alınır (Adımlar) */
@@ -324,9 +338,9 @@
             border: 1px solid var(--glass-border);
             transition: all 0.4s ease;
         }
-        .step-card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 20px 40px rgba(34, 211, 238, 0.2); }
+        .step-card:hover { transform: translateY(-10px); border-color: var(--color1); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2); }
         .step-icon { font-size: 3rem; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));}
-        .step-card h4 { color: var(--secondary); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800;}
+        .step-card h4 { color: var(--color1); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800;}
         .step-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
         /* Yol Haritası (Roadmap) */
@@ -338,14 +352,14 @@
             border-radius: 24px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 1px solid var(--glass-border);
-            border-top: 4px solid var(--accent);
+            border-top: 4px solid var(--color3);
             transition: all 0.4s ease;
         }
-        .phase-card:hover { transform: translateY(-5px); border-top-color: var(--secondary); box-shadow: 0 20px 40px rgba(192, 132, 252, 0.2); }
+        .phase-card:hover { transform: translateY(-5px); border-top-color: var(--color4); box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2); }
         .phase-card h3 { color: #fff; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; font-size: 1.4rem; font-weight: 900;}
         .phase-card ul { list-style: none; }
         .phase-card ul li { margin-bottom: 18px; font-size: 1rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 15px; font-weight: 400;}
-        .phase-card ul li::before { content: '✦'; font-size: 1.2rem; color: var(--secondary); margin-top: -2px; text-shadow: 0 0 10px var(--secondary);}
+        .phase-card ul li::before { content: '✦'; font-size: 1.2rem; color: var(--color1); margin-top: -2px; text-shadow: 0 0 10px var(--color1);}
 
         /* Vizyon */
         .vision-box {
@@ -353,7 +367,7 @@
             backdrop-filter: blur(15px);
             padding: 50px;
             border-radius: 24px;
-            border-left: 4px solid var(--pink);
+            border-left: 4px solid var(--color4);
             font-size: 1.15rem;
             line-height: 2;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
@@ -374,7 +388,7 @@
             transition: 0.3s;
             border: 1px solid var(--glass-border);
         }
-        .faq-item.active { border-color: var(--secondary); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.15); }
+        .faq-item.active { border-color: var(--color1); box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15); }
         .faq-question {
             padding: 25px 30px;
             font-family: 'Montserrat', sans-serif;
@@ -387,7 +401,7 @@
             transition: color 0.3s;
             font-size: 1.1rem;
         }
-        .faq-question:hover { color: var(--secondary); }
+        .faq-question:hover { color: var(--color1); }
         .faq-answer {
             padding: 0 30px;
             max-height: 0;
@@ -397,13 +411,10 @@
             transition: max-height 0.4s ease-out, padding 0.3s ease;
             line-height: 1.8;
         }
-        .faq-item.active .faq-answer {
-            max-height: 300px; 
-            padding: 0 30px 30px;
-        }
-        .faq-item.active .faq-question { color: var(--secondary); }
-        .faq-icon { transition: transform 0.3s; font-size: 0.9rem; color: var(--secondary); }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--pink); }
+        .faq-item.active .faq-answer { max-height: 300px; padding: 0 30px 30px; }
+        .faq-item.active .faq-question { color: var(--color1); }
+        .faq-icon { transition: transform 0.3s; font-size: 0.9rem; color: var(--color3); }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--color4); }
 
         /* Tokenomics Tablosu */
         .tokenomics-table {
@@ -424,10 +435,10 @@
             color: var(--text-light);
             font-weight: 400;
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.3); color: var(--secondary); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; border: none; text-transform: uppercase; letter-spacing: 1px;}
+        .tokenomics-table th { background: rgba(0,0,0,0.3); color: var(--color1); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; border: none; text-transform: uppercase; letter-spacing: 1px;}
         .tokenomics-table tr:last-child td { border-bottom: none; }
         .tokenomics-table tr:hover { background: rgba(255,255,255,0.03); }
-        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--accent); font-size: 1.2rem; text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);}
+        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--color4); font-size: 1.2rem; text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);}
 
         /* Kontrat Kutusu */
         .contract-box {
@@ -450,12 +461,12 @@
             border-radius: 12px;
             margin-bottom: 30px;
             word-break: break-all;
-            color: var(--secondary);
+            color: var(--color1);
             font-weight: 700;
-            border: 1px solid rgba(34, 211, 238, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.2);
         }
         .copy-btn {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--color2), var(--color3));
             color: #fff;
             padding: 16px 45px;
             border-radius: 12px;
@@ -465,9 +476,9 @@
             cursor: pointer;
             transition: 0.3s;
             font-size: 1.1rem;
-            box-shadow: 0 10px 20px rgba(192, 132, 252, 0.4);
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
         }
-        .copy-btn:hover { background: linear-gradient(90deg, var(--accent), var(--pink)); transform: scale(1.05); box-shadow: 0 15px 30px rgba(244, 114, 182, 0.5);}
+        .copy-btn:hover { background: linear-gradient(90deg, var(--color3), var(--color4)); transform: scale(1.05); box-shadow: 0 15px 30px rgba(245, 158, 11, 0.5);}
 
         /* Sosyal Medya */
         .socials-hero {
@@ -499,17 +510,17 @@
         }
 
         .socials-hero a:hover { 
-            background: var(--secondary); 
-            color: var(--bg-dark); 
+            background: var(--color1); 
+            color: #000; 
             transform: translateY(-5px) scale(1.05); 
-            border-color: var(--secondary);
-            box-shadow: 0 15px 25px rgba(34, 211, 238, 0.4);
+            border-color: var(--color1);
+            box-shadow: 0 15px 25px rgba(6, 182, 212, 0.4);
         }
 
         footer { 
             text-align: center; 
             padding: 50px 20px; 
-            background: rgba(2, 6, 23, 0.8); 
+            background: rgba(0, 0, 0, 0.4); 
             color: var(--text-muted); 
             font-size: 0.95rem; 
             margin-top: 80px; 
@@ -534,7 +545,7 @@
 </head>
 <body>
 
-    <!-- Aurora / Premium Kar Taneleri -->
+    <!-- Rengarenk Kar Taneleri -->
     <div class="snowflake" style="left: 10%; animation-duration: 6s; font-size: 1.2em;">❅</div>
     <div class="snowflake" style="left: 20%; animation-duration: 9s; font-size: 2em;">❆</div>
     <div class="snowflake" style="left: 35%; animation-duration: 7s; font-size: 1.5em;">❅</div>
@@ -560,7 +571,7 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Resim Alanı (Premium Işıltılı) -->
+        <!-- Resim Alanı (Rengarenk Işıltılı) -->
         <div class="hero-image-container"></div>
 
         <!-- Satın Alma Kutusu -->
@@ -702,5 +713,3 @@
                 <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out or the countdown timer reaches zero.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">How do I claim my tokens? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">After sending SOL to
