@@ -164,12 +164,12 @@
             margin: 20px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
-        /* --- MERGE OYUNU ALANI --- */
+        /* --- FROST FLIGHT OYUN ALANI --- */
         .game-wrapper {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 20px; border-radius: 24px; border: 2px solid var(--gold);
             text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            max-width: 600px; margin: 0 auto; position: relative;
+            max-width: 800px; margin: 0 auto; position: relative;
         }
 
         .game-ui-top {
@@ -178,14 +178,14 @@
             color: var(--gold-light); font-weight: 900; margin-bottom: 10px; padding: 0 10px;
         }
 
-        #mergeCanvas {
+        #flappyCanvas {
             background: #020617; border-radius: 12px; border: 2px solid var(--gold-light);
             box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); width: 100%; height: 500px;
-            display: block; margin: 0 auto; touch-action: none; cursor: none;
+            display: block; margin: 0 auto; touch-action: none; cursor: pointer;
         }
 
-        #mergeCanvas:fullscreen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; }
-        #mergeCanvas:-webkit-full-screen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; }
+        #flappyCanvas:fullscreen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; }
+        #flappyCanvas:-webkit-full-screen { width: 100vw; height: 100vh; max-width: none; border-radius: 0; border: none; }
 
         .play-game-btn {
             background: linear-gradient(90deg, var(--cyan), var(--purple));
@@ -282,9 +282,9 @@
         </div>
     </section>
 
-    <!-- --- MERGE OYUNU --- -->
+    <!-- --- FROST FLIGHT OYUNU --- -->
     <section class="section" id="game">
-        <h2 class="section-title">Zonka Merge</h2>
+        <h2 class="section-title">Zonka Frost Flight</h2>
         
         <div class="game-wrapper">
             <div class="game-ui-top">
@@ -292,7 +292,7 @@
                 <div>Best: <span id="highScoreDisplay">0</span></div>
             </div>
 
-            <canvas id="mergeCanvas"></canvas>
+            <canvas id="flappyCanvas"></canvas>
             
             <button id="startBtn" class="play-game-btn">PLAY FULLSCREEN</button>
         </div>
@@ -301,7 +301,7 @@
     <button id="exitFsBtn" class="exit-fs-btn">X</button>
 
     <div id="gameOverBox" class="game-over-overlay">
-        <h4>GAME OVER</h4>
+        <h4>BUZ KIRILDI!</h4>
         <p>Your Score: <span id="finalScore">0</span></p>
         <div class="overlay-buttons">
             <button id="retryBtn" class="retry-btn">PLAY AGAIN</button>
@@ -348,8 +348,8 @@
     </footer>
 
     <script>
-        // --- ZONKA MERGE OYUNU ---
-        const canvas = document.getElementById('mergeCanvas');
+        // --- ZONKA FROST FLIGHT OYUNU ---
+        const canvas = document.getElementById('flappyCanvas');
         const ctx = canvas.getContext('2d');
         const scoreDisplay = document.getElementById('scoreDisplay');
         const highScoreDisplay = document.getElementById('highScoreDisplay');
@@ -360,28 +360,30 @@
         const exitFsBtn = document.getElementById('exitFsBtn');
 
         let score = 0;
-        let highScore = localStorage.getItem('zonkaMergeHighScore') || 0;
+        let highScore = localStorage.getItem('zonkaFlappyHighScore') || 0;
         let isGameOver = true;
         let gameLoop;
+        let frameCount = 0;
 
         highScoreDisplay.innerText = highScore;
 
-        // Oyun Değişkenleri
-        const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#fb923c', '#facc15'];
-        const sizes = [20, 30, 45, 65, 90, 120]; // Seviye boyutları
-        
-        let currentBall = null;
-        let droppedBalls = [];
-        let nextBallLevel = 0;
-        
-        let mouseX = 0;
-        let isDropping = false;
-        
-        const gravity = 0.5;
-        const bounce = 0.5;
-        const friction = 0.95;
+        // Kutup Ayısı (Oyuncu)
+        const bear = {
+            x: 50, y: 250, width: 45, height: 45,
+            velocity: 0, gravity: 0.45, jump: -7.5
+        };
 
-        // Canvas boyutlarını ayarla
+        // Buz Sütunları (Engeller)
+        let pipes = [];
+        const pipeWidth = 60;
+        const gap = 160; // Sütunlar arası boşluk
+        let pipeSpeed = 3.5;
+
+        // ZNK Tokenleri (Toplanabilir)
+        let tokens = [];
+        let particles = []; // Kar tanesi efektleri
+
+        // Canvas Boyutlarını Ayarla
         function resizeCanvas() {
             if (document.fullscreenElement) {
                 canvas.width = window.innerWidth;
@@ -395,48 +397,27 @@
         canvas.addEventListener('fullscreenchange', resizeCanvas);
 
         // Kontroller
-        function handleMove(e) {
-            e.preventDefault();
-            let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const rect = canvas.getBoundingClientRect();
-            mouseX = clientX - rect.left;
+        function jump(e) {
+            if (e) e.preventDefault();
+            if (!isGameOver) {
+                bear.velocity = bear.jump;
+                // Kar efekti
+                for(let i=0; i<5; i++){
+                    particles.push({
+                        x: bear.x, y: bear.y + bear.height/2,
+                        vx: -Math.random()*3, vy: Math.random()*2-1,
+                        life: 20, color: '#fff'
+                    });
+                }
+            }
         }
 
-        canvas.addEventListener('mousemove', handleMove);
-        canvas.addEventListener('touchmove', handleMove, {passive: false});
-
-        canvas.addEventListener('mousedown', dropBall);
-        canvas.addEventListener('touchstart', (e) => { handleMove(e); dropBall(e); }, {passive: false});
-
-        function dropBall(e) {
-            if(isGameOver || !currentBall || isDropping) return;
-            isDropping = true;
-            
-            droppedBalls.push(currentBall);
-            currentBall = null;
-            score += 1;
-            scoreDisplay.innerText = score;
-
-            // Yeni top hazırla
-            setTimeout(() => {
-                if(isGameOver) return;
-                nextBallLevel = Math.floor(Math.random() * 3); // Başlangıçta 0, 1 veya 2. seviye gelsin
-                let size = sizes[nextBallLevel];
-                currentBall = {
-                    x: canvas.width / 2,
-                    y: 30,
-                    vx: 0,
-                    vy: 0,
-                    level: nextBallLevel,
-                    radius: size / 2,
-                    color: colors[nextBallLevel]
-                };
-                isDropping = false;
-            }, 500);
-        }
+        canvas.addEventListener('mousedown', jump);
+        canvas.addEventListener('touchstart', jump, {passive: false});
+        document.addEventListener('keydown', (e) => { if(e.code === 'Space') jump(); });
 
         function startGame() {
-            const canvasElement = document.getElementById('mergeCanvas');
+            const canvasElement = document.getElementById('flappyCanvas');
             if (canvasElement.requestFullscreen) {
                 canvasElement.requestFullscreen().catch(err => console.log(err));
             }
@@ -445,19 +426,13 @@
                 resizeCanvas();
                 isGameOver = false;
                 score = 0;
-                droppedBalls = [];
-                nextBallLevel = 0;
-                let size = sizes[nextBallLevel];
-                currentBall = {
-                    x: canvas.width / 2,
-                    y: 30,
-                    vx: 0,
-                    vy: 0,
-                    level: nextBallLevel,
-                    radius: size / 2,
-                    color: colors[nextBallLevel]
-                };
-                isDropping = false;
+                frameCount = 0;
+                bear.y = canvas.height / 2;
+                bear.velocity = 0;
+                pipes = [];
+                tokens = [];
+                particles = [];
+                pipeSpeed = 3.5;
                 
                 scoreDisplay.innerText = score;
                 startBtn.style.display = 'none';
@@ -470,162 +445,207 @@
 
         function updateGame() {
             if (isGameOver) return;
+            frameCount++;
 
-            // Yeni topu fareye/parmağa göre hareket ettir
-            if (currentBall) {
-                currentBall.x = mouseX;
-                // Sınırları kontrol et
-                if (currentBall.x - currentBall.radius < 0) currentBall.x = currentBall.radius;
-                if (currentBall.x + currentBall.radius > canvas.width) currentBall.x = canvas.width - currentBall.radius;
+            // Zorluk Artışı
+            if (score > 0 && score % 10 === 0 && pipeSpeed < 8) {
+                pipeSpeed += 0.1; // Her 10 puanda hızlan
             }
 
-            // Fizik Güncellemesi
-            for (let i = 0; i < droppedBalls.length; i++) {
-                let ball = droppedBalls[i];
+            // Fizik
+            bear.velocity += bear.gravity;
+            bear.y += bear.velocity;
+
+            // Zemin ve Tavan Çarpışması
+            if (bear.y + bear.height > canvas.height || bear.y < 0) {
+                endGame();
+            }
+
+            // Buz Sütunları Oluştur
+            if (frameCount % 90 === 0) {
+                let minH = 60;
+                let maxH = canvas.height - gap - minH - 50; // 50 alt zemin için
+                let topH = Math.floor(Math.random() * (maxH - minH + 1)) + minH;
                 
-                ball.vy += gravity;
-                ball.x += ball.vx;
-                ball.y += ball.vy;
-                ball.vx *= friction;
+                pipes.push({
+                    x: canvas.width,
+                    topHeight: topH,
+                    passed: false
+                });
 
-                // Duvar Çarpışması
-                if (ball.x - ball.radius < 0) {
-                    ball.x = ball.radius;
-                    ball.vx *= -bounce;
+                // Bazen araya ZNK Tokeni koy
+                if (Math.random() > 0.5) {
+                    tokens.push({
+                        x: canvas.width + pipeWidth / 2,
+                        y: topH + gap / 2,
+                        radius: 15,
+                        collected: false
+                    });
                 }
-                if (ball.x + ball.radius > canvas.width) {
-                    ball.x = canvas.width - ball.radius;
-                    ball.vx *= -bounce;
-                }
+            }
 
-                // Zemin Çarpışması
-                if (ball.y + ball.radius > canvas.height) {
-                    ball.y = canvas.height - ball.radius;
-                    ball.vy *= -bounce;
-                    ball.vx *= friction;
-                    if (Math.abs(ball.vy) < 1) ball.vy = 0; // Zıplamayı durdur
-                }
+            // Sütunları Güncelle
+            for (let i = pipes.length - 1; i >= 0; i--) {
+                let p = pipes[i];
+                p.x -= pipeSpeed;
 
-                // Top-Top Çarpışması
-                for (let j = i + 1; j < droppedBalls.length; j++) {
-                    let other = droppedBalls[j];
-                    let dx = other.x - ball.x;
-                    let dy = other.y - ball.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let minDist = ball.radius + other.radius;
-
-                    if (distance < minDist) {
-                        // Aynı seviyedeyse birleştir
-                        if (ball.level === other.level && ball.level < 5) {
-                            let newLevel = ball.level + 1;
-                            let newRadius = sizes[newLevel] / 2;
-                            
-                            // Yeni topu oluştur (iki topun ortasında)
-                            let newBall = {
-                                x: (ball.x + other.x) / 2,
-                                y: (ball.y + other.y) / 2,
-                                vx: (ball.vx + other.vx) / 2,
-                                vy: (ball.vy + other.vy) / 2,
-                                level: newLevel,
-                                radius: newRadius,
-                                color: colors[newLevel]
-                            };
-
-                            // Eski topları diziden çıkar
-                            droppedBalls.splice(j, 1);
-                            droppedBalls.splice(i, 1);
-                            
-                            // Yeni topu ekle
-                            droppedBalls.push(newBall);
-                            
-                            // Puan ekle
-                            score += (newLevel + 1) * 10;
-                            scoreDisplay.innerText = score;
-                            return; // Aynı frame'de tekrar işlem yapmamak için çık
-                        } else {
-                            // Farklıysa birbirlerini ittir (Basit fizik)
-                            let overlap = minDist - distance;
-                            let nx = dx / distance;
-                            let ny = dy / distance;
-                            
-                            ball.x -= nx * overlap / 2;
-                            ball.y -= ny * overlap / 2;
-                            other.x += nx * overlap / 2;
-                            other.y += ny * overlap / 2;
-                        }
+                // Çarpışma Kontrolü
+                if (bear.x < p.x + pipeWidth && bear.x + bear.width > p.x) {
+                    if (bear.y < p.topHeight || bear.y + bear.height > p.topHeight + gap) {
+                        endGame();
                     }
                 }
+
+                // Skor Verme
+                if (!p.passed && p.x + pipeWidth < bear.x) {
+                    p.passed = true;
+                    score += 1;
+                    scoreDisplay.innerText = score;
+                }
+
+                if (p.x + pipeWidth < 0) pipes.splice(i, 1);
             }
 
-            // Oyun Bitti Kontrolü (Toplar üst sınıra ulaştıysa)
-            for (let ball of droppedBalls) {
-                // Eğer top yukarıda ve hareketi durduysa
-                if (ball.y - ball.radius < 0 && Math.abs(ball.vy) < 1) {
-                    endGame();
-                    return;
+            // Tokenleri Güncelle
+            for (let i = tokens.length - 1; i >= 0; i--) {
+                let t = tokens[i];
+                t.x -= pipeSpeed;
+
+                // Toplama Kontrolü
+                let dx = bear.x + bear.width/2 - t.x;
+                let dy = bear.y + bear.height/2 - t.y;
+                if (Math.sqrt(dx*dx + dy*dy) < t.radius + bear.width/2) {
+                    score += 5;
+                    scoreDisplay.innerText = score;
+                    for(let k=0; k<10; k++){
+                        particles.push({
+                            x: t.x, y: t.y,
+                            vx: (Math.random()-0.5)*6, vy: (Math.random()-0.5)*6,
+                            life: 30, color: '#f59e0b'
+                        });
+                    }
+                    tokens.splice(i, 1);
+                    continue;
                 }
+
+                if (t.x + t.radius < 0) tokens.splice(i, 1);
+            }
+
+            // Partikülleri Güncelle
+            for(let i=particles.length-1; i>=0; i--){
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life--;
+                if(p.life <= 0) particles.splice(i, 1);
             }
 
             draw();
         }
 
         function draw() {
-            // Arka plan
-            ctx.fillStyle = '#020617';
+            // Aurora Arka Plan (Kuzey Işıkları)
+            let grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            grad.addColorStop(0, '#020617');
+            grad.addColorStop(0.5, '#0f172a');
+            grad.addColorStop(1, '#1e1b4b');
+            ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            // Hareketli Aurora Işıkları
+            ctx.fillStyle = 'rgba(6, 182, 212, 0.05)';
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height * 0.6);
+            for(let i=0; i<canvas.width; i+=50) {
+                ctx.lineTo(i, canvas.height * 0.6 + Math.sin(i*0.01 + frameCount*0.02) * 100);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.fill();
+
             // Yıldızlar
-            ctx.fillStyle = 'rgba(255,255,255,0.2)';
-            for(let i=0; i<30; i++){
-                ctx.fillRect((i*137)%canvas.width, (i*71)%canvas.height, 2, 2);
+            ctx.fillStyle = '#fff';
+            for(let i=0; i<40; i++){
+                let sx = (i * 137 + frameCount * 0.2) % canvas.width;
+                let sy = (i * 71) % canvas.height;
+                ctx.fillRect(sx, sy, 2, 2);
             }
 
-            // Çizgi (Nisan alma çizgisi)
-            ctx.strokeStyle = 'rgba(245, 158, 11, 0.3)';
-            ctx.setLineDash([5, 5]);
-            ctx.beginPath();
-            ctx.moveTo(0, 50);
-            ctx.lineTo(canvas.width, 50);
-            ctx.stroke();
-            ctx.setLineDash([]);
+            // Buz Sütunları
+            pipes.forEach(p => {
+                // Üst Sütun
+                ctx.fillStyle = '#38bdf8';
+                ctx.shadowBlur = 15; ctx.shadowColor = '#06b6d4';
+                ctx.fillRect(p.x, 0, pipeWidth, p.topHeight);
+                ctx.fillStyle = '#7dd3fc'; // İç parlama
+                ctx.fillRect(p.x + 10, 0, 5, p.topHeight);
+                
+                // Alt Sütun
+                ctx.fillStyle = '#38bdf8';
+                ctx.fillRect(p.x, p.topHeight + gap, pipeWidth, canvas.height);
+                ctx.fillStyle = '#7dd3fc';
+                ctx.fillRect(p.x + 10, p.topHeight + gap, 5, canvas.height);
+            });
+            ctx.shadowBlur = 0;
 
-            // Düşen Toplar
-            for (let ball of droppedBalls) {
-                drawBall(ball);
-            }
-
-            // Mevcut Top
-            if (currentBall && !isDropping) {
-                drawBall(currentBall);
-                // Kılavuz çizgi
-                ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            // ZNK Tokenleri
+            tokens.forEach(t => {
+                ctx.fillStyle = '#f59e0b';
+                ctx.shadowBlur = 20; ctx.shadowColor = '#f59e0b';
                 ctx.beginPath();
-                ctx.moveTo(currentBall.x, currentBall.y);
-                ctx.lineTo(currentBall.x, canvas.height);
-                ctx.stroke();
+                ctx.arc(t.x, t.y, t.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 16px Montserrat';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Z', t.x, t.y);
+            });
+            ctx.shadowBlur = 0;
+
+            // Partiküller
+            particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life / 30;
+                ctx.fillRect(p.x, p.y, 4, 4);
+            });
+            ctx.globalAlpha = 1;
+
+            // Kutup Ayısı (Jetpack'li)
+            ctx.save();
+            // Jetpack Alevi
+            if(bear.velocity < 0) {
+                ctx.fillStyle = '#06b6d4';
+                ctx.shadowBlur = 20; ctx.shadowColor = '#06b6d4';
+                ctx.beginPath();
+                ctx.moveTo(bear.x, bear.y + bear.height - 10);
+                ctx.lineTo(bear.x - 15, bear.y + bear.height + Math.random()*20);
+                ctx.lineTo(bear.x, bear.y + bear.height + 10);
+                ctx.fill();
             }
-        }
-
-        function drawBall(ball) {
-            ctx.beginPath();
-            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-            ctx.fillStyle = ball.color;
-            ctx.fill();
             
-            // İç parlama (3D efekti)
-            let gradient = ctx.createRadialGradient(
-                ball.x - ball.radius/3, ball.y - ball.radius/3, ball.radius/10,
-                ball.x, ball.y, ball.radius
-            );
-            gradient.addColorStop(0, 'rgba(255,255,255,0.6)');
-            gradient.addColorStop(1, 'rgba(0,0,0,0.1)');
-            ctx.fillStyle = gradient;
+            // Gövde
+            ctx.fillStyle = '#ffffff';
+            ctx.shadowBlur = 10; ctx.shadowColor = '#fff';
+            ctx.beginPath();
+            ctx.roundRect(bear.x, bear.y, bear.width, bear.height, 15);
             ctx.fill();
-
-            // Kenarlık
-            ctx.strokeStyle = 'rgba(0,0,0,0.2)';
-            ctx.lineWidth = 2;
-            ctx.stroke();
+            // Kulaklar
+            ctx.beginPath(); ctx.arc(bear.x + 10, bear.y, 10, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(bear.x + bear.width - 10, bear.y, 10, 0, Math.PI*2); ctx.fill();
+            // Gözler
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath(); ctx.arc(bear.x + 15, bear.y + 20, 4, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(bear.x + bear.width - 15, bear.y + 20, 4, 0, Math.PI*2); ctx.fill();
+            // Burun
+            ctx.fillStyle = '#000';
+            ctx.beginPath(); ctx.arc(bear.x + bear.width/2, bear.y + 32, 5, 0, Math.PI*2); ctx.fill();
+            
+            // Jetpack (Sırt Çantası)
+            ctx.fillStyle = '#f59e0b';
+            ctx.fillRect(bear.x - 10, bear.y + 10, 10, 25);
+            
+            ctx.restore();
         }
 
         function endGame() {
@@ -634,12 +654,17 @@
             
             if (score > highScore) {
                 highScore = score;
-                localStorage.setItem('zonkaMergeHighScore', highScore);
+                localStorage.setItem('zonkaFlappyHighScore', highScore);
                 highScoreDisplay.innerText = highScore;
             }
             
             finalScore.innerText = score;
             gameOverBox.style.display = 'block';
+            
+            // Ekranı hafifçe titret (Buz kırılma efekti)
+            canvas.style.transform = "translate(5px, 5px)";
+            setTimeout(() => canvas.style.transform = "none", 100);
+            
             if (document.fullscreenElement) document.exitFullscreen();
         }
 
@@ -650,9 +675,23 @@
         startBtn.addEventListener('click', startGame);
         retryBtn.addEventListener('click', startGame);
         
-        // Başlangıçta boyutları ayarla
+        // roundRect desteği yoksa ekle
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+                if (w < 2 * r) r = w / 2;
+                if (h < 2 * r) r = h / 2;
+                this.beginPath();
+                this.moveTo(x + r, y);
+                this.arcTo(x + w, y, x + w, y + h, r);
+                this.arcTo(x + w, y + h, x, y + h, r);
+                this.arcTo(x, y + h, x, y, r);
+                this.arcTo(x, y, x + w, y, r);
+                this.closePath();
+                return this;
+            };
+        }
+        
         resizeCanvas();
-        mouseX = canvas.width / 2;
     </script>
 </body>
 </html>
