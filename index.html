@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zonka (ZNK) | The Arctic Awakens</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Solana Web3 Kütüphanesi (Cüzdan Bağlantısı İçin) -->
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <style>
         :root {
             --bg-light: #e0f2fe; 
@@ -17,7 +15,6 @@
             --text-dark: #0f172a;
             --text-muted: #475569;
             --white: #ffffff;
-            --success: #22c55e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +27,6 @@
             min-height: 100vh;
         }
 
-        /* Kırmızı Son Dakika Şeridi */
         .news-banner {
             background-color: #ef4444;
             color: white;
@@ -58,7 +54,6 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Üst Menü */
         nav {
             display: flex;
             justify-content: space-between;
@@ -66,7 +61,6 @@
             padding: 15px 5%;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
@@ -80,7 +74,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Hero Bölümü */
         .hero {
             text-align: center;
             padding: 40px 20px;
@@ -126,7 +119,6 @@
             color: var(--text-muted);
         }
 
-        /* Resim Alanı */
         .hero-image-container {
             width: 200px;
             height: 200px;
@@ -135,7 +127,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('logo.jpg'); /* Senin yüklediğin resim */
+            background-image: url('logo.jpg');
             background-size: cover;
             border-radius: 50%;
             border: 4px solid var(--primary);
@@ -156,11 +148,9 @@
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Satın Alma Kutusu */
         .buy-box-container {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 2px solid var(--white);
             border-radius: 24px;
             padding: 30px;
@@ -179,7 +169,6 @@
             text-transform: uppercase;
         }
 
-        /* Geri Sayım */
         .countdown {
             display: flex;
             justify-content: center;
@@ -210,7 +199,6 @@
             font-weight: 600;
         }
 
-        /* Fiyat Bilgisi */
         .price-info {
             display: flex;
             justify-content: space-between;
@@ -225,7 +213,6 @@
         .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px;}
         .price-info strong { font-size: 1.2rem; color: var(--primary); }
 
-        /* Cüzdan Bağla ve Satın Al Butonları */
         .wallet-btn {
             display: block;
             width: 100%;
@@ -273,7 +260,6 @@
             box-shadow: none;
         }
 
-        /* Bölümler */
         .section { padding: 50px 5%; max-width: 900px; margin: 0 auto; }
         
         .section-title {
@@ -286,7 +272,6 @@
             color: var(--text-dark);
         }
 
-        /* Vizyon */
         .vision-box {
             background: var(--white);
             padding: 30px;
@@ -299,7 +284,6 @@
             color: var(--text-muted);
         }
 
-        /* Tokenomics */
         .tokenomics-table {
             width: 100%;
             margin: 0 auto;
@@ -310,7 +294,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .tokenomics-table th, .tokenomics-table td {
+        .tokenomics-table th, .Texttokenomics-table td {
             padding: 15px 20px;
             border-bottom: 1px solid #e2e8f0;
             color: var(--text-dark);
@@ -318,7 +302,6 @@
         .tokenomics-table th { background: var(--bg-light); color: var(--primary); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
 
-        /* Kontrat Kutusu */
         .contract-box {
             background: var(--white);
             padding: 25px;
@@ -353,7 +336,6 @@
         }
         .copy-btn:hover { background: var(--primary-hover); }
 
-        /* Sosyal Medya Butonları */
         .socials-hero {
             display: flex;
             justify-content: center;
@@ -412,7 +394,6 @@
 </head>
 <body>
 
-    <!-- Kırmızı Duyuru Şeridi -->
     <div class="news-banner">
         <div class="marquee-content">
             BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
@@ -428,10 +409,8 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Resim Alanı -->
         <div class="hero-image-container"></div>
 
-        <!-- Satın Alma Kutusu -->
         <div class="buy-box-container">
             <h3>Buy $ZNK Tokens Now</h3>
             
@@ -461,7 +440,6 @@
             <p id="walletStatus" style="margin-top:10px; font-size:0.8rem; color:var(--text-muted);">Wallet not connected.</p>
         </div>
 
-        <!-- Sosyal Medya Butonları -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank">Telegram</a>
             <a href="https://x.com/zonka_coin" target="_blank">X (Twitter)</a>
@@ -510,24 +488,23 @@
         &copy; 2026 Zonka Coin. The Arctic Awakens. All rights reserved.
     </footer>
 
+    <!-- Solana Web3 ve Wallet Adapter Kütüphaneleri (Tüm Cüzdanlar İçin) -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    
     <script>
         // Geri Sayım Sayacı
         var countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
-
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
-
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
             if (distance < 0) {
                 clearInterval(x);
                 document.querySelector('.countdown').innerHTML = "<h3 style='color:var(--primary)'>PRESALE ENDED</h3>";
@@ -540,33 +517,43 @@
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-btn");
                 btn.innerText = "Copied!";
-                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+                setTimeout(() => { btn.inner = "Copy Address"; }, 2000);
             });
         }
 
-        // --- CÜZDAN BAĞLANTI MANTIĞI ---
+        // --- TÜM CÜZDANLARI DESTEKLEYEN BAĞLANTI MANTIĞI ---
         const connectBtn = document.getElementById('connectWallet');
         const buyBtn = document.getElementById('buyButton');
         const walletStatus = document.getElementById('walletStatus');
         let userPublicKey = null;
 
-        // Phantom veya Solflare cüzdanını kontrol et
+        // Evrensel Cüzdan Bulucu (Phantom, Solflare, Backpack, Trust vb.)
         const getProvider = () => {
-            if ('phantom' in window) {
-                const provider = window.phantom?.solana;
-                if (provider?.isPhantom) return provider;
-            }
-            if ('solflare' in window) {
-                return window.solflare;
-            }
+            // Phantom
+            if (window.phantom?.solana?.isPhantom) return window.phantom.solana;
+            // Solflare
+            if (window.solflare?.isSolflare) return window.solflare;
+            // Backpack
+            if (window.backpack) return window.backpack;
+            // Trust Wallet (Solana)
+            if (window.trustwallet?.solana) return window.trustwallet.solana;
+            // Coinbase Wallet (Solana)
+            if (window.coinbaseSolana) return window.coinbaseSolana;
+            // Nightly
+            if (window.nightly?.solana) return window.nightly.solana;
+            // Glow
+            if (window.glow) return window.glow;
+            // Genel Solana sağlayıcısı
+            if (window.solana) return window.solana;
+            
             return null;
         };
 
-        const provider = getProvider();
-
         connectBtn.addEventListener('click', async () => {
+            const provider = getProvider();
+
             if (!provider) {
-                alert("Lütfen Phantom veya Solflare cüzdanınızı yükleyin!");
+                alert("Cüzdan bulunamadı! Lütfen Phantom, Solflare, Backpack veya Trust Wallet gibi bir Solana cüzdanı yükleyin.");
                 return;
             }
 
@@ -575,20 +562,18 @@
                 userPublicKey = response.publicKey.toString();
                 walletStatus.innerText = "Connected: " + userPublicKey.substring(0, 5) + "..." + userPublicKey.substring(userPublicKey.length - 4);
                 connectBtn.innerText = "Wallet Connected";
-                connectBtn.style.background = "#22c55e"; // Yeşil renk
-                buyBtn.disabled = false; // Satın al butonunu aktif et
+                connectBtn.style.background = "#22c55e";
+                buyBtn.disabled = false;
             } catch (err) {
                 console.error(err);
-                alert("Cüzdan bağlantısı reddedildi.");
+                alert("Cüzdan bağlantısı reddedildi veya bir hata oluştu.");
             }
         });
 
         buyBtn.addEventListener('click', async () => {
             if (!userPublicKey) return;
 
-            // Burada normalde Solana Pay ile ödeme başlatılır.
-            // Ancak bu işlem için Cloudflare Worker'a ihtiyacımız var.
-            // Şimdilik kullanıcıya adresi gösterelim.
+            // Ödeme yönlendirmesi (Manuel)
             alert("Ödeme Adresi: D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF\n\nLütfen bu adrese SOL gönderin ve Telegram üzerinden bize ulaşın. Tokenleriniz manuel olarak gönderilecektir.");
         });
     </script>
