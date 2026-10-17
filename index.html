@@ -25,6 +25,23 @@
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* --- HAREKETLİ ARKA PLAN EFEKTİ (Kar Taneleri) --- */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            font-size: 1.5em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+            animation: fall linear infinite;
+            z-index: -1; /* İçeriğin arkasında kalması için */
+            pointer-events: none;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
         }
 
         /* Kırmızı Son Dakika Şeridi */
@@ -88,6 +105,8 @@
             align-items: center;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .hero h1 {
@@ -104,7 +123,7 @@
 
         @keyframes floatText {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); text-shadow: 0 10px 20px rgba(2, 132, 199, 0.3); }
             100% { transform: translateY(0); }
         }
 
@@ -125,7 +144,7 @@
             color: var(--text-muted);
         }
 
-        /* Resim Alanı */
+        /* Resim Alanı - Nefes Alma Efekti */
         .hero-image-container {
             width: 220px;
             height: 220px;
@@ -140,6 +159,14 @@
             border: 4px solid var(--primary);
             box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
             z-index: 10;
+            /* Resmin nefes alması için animasyon */
+            animation: pulseLogo 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseLogo {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(2, 132, 199,  0.4); }
+            50% { transform10: scale(1.03); box-shadow: 0 15pxpx 35px rgba( 2, 132, 199, 0.6); }
+            100% { transform: scale(1);30 box-shadow: 0 10px 25px rgba(2, px132, 199, 0.4); }
         }
 
         .hero-image-container::before {
@@ -149,7 +176,7 @@
             border-radius: 50%;
             border: 2px dashed var(--primary);
             animation: spin 12s linear infinite;
-            opacity: 0.5;
+            opacity: 0.6;
             z-index: -1;
         }
 
@@ -237,12 +264,27 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Butonun üzerinden geçen parlama efekti */
+        .buy-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            100% { left: 200%; }
         }
 
         .buy-btn:hover { transform: translateY(-3px); }
 
         /* Bölümler */
-        .section { padding: 60px 5%; max-width: 1000px; margin: 0 auto; }
+        .section { padding: 60px 5%; max-width: 1000px; margin: 0 auto; position: relative; z-index: 10;}
         
         .section-title {
             font-family: 'Montserrat', sans-serif;
@@ -276,7 +318,7 @@
             border-top: 4px solid var(--primary);
             transition: transform 0.3s;
         }
-        .step-card:hover { transform: translateY(-5px); }
+        .step-card:hover { transform: translateY(-8px) scale(1.02); }
         .step-icon { font-size: 2.5rem; margin-bottom: 15px; }
         .step-card h4 { color: var(--primary); margin-bottom: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
         .step-card p { font-size: 0.95rem; color: var(--text-muted); }
@@ -289,7 +331,9 @@
             border-radius: 16px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             border-left: 4px solid var(--secondary);
+            transition: transform 0.3s;
         }
+        .phase-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .phase-card h3 { color: var(--primary); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; font-size: 1.2rem;}
         .phase-card ul { list-style: none; }
         .phase-card ul li { margin-bottom: 15px; font-size: 1rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 12px;}
@@ -303,7 +347,7 @@
             border-left: 6px solid var(--primary);
             font-size: 1.1rem;
             line-height: 1.9;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 rgba(0,0,0,0.05);
             text-align: center;
             color: var(--text-muted);
         }
@@ -316,6 +360,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             overflow: hidden;
+            transition: 0.3s;
         }
         .faq-question {
             padding: 20px 25px;
@@ -330,14 +375,14 @@
             transition: background 0.3s;
             font-size: 1.05rem;
         }
-        .faq-question:hover { background: #f8fafc; }
+        .faq-question:hover { background: #f8fafc; color: var(--primary); }
         .faq-answer {
             padding: 0 25px;
             max-height: 0;
             overflow: hidden;
             color: var(--text-muted);
             font-size: 0.95rem;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            transition: max-height 0.4s ease-out, padding 0.3s ease;
             line-height: 1.7;
         }
         .faq-item.active .faq-answer {
@@ -411,7 +456,7 @@
             transition: 0.3s;
             font-size: 1rem;
         }
-        .copy-btn:hover { background: var(--primary-hover); }
+        .copy-btn:hover { background: var(--primary-hover); transform: scale(1.05); }
 
         /* Sosyal Medya */
         .socials-hero {
@@ -447,6 +492,7 @@
             color: var(--white); 
             transform: translateY(-3px); 
             border-color: var(--primary);
+            box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);
         }
 
         footer { 
@@ -458,6 +504,8 @@
             margin-top: 60px; 
             border-top: 1px solid #e2e8f0;
             font-weight: 600;
+            position: relative;
+            z-index: 10;
         }
 
         @media (max-width: 768px) {
@@ -473,6 +521,16 @@
     </style>
 </head>
 <body>
+
+    <!-- CSS Kar Taneleri -->
+    <div class="snowflake" style="left: 10%; animation-duration: 5s; opacity: 0.5;">❅</div>
+    <div class="snowflake" style="left: 20%; animation-duration: 8s; opacity: 0.8; font-size: 2em;">❆</div>
+    <div class="snowflake" style="left: 35%; animation-duration: 6s; opacity: 0.4;">❅</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 9s; opacity: 0.7; font-size: 1.8em;">❆</div>
+    <div class="snowflake" style="left: 65%; animation-duration: 4s; opacity: 0.6;">❅</div>
+    <div class="snowflake" style="left: 80%; animation-duration: 7s; opacity: 0.9; font-size: 2.2em;">❆</div>
+    <div class="snowflake" style="left: 90%; animation-duration: 5.5s; opacity: 0.5;">❅</div>
+    <div class="snowflake" style="left: 45%; animation-duration: 10s; opacity: 0.3;">❆</div>
 
     <!-- Kırmızı Duyuru Şeridi -->
     <div class="news-banner">
@@ -490,7 +548,7 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Resim Alanı -->
+        <!-- Resim Alanı (Nefes Alıyor) -->
         <div class="hero-image-container"></div>
 
         <!-- Satın Alma Kutusu -->
@@ -515,7 +573,7 @@
                 </div>
             </div>
 
-            <!-- Telegram Butonu -->
+            <!-- Telegram Butonu (Parlayan) -->
             <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
             <p style="margin-top:15px; font-size:0.85rem; color:var(--text-muted);">Click to join our Telegram and purchase securely.</p>
         </div>
@@ -695,13 +753,11 @@
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
-                // Diğer açık olanları kapat
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
-                // Tıklananı aç/kapat
                 item.classList.toggle('active');
             });
         });
