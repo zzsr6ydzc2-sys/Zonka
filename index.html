@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Zonka (ZNK) | Power & Sovereignty</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -30,7 +30,6 @@
             position: relative;
         }
 
-        /* Kar Taneleri */
         .snowflake {
             position: fixed;
             top: -10px;
@@ -48,7 +47,6 @@
         .snowflake:nth-child(2) { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
         .snowflake:nth-child(3) { color: var(--purple); text-shadow: 0 0 10px var(--purple); }
 
-        /* Kırmızı Son Dakika Şeridi */
         .news-banner {
             background: linear-gradient(90deg, #991b1b, #dc2626, #991b1b);
             background-size: 200% auto;
@@ -84,7 +82,6 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Üst Menü */
         nav {
             display: flex;
             justify-content: center;
@@ -99,7 +96,6 @@
             height: 60px;
         }
 
-        /* Hero Bölümü */
         .hero {
             text-align: center;
             padding: 60px 20px;
@@ -154,7 +150,6 @@
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
-        /* Logo Alanı */
         .hero-image-container {
             width: 280px;
             height: 280px;
@@ -192,7 +187,6 @@
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Satın Alma Kutusu */
         .buy-box-container {
             background: var(--glass);
             backdrop-filter: blur(25px);
@@ -266,7 +260,6 @@
 
         .buy-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(245, 158, 11, 0.6); color: #000;}
 
-        /* Bölümler */
         .section { padding: 80px 5%; max-width: 1100px; margin: 0 auto; position: relative; z-index: 10;}
         
         .section-title {
@@ -290,251 +283,96 @@
             box-shadow: 0 0 10px var(--gold);
         }
 
-        /* Nasıl Alınır (Adımlar) */
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
-        .step-card {
+        /* --- OYUN ALANI --- */
+        .game-container {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            padding: 40px 25px;
+            padding: 30px;
             border-radius: 24px;
+            border: 2px solid var(--gold);
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .step-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15); }
-        .step-icon { font-size: 3rem; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));}
-        .step-card h4 { color: var(--gold); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800;}
-        .step-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-        /* Yol Haritası (Roadmap) */
-        .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .phase-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: 3px solid var(--gold);
-            transition: all 0.4s ease;
-        }
-        .phase-card:hover { transform: translateY(-5px); border-top-color: var(--purple); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15); }
-        .phase-card h3 { color: #fff; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; font-size: 1.3rem; font-weight: 800;}
-        .phase-card ul { list-style: none; }
-        .phase-card ul li { margin-bottom: 18px; font-size: 1rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 15px; font-weight: 400;}
-        .phase-card ul li::before { content: '✦'; font-size: 1.1rem; color: var(--gold); margin-top: -2px; }
-
-        /* Vizyon */
-        .vision-box {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 50px;
-            border-radius: 24px;
-            border-left: 3px solid var(--gold);
-            font-size: 1.1rem;
-            line-height: 2;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            text-align: center;
-            color: var(--text-muted);
-            font-weight: 300;
+        
+        canvas {
+            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            border-radius: 12px;
+            border: 2px solid var(--gold-light);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+            width: 100%;
+            max-width: 700px;
+            height: 300px;
+            display: block;
+            margin: 0 auto;
         }
 
-        /* SSS (Accordion) */
-        .faq-container { max-width: 850px; margin: 0 auto; }
-        .faq-item {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            margin-bottom: 15px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .faq-item.active { border-color: var(--gold); box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15); }
-        .faq-question {
-            padding: 25px 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: #fff;
-            cursor: pointer;
+        .game-ui {
+            margin-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: color 0.3s;
-            font-size: 1.05rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            font-weight: 800;
         }
-        .faq-question:hover { color: var(--gold); }
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: max-height 0.4s ease-out, padding 0.3s ease;
-            line-height: 1.8;
-        }
-        .faq-item.active .faq-answer { max-height: 300px; padding: 0 30px 30px; }
-        .faq-item.active .faq-question { color: var(--gold); }
-        .faq-icon { transition: transform 0.3s; font-size: 0.9rem; color: var(--gold); }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
 
-        /* Tokenomics Tablosu */
-        .tokenomics-table {
-            width: 100%;
-            margin: 0 auto;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
+        .play-btn {
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+            transition: 0.3s;
         }
-        .tokenomics-table th, .tokenomics-table td {
-            padding: 20px 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-light);
-            font-weight: 400;
-        }
-        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; border: none; text-transform: uppercase; letter-spacing: 1px;}
-        .tokenomics-table tr:last-child td { border-bottom: none; }
-        .tokenomics-table tr:hover { background: rgba(255,255,255,0.03); }
-        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); font-size: 1.1rem;}
+        .play-btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
 
-        /* Kontrat Kutusu */
-        .contract-box {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 0 auto;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 750px;
-        }
-        .contract-box code {
-            display: block;
-            font-family: 'Courier New', monospace;
-            font-size: 1.05rem;
+        .game-over-box {
+            display: none;
+            margin-top: 20px;
             background: rgba(0,0,0,0.6);
             padding: 20px;
             border-radius: 12px;
-            margin-bottom: 30px;
-            word-break: break-all;
-            color: var(--gold-light);
-            font-weight: 700;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-        .copy-btn {
-            background: linear-gradient(90deg, var(--gold), #d97706);
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-family: 'Montserrat', sans-serif;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
-        }
-        .copy-btn:hover { background: linear-gradient(90deg, #d97706, var(--gold)); transform: scale(1.05); }
-
-        /* Sosyal Medya */
-        .socials-hero {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-            max-width: 700px;
-            margin: 50px auto 0;
+            border: 1px solid var(--gold);
         }
 
-        .socials-hero a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.03);
-            color: var(--text-light);
+        .game-over-box h4 { color: var(--gold); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; font-size: 1.5rem;}
+        .game-over-box p { color: #fff; margin-bottom: 20px; font-size: 1.2rem;}
+        
+        .telegram-btn {
+            background: #229ED9;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-            flex: 1;
-            min-width: 140px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            display: inline-block;
+            transition: 0.3s;
         }
-
-        .socials-hero a:hover { 
-            background: var(--gold); 
-            color: #000; 
-            transform: translateY(-5px) scale(1.05); 
-            border-color: var(--gold);
-            box-shadow: 0 15px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        /* Footer */
-        footer { 
-            text-align: center; 
-            padding: 40px 20px; 
-            background: rgba(0, 0, 0, 0.6); 
-            color: var(--text-muted); 
-            font-size: 0.9rem; 
-            margin-top: 80px; 
-            border-top: 1px solid rgba(245, 158, 11, 0.1);
-            font-weight: 300;
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer-verified {
-            font-size: 0.8rem; 
-            color: var(--gold-light); 
-            display: block; 
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-
-        .ssl-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .ssl-badge::before {
-            content: '🔒';
-            font-size: 1rem;
-        }
+        .telegram-btn:hover { background: #1a7cb3; transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
             .hero h2 { font-size: 1rem; letter-spacing: 4px;}
             .hero p { font-size: 1rem; }
             .price-info { flex-direction: column; gap: 15px; }
-            .socials-hero a { width: 100%; flex: auto; }
             .section-title { font-size: 2rem; margin-top: 60px; }
             .buy-box-container { padding: 30px 20px; }
+            .game-ui { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Kar Taneleri -->
     <div class="snowflake" style="left: 10%; animation-duration: 6s; font-size: 1.2em;">❅</div>
     <div class="snowflake" style="left: 20%; animation-duration: 9s; font-size: 2em;">❆</div>
     <div class="snowflake" style="left: 35%; animation-duration: 7s; font-size: 1.5em;">❅</div>
@@ -543,14 +381,12 @@
     <div class="snowflake" style="left: 80%; animation-duration: 8s; font-size: 2.5em;">❆</div>
     <div class="snowflake" style="left: 90%; animation-duration: 6.5s; font-size: 1.3em;">❅</div>
 
-    <!-- Kırmızı Duyuru Şeridi -->
     <div class="news-banner">
         <div class="marquee-content">
-            BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
+            BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
         </div>
     </div>
 
-    <!-- Üst Menü -->
     <nav></nav>
 
     <section class="hero">
@@ -576,141 +412,71 @@
             </div>
 
             <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
-            <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted); font-weight: 400;">Click to join our Telegram and purchase securely.</p>
-        </div>
-
-        <div class="socials-hero">
-            <a href="https://t.me/zonkacoin" target="_blank">Telegram</a>
-            <a href="https://x.com/zonka_coin" target="_blank">X (Twitter)</a>
-            <a href="https://youtube.com/@zonkacoin" target="_blank">YouTube</a>
-            <a href="https://www.instagram.com/zonkacoin" target="_blank">Instagram</a>
         </div>
     </section>
 
-    <section class="section" id="how-to-buy">
-        <h2 class="section-title">How to Buy</h2>
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-icon">👛</div>
-                <h4>1. Get a Wallet</h4>
-                <p>Download Phantom or Solflare wallet on your phone or PC.</p>
+    <!-- --- OYUN BÖLÜMÜ (ZONKA ICE RUNNER) --- -->
+    <section class="section" id="game">
+        <h2 class="section-title">Zonka Game</h2>
+        <div class="game-container">
+            <canvas id="gameCanvas" width="700" height="300"></canvas>
+            
+            <div class="game-ui">
+                <div>Score: <span id="scoreDisplay">0</span></div>
+                <div>High Score: <span id="highScoreDisplay">0</span></div>
             </div>
-            <div class="step-card">
-                <div class="step-icon">💸</div>
-                <h4>2. Fund with SOL</h4>
-                <p>Buy SOL from an exchange and send it to your wallet.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">✈️</div>
-                <h4>3. Join Telegram</h4>
-                <p>Click the presale button and contact our admins on Telegram.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">❄️</div>
-                <h4>4. Receive $ZNK</h4>
-                <p>Send SOL to the provided address and get your tokens instantly.</p>
+
+            <button id="startBtn" class="play-btn">Play Game</button>
+
+            <div id="gameOverBox" class="game-over-box">
+                <h4>Game Over!</h4>
+                <p>Your Score: <span id="finalScore">0</span></p>
+                <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 20px;">Screenshot your score and send it to our Telegram to claim your ZNK reward!</p>
+                <a href="https://t.me/zonkacoin" target="_blank" class="telegram-btn">Claim Reward on Telegram</a>
             </div>
         </div>
     </section>
 
-    <section class="section" id="roadmap">
-        <h2 class="section-title">Roadmap</h2>
-        <div class="roadmap-grid">
-            <div class="phase-card">
-                <h3>Phase 1: Awakening</h3>
-                <ul>
-                    <li>Website & Social Media Launch</li>
-                    <li>Smart Contract Deployment</li>
-                    <li>Presale Launch ($0.003)</li>
-                    <li>Community Building</li>
-                </ul>
-            </div>
-            <div class="phase-card">
-                <h3>Phase 2: The Thaw</h3>
-                <ul>
-                    <li>Presale Sell-out (20M ZNK)</li>
-                    <li>Raydium Liquidity Pool</li>
-                    <li>CoinGecko / CoinMarketCap</li>
-                    <li>Marketing Campaign</li>
-                </ul>
-            </div>
-            <div class="phase-card">
-                <h3>Phase 3: Arctic Empire</h3>
-                <ul>
-                    <li>CEX Listings (MEXC, Gate.io)</li>
-                    <li>Zonka Staking Platform</li>
-                    <li>Partnerships</li>
-                    <li>Global Expansion</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
+    <!-- Vizyon -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision</h2>
-        <div class="vision-box">
+        <div class="vision-box" style="background: var(--glass); backdrop-filter: blur(15px); padding: 50px; border-radius: 24px; border-left: 3px solid var(--gold); text-align: center; color: var(--text-muted); font-weight: 300; line-height: 2; font-size: 1.1rem; box-shadow: 0 15px 35px rgba(0,0,0,0.4);">
             Zonka aims to create a seamless and low-cost global payment ecosystem by leveraging the lightning-fast infrastructure of the Solana network. Like the endless glaciers of the north, we are building a solid, resilient, and long-lasting digital asset. Zonka is not just a coin; it is a movement.
         </div>
     </section>
 
-    <section class="section" id="tokenomics">
-        <h2 class="section-title">Tokenomics</h2>
-        <table class="tokenomics-table">
-            <thead>
-                <tr>
-                    <th>Allocation</th>
-                    <th>Percentage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Presale (20M ZNK)</td><td>33.9%</td></tr>
-                <tr><td>Liquidity Pool</td><td>15.2%</td></tr>
-                <tr><td>Reserve / Treasury</td><td>14.5%</td></tr>
-                <tr><td>Marketing & Development</td><td>14.4%</td></tr>
-                <tr><td>Community & Rewards</td><td>12.7%</td></tr>
-                <tr><td>Team (Locked 6 Months)</td><td>9.3%</td></tr>
-            </tbody>
-        </table>
-    </section>
-
+    <!-- SSS (FAQ) -->
     <section class="section" id="faq">
         <h2 class="section-title">FAQ</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">What is Zonka Coin (ZNK)? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Zonka is a community-driven digital asset built on the Solana network, designed for fast, low-cost global payments.</div>
+        <div class="faq-container" style="max-width: 850px; margin: 0 auto;">
+            <div class="faq-item" style="background: var(--glass); backdrop-filter: blur(15px); margin-bottom: 15px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); overflow: hidden; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);">
+                <div class="faq-question" style="padding: 25px 30px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">What is Zonka Coin (ZNK)? <span class="faq-icon" style="color: var(--gold);">▼</span></div>
+                <div class="faq-answer" style="padding: 0 30px; max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 0.95rem; transition: max-height 0.4s ease-out, padding 0.3s ease; line-height: 1.8;">Zonka is a community-driven digital asset built on the Solana network, designed for fast, low-cost global payments.</div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">How do I claim my tokens? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">After sending SOL to the designated address, your ZNK tokens will be sent manually to your wallet by our team within minutes. Please contact us on Telegram for confirmation.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Which blockchain is ZNK on? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Zonka (ZNK) is built on the Solana blockchain (SPL Token standard).</div>
+            <div class="faq-item" style="background: var(--glass); backdrop-filter: blur(15px); margin-bottom: 15px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); overflow: hidden; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);">
+                <div class="faq-question" style="padding: 25px 30px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">When will the presale end? <span class="faq-icon" style="color: var(--gold);">▼</span></div>
+                <div class="faq-answer" style="padding: 0 30px; max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 0.95rem; transition: max-height 0.4s ease-out, padding 0.3s ease; line-height: 1.8;">The presale will end once the 20 Million ZNK allocation is sold out.</div>
             </div>
         </div>
     </section>
 
     <section class="section" id="contract">
         <h2 class="section-title">Contract Address</h2>
-        <div class="contract-box">
+        <div class="contract-box" style="background: var(--glass); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; text-align: center; margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.5); max-width: 750px;">
             <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.95rem;">Copy the address below to add ZNK to your wallet.</p>
-            <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+            <code id="address" style="display: block; font-family: 'Courier New', monospace; font-size: 1.05rem; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; margin-bottom: 30px; word-break: break-all; color: var(--gold-light); font-weight: 700; border: 1px solid rgba(245, 158, 11, 0.2);">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
+            <button class="copy-btn" onclick="copyAddress()" style="background: linear-gradient(90deg, var(--gold), #d97706); color: #000; padding: 15px 40px; border-radius: 12px; font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 1rem;">Copy Address</button>
         </div>
     </section>
 
-    <footer>
+    <footer style="text-align: center; padding: 40px 20px; background: rgba(0, 0, 0, 0.6); color: var(--text-muted); font-size: 0.9rem; margin-top: 80px; border-top: 1px solid rgba(245, 158, 11, 0.1); font-weight: 300; position: relative; z-index: 10;">
         &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
-        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
-        <div class="ssl-badge">256-bit SSL Secured Connection</div>
+        <span style="font-size: 0.8rem; color: var(--gold-light); display: block; margin-top: 5px; margin-bottom: 15px;">Smart Contract Verified on Solana Blockchain.</span>
+        <div class="ssl-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); color: #34d399; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.3);">🔒 256-bit SSL Secured Connection</div>
     </footer>
 
     <script>
+        // Kopyalama Fonksiyonu
         function copyAddress() {
             const address = document.getElementById("address").innerText;
             navigator.clipboard.writeText(address).then(() => {
@@ -720,6 +486,7 @@
             });
         }
 
+        // SSS Mantığı
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -727,11 +494,200 @@
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                        otherItem.querySelector('.faq-answer').style.padding = "0 30px";
                     }
                 });
                 item.classList.toggle('active');
+                const answer = item.querySelector('.faq-answer');
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    answer.style.padding = "0 30px";
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.padding = "0 30px 30px";
+                }
             });
         });
+
+        // --- ZONKA ICE RUNNER OYUNU ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const highScoreDisplay = document.getElementById('highScoreDisplay');
+        const startBtn = document.getElementById('startBtn');
+        const gameOverBox = document.getElementById('gameOverBox');
+        const finalScore = document.getElementById('finalScore');
+
+        // Oyun Değişkenleri
+        let score = 0;
+        let highScore = localStorage.getItem('zonkaHighScore') || 0;
+        let gameLoop;
+        let isGameOver = true;
+        let frameCount = 0;
+
+        highScoreDisplay.innerText = highScore;
+
+        // Kutup Ayısı
+        const bear = {
+            x: 50,
+            y: 200,
+            width: 40,
+            height: 40,
+            velocityY: 0,
+            gravity: 0.6,
+            jumpPower: -12,
+            isJumping: false
+        };
+
+        // Engeller (Buz Kütleleri)
+        let obstacles = [];
+        const obstacleWidth = 30;
+        const obstacleHeight = 40;
+
+        // Zemin
+        const groundY = 240;
+
+        // Kutup Ayısı Çizimi (Basit)
+        function drawBear() {
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(bear.x + 20, bear.y + 20, 20, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.arc(bear.x + 15, bear.y + 15, 3, 0, Math.PI * 2);
+            ctx.arc(bear.x + 25, bear.y + 15, 3, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Engel Çizimi
+        function drawObstacle(obs) {
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+            ctx.fillStyle = '#0284c7';
+            ctx.fillRect(obs.x + 5, obs.y + 5, obs.width - 10, obs.height - 10);
+        }
+
+        // Oyunu Başlat
+        function startGame() {
+            isGameOver = false;
+            score = 0;
+            frameCount = 0;
+            obstacles = [];
+            bear.y = 200;
+            bear.velocityY = 0;
+            bear.isJumping = false;
+            scoreDisplay.innerText = score;
+            startBtn.style.display = 'none';
+            gameOverBox.style.display = 'none';
+            
+            if (gameLoop) clearInterval(gameLoop);
+            gameLoop = setInterval(updateGame, 1000 / 60); // 60 FPS
+        }
+
+        // Zıplama
+        function jump() {
+            if (!bear.isJumping && !isGameOver) {
+                bear.velocityY = bear.jumpPower;
+                bear.isJumping = true;
+            }
+        }
+
+        // Kontroller
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') jump();
+        });
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            jump();
+        });
+        canvas.addEventListener('mousedown', jump);
+
+        // Oyun Döngüsü
+        function updateGame() {
+            if (isGameOver) return;
+
+            frameCount++;
+            
+            // Skor Artışı
+            if (frameCount % 10 === 0) {
+                score++;
+                scoreDisplay.innerText = score;
+            }
+
+            // Fizik
+            bear.velocityY += bear.gravity;
+            bear.y += bear.velocityY;
+
+            // Zemine Çarpma
+            if (bear.y >= groundY - bear.height) {
+                bear.y = groundY - bear.height;
+                bear.velocityY = 0;
+                bear.isJumping = false;
+            }
+
+            // Engel Oluşturma
+            if (frameCount % 80 === 0) {
+                obstacles.push({
+                    x: canvas.width,
+                    y: groundY - obstacleHeight,
+                    width: obstacleWidth,
+                    height: obstacleHeight
+                });
+            }
+
+            // Engelleri Güncelle ve Çarpışma Kontrolü
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                obstacles[i].x -= 6; // Hız
+
+                // Çarpışma Kontrolü (Basit kutu çarpışması)
+                if (
+                    bear.x < obstacles[i].x + obstacles[i].width &&
+                    bear.x + bear.width > obstacles[i].x &&
+                    bear.y < obstacles[i].y + obstacles[i].height &&
+                    bear.y + bear.height > obstacles[i].y
+                ) {
+                    endGame();
+                }
+
+                // Ekrandan Çıkanları Sil
+                if (obstacles[i].x + obstacles[i].width < 0) {
+                    obstacles.splice(i, 1);
+                }
+            }
+
+            // Çizim
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Zemin Çizimi
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+            ctx.fillStyle = '#334155';
+            ctx.fillRect(0, groundY, canvas.width, 5);
+
+            drawBear();
+            obstacles.forEach(drawObstacle);
+        }
+
+        // Oyunu Bitir
+        function endGame() {
+            isGameOver = true;
+            clearInterval(gameLoop);
+            
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('zonkaHighScore', highScore);
+                highScoreDisplay.innerText = highScore;
+            }
+            
+            finalScore.innerText = score;
+            startBtn.style.display = 'none';
+            gameOverBox.style.display = 'block';
+        }
+
+        // Başlat Butonu
+        startBtn.addEventListener('click', startGame);
     </script>
 </body>
 </html>
