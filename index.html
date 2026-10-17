@@ -7,49 +7,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #071324;
-            --bg-light: #1e5799;
-            --primary: #00f0ff;
-            --secondary: #0077ff;
-            --red-banner: #ff2a2a;
-            --box-bg: #0b2342;
-            --text-light: #ffffff;
+            /* Açık ve ferah arka plan renkleri */
+            --bg-light: #e0f2fe; 
+            --bg-deep: #bae6fd;
+            --primary: #0284c7; /* Koyu buz mavisi */
+            --primary-hover: #0369a1;
+            --secondary: #38bdf8;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: var(--text-light);
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-deep) 100%);
+            color: var(--text-dark);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Kırmızı Son Dakika Şeridi - Kayan Yazı */
         .news-banner {
-            background-color: var(--red-banner);
+            background-color: #ef4444;
             color: white;
-            padding: 12px 0;
+            padding: 10px 0;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(255, 42, 42, 0.6);
+            box-shadow: 0 2px 10px rgba(239, 68, 68, 0.4);
             position: relative;
             z-index: 100;
-            overflow: hidden; 
-            white-space: nowrap; 
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         .marquee-content {
@@ -62,76 +56,81 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* Üst Menü */
+        /* Üst Menü (Daha hafif ve şık) */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            color: #fff;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Hero Bölümü */
+        /* Hero Bölümü - Daha kompakt ve ortalanmış */
         .hero {
             text-align: center;
-            padding: 60px 20px 40px;
-            position: relative;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
+        /* Yazılar (Daha uyumlu boyutta) */
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 5rem;
+            font-size: 3.8rem;
             font-weight: 900;
             line-height: 1.1;
             text-transform: uppercase;
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--primary), 0 0 40px var(--primary);
-            margin-bottom: 10px;
+            color: var(--text-dark);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5px;
             animation: floatText 3s ease-in-out infinite;
         }
 
         @keyframes floatText {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-5px); }
             100% { transform: translateY(0); }
         }
 
         .hero h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-            letter-spacing: 3px;
+            text-shadow: none;
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-weight: 600;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-weight: 400;
+            color: var(--text-muted);
         }
 
         /* Görsel İçin Alan ve Dönen Enerji Halkası */
         .hero-image-container {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 30px;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
             background-image: url('logo.png');
             background-size: contain;
             background-position: center;
@@ -141,233 +140,236 @@
             justify-content: center;
             align-items: center;
             border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 30px var(--primary), inset 0 0 20px var(--primary);
-            animation: pulseRing 2s infinite alternate;
+            background-color: var(--white);
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
         }
 
         .hero-image-container::after {
             content: '';
             position: absolute;
-                   top: -10px; left: -10px; right: -10px; bottom: -10px;
+            top: -12px; left: -12px; right: -12px; bottom: -12px;
             border-radius: 50%;
-            border: 2px dashed rgba(255,255,255,0.5);
-            animation: spin 10s linear infinite;
-        }
-
-        @keyframes pulseRing {
-            0% { box-shadow: 0 0 20px var(--primary), inset 0 0 10px var(--primary); transform: scale(0.98); }
-            100% { box-shadow: 0 0 50px var(--primary), inset 0 0 30px var(--primary); transform: scale(1.02); }
+            border: 2px dashed var(--primary);
+            animation: spin 12s linear infinite;
+            opacity: 0.5;
         }
 
         @keyframes spin {
             100% { transform: rotate(360deg); }
         }
 
-        /* Satın Alma Kutusu */
+        /* Satın Alma Kutusu (Cam Efektli ve Aydınlık) */
         .buy-box-container {
-            background: rgba(11, 35, 66, 0.85);
-            backdrop-filter: blur(15px);
-            border: 2px solid var(--primary);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--white);
+            border-radius: 24px;
             padding: 30px;
-            max-width: 600px;
+            width: 100%;
+            max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 20px rgba(0,240,255,0.2);
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15);
             text-align: center;
-            animation: boxPulse 3s infinite;
-        }
-
-        @keyframes boxPulse {
-            0% { border-color: rgba(0, 240, 255, 0.3); }
-            50% { border-color: rgba(0, 240, 255, 1); box-shadow: 0 0 30px rgba(0,240,255,0.4); }
-            100% { border-color: rgba(0, 240, 255, 0.3); }
         }
 
         .buy-box-container h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
-            color: #fff;
+            color: var(--text-dark);
             text-transform: uppercase;
         }
 
-        /* Geri Sayım (Countdown) */
+        /* Geri Sayım */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .time-block {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            padding: 15px 20px;
-            border-radius: 10px;
-            min-width: 80px;
+            background: var(--bg-light);
+            border: 1px solid var(--secondary);
+            padding: 10px 15px;
+            border-radius: 12px;
+            min-width: 70px;
         }
 
         .time-block span {
             display: block;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         .time-block small {
-            font-size: 0.8rem;
-            color: #ccc;
+            font-size: 0.7rem;
+            color: var(--text-muted);
             text-transform: uppercase;
+            font-weight: 600;
         }
 
-        /* Fiyat ve Buton */
+        /* Fiyat Bilgisi */
         .price-info {
             display: flex;
             justify-content: space-between;
-            background: rgba(0,0,0,0.4);
-            padding: 15px;
-            border-radius: 10px;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .price-info div { text-align: center; }
-        .price-info span { display: block; font-size: 0.85rem; color: #aaa; text-transform: uppercase; }
-        .price-info strong { font-size: 1.3rem; color: var(--primary); }
+        .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px;}
+        .price-info strong { font-size: 1.2rem; color: var(--primary); }
 
         /* Satın Alma Butonu */
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 20px;
-            background: linear-gradient(90deg, #00f0ff, #0077ff, #00f0ff);
-            background-size: 200% auto;
-            color: #000;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--white);
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             text-decoration: none;
             text-transform: uppercase;
-            border-radius: 10px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
-            transition: 0.5s;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-            animation: shine 3s linear infinite;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .buy-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.9);
-            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(2, 132, 199, 0.4);
         }
 
-        @keyframes shine {
-            to { background-position: 200% center; }
+        /* Buton Üzerinde Parlama Efekti */
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: all 0.5s ease;
         }
+        .buy-btn:hover::before { left: 100%; }
 
-        /* Bölümler */
-        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        /* Bölümler (Aydınlık tema) */
+        .section { padding: 60px 5%; max-width: 900px; margin: 0 auto; }
         
         .section-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px var(--primary);
+            color: var(--text-dark);
         }
 
         /* Vizyon */
         .vision-box {
-            background: var(--box-bg);
-            padding: 40px;
+            background: var(--white);
+            padding: 30px;
             border-radius: 20px;
             border-left: 6px solid var(--primary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.8;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
+            color: var(--text-muted);
         }
 
-        /* Tokenomics */
+        /* Tokenomics Tablosu */
         .tokenomics-table {
             width: 100%;
-            max-width: 800px;
             margin: 0 auto;
-            border-collapse: collapse;
-            background: var(--box-bg);
-            border-radius: 15px;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .tokenomics-table th, .tokenomics-table td {
             padding: 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-dark);
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--primary); font-family: 'Montserrat', sans-serif; }
+        .tokenomics-table th { background: var(--bg-light); color: var(--primary); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
-        .tokenomics-table tr:hover { background: rgba(0, 240, 255, 0.05); }
+        .tokenomics-table tr:hover { background: #f8fafc; }
 
-        /* Kontrat K .utusu */
+        /* Kontrat Kutusu */
         .contract-box {
-            background: var(--box-bsocialg);
-            padding: 25pxs;
-            border-radius: 15px;
-            text-align: center a;
-            max-width: 800px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
             margin: 0 auto;
- {
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            border: 2px solid var(--bg-deep);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .contract-box code {
             display: block;
-            font-family: monospace;
-            font-size: 1.1rem;
-            background: rgba(0,0,0,0.5);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            background: var(--bg-light);
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 15px;
             word-break: break-all;
             color: var(--primary);
+            font-weight: 600;
         }
         .copy-btn {
             background: var(--primary);
-            color: #000;
+            color: var(--white);
             padding: 10px 25px;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
             border: none;
             cursor: pointer;
             transition: 0.3s;
         }
-        .copy-btn:hover { background: #fff; box-shadow: 0 0 15px #fff; }
+        .copy-btn:hover { background: var(--primary-hover); box-shadow: 0 5px 15px rgba(2, 132, 199, 0.3); }
 
         /* Sosyal Medya */
-        .socials { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;}
-            background: var(--box-bg); color: #fff; text-decoration: none;
-            padding: 12px 25px; border-radius: 30px; font-weight: bold;
-            border: 2px solid var(--primary); transition: all 0.3s ease;
+        .socials { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px;}
+        .socials a {
+            background: var(--white); color: var(--primary); text-decoration: none;
+            padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;
+            border: 2px solid var(--bg-deep); transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         .socials a:hover { 
-            background: var(--primary); color: #000; 
-            transform: translateY(-5px) scale(1.1); 
-            box-shadow: 0 10px 20px rgba(0,240,255,0.4);
+            background: var(--primary); color: var(--white); 
+            transform: translateY(-3px); 
+            border-color: var(--primary);
+            box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);
         }
 
-        footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.6); color: #ccc; font-size: 0.9rem; margin-top: 50px;}
+        footer { text-align: center; padding: 30px; background: var(--white); color: var(--text-muted); font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #e2e8f0;}
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero h2 { font-size: 1.5rem; }
-            .countdown { gap: 8px; }
-            .time-block { padding: 10px; min-width: 60px; }
-            .time-block span { font-size: 1.5rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .countdown { gap: 5px; }
+            .time-block { padding: 8px 10px; min-width: 60px; }
+            .time-block span { font-size: 1.3rem; }
+            .price-info { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -387,12 +389,12 @@
     <section class="hero">
         <h1>ZONKA</h1>
         <h2>THE ARCTIC AWAKENS</h2>
-        <p>Congratulations! You are early to the party. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
+        <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Kutup Ayısı Görsel Alanı -->
+        <!-- Kutup Ayısı Görsel Alanı (Dönen Halka) -->
         <div class="hero-image-container"></div>
 
-        <!-- Satın Alma Kutusu -->
+        <!-- Satın Alma Kutusu (Cam Efektli) -->
         <div class="buy-box-container">
             <h3>Buy $ZNK Tokens Now</h3>
             
@@ -449,7 +451,7 @@
     <section class="section" id="contract">
         <h2 class="section-title">Contract Address</h2>
         <div class="contract-box">
-            <p style="margin-bottom: 10px; color: #aaa; font-size: 0.9rem;">Copy the address below to add ZNK to your wallet.</p>
+            <p style="margin-bottom: 10px; color: var(--text-muted); font-size: 0.9rem;">Copy the address below to add ZNK to your wallet.</p>
             <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
             <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
         </div>
@@ -464,7 +466,7 @@
 
     <footer>
         &copy; 2026 Zonka Coin. The Arctic Awakens. All rights reserved. <br> 
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #ff4d4d;">Cryptocurrencies carry high market risk. This is not financial advice.</p>
+        <p style="font-size: 0.75rem; margin-top: 10px; color: #ef4444;">Cryptocurrencies carry high market risk. This is not financial advice.</p>
     </footer>
 
     <script>
