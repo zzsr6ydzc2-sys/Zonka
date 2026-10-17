@@ -67,7 +67,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
+        .logo-text {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
@@ -123,29 +123,21 @@
             color: var(--text-muted);
         }
 
-        /* Kutup Ayısı Görsel Alanı */
+        /* SVG Logo Alanı */
         .hero-image-container {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             margin: 0 auto 25px;
-            background-image: url('logo.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
-            background-color: var(--white);
-            border: 4px solid var(--white);
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
         }
 
-        .hero-image-container::after {
+        .hero-image-container::before {
             content: '';
             position: absolute;
-            top: -12px; left: -12px; right: -12px; bottom: -12px;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
             border-radius: 50%;
             border: 2px dashed var(--primary);
             animation: spin 12s linear infinite;
@@ -329,7 +321,7 @@
         }
         .copy-btn:hover { background: var(--primary-hover); }
 
-        /* Sosyal Medya Butonları (Ana Ekranda ve Belirgin) */
+        /* Sosyal Medya Butonları (Ana Ekranda) */
         .socials-hero {
             display: flex;
             justify-content: center;
@@ -365,7 +357,7 @@
             box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3);
         }
 
-        /* Footer (Uyarı yazısı silindi) */
+        /* Footer */
         footer { 
             text-align: center; 
             padding: 30px; 
@@ -398,7 +390,7 @@
     </div>
 
     <nav>
-        <div class="logo">ZONKA</div>
+        <div class="logo-text">ZONKA</div>
     </nav>
 
     <section class="hero">
@@ -406,14 +398,42 @@
         <h2>THE ARCTIC AWAKENS</h2>
         <p>Congratulations! You are early. Buy and stake your tokens during the presale to maximize your rewards before the price skyrockets!</p>
 
-        <!-- Kutup Ayısı Görsel Alanı -->
-        <div class="hero-image-container"></div>
+        <!-- Hazır SVG Logo (Kutup Ayısı ve Buzul Teması) -->
+        <div class="hero-image-container">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; filter: drop-shadow(0px 10px 20px rgba(2, 132, 199, 0.4));">
+                <circle cx="100" cy="100" r="95" fill="#0f172a" stroke="#38bdf8" stroke-width="4"/>
+                <circle cx="100" cy="100" r="88" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="10 10"/>
+                <defs>
+                    <linearGradient id="aurora" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8"/>
+                        <stop offset="50%" stop-color="#0055ff" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="bearGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#94a3b8"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 20 100 Q 50 20 100 50 Q 150 80 180 20" fill="none" stroke="url(#aurora)" stroke-width="15" opacity="0.5"/>
+                <g fill="url(#bearGradient)">
+                    <circle cx="65" cy="70" r="12"/>
+                    <circle cx="135" cy="70" r="12"/>
+                    <path d="M 60 100 C 60 60, 140 60, 140 100 C 140 130, 110 150, 100 150 C 90 150, 60 130, 60 100 Z"/>
+                    <path d="M 85 120 Q 100 130 115 120 Q 100 140 85 120 Z" fill="#0f172a"/>
+                    <circle cx="80" cy="100" r="4" fill="#00f0ff" style="filter: drop-shadow(0 0 5px #00f0ff);"/>
+                    <circle cx="120" cy="100" r="4" fill="#00f0ff" style="filter: drop-shadow(0 0 5px #00f0ff);"/>
+                </g>
+                <path d="M 80 75 L 120 75 L 85 105 L 120 105" fill="none" stroke="#00f0ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="50" cy="140" r="2" fill="#ffffff" opacity="0.6"/>
+                <circle cx="150" cy="60" r="2" fill="#ffffff" opacity="0.6"/>
+                <circle cx="160" cy="130" r="3" fill="#ffffff" opacity="0.4"/>
+            </svg>
+        </div>
 
         <!-- Satın Alma Kutusu -->
         <div class="buy-box-container">
             <h3>Buy $ZNK Tokens Now</h3>
             
-            <!-- Geri Sayım -->
             <div class="countdown">
                 <div class="time-block"><span id="days">00</span><small>Days</small></div>
                 <div class="time-block"><span id="hours">00</span><small>Hours</small></div>
@@ -435,7 +455,7 @@
             <a href="https://t.me/zonkacoin" target="_blank" class="buy-btn">Join Presale Now</a>
         </div>
 
-        <!-- SOSYAL MEDYA BUTONLARI (Ana Ekranda Görünür) -->
+        <!-- Sosyal Medya Butonları -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank">Telegram</a>
             <a href="https://x.com/zonka_coin" target="_blank">X (Twitter)</a>
@@ -480,7 +500,6 @@
         </div>
     </section>
 
-    <!-- Footer (Risk uyarısı kaldırıldı) -->
     <footer>
         &copy; 2026 Zonka Coin. The Arctic Awakens. All rights reserved.
     </footer>
