@@ -22,7 +22,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-dark) 70%);
+            background: #020617;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -30,6 +30,36 @@
             position: relative;
         }
 
+        /* --- HAREKETLİ AURORA ARKA PLANI --- */
+        .aurora-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+            background-size: 400% 400%;
+            animation: auroraMove 20s ease infinite;
+        }
+        @keyframes auroraMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .aurora-lights {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+            animation: auroraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraPulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* --- KAR TANELERİ --- */
         .snowflake {
             position: fixed; top: -10px; font-size: 1.5em; font-family: Arial, sans-serif;
             animation: fall linear infinite; z-index: 0; pointer-events: none; opacity: 0.7;
@@ -65,19 +95,23 @@
             align-items: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 10;
         }
 
+        /* --- CANLI VE PARLAYAN BAŞLIK --- */
         .hero h1 {
             font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900;
             line-height: 1.1; text-transform: uppercase;
             background: linear-gradient(180deg, #fff, var(--gold-light), var(--gold));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)); margin-bottom: 10px;
-            animation: floatText 4s ease-in-out infinite;
+            animation: floatText 4s ease-in-out infinite, textGlow 3s infinite alternate;
         }
-
         @keyframes floatText {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.7));}
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
+        }
+        @keyframes textGlow {
+            0% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.3)); }
+            100% { filter: drop-shadow(0 0 35px rgba(245, 158, 11, 0.8)); }
         }
 
         .hero h2 {
@@ -92,13 +126,15 @@
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
+        /* --- ÇİFT DÖNEN HALKA VE LOGO --- */
         .hero-image-container {
             width: 280px; height: 280px; margin: 0 auto 50px; position: relative;
             display: flex; justify-content: center; align-items: center;
             background-image: url('logo.jpg'); background-size: cover; background-position: center;
             border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 50px rgba(245, 158, 11, 0.3), inset 0 0 30px rgba(0,0,0,0.9);
-            z-index: 10; animation: floatImage 6s ease-in-out infinite;
+            z-index: 10;
+            animation: floatImage 6s ease-in-out infinite;
         }
 
         @keyframes floatImage {
@@ -107,12 +143,19 @@
             100% { transform: translateY(0) scale(1); box-shadow: 0 0 40px rgba(245, 158, 11, 0.3);}
         }
 
+        /* Dönen Çift Halka */
         .hero-image-container::before {
-            content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
+            content: ''; position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px;
             border-radius: 50%; border: 2px dashed var(--gold-light);
-            animation: spin 20s linear infinite; opacity: 0.6; z-index: -1;
+            animation: spin 15s linear infinite; opacity: 0.6; z-index: -1;
+        }
+        .hero-image-container::after {
+            content: ''; position: absolute; top: -35px; left: -35px; right: -35px; bottom: -35px;
+            border-radius: 50%; border: 1px solid var(--purple);
+            animation: spinReverse 25s linear infinite; opacity: 0.4; z-index: -2;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spinReverse { 100% { transform: rotate(-360deg); } }
 
         .buy-box-container {
             background: var(--glass); backdrop-filter: blur(25px);
@@ -120,7 +163,9 @@
             padding: 45px 35px; width: 100%; max-width: 550px; margin: 0 auto 40px;
             box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(245, 158, 11, 0.2);
             text-align: center; position: relative;
+            transition: transform 0.3s;
         }
+        .buy-box-container:hover { transform: translateY(-5px); }
 
         .buy-box-container h3 {
             font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 30px;
@@ -176,12 +221,9 @@
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
 
-        /* Bağış ve Rozet Sistemi */
         .donation-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 40px;
         }
 
         .donation-card {
@@ -189,40 +231,39 @@
             padding: 30px; border-radius: 24px;
             border: 1px solid var(--glass-border);
             text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
         }
+        .donation-card:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15); }
 
         .donation-card h3 {
             color: var(--gold-light); font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem; margin-bottom: 20px;
         }
 
-        /* Bağış Havuzu Sayacı */
+        /* Bağış Havuzu Sayacı (Nabız Efekti) */
         .counter {
             font-family: 'Montserrat', sans-serif; font-size: 3rem;
             font-weight: 900; color: var(--gold); text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-            margin-bottom: 10px;
+            margin-bottom: 10px; animation: counterPulse 2s infinite alternate;
+        }
+        @keyframes counterPulse {
+            0% { transform: scale(1); text-shadow: 0 0 15px rgba(245, 158, 11, 0.3); }
+            100% { transform: scale(1.05); text-shadow: 0 0 30px rgba(245, 158, 11, 0.8); }
         }
         .counter-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
 
-        /* Rozet Tablosu */
-        .badge-table {
-            width: 100%; border-collapse: collapse; margin-bottom: 20px;
-        }
+        .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         .badge-table th, .badge-table td {
-            padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;
-            font-size: 0.9rem;
+            padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.9rem;
         }
         .badge-table th { color: var(--gold-light); }
         .badge-table tr:last-child td { border-bottom: none; }
 
-        /* Onur Listesi */
         .hall-of-fame {
-            background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px;
-            min-height: 100px;
+            background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; min-height: 100px;
         }
         .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; }
 
-        /* Bağış Butonu */
         .donate-btn {
             display: block; width: 100%; padding: 18px;
             background: linear-gradient(90deg, #ef4444, #b91c1c);
@@ -239,38 +280,23 @@
         }
         .donate-btn:hover { transform: translateY(-3px) scale(1.02); }
 
-        /* --- YENİ KAYDIRMALI YOL HARİTASI (ROADMAP) --- */
+        /* --- KAYDIRMALI YOL HARİTASI (ROADMAP) --- */
         .roadmap-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding-bottom: 25px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
+            display: flex; overflow-x: auto; gap: 30px; padding-bottom: 25px;
+            scroll-snap-type: x mandatory; scrollbar-width: thin;
             scrollbar-color: var(--gold) rgba(255,255,255,0.1);
         }
-
         .roadmap-slider::-webkit-scrollbar { height: 8px; }
         .roadmap-slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
         .roadmap-slider::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         .phase-card {
-            min-width: 85%;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: 3px solid var(--gold);
-            transition: all 0.4s ease;
-            scroll-snap-align: center;
+            min-width: 85%; background: var(--glass); backdrop-filter: blur(15px);
+            padding: 40px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--gold);
+            transition: all 0.4s ease; scroll-snap-align: center;
         }
-
-        @media(min-width: 768px) {
-            .phase-card { min-width: 32%; } 
-        }
-
+        @media(min-width: 768px) { .phase-card { min-width: 32%; } }
         .phase-card:hover { border-top-color: var(--purple); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15); }
         .phase-card h3 { color: #fff; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; font-size: 1.3rem; font-weight: 800;}
         .phase-card ul { list-style: none; }
@@ -281,8 +307,7 @@
         .faq-item {
             background: var(--glass); backdrop-filter: blur(15px);
             margin-bottom: 15px; border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            overflow: hidden; transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); overflow: hidden; transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.05);
         }
         .faq-item.active { border-color: var(--gold); box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15); }
@@ -296,8 +321,7 @@
         .faq-answer {
             padding: 0 30px; max-height: 0; overflow: hidden;
             color: var(--text-muted); font-size: 0.95rem;
-            transition: max-height 0.4s ease-out, padding 0.3s ease;
-            line-height: 1.8;
+            transition: max-height 0.4s ease-out, padding 0.3s ease; line-height: 1.8;
         }
         .faq-item.active .faq-answer { max-height: 300px; padding: 0 30px 30px; }
         .faq-item.active .faq-question { color: var(--gold); }
@@ -305,12 +329,10 @@
         .faq-item.active .faq-icon { transform: rotate(180deg); }
 
         .tokenomics-table {
-            width: 100%; margin: 0 auto;
-            border-collapse: separate; border-spacing: 0;
+            width: 100%; margin: 0 auto; border-collapse: separate; border-spacing: 0;
             background: var(--glass); backdrop-filter: blur(20px);
             border-radius: 20px; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);
         }
         .tokenomics-table th, .tokenomics-table td {
             padding: 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -325,16 +347,13 @@
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 40px; border-radius: 20px; text-align: center;
             margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 750px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); max-width: 750px;
         }
         .contract-box code {
             display: block; font-family: 'Courier New', monospace;
             font-size: 1.05rem; background: rgba(0,0,0,0.6);
-            padding: 20px; border-radius: 12px;
-            margin-bottom: 30px; word-break: break-all;
-            color: var(--gold-light); font-weight: 700;
-            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 20px; border-radius: 12px; margin-bottom: 30px; word-break: break-all;
+            color: var(--gold-light); font-weight: 700; border: 1px solid rgba(245, 158, 11, 0.2);
         }
         .copy-btn {
             background: linear-gradient(90deg, var(--gold), #d97706);
@@ -346,8 +365,7 @@
         .copy-btn:hover { background: linear-gradient(90deg, #d97706, var(--gold)); transform: scale(1.05); }
 
         .socials-hero {
-            display: flex; justify-content: center; gap: 20px;
-            flex-wrap: wrap; margin-top: 15px;
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px;
             max-width: 700px; margin: 50px auto 0;
         }
         .socials-hero a {
@@ -390,6 +408,10 @@
 </head>
 <body>
 
+    <!-- HAREKETLİ AURORA ARKA PLANI -->
+    <div class="aurora-bg"></div>
+    <div class="aurora-lights"></div>
+
     <div class="snowflake" style="left: 10%; animation-duration: 6s; font-size: 1.2em;">❅</div>
     <div class="snowflake" style="left: 20%; animation-duration: 9s; font-size: 2em;">❆</div>
     <div class="snowflake" style="left: 35%; animation-duration: 7s; font-size: 1.5em;">❅</div>
@@ -398,7 +420,6 @@
     <div class="snowflake" style="left: 80%; animation-duration: 8s; font-size: 2.5em;">❆</div>
     <div class="snowflake" style="left: 90%; animation-duration: 6.5s; font-size: 1.3em;">❅</div>
 
-    <!-- ÜST ŞERİT DÜZELTİLDİ -->
     <div class="news-banner">
         <div class="marquee-content">
             BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
@@ -440,7 +461,6 @@
         </div>
     </section>
 
-    <!-- ZONKA CARES & BAĞIŞ SİSTEMİ -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision: Zonka Cares</h2>
         
@@ -449,7 +469,6 @@
         </div>
 
         <div class="donation-layout">
-            <!-- Sol Taraf: Sayaç ve Buton -->
             <div class="donation-card">
                 <h3>Total Donations</h3>
                 <div class="counter">0 ZNK</div>
@@ -458,7 +477,6 @@
                 <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">Click to contact our team on Telegram and make your donation.</p>
             </div>
 
-            <!-- Sağ Taraf: Rozetler ve Onur Listesi -->
             <div class="donation-card">
                 <h3>Hero Badges</h3>
                 <table class="badge-table">
@@ -476,7 +494,6 @@
         </div>
     </section>
 
-    <!-- KAYDIRMALI YOL HARİTASI GERİ GELDİ -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-slider">
@@ -519,7 +536,6 @@
         </div>
     </section>
 
-    <!-- Nasıl Alınır (How to Buy) -->
     <section class="section" id="how-to-buy">
         <h2 class="section-title">How to Buy</h2>
         <div class="steps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px;">
@@ -546,7 +562,6 @@
         </div>
     </section>
 
-    <!-- Tokenomics -->
     <section class="section" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
         <table class="tokenomics-table">
@@ -567,7 +582,6 @@
         </table>
     </section>
 
-    <!-- SSS (FAQ) -->
     <section class="section" id="faq">
         <h2 class="section-title">FAQ</h2>
         <div class="faq-container">
