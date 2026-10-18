@@ -99,8 +99,7 @@
             background-image: url('logo.jpg'); background-size: cover; background-position: center;
             border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 50px rgba(245, 158, 11, 0.3), inset 0 0 30px rgba(0,0,0,0.9);
-            z-index: 10;
-            animation: pulseLogo 6s ease-in-out infinite;
+            z-index: 10; animation: pulseLogo 6s ease-in-out infinite;
         }
 
         @keyframes pulseLogo {
@@ -122,6 +121,7 @@
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @keyframes spinReverse { 100% { transform: rotate(-360deg); } }
 
+        /* --- GÜNCELLENMİŞ SATIN ALMA KUTUSU --- */
         .buy-box-container {
             background: var(--glass); backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border); border-radius: 30px;
@@ -149,6 +149,29 @@
             border-radius: 50%; margin-right: 5px; animation: blink 1s infinite alternate;
         }
         @keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; box-shadow: 0 0 10px #22c55e; } }
+
+        /* Cüzdan Adresi Kutusu */
+        .wallet-address-box {
+            background: rgba(0,0,0,0.6); border: 1px dashed var(--gold-light);
+            padding: 15px; border-radius: 12px; margin-bottom: 20px;
+        }
+        .wallet-address-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+        .wallet-address-box code {
+            display: block; font-family: 'Courier New', monospace; font-size: 0.9rem;
+            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
+        }
+        .copy-wallet-btn {
+            background: var(--gold); color: #000; border: none; padding: 6px 12px;
+            border-radius: 6px; font-size: 0.8rem; cursor: pointer; margin-top: 8px;
+            font-weight: bold; transition: 0.2s;
+        }
+        .copy-wallet-btn:hover { background: var(--gold-light); }
+
+        /* Satın Alma Adımları */
+        .buy-steps {
+            text-align: left; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);
+        }
+        .buy-steps li { margin-bottom: 10px; margin-left: 20px; }
 
         .buy-btn {
             display: block; width: 100%; padding: 22px;
@@ -202,7 +225,6 @@
             margin: 20px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
-        /* --- NEDEN ZONKA? --- */
         .features-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
             max-width: 1000px; margin: 0 auto;
@@ -217,7 +239,6 @@
         .feature-box h4 { font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 10px; font-size: 1.1rem;}
         .feature-box p { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* --- VİZYON VE BAĞIŞ ALANI --- */
         .vision-box {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 50px; border-radius: 24px;
@@ -284,29 +305,45 @@
             background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;
         }
 
-        /* --- SONSUZ KAYDIRMALI YOL HARİTASI --- */
-        .roadmap-slider {
-            display: flex; overflow-x: auto; gap: 30px; padding-bottom: 25px;
-            scroll-snap-type: x mandatory; scrollbar-width: thin;
-            scrollbar-color: var(--gold) rgba(255,255,255,0.1);
-            scroll-behavior: smooth;
+        /* --- SONSUZ KAYDIRMALI YOL HARİTASI (GERÇEK DÖNGÜ) --- */
+        .roadmap-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden; /* Dışarı taşanları gizle */
         }
-        .roadmap-slider::-webkit-scrollbar { height: 8px; }
-        .roadmap-slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
-        .roadmap-slider::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        
+        .roadmap-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease-in-out; /* Yumuşak geçiş */
+            /* İçeriğin genişliğine göre JS ile ayarlanacak */
+        }
 
         .phase-card {
-            min-width: 85%; background: var(--glass); backdrop-filter: blur(15px);
+            min-width: 300px; /* Mobil ve masaüstü için sabit genişlik */
+            flex: 0 0 auto;
+            background: var(--glass); backdrop-filter: blur(15px);
             padding: 40px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--gold);
-            transition: border-color 0.3s; scroll-snap-align: center;
+            scroll-snap-align: center;
         }
-        @media(min-width: 768px) { .phase-card { min-width: 32%; } }
-        .phase-card:hover { border-top-color: var(--purple); }
+        
         .phase-card h3 { color: #fff; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; font-size: 1.3rem; font-weight: 800;}
         .phase-card ul { list-style: none; }
         .phase-card ul li { margin-bottom: 18px; font-size: 1rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 15px; font-weight: 400;}
         .phase-card ul li::before { content: '✦'; font-size: 1.1rem; color: var(--gold); margin-top: -2px; }
+
+        /* Navigasyon Okları */
+        .nav-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.6); color: var(--gold); border: 1px solid var(--gold);
+            width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;
+            z-index: 20; display: flex; justify-content: center; align-items: center;
+            transition: 0.3s;
+        }
+        .nav-arrow:hover { background: var(--gold); color: #000; }
+        .prev-arrow { left: 10px; }
+        .next-arrow { right: 10px; }
 
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item {
@@ -391,7 +428,7 @@
             .price-info { flex-direction: column; gap: 15px; }
             .section-title { font-size: 2rem; margin-top: 60px; }
             .buy-box-container { padding: 30px 20px; }
-            .roadmap-slider { padding-bottom: 30px; }
+            .phase-card { min-width: 85vw; } /* Mobilde ekranın %85'i kadar genişlik */
         }
     </style>
 </head>
@@ -421,6 +458,7 @@
 
         <div class="hero-image-container"></div>
 
+        <!-- GÜNCELLENMİŞ SATIN ALMA AKIŞI -->
         <div class="buy-box-container">
             <h3>Buy $ZNK Tokens Now</h3>
             
@@ -435,12 +473,26 @@
                 </div>
             </div>
 
-            <!-- YÖNLENDİRME: KENDİ TELEGRAM HESABINA -->
-            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">Join Presale Now</a>
+            <!-- 1. Adım: Cüzdan Adresini Göster -->
+            <div class="wallet-address-box">
+                <p>1. Send SOL to this address:</p>
+                <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
+                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
+            </div>
+
+            <!-- 2. Adım: Bilgilendirme -->
+            <ul class="buy-steps">
+                <li>2. After sending SOL, click the button below.</li>
+                <li>3. Send us your transaction ID (TXID) on Telegram.</li>
+                <li>4. Receive your ZNK tokens instantly.</li>
+            </ul>
+
+            <!-- 3. Adım: Telegram'a Yönlendir -->
+            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">I Sent the Payment (Contact Us)</a>
         </div>
 
         <div class="socials-hero">
-            <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/zonka_coin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
@@ -480,7 +532,6 @@
                 <h3>Total Donations</h3>
                 <div class="counter">0 ZNK</div>
                 <div class="counter-desc">Every contribution feeds a child, supports stray animals, and protects nature.</div>
-                <!-- YÖNLENDİRME: KENDİ TELEGRAM HESABINA -->
                 <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">Donate ZNK Now 🤝</a>
                 <div class="donate-note">To make a donation, please contact our team on Telegram first to get the secure wallet address.</div>
             </div>
@@ -502,44 +553,51 @@
         </div>
     </section>
 
+    <!-- GERÇEK SONSUZ DÖNGÜLÜ YOL HARİTASI -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
-        <div class="roadmap-slider" id="roadmapSlider">
-            <div class="phase-card">
-                <h3>Phase 1: Awakening</h3>
-                <ul>
-                    <li>Website & Social Media Launch</li>
-                    <li>Smart Contract Deployment</li>
-                    <li>Presale Launch ($0.003)</li>
-                    <li>Community Building</li>
-                </ul>
-            </div>
-            <div class="phase-card">
-                <h3>Phase 2: The Thaw</h3>
-                <ul>
-                    <li>Presale Sell-out (20M ZNK)</li>
-                    <li>Raydium Liquidity Pool</li>
-                    <li>CoinGecko / CoinMarketCap</li>
-                    <li>Zonka Cares First Donation</li>
-                </ul>
-            </div>
-            <div class="phase-card">
-                <h3>Phase 3: Arctic Empire</h3>
-                <ul>
-                    <li>CEX Listings (MEXC, Gate.io)</li>
-                    <li>Zonka Staking Platform</li>
-                    <li>Global Partnerships</li>
-                    <li>Global Expansion</li>
-                </ul>
-            </div>
-            <div class="phase-card">
-                <h3>Phase 4: Ecosystem</h3>
-                <ul>
-                    <li>Zonka Cares Global Fund</li>
-                    <li>Community DAO Governance</li>
-                    <li>Exclusive NFT Rewards for Heroes</li>
-                    <li>Full Ecosystem Expansion</li>
-                </ul>
+        <div class="roadmap-wrapper">
+            <button class="nav-arrow prev-arrow" onclick="moveRoadmap(-1)">❮</button>
+            <button class="nav-arrow next-arrow" onclick="moveRoadmap(1)">❯</button>
+            
+            <div class="roadmap-track" id="roadmapTrack">
+                <!-- Kartlar JS ile çoğaltılacak -->
+                <div class="phase-card">
+                    <h3>Phase 1: Awakening</h3>
+                    <ul>
+                        <li>Website & Social Media Launch</li>
+                        <li>Smart Contract Deployment</li>
+                        <li>Presale Launch ($0.003)</li>
+                        <li>Community Building</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 2: The Thaw</h3>
+                    <ul>
+                        <li>Presale Sell-out (20M ZNK)</li>
+                        <li>Raydium Liquidity Pool</li>
+                        <li>CoinGecko / CoinMarketCap</li>
+                        <li>Zonka Cares First Donation</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 3: Arctic Empire</h3>
+                    <ul>
+                        <li>CEX Listings (MEXC, Gate.io)</li>
+                        <li>Zonka Staking Platform</li>
+                        <li>Global Partnerships</li>
+                        <li>Global Expansion</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 4: Ecosystem</h3>
+                    <ul>
+                        <li>Zonka Cares Global Fund</li>
+                        <li>Community DAO Governance</li>
+                        <li>Exclusive NFT Rewards for Heroes</li>
+                        <li>Full Ecosystem Expansion</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -637,6 +695,15 @@
             });
         }
 
+        function copyDepositAddress() {
+            const address = document.getElementById("depositAddress").innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector(".copy-wallet-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+            });
+        }
+
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -660,17 +727,59 @@
             });
         });
 
-        // --- SONSUZ YOL HARİTASI MANTIĞI ---
-        const slider = document.getElementById('roadmapSlider');
-        
-        // Kaydırma bittiğinde kontrol et
-        slider.addEventListener('scroll', () => {
-            // Eğer en sona ulaştıysa (veya 10px kaldıysa)
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                // Başa dön
-                slider.scrollTo({ left: 0, behavior: 'smooth' });
-            }
+        // --- GERÇEK SONSUZ YOL HARİTASI (INFINITE SLIDER) ---
+        const track = document.getElementById('roadmapTrack');
+        const originalCards = Array.from(track.children);
+        let currentIndex = 0;
+        let cardWidth = 0;
+        let gap = 30; // CSS'teki gap değeri
+
+        // Başlangıçta kartları çoğalt (Sonsuz döngü hissi için)
+        // Hem başa hem sona kopyalar ekliyoruz
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone); // Sona ekle
         });
+        originalCards.slice().reverse().forEach(card => {
+            const clone = card.cloneNode(true);
+            track.prepend(clone); // Başa ekle
+        });
+
+        // Genişlikleri hesapla
+        function updateDimensions() {
+            const card = track.querySelector('.phase-card');
+            cardWidth = card.offsetWidth;
+            // Başlangıç pozisyonunu ortadaki (orijinal) ilk karta ayarla
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${originalCards.length * (cardWidth + gap)}px)`;
+            currentIndex = 0;
+        }
+
+        window.addEventListener('resize', updateDimensions);
+        updateDimensions(); // İlk yüklemede çalıştır
+
+        function moveRoadmap(direction) {
+            currentIndex += direction;
+            const moveAmount = currentIndex * (cardWidth + gap);
+            
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = `translateX(-${originalCards.length * (cardWidth + gap) + moveAmount}px)`;
+
+            // Döngü kontrolü (Transition bittikten sonra)
+            setTimeout(() => {
+                if (currentIndex >= originalCards.length) {
+                    // Sona geldiyse, başa dön (görünmez geçiş)
+                    track.style.transition = 'none';
+                    currentIndex = 0;
+                    track.style.transform = `translateX(-${originalCards.length * (cardWidth + gap)}px)`;
+                } else if (currentIndex < 0) {
+                    // Başa geldiyse, sona dön (görünmez geçiş)
+                    track.style.transition = 'none';
+                    currentIndex = originalCards.length - 1;
+                    track.style.transform = `translateX(-${originalCards.length * (cardWidth + gap) + currentIndex * (cardWidth + gap)}px)`;
+                }
+            }, 500); // 500ms CSS transition süresiyle eşleşmeli
+        }
     </script>
 </body>
 </html>
