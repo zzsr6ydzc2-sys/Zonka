@@ -176,35 +176,68 @@
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
 
+        /* Bağış ve Rozet Sistemi */
+        .donation-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .donation-card {
+            background: var(--glass); backdrop-filter: blur(15px);
+            padding: 30px; border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .donation-card h3 {
+            color: var(--gold-light); font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem; margin-bottom: 20px;
+        }
+
         /* Bağış Havuzu Sayacı */
-        .donation-counter-box {
-            background: rgba(245, 158, 11, 0.1);
-            border: 2px solid var(--gold);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 0 auto;
-            max-width: 600px;
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
-        }
-        .donation-counter-box h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        .donation-counter-box .amount {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--gold-light);
-            text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        .counter {
+            font-family: 'Montserrat', sans-serif; font-size: 3rem;
+            font-weight: 900; color: var(--gold); text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
             margin-bottom: 10px;
         }
-        .donation-counter-box p {
-            color: var(--text-muted);
+        .counter-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+        /* Rozet Tablosu */
+        .badge-table {
+            width: 100%; border-collapse: collapse; margin-bottom: 20px;
+        }
+        .badge-table th, .badge-table td {
+            padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;
             font-size: 0.9rem;
         }
+        .badge-table th { color: var(--gold-light); }
+        .badge-table tr:last-child td { border-bottom: none; }
+
+        /* Onur Listesi */
+        .hall-of-fame {
+            background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px;
+            min-height: 100px;
+        }
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; }
+
+        /* Bağış Butonu */
+        .donate-btn {
+            display: block; width: 100%; padding: 18px;
+            background: linear-gradient(90deg, #ef4444, #b91c1c);
+            color: #fff; text-align: center; text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.1rem;
+            border-radius: 12px; text-transform: uppercase; letter-spacing: 1px;
+            transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.4);
+            animation: pulseRed 2s infinite;
+        }
+        @keyframes pulseRed {
+            0% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+        }
+        .donate-btn:hover { transform: translateY(-3px) scale(1.02); }
 
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item {
@@ -367,7 +400,7 @@
         </div>
     </section>
 
-    <!-- YENİ: ZONKA CARES & VİZYON -->
+    <!-- ZONKA CARES & BAĞIŞ SİSTEMİ -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision: Zonka Cares</h2>
         
@@ -375,11 +408,31 @@
             Zonka (ZNK) is not just a token to hold in your wallet; it is a movement that <strong>feeds a child, gives a home to a street animal, and protects our planet</strong>. Powered by the speed of the Solana network, ZNK provides gains to its community while also touching the world through the <strong>"Zonka Cares"</strong> fund. For us, success is not just the price going up, but the change we create together.
         </div>
 
-        <!-- BAĞIŞ HAVUZU SAYACI (0 ZNK) -->
-        <div class="donation-counter-box">
-            <h4>Total Donations Raised</h4>
-            <div class="amount">0 ZNK</div>
-            <p>Every 100,000 ZNK transaction feeds a child, supports stray animals, and protects nature. Thank you for being part of this change.</p>
+        <div class="donation-layout">
+            <!-- Sol Taraf: Sayaç ve Buton -->
+            <div class="donation-card">
+                <h3>Total Donations</h3>
+                <div class="counter">0 ZNK</div>
+                <div class="counter-desc">Every contribution feeds a child, supports stray animals, and protects nature.</div>
+                <a href="https://t.me/zonkacoin" target="_blank" class="donate-btn">Donate ZNK Now 🤝</a>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">Click to contact our team on Telegram and make your donation.</p>
+            </div>
+
+            <!-- Sağ Taraf: Rozetler ve Onur Listesi -->
+            <div class="donation-card">
+                <h3>Hero Badges</h3>
+                <table class="badge-table">
+                    <tr><th>Donation Amount</th><th>Badge Earned</th></tr>
+                    <tr><td>1,000 ZNK</td><td>🥉 Bronze Hero</td></tr>
+                    <tr><td>5,000 ZNK</td><td>🥈 Silver Hero</td></tr>
+                    <tr><td>10,000 ZNK</td><td>🥇 Gold Hero</td></tr>
+                    <tr><td>50,000 ZNK</td><td>💎 Diamond Legend</td></tr>
+                </table>
+                <h3 style="font-size: 1.2rem; margin-top: 20px;">Hall of Fame</h3>
+                <div class="hall-of-fame">
+                    <p>Be the first hero to appear here!</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -444,12 +497,12 @@
                 <div class="faq-answer">Zonka Cares is our charity initiative. A portion of transaction fees and treasury funds are allocated to feed children, support stray animals, and protect nature globally.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out.</div>
+                <div class="faq-question">How do I earn Hero Badges? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">You can earn Hero Badges by donating ZNK to the Zonka Cares fund. Donations of 1,000 ZNK earn Bronze, 5,000 earn Silver, 10,000 earn Gold, and 50,000 earn Diamond Legend status.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">How do I claim my tokens? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">After sending SOL to the designated address, your ZNK tokens will be sent manually to your wallet by our team within minutes. Please contact us on Telegram for confirmation.</div>
+                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">The presale will end once the 20 Million ZNK allocation is sold out.</div>
             </div>
         </div>
     </section>
