@@ -203,6 +203,23 @@
         }
         .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
 
+        /* YENİ EKLENEN: 48 SAATLİK DAĞITIM BİLGİ NOTU TASARIMI */
+        .distribution-note {
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            color: #34d399;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
         .socials-hero {
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
         }
@@ -251,7 +268,6 @@
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
 
-        /* --- GÜNCELLENMİŞ BAĞIŞ ALANI --- */
         .donation-layout {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px; margin-top: 30px;
@@ -354,7 +370,6 @@
         .tokenomics-table tr:last-child td { border-bottom: none; }
         .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); }
 
-        /* --- YENİ EKLENEN: EKİP KİLİT BÖLÜMÜ TASARIMI --- */
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 30px; border-radius: 20px;
@@ -480,10 +495,15 @@
             <ul class="buy-steps">
                 <li>2. After sending SOL, click below.</li>
                 <li>3. Send TXID on Telegram.</li>
-                <li>4. Receive ZNK instantly.</li>
+                <li>4. Receive ZNK instantly (within 48h after sale ends).</li>
             </ul>
 
             <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">I Sent the Payment (Contact Us)</a>
+            
+            <!-- YENİ EKLENEN: 48 SAATLİK DAĞITIM BİLGİ NOTU -->
+            <div class="distribution-note">
+                <i class="fas fa-clock"></i> All tokens will be distributed within 48 hours after the presale ends.
+            </div>
         </div>
 
         <div class="socials-hero">
@@ -510,7 +530,7 @@
             <div class="feature-box">
                 <div class="feature-icon">🔒</div>
                 <h4>Transparent</h4>
-                <p>6M Team tokens are securely locked for 4 months. Click Tokenomics to see the proof.</p>
+                <p>Team tokens locked & all presale tokens distributed within 48 hours after sale.</p>
             </div>
         </div>
     </section>
@@ -532,7 +552,6 @@
                 
                 <div class="donation-wallet-box">
                     <p>1. Send ZNK to this address:</p>
-                    <!-- KULLANICININ VERDİĞİ CÜZDAN ADRESİ -->
                     <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
@@ -681,7 +700,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">The presale will end once the 15 Million ZNK allocation is sold out.</div>
+                <div class="faq-answer">The presale will end once the 15 Million ZNK allocation is sold out. All tokens will be distributed within 48 hours after the presale ends.</div>
             </div>
         </div>
     </section>
