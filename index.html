@@ -223,6 +223,18 @@
         }
         .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.7); color: #000;}
 
+        /* 48 SAAT YAZISI KALDIRILDI, YERİNE DAHA ŞIK BİR NOT EKLENDİ */
+        .distribution-note {
+            margin-top: 15px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
         .socials-hero {
             display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 15px;
         }
@@ -278,47 +290,62 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px; margin-top: 20px;
         }
+        
+        /* BAĞIŞ KARTI PREMIUM TASARIM */
         .donation-card {
             background: var(--glass); backdrop-filter: blur(15px);
-            padding: 20px; border-radius: 15px;
+            padding: 25px 20px; border-radius: 16px;
             border: 1px solid var(--glass-border); text-align: center;
+            position: relative; overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px -10px rgba(245,158,11,0.15);
+            border-color: rgba(245, 158, 11, 0.6);
         }
         .donation-card h3 {
             color: var(--gold-light); font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem; margin-bottom: 10px;
+            font-size: 1.2rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(245,158,11,0.3);
         }
         .counter {
-            font-family: 'Montserrat', sans-serif; font-size: 2rem;
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem;
             font-weight: 900; color: var(--gold); margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(245,158,11,0.4);
+            text-shadow: 0 0 20px rgba(245,158,11,0.5);
         }
-        .counter-desc { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 15px; }
+        .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
         
         .donation-wallet-box {
             background: rgba(0,0,0,0.6); border: 1px dashed var(--gold-light);
-            padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: left;
+            padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: left;
+            box-shadow: inset 0 0 15px rgba(245,158,11,0.05);
         }
-        .donation-wallet-box p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 5px; }
+        .donation-wallet-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; font-weight: 600; }
         .donation-wallet-box code {
-            display: block; font-family: 'Courier New', monospace; font-size: 0.8rem;
+            display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
             color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
         }
         .copy-donate-btn {
-            background: var(--gold); color: #000; border: none; padding: 5px 10px;
-            border-radius: 5px; font-size: 0.7rem; cursor: pointer; margin-top: 5px; font-weight: bold;
+            background: var(--gold); color: #000; border: none; padding: 6px 12px;
+            border-radius: 5px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
+            transition: all 0.3s;
         }
+        .copy-donate-btn:hover { background: var(--gold-light); box-shadow: 0 0 10px rgba(245,158,11,0.5); }
 
         .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
         .badge-table th, .badge-table td {
-            padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.8rem;
+            padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.85rem;
         }
-        .badge-table th { color: var(--gold-light); }
-        .hall-of-fame { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 10px; min-height: 60px; display: flex; align-items: center; justify-content: center;}
-        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem;}
+        .badge-table th { color: var(--gold-light); font-weight: 600; }
+        .hall-of-fame { background: rgba(0,0,0,0.5); border-radius: 8px; padding: 15px; min-height: 60px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05);}
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.9rem;}
         
         .donate-note {
-            color: var(--text-muted); font-size: 0.75rem; margin-top: 10px;
-            background: rgba(0,0,0,0.3); padding: 6px; border-radius: 5px;
+            color: var(--text-muted); font-size: 0.75rem; margin-top: 15px;
+            background: rgba(0,0,0,0.4); padding: 8px; border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .roadmap-wrapper {
@@ -454,7 +481,7 @@
             .hero h1 { font-size: 2.8rem; }
             .hero h2 { font-size: 0.8rem; letter-spacing: 3px;}
             .buy-box-container { padding: 15px 12px; }
-            .donation-card { padding: 15px; }
+            .donation-card { padding: 20px 15px; }
         }
     </style>
 </head>
@@ -520,7 +547,7 @@
 
             <div class="wallet-address-box">
                 <p>1. SOL'u bu adrese gönderin:</p>
-                <!-- ADRES BURADA GÜNCELLENDİ -->
+                <!-- ADRES BURADA -->
                 <code id="depositAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
             </div>
@@ -528,13 +555,14 @@
             <ul class="buy-steps">
                 <li>2. SOL gönderdikten sonra aşağıya tıklayın.</li>
                 <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                <li>4. Ön satış bittikten sonra 48 saat içinde ZNK'nizi alın.</li>
+                <li>4. ZNK tokenlerinizi cüzdanınıza alın.</li>
             </ul>
 
             <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">Ödemeyi Yaptım (Bize Ulaşın)</a>
             
+            <!-- 48 SAAT YAZISI KALDIRILDI -->
             <div class="distribution-note">
-                <i class="fas fa-clock"></i> Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.
+                <i class="fas fa-info-circle"></i> İşleminizi onaylamak için Telegram üzerinden ekibimize ulaşın.
             </div>
         </div>
 
@@ -562,7 +590,7 @@
             <div class="feature-box">
                 <div class="feature-icon">🔒</div>
                 <h4>Şeffaf</h4>
-                <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra 48 saat içinde dağıtılır.</p>
+                <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra dağıtılır.</p>
             </div>
         </div>
     </section>
@@ -574,40 +602,34 @@
             Zonka (ZNK) sadece bir token değil; <strong>bir çocuğu doyuracak, sokak hayvanına yuva yapacak ve gezegenimizi koruyacak</strong> bir harekettir. Solana'nın hızıyla desteklenen ZNK, <strong>"Zonka Cares"</strong> fonu aracılığıyla dünyaya dokunurken topluluğuna kazanç sağlar.
         </div>
 
-        <!-- BURASI ÖN SATIŞ PANELİ OLARAK GÜNCELLENDİ -->
+        <!-- BURASI İSTEDİĞİN GİBİ PREMIUM BİR BAĞIŞ PANELİ OLARAK KALDI -->
         <div class="donation-layout">
-            <div class="donation-card" style="border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.15);">
-                <h3 style="color: var(--gold); text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-shopping-cart"></i> Ön Satış Paneli</h3>
+            <div class="donation-card">
+                <h3><i class="fas fa-hand-holding-heart"></i> Toplam Bağış</h3>
                 
-                <div style="background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
-                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 5px;">Şu Ana Kadar Toplanan</p>
-                    <div class="counter" style="font-size: 2.2rem; margin-bottom: 0;">0 SOL</div>
-                </div>
+                <div class="counter">0 ZNK</div>
+                <div class="counter-desc">Her katkı bir fark yaratır.</div>
 
-                <div class="donation-wallet-box" style="border-color: var(--cyan);">
-                    <p>SOL'u bu adrese gönderin:</p>
-                    <code id="donationAddress" style="color: var(--cyan);">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
-                    <button class="copy-donate-btn" onclick="copyDonationAddress()" style="background: var(--cyan);">Adresi Kopyala</button>
+                <div class="donation-wallet-box">
+                    <p>1. ZNK'yı bu adrese gönderin:</p>
+                    <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Adresi Kopyala</button>
                 </div>
 
                 <ul class="buy-steps" style="margin-bottom: 20px;">
-                    <li>1. Yukarıdaki adrese SOL gönderin.</li>
-                    <li>2. İşlem Kodu'nu (TXID) kopyalayın.</li>
-                    <li>3. Telegram üzerinden bize iletin.</li>
-                    <li>4. ZNK tokenleriniz anında cüzdanınıza gelsin!</li>
+                    <li>2. ZNK gönderdikten sonra aşağıya tıklayın.</li>
+                    <li>3. Telegram üzerinden TXID'yi gönderin.</li>
+                    <li>4. Kahraman Rozetinizi alın!</li>
                 </ul>
 
-                <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn" style="background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));">
-                    <i class="fab fa-telegram-plane"></i> SATIN ALMAYI TAMAMLA
+                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">
+                    <i class="fas fa-heart"></i> BAĞIŞI YAPTIM (BİZE ULAŞIN)
                 </a>
-                <div class="donate-note" style="margin-top: 15px; color: var(--text-muted);">
-                    İşleminizi onaylamak için TXID'niz ile Telegram üzerinden ekibimize ulaşın.
-                </div>
+                <div class="donate-note">Rozetinizi onaylamak ve almak için TXID'niz ile Telegram üzerinden ekibimizle iletişime geçin.</div>
             </div>
 
-            <!-- SAĞ TARAFTAKİ ROZET TABLOSU KALDI -->
             <div class="donation-card">
-                <h3>Kahraman Rozetleri</h3>
+                <h3><i class="fas fa-medal"></i> Kahraman Rozetleri</h3>
                 <table class="badge-table">
                     <tr><th>Miktar</th><th>Rozet</th></tr>
                     <tr><td>1.000 ZNK</td><td>🥉 Bronz</td></tr>
@@ -615,7 +637,7 @@
                     <tr><td>10.000 ZNK</td><td>🥇 Altın</td></tr>
                     <tr><td>50.000 ZNK</td><td>💎 Elmas</td></tr>
                 </table>
-                <h3 style="font-size: 0.9rem; margin-top: 10px;">Onur Listesi</h3>
+                <h3 style="font-size: 0.9rem; margin-top: 15px;"><i class="fas fa-star"></i> Onur Listesi</h3>
                 <div class="hall-of-fame">
                     <p>İlk kahraman olun!</p>
                 </div>
@@ -735,7 +757,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">Ön satış ne zaman bitecek? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">15 Milyon ZNK tahsisatı tükendiğinde ön satış sona erecektir. Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.</div>
+                <div class="faq-answer">15 Milyon ZNK tahsisatı tükendiğinde ön satış sona erecektir. Tüm tokenler ön satış bittikten sonra dağıtılacaktır.</div>
             </div>
         </div>
     </section>
