@@ -28,16 +28,16 @@
             --purple: #8b5cf6;
             --cyan: #06b6d4;
             --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass: rgba(15, 23, 42, 0.6);
+            --text-muted: #cbd5e1; /* Yazıların arka planda okunması için rengi biraz açtık */
+            --glass: rgba(10, 15, 30, 0.75); /* Kutuların içi hafif koyu kaldı ki yazılar okunsun */
             --glass-border: rgba(245, 158, 11, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* Arka plana çok hafif, koyu bir dağ silüeti eklendi. Ana renk paleti korundu. */
-            background: linear-gradient(rgba(5, 8, 20, 0.92), rgba(5, 8, 20, 0.98)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
+            /* ARKA PLAN DAHA BELİRGİN HALE GETİRİLDİ */
+            background: linear-gradient(rgba(5, 8, 20, 0.6), rgba(5, 8, 20, 0.85)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
@@ -49,7 +49,7 @@
 
         .snowflake {
             position: fixed; top: -10px; font-size: 1.2em; font-family: Arial, sans-serif;
-            animation: fall linear infinite; z-index: 0; pointer-events: none; opacity: 0.5;
+            animation: fall linear infinite; z-index: 0; pointer-events: none; opacity: 0.6;
         }
         @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
         .snowflake:nth-child(1) { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
@@ -72,8 +72,7 @@
 
         nav {
             display: flex; justify-content: center; align-items: center;
-            padding: 15px 5%; background: rgba(5, 8, 20, 0.8);
-            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 15px 5%; background: transparent; /* Navbar şeffaf yapıldı */
             position: sticky; top: 0; z-index: 99; height: 50px;
         }
 
@@ -87,7 +86,7 @@
             line-height: 1.1; text-transform: uppercase;
             background: linear-gradient(180deg, #fff, var(--gold-light), var(--gold));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.3)); margin-bottom: 5px;
+            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5)); margin-bottom: 5px;
             animation: floatText 5s ease-in-out infinite;
         }
 
@@ -100,44 +99,44 @@
         .hero h2 {
             font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 400;
             margin-bottom: 40px; color: var(--gold-light); letter-spacing: 6px;
-            text-transform: uppercase;
+            text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero p {
             font-size: 1rem; max-width: 600px; margin: 0 auto 40px;
-            font-weight: 300; color: var(--text-muted);
+            font-weight: 400; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
-        .hero p span { color: var(--gold); font-weight: 600; }
+        .hero p span { color: var(--gold-light); font-weight: 600; }
 
-        /* LOGO KISMI DÜZELTİLDİ - SENİN LOGO.JPG DOSYANI OKUYOR */
+        /* LOGO KISMI */
         .hero-image-container {
             width: 220px; height: 220px; margin: 0 auto 40px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.jpg'); /* BURASI ÖNEMLİ: Logonu bu isimle kaydetmelisin */
+            background-image: url('logo.jpg'); /* Logonun adı */
             background-size: cover; background-position: center;
-            border-radius: 50%; border: 2px solid var(--gold);
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2), inset 0 0 20px rgba(0,0,0,0.8);
+            border-radius: 50%; border: 3px solid var(--gold);
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
             z-index: 10; animation: pulseLogo 8s ease-in-out infinite;
         }
 
         @keyframes pulseLogo {
-            0% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
-            50% { transform: scale(1.01); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);}
-            100% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
+            0% { transform: scale(1); box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);}
+            50% { transform: scale(1.02); box-shadow: 0 0 60px rgba(139, 92, 246, 0.5);}
+            100% { transform: scale(1); box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);}
         }
 
         .hero-image-container::before {
-            content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
+            content: ''; position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px;
             border-radius: 50%; border: 1px dashed var(--gold-light);
-            animation: spin 20s linear infinite; opacity: 0.4; z-index: -1;
+            animation: spin 20s linear infinite; opacity: 0.6; z-index: -1;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
         .buy-box-container {
-            background: var(--glass); backdrop-filter: blur(25px);
+            background: var(--glass); backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border); border-radius: 20px;
             padding: 35px 30px; width: 100%; max-width: 450px; margin: 0 auto 40px;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9);
             text-align: center; position: relative;
         }
 
@@ -147,15 +146,15 @@
         }
 
         .price-info {
-            display: flex; justify-content: space-between; background: rgba(0,0,0,0.3);
-            padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; background: rgba(0,0,0,0.5);
+            padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.1);
         }
         .price-info div { text-align: center; width: 100%; }
         .price-info span { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px; letter-spacing: 1px;}
         .price-info strong { font-size: 1.5rem; color: var(--gold); }
 
         .wallet-address-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
+            background: rgba(0,0,0,0.6); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px;
         }
         .wallet-address-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
@@ -174,20 +173,20 @@
         .buy-steps li { margin-bottom: 8px; margin-left: 15px; }
 
         .calculator-box {
-            background: rgba(0,0,0,0.4); border-radius: 12px; padding: 20px;
+            background: rgba(0,0,0,0.5); border-radius: 12px; padding: 20px;
             margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
             text-align: left;
         }
         .calculator-box label { font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 10px;}
         .calculator-box input {
             width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border);
-            background: rgba(0,0,0,0.5); color: #fff; font-family: 'Poppins', sans-serif; font-size: 1rem;
+            background: rgba(0,0,0,0.6); color: #fff; font-family: 'Poppins', sans-serif; font-size: 1rem;
             outline: none; transition: 0.3s;
         }
         .calculator-box input:focus { border-color: var(--gold); }
         .calc-result {
             margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--gold-light);
-            text-align: center; background: rgba(245, 158, 11, 0.1); padding: 10px; border-radius: 8px;
+            text-align: center; background: rgba(245, 158, 11, 0.15); padding: 10px; border-radius: 8px;
         }
         .calc-note {
             font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 8px;
@@ -199,16 +198,16 @@
             background-size: 200% auto; color: #000;
             font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
             text-decoration: none; text-transform: uppercase; border-radius: 12px; border: none;
-            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
             position: relative; overflow: hidden;
         }
-        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
+        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6); color: #000;}
 
         .distribution-note {
             margin-top: 20px;
             padding: 12px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             border-radius: 8px;
             color: #34d399;
             font-size: 0.8rem;
@@ -227,7 +226,7 @@
             display: flex; align-items: center; justify-content: center;
             width: 45px; height: 45px; border-radius: 50%;
             text-decoration: none; color: #fff; font-size: 1.2rem;
-            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
         .btn-tg { background: #229ED9; }
         .btn-x { background: #000000; border: 1px solid rgba(255,255,255,0.3); }
@@ -239,7 +238,7 @@
         .section-title {
             font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900;
             text-align: center; margin-bottom: 40px; text-transform: uppercase;
-            color: #fff; letter-spacing: 1px;
+            color: #fff; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .section-title::after {
             content: ''; display: block; width: 60px; height: 2px;
@@ -252,7 +251,7 @@
         }
         .feature-box {
             background: var(--glass); backdrop-filter: blur(15px); padding: 25px;
-            border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.1);
         }
         .feature-icon { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
         .feature-box h4 { font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 8px; font-size: 1rem;}
@@ -263,7 +262,7 @@
             padding: 35px; border-radius: 20px;
             border-left: 2px solid var(--gold);
             font-size: 0.95rem; line-height: 1.8;
-            text-align: center; color: var(--text-muted); font-weight: 300;
+            text-align: center; color: var(--text-light); font-weight: 300;
             margin-bottom: 30px;
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
@@ -288,7 +287,7 @@
         .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
         
         .donation-wallet-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
+            background: rgba(0,0,0,0.6); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left;
         }
         .donation-wallet-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
@@ -306,12 +305,12 @@
             padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.85rem;
         }
         .badge-table th { color: var(--gold-light); }
-        .hall-of-fame { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; min-height: 80px; }
+        .hall-of-fame { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 12px; min-height: 80px; }
         .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; font-size: 0.9rem;}
         
         .donate-note {
             color: var(--text-muted); font-size: 0.8rem; margin-top: 12px;
-            background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;
+            background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;
         }
 
         .roadmap-wrapper {
@@ -330,7 +329,7 @@
         .phase-card {
             min-width: 280px; flex: 0 0 auto;
             background: var(--glass); backdrop-filter: blur(15px);
-            padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
             border-top: 2px solid var(--gold);
         }
         .phase-card h3 { color: #fff; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;}
@@ -342,7 +341,7 @@
         .faq-item {
             background: var(--glass); backdrop-filter: blur(15px);
             margin-bottom: 12px; border-radius: 12px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .faq-question {
             padding: 20px; font-family: 'Montserrat', sans-serif;
@@ -366,14 +365,14 @@
             padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
             color: var(--text-light); font-size: 0.9rem;
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        .tokenomics-table th { background: rgba(0,0,0,0.5); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
         .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); }
 
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 30px; border-radius: 20px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             margin-top: 30px;
         }
         .lock-info-box h3 {
@@ -394,25 +393,25 @@
         }
         .lock-proof-btn {
             display: block; width: 100%; padding: 15px;
-            background: rgba(16, 185, 129, 0.1); color: #34d399;
+            background: rgba(16, 185, 129, 0.15); color: #34d399;
             text-align: center; text-decoration: none;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             border-radius: 10px; font-family: 'Montserrat', sans-serif;
             font-weight: 700; transition: all 0.3s ease;
         }
         .lock-proof-btn:hover {
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.25);
             transform: translateY(-2px);
         }
 
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 30px; border-radius: 15px; text-align: center;
-            margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.3); max-width: 650px;
+            margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.4); max-width: 650px;
         }
         .contract-box code {
             display: block; font-family: 'Courier New', monospace;
-            font-size: 0.9rem; background: rgba(0,0,0,0.6);
+            font-size: 0.9rem; background: rgba(0,0,0,0.7);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; word-break: break-all;
             color: var(--gold-light); font-weight: 700;
         }
@@ -423,15 +422,16 @@
 
         footer {
             text-align: center; padding: 30px 20px;
-            background: rgba(0, 0, 0, 0.6); color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.8); color: var(--text-muted);
             font-size: 0.8rem; margin-top: 50px;
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
         }
         .footer-verified { color: var(--gold-light); display: block; margin-top: 5px; margin-bottom: 10px; }
         .ssl-badge {
             display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(16, 185, 129, 0.1); color: #34d399;
+            background: rgba(16, 185, 129, 0.15); color: #34d399;
             padding: 6px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 600;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -463,7 +463,6 @@
         
         <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
 
-        <!-- LOGO BURADA GÖRÜNECEK -->
         <div class="hero-image-container"></div>
 
         <div class="buy-box-container">
@@ -487,8 +486,7 @@
                 <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
             </div>
 
-            <!-- BORSA UYARISI -->
-            <div style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 8px; padding: 12px; margin-bottom: 15px; text-align: left;">
+            <div style="background: rgba(220, 38, 38, 0.2); border: 1px solid #dc2626; border-radius: 8px; padding: 12px; margin-bottom: 15px; text-align: left;">
                 <p style="color: #fca5a5; font-size: 0.8rem; font-weight: 600; margin-bottom: 5px;">
                     <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
                 </p>
