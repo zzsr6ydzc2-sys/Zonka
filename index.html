@@ -28,7 +28,6 @@
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
-            /* Genel ferahlık için */
             line-height: 1.8;
         }
 
@@ -62,7 +61,6 @@
             position: sticky; top: 0; z-index: 99; height: 50px;
         }
 
-        /* --- DAHA FERAH VE UZAKTAN GÖRÜNÜM --- */
         .hero {
             text-align: center; padding: 80px 20px; display: flex; flex-direction: column;
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
@@ -117,7 +115,6 @@
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Satın Alma Kutusu */
         .buy-box-container {
             background: var(--glass); backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border); border-radius: 20px;
@@ -139,7 +136,6 @@
         .price-info span { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px; letter-spacing: 1px;}
         .price-info strong { font-size: 1.3rem; color: var(--gold); }
 
-        /* Cüzdan Adresi */
         .wallet-address-box {
             background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px;
@@ -151,8 +147,7 @@
         }
         .copy-wallet-btn {
             background: var(--gold); color: #000; border: none; padding: 6px 12px;
-            border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px;
-            font-weight: bold;
+            border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
         }
 
         .buy-steps {
@@ -171,7 +166,6 @@
         }
         .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
 
-        /* Sosyal Medya İkonları */
         .socials-hero {
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
         }
@@ -185,10 +179,8 @@
         .btn-x { background: #000000; border: 1px solid rgba(255,255,255,0.3); }
         .btn-yt { background: #FF0000; }
         .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
         .socials-hero a:hover { transform: translateY(-3px) scale(1.1); filter: brightness(1.2); }
 
-        /* Bölümler (Daha ferah) */
         .section { padding: 60px 5%; max-width: 900px; margin: 0 auto; position: relative; z-index: 10;}
         .section-title {
             font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900;
@@ -259,17 +251,24 @@
             background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;
         }
 
-        /* --- SADECE KAYDIRMALI SONSUZ YOL HARİTASI --- */
+        /* --- STANDART VE ÇALIŞAN SONSUZ YOL HARİTASI --- */
         .roadmap-wrapper {
-            position: relative; width: 100%; overflow: hidden;
+            position: relative; width: 100%;
+            /* Kaydırma çubuğunu gizle ama kaydırmaya izin ver */
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* iOS için akıcı kaydırma */
+            scrollbar-width: none; /* Firefox */
             padding-bottom: 20px;
         }
+        .roadmap-wrapper::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
         .roadmap-track {
             display: flex; gap: 20px;
-            transition: transform 0.4s ease-out; /* Yumuşak kaydırma */
+            /* JS ile çoğaltılacak */
+            padding: 10px 0;
         }
         .phase-card {
-            min-width: 260px; flex: 0 0 auto;
+            min-width: 280px; flex: 0 0 auto;
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
             border-top: 2px solid var(--gold);
@@ -343,7 +342,6 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.2rem; }
             .hero h2 { font-size: 0.9rem; letter-spacing: 4px;}
-            .phase-card { min-width: 85vw; }
             .buy-box-container { padding: 25px 15px; }
         }
     </style>
@@ -462,9 +460,10 @@
         </div>
     </section>
 
+    <!-- ÇALIŞAN SONSUZ YOL HARİTASI -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
-        <div class="roadmap-wrapper">
+        <div class="roadmap-wrapper" id="roadmapWrapper">
             <div class="roadmap-track" id="roadmapTrack">
                 <div class="phase-card">
                     <h3>Phase 1: Awakening</h3>
@@ -602,105 +601,57 @@
             });
         });
 
-        // --- SADECE KAYDIRMA İLE SONSUZ YOL HARİTASI ---
+        // --- GERÇEK VE ÇALIŞAN SONSUZ YOL HARİTASI ---
         const track = document.getElementById('roadmapTrack');
-        const originalCards = Array.from(track.children);
-        let cardWidth = 0;
-        let gap = 20;
+        const wrapper = document.getElementById('roadmapWrapper');
         
-        // Kartları çoğaltarak sonsuz döngü hazırla
-        originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
-        originalCards.slice().reverse().forEach(card => track.prepend(card.cloneNode(true)));
-
-        function updateDimensions() {
-            const card = track.querySelector('.phase-card');
-            cardWidth = card.offsetWidth;
-            track.style.transition = 'none';
-            // Ortadaki (orijinal) ilk karta konumlan
-            track.style.transform = `translateX(-${originalCards.length * (cardWidth + gap)}px)`;
-        }
-
-        window.addEventListener('resize', updateDimensions);
-        updateDimensions();
-
-        // Sürükleme (Drag) Mantığı
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        track.addEventListener('mousedown', (e) => {
-            isDown = true;
-            track.style.transition = 'none'; // Sürüklerken animasyonu kapat
-            startX = e.pageX - track.offsetLeft;
-            scrollLeft = track.style.transform.replace('translateX(', '').replace('px)', '') || 0;
+        // 1. Başlangıç kartlarını kopyala
+        const originalCards = Array.from(track.children);
+        
+        // Başa ve sona aynı kartlardan ekle (Sonsuz döngü hissi için)
+        originalCards.forEach(card => {
+            track.appendChild(card.cloneNode(true)); // Sona ekle
+        });
+        originalCards.slice().reverse().forEach(card => {
+            track.prepend(card.cloneNode(true)); // Başa ekle
         });
 
-        track.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
+        // 2. Başlangıç pozisyonunu ayarla (Ortadaki ilk karta konumlan)
+        let cardWidth = originalCards[0].offsetWidth + 20; // 20 gap
+        let scrollPos = originalCards.length * cardWidth;
+        
+        // İlk açılışta görünmez kaydırma yap
+        wrapper.scrollLeft = scrollPos;
+        wrapper.style.scrollBehavior = 'auto'; 
 
-        track.addEventListener('mouseup', () => {
-            isDown = false;
-            snapToClosest();
-        });
-
-        track.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - track.offsetLeft;
-            const walk = (x - startX) * 2; // Kaydırma hızı
-            let newTransform = parseInt(scrollLeft) + walk;
-            track.style.transform = `translateX(${newTransform}px)`;
-        });
-
-        // Dokunmatik (Mobil) Mantığı
-        track.addEventListener('touchstart', (e) => {
-            isDown = true;
-            track.style.transition = 'none';
-            startX = e.touches[0].pageX - track.offsetLeft;
-            scrollLeft = track.style.transform.replace('translateX(', '').replace('px)', '') || 0;
-        }, {passive: true});
-
-        track.addEventListener('touchend', () => {
-            isDown = false;
-            snapToClosest();
-        });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            const x = e.touches[0].pageX - track.offsetLeft;
-            const walk = (x - startX) * 2;
-            let newTransform = parseInt(scrollLeft) + walk;
-            track.style.transform = `translateX(${newTransform}px)`;
-        }, {passive: true});
-
-        // Bırakınca en yakın karta hizala ve sonsuz döngüyü kontrol et
-        function snapToClosest() {
-            const currentTransform = parseInt(track.style.transform.replace('translateX(', '').replace('px)', '') || 0);
-            const cardStep = cardWidth + gap;
-            const centerOffset = originalCards.length * cardStep;
+        // 3. Kaydırma dinleyicisi (Sonsuz döngü için)
+        wrapper.addEventListener('scroll', () => {
+            let currentScroll = wrapper.scrollLeft;
             
-            // Hangi karta en yakın?
-            let closestIndex = Math.round((currentTransform + centerOffset) / cardStep);
-            let targetTransform = -(centerOffset - (closestIndex * cardStep));
-            
-            track.style.transition = 'transform 0.3s ease-out';
-            track.style.transform = `translateX(${targetTransform}px)`;
+            // Eğer sağa doğru çok gittiysek (klonların olduğu bölgeye)
+            if (currentScroll >= (scrollPos * 2)) {
+                // Görünmez şekilde başa dön
+                wrapper.style.scrollBehavior = 'auto';
+                wrapper.scrollLeft = scrollPos;
+                wrapper.style.scrollBehavior = 'smooth'; // Tekrar yumuşat
+            }
+            // Eğer sola doğru çok gittiysek (baştaki klonların olduğu bölgeye)
+            else if (currentScroll <= 10) { // 0'a çok yakınsa
+                // Görünmez şekilde sona dön
+                wrapper.style.scrollBehavior = 'auto';
+                wrapper.scrollLeft = scrollPos * 2 - 1; // Hemen tetiklenmemesi için 1 çıkar
+                wrapper.style.scrollBehavior = 'smooth';
+            }
+        });
 
-            // Sonsuz döngü kontrolü (Sınırı geçtiyse görünmez şekilde ışınla)
-            setTimeout(() => {
-                // Eğer klonların olduğu bölgeye çok yaklaştıysa veya geçtiyse
-                if (targetTransform > -(cardStep * 1)) { 
-                    // Başa ışınla
-                    track.style.transition = 'none';
-                    track.style.transform = `translateX(${-(centerOffset - (originalCards.length - 1) * cardStep)}px)`;
-                } else if (targetTransform < -(centerOffset * 2 - cardStep * 2)) {
-                    // Sona ışınla
-                    track.style.transition = 'none';
-                    track.style.transform = `translateX(${-centerOffset}px)`;
-                }
-            }, 300);
-        }
+        // Pencere boyutu değişirse genişlikleri yeniden hesapla
+        window.addEventListener('resize', () => {
+            cardWidth = originalCards[0].offsetWidth + 20;
+            scrollPos = originalCards.length * cardWidth;
+            wrapper.style.scrollBehavior = 'auto';
+            wrapper.scrollLeft = scrollPos;
+            wrapper.style.scrollBehavior = 'smooth';
+        });
     </script>
 </body>
 </html>
