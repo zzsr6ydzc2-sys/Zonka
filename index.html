@@ -223,23 +223,6 @@
         }
         .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.7); color: #000;}
 
-        .distribution-note {
-            margin-top: 15px;
-            padding: 8px;
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            border-radius: 6px;
-            color: #34d399;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
-        }
-
         .socials-hero {
             display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 15px;
         }
@@ -591,29 +574,38 @@
             Zonka (ZNK) sadece bir token değil; <strong>bir çocuğu doyuracak, sokak hayvanına yuva yapacak ve gezegenimizi koruyacak</strong> bir harekettir. Solana'nın hızıyla desteklenen ZNK, <strong>"Zonka Cares"</strong> fonu aracılığıyla dünyaya dokunurken topluluğuna kazanç sağlar.
         </div>
 
-        <!-- BAĞIŞ KISMI AYNI KALDI -->
+        <!-- BURASI ÖN SATIŞ PANELİ OLARAK GÜNCELLENDİ -->
         <div class="donation-layout">
-            <div class="donation-card">
-                <h3>Toplam Bağış</h3>
-                <div class="counter">0 ZNK</div>
-                <div class="counter-desc">Her katkı bir fark yaratır.</div>
+            <div class="donation-card" style="border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.15);">
+                <h3 style="color: var(--gold); text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-shopping-cart"></i> Ön Satış Paneli</h3>
                 
-                <div class="donation-wallet-box">
-                    <p>1. ZNK'yı bu adrese gönderin:</p>
-                    <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
-                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Adresi Kopyala</button>
+                <div style="background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 5px;">Şu Ana Kadar Toplanan</p>
+                    <div class="counter" style="font-size: 2.2rem; margin-bottom: 0;">0 SOL</div>
                 </div>
 
-                <ul class="buy-steps">
-                    <li>2. ZNK gönderdikten sonra aşağıya tıklayın.</li>
-                    <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                    <li>4. Kahraman Rozetinizi alın!</li>
+                <div class="donation-wallet-box" style="border-color: var(--cyan);">
+                    <p>SOL'u bu adrese gönderin:</p>
+                    <code id="donationAddress" style="color: var(--cyan);">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()" style="background: var(--cyan);">Adresi Kopyala</button>
+                </div>
+
+                <ul class="buy-steps" style="margin-bottom: 20px;">
+                    <li>1. Yukarıdaki adrese SOL gönderin.</li>
+                    <li>2. İşlem Kodu'nu (TXID) kopyalayın.</li>
+                    <li>3. Telegram üzerinden bize iletin.</li>
+                    <li>4. ZNK tokenleriniz anında cüzdanınıza gelsin!</li>
                 </ul>
 
-                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">Bağışı Yaptım (Bize Ulaşın)</a>
-                <div class="donate-note">Rozetinizi onaylamak ve almak için TXID'niz ile Telegram üzerinden ekibimizle iletişime geçin.</div>
+                <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn" style="background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));">
+                    <i class="fab fa-telegram-plane"></i> SATIN ALMAYI TAMAMLA
+                </a>
+                <div class="donate-note" style="margin-top: 15px; color: var(--text-muted);">
+                    İşleminizi onaylamak için TXID'niz ile Telegram üzerinden ekibimize ulaşın.
+                </div>
             </div>
 
+            <!-- SAĞ TARAFTAKİ ROZET TABLOSU KALDI -->
             <div class="donation-card">
                 <h3>Kahraman Rozetleri</h3>
                 <table class="badge-table">
