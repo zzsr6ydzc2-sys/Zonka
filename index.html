@@ -29,15 +29,15 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #cbd5e1;
-            --glass: rgba(10, 15, 30, 0.85); /* Kutuların içini koyu tuttuk ki yazılar okunsun */
+            --glass: rgba(10, 15, 30, 0.85); 
             --glass-border: rgba(245, 158, 11, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* KARARTMA AZALTILDI (0.75 -> 0.3 ve 0.9 -> 0.6) Resim artık daha net görünecek */
-            background: linear-gradient(rgba(5, 8, 20, 0.3), rgba(5, 8, 20, 0.6)), url('arkaplan.jpeg') no-repeat center center fixed; 
+            /* RESMİN KONUMU DÜZELTİLDİ: Artık üstten daha fazla alan gösterecek */
+            background: linear-gradient(rgba(5, 8, 20, 0.4), rgba(5, 8, 20, 0.7)), url('arkaplan.jpeg') no-repeat center top fixed; 
             background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
@@ -130,7 +130,7 @@
         .hero-image-container {
             width: 160px; height: 160px; margin: 0 auto 30px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.jpg'); /* Logonun adı */
+            background-image: url('logo.jpg'); 
             background-size: cover; background-position: center;
             border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 40px rgba(245, 158, 11, 0.4), inset 0 0 20px rgba(0,0,0,0.8);
@@ -698,16 +698,15 @@
         <div class="lock-info-box">
             <h3><i class="fas fa-lock"></i> Ekip Jetonları Kilitli ve Doğrulandı</h3>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">
-                Projenin uzun vadeli başarısını sağlamak için / ekibe tahsis edilen 6.000. Ay000 ZNK güvenli bir şekilde kilitlenmiştir.
-            </p)</>
+                Projenin uzun vadeli başarısını sağlamak için ekibe tahsis edilen 6.000.000 ZNK güvenli bir şekilde kilitlenmiştir.
+            </p>
             
             <div class="lock-details">
-                <div class="lock-detailstrong-item">
-                    <span>TOPLAM KİLİTLİ>
-</span>
+                <div class="lock-detail-item">
+                    <span>TOPLAM KİLİTLİ</span>
                     <strong>6.000.000 ZNK</strong>
                 </div>
-                <div class="lock               -detail-item">
+                <div class="lock-detail-item">
                     <span>KİLİT DURUMU</span>
                     <strong>Tamamen Kilitli (İptal Edilemez)</strong>
                 </div>
@@ -717,7 +716,8 @@
                 </div>
                 <div class="lock-detail-item">
                     <span>HAK EDİŞ</span>
-                    <strong>24 Ay (250k ZNK </div>
+                    <strong>24 Ay (250k ZNK / Ay)</strong>
+                </div>
             </div>
 
             <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="lock-proof-btn">
