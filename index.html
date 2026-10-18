@@ -192,7 +192,7 @@
             font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 8px;
         }
 
-        .buy-btn {
+        .buy-btn, .donate-btn {
             display: block; width: 100%; padding: 18px;
             background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));
             background-size: 200% auto; color: #000;
@@ -201,7 +201,7 @@
             cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
             position: relative; overflow: hidden;
         }
-        .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
+        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
 
         .socials-hero {
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
@@ -251,13 +251,14 @@
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
 
+        /* --- GÜNCELLENMİŞ BAĞIŞ ALANI --- */
         .donation-layout {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px; margin-top: 30px;
         }
         .donation-card {
             background: var(--glass); backdrop-filter: blur(15px);
-            padding: 25px; border-radius: 20px;
+            padding: 30px; border-radius: 20px;
             border: 1px solid var(--glass-border); text-align: center;
         }
         .donation-card h3 {
@@ -268,7 +269,22 @@
             font-family: 'Montserrat', sans-serif; font-size: 2.5rem;
             font-weight: 900; color: var(--gold); margin-bottom: 8px;
         }
-        .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; }
+        .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
+        
+        .donation-wallet-box {
+            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
+            padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left;
+        }
+        .donation-wallet-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+        .donation-wallet-box code {
+            display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
+            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
+        }
+        .copy-donate-btn {
+            background: var(--gold); color: #000; border: none; padding: 6px 12px;
+            border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
+        }
+
         .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
         .badge-table th, .badge-table td {
             padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.85rem;
@@ -276,13 +292,7 @@
         .badge-table th { color: var(--gold-light); }
         .hall-of-fame { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; min-height: 80px; }
         .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; font-size: 0.9rem;}
-        .donate-btn {
-            display: block; width: 100%; padding: 15px;
-            background: linear-gradient(90deg, #ef4444, #b91c1c);
-            color: #fff; text-align: center; text-decoration: none;
-            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
-            border-radius: 10px; text-transform: uppercase; transition: 0.3s;
-        }
+        
         .donate-note {
             color: var(--text-muted); font-size: 0.8rem; margin-top: 12px;
             background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;
@@ -377,6 +387,7 @@
             .hero h1 { font-size: 3.2rem; }
             .hero h2 { font-size: 0.9rem; letter-spacing: 4px;}
             .buy-box-container { padding: 25px 15px; }
+            .donation-card { padding: 20px 15px; }
         }
     </style>
 </head>
@@ -468,6 +479,7 @@
         </div>
     </section>
 
+    <!-- GÜNCELLENMİŞ BAĞIŞ ALANI -->
     <section class="section" id="vision">
         <h2 class="section-title">Our Vision: Zonka Cares</h2>
         
@@ -476,14 +488,30 @@
         </div>
 
         <div class="donation-layout">
+            <!-- Bağış Yap Kartı -->
             <div class="donation-card">
                 <h3>Total Donations</h3>
                 <div class="counter">0 ZNK</div>
                 <div class="counter-desc">Every contribution makes a difference.</div>
-                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">Donate ZNK Now 🤝</a>
-                <div class="donate-note">Contact our team on Telegram for the secure wallet address.</div>
+                
+                <div class="donation-wallet-box">
+                    <p>1. Send ZNK to this address:</p>
+                    <!-- KULLANICININ VERDİĞİ CÜZDAN ADRESİ -->
+                    <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
+                </div>
+
+                <ul class="buy-steps">
+                    <li>2. After sending ZNK, click below.</li>
+                    <li>3. Send TXID on Telegram.</li>
+                    <li>4. Get your Hero Badge!</li>
+                </ul>
+
+                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">I Sent the Donation (Contact Us)</a>
+                <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
+            <!-- Rozetler ve Onur Listesi -->
             <div class="donation-card">
                 <h3>Hero Badges</h3>
                 <table class="badge-table">
@@ -560,7 +588,6 @@
                 <tr><td>Reserve / Treasury</td><td>20.34%</td></tr>
                 <tr><td>Marketing & Development</td><td>15.25%</td></tr>
                 <tr><td>Community & Rewards (Zonka Cares)</td><td>11.86%</td></tr>
-                <!-- BURASI GÜNCELLENDİ -->
                 <tr><td>Team (Locked on Launch)</td><td>10.17%</td></tr>
             </tbody>
         </table>
@@ -617,6 +644,16 @@
             const address = document.getElementById("depositAddress").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-wallet-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+            });
+        }
+
+        // YENİ: Bağış Adresi Kopyalama Fonksiyonu
+        function copyDonationAddress() {
+            const address = document.getElementById("donationAddress").innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector(".copy-donate-btn");
                 btn.innerText = "Copied!";
                 setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
