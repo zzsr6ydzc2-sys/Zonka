@@ -172,6 +172,24 @@
         }
         .buy-steps li { margin-bottom: 8px; margin-left: 15px; }
 
+        /* --- ZNK HESAPLAYICI KUTUSU --- */
+        .calculator-box {
+            background: rgba(0,0,0,0.4); border-radius: 12px; padding: 20px;
+            margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+        .calculator-box label { font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 10px;}
+        .calculator-box input {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.5); color: #fff; font-family: 'Poppins', sans-serif; font-size: 1rem;
+            outline: none; transition: 0.3s;
+        }
+        .calculator-box input:focus { border-color: var(--gold); }
+        .calc-result {
+            margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--gold-light);
+            text-align: center; background: rgba(245, 158, 11, 0.1); padding: 10px; border-radius: 8px;
+        }
+
         .buy-btn {
             display: block; width: 100%; padding: 18px;
             background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));
@@ -397,6 +415,13 @@
                 </div>
             </div>
 
+            <!-- ZNK HESAPLAYICI KUTUSU -->
+            <div class="calculator-box">
+                <label for="solInput">Enter SOL amount to calculate your ZNK:</label>
+                <input type="number" id="solInput" placeholder="e.g. 1.5" min="0" step="0.1">
+                <div class="calc-result" id="calcResult">You will receive: 0 ZNK</div>
+            </div>
+
             <div class="wallet-address-box">
                 <p>1. Send SOL to this address:</p>
                 <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
@@ -612,6 +637,22 @@
                     answer.style.maxHeight = answer.scrollHeight + "px";
                 }
             });
+        });
+
+        // --- ZNK HESAPLAYICI MANTIĞI ---
+        const solInput = document.getElementById('solInput');
+        const calcResult = document.getElementById('calcResult');
+        const rate = 21400; // 1 SOL = 21,400 ZNK
+
+        solInput.addEventListener('input', () => {
+            const solAmount = parseFloat(solInput.value);
+            if (isNaN(solAmount) || solAmount <= 0) {
+                calcResult.innerText = "You will receive: 0 ZNK";
+            } else {
+                const zknAmount = solAmount * rate;
+                // Sayıyı formatla (binlik ayraçlı)
+                calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
+            }
         });
 
         // --- SONSUZ YOL HARİTASI MANTIĞI ---
