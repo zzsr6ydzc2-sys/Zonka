@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #050814; /* Alt kısımların ana rengi */
+            --bg-dark: #050814;
             --gold: #f59e0b;
             --gold-light: #fcd34d;
             --purple: #8b5cf6;
@@ -36,7 +36,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: var(--bg-dark); /* Genel arka plan koyu lacivert */
+            /* RESMİ TAM ORTALADIK VE KARARTMAYI AZALTTIK */
+            background: linear-gradient(rgba(5, 8, 20, 0.5), rgba(5, 8, 20, 0.7)), url('arkaplan.jpeg') no-repeat center center fixed; 
+            background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -45,18 +47,7 @@
             line-height: 1.6;
         }
 
-        /* --- RESMİN SADECE ÜST KISIMDA DURMASINI SAĞLAYAN BÖLÜM --- */
-        .hero-background-wrapper {
-            position: relative;
-            width: 100%;
-            /* Resim burada arka plan olarak kullanılıyor */
-            background: linear-gradient(to bottom, rgba(5, 8, 20, 0.5), var(--bg-dark)), url('arkaplan.jpeg') no-repeat center top;
-            background-size: cover;
-            padding-bottom: 20px;
-            z-index: 10;
-        }
-
-        /* --- CANLI KAR TANELERİ (Tüm sayfada) --- */
+        /* --- CANLI KAR TANELERİ --- */
         .snow-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 1; overflow: hidden;
@@ -507,77 +498,74 @@
         </div>
     </div>
 
-    <!-- BURADAN İTİBAREN ÜST KISIMDA RESİM VAR -->
-    <div class="hero-background-wrapper">
-        <nav></nav>
+    <nav></nav>
 
-        <section class="hero">
-            <h1>ZONKA</h1>
-            <h2>KUZEY KUTBU UYANIYOR</h2>
+    <section class="hero">
+        <h1>ZONKA</h1>
+        <h2>KUZEY KUTBU UYANIYOR</h2>
+        
+        <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
+
+        <div class="hero-image-container"></div>
+
+        <div class="buy-box-container">
+            <h3>$ZNK TOKEN'LARINI ŞİMDİ SATIN ALIN</h3>
             
-            <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
-
-            <div class="hero-image-container"></div>
-
-            <div class="buy-box-container">
-                <h3>$ZNK TOKEN'LARINI ŞİMDİ SATIN ALIN</h3>
-                
-                <div class="price-info">
-                    <div>
-                        <span>GÜNCEL FİYAT</span>
-                        <strong>0,007 $</strong>
-                    </div>
-                    <div>
-                        <span>1 SOL EŞİTTİR</span>
-                        <strong>~14.866 ZNK</strong>
-                    </div>
+            <div class="price-info">
+                <div>
+                    <span>GÜNCEL FİYAT</span>
+                    <strong>0,007 $</strong>
                 </div>
-
-                <div class="calculator-box">
-                    <label for="solInput">ZNK'nizi hesaplamak için SOL miktarını girin:</label>
-                    <input type="number" id="solInput" placeholder="örn: 1" min="0" step="0.1">
-                    <div class="calc-result" id="calcResult">Alacağınız: 0 ZNK</div>
-                    <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
-                </div>
-
-                <div style="background: rgba(220, 38, 38, 0.2); border: 1px solid #dc2626; border-radius: 6px; padding: 10px; margin-bottom: 12px; text-align: left; box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);">
-                    <p style="color: #fca5a5; font-size: 0.75rem; font-weight: 600; margin-bottom: 3px;">
-                        <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
-                    </p>
-                    <p style="color: #fca5a5; font-size: 0.7rem; line-height: 1.4;">
-                        <strong>Borsalardan (Binance, Coinbase vb.) GÖNDERİM YAPMAYIN.</strong> ZNK tokenlerinizi alabilmek için kendi kontrolünüzdeki bir Solana cüzdanı (Phantom, Solflare) kullanmalısınız. Borsa adreslerine gönderilen tokenler kaybolacaktır.
-                    </p>
-                </div>
-
-                <div class="wallet-address-box">
-                    <p>1. SOL'u bu adrese gönderin:</p>
-                    <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
-                    <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
-                </div>
-
-                <ul class="buy-steps">
-                    <li>2. SOL gönderdikten sonra aşağıya tıklayın.</li>
-                    <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                    <li>4. Ön satış bittikten sonra 48 saat içinde ZNK'nizi alın.</li>
-                </ul>
-
-                <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">Ödemeyi Yaptım (Bize Ulaşın)</a>
-                
-                <div class="distribution-note">
-                    <i class="fas fa-clock"></i> Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.
+                <div>
+                    <span>1 SOL EŞİTTİR</span>
+                    <strong>~14.866 ZNK</strong>
                 </div>
             </div>
 
-            <div class="socials-hero">
-                <a href="https://t.me/zonka_coin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
-                <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
-                <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+            <div class="calculator-box">
+                <label for="solInput">ZNK'nizi hesaplamak için SOL miktarını girin:</label>
+                <input type="number" id="solInput" placeholder="örn: 1" min="0" step="0.1">
+                <div class="calc-result" id="calcResult">Alacağınız: 0 ZNK</div>
+                <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
             </div>
-        </section>
-    </div>
 
-    <!-- BURADAN İTİBAREN ALT KISIM (RESİMSİZ, KOYU LACİVERT) -->
+            <div style="background: rgba(220, 38, 38, 0.2); border: 1px solid #dc2626; border-radius: 6px; padding: 10px; margin-bottom: 12px; text-align: left; box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);">
+                <p style="color: #fca5a5; font-size: 0.75rem; font-weight: 600; margin-bottom: 3px;">
+                    <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
+                </p>
+                <p style="color: #fca5a5; font-size: 0.7rem; line-height: 1.4;">
+                    <strong>Borsalardan (Binance, Coinbase vb.) GÖNDERİM YAPMAYIN.</strong> ZNK tokenlerinizi alabilmek için kendi kontrolünüzdeki bir Solana cüzdanı (Phantom, Solflare) kullanmalısınız. Borsa adreslerine gönderilen tokenler kaybolacaktır.
+                </p>
+            </div>
+
+            <div class="wallet-address-box">
+                <p>1. SOL'u bu adrese gönderin:</p>
+                <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
+                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
+            </div>
+
+            <ul class="buy-steps">
+                <li>2. SOL gönderdikten sonra aşağıya tıklayın.</li>
+                <li>3. Telegram üzerinden TXID'yi gönderin.</li>
+                <li>4. Ön satış bittikten sonra 48 saat içinde ZNK'nizi alın.</li>
+            </ul>
+
+            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">Ödemeyi Yaptım (Bize Ulaşın)</a>
+            
+            <div class="distribution-note">
+                <i class="fas fa-clock"></i> Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.
+            </div>
+       div </div>
+
+        <div class="socials-hero">
+ class           =" <a href="https://t.me/zonfeatureka_coin" target="_blank" class="-boxbtn-tg"><i class="fab fa-telegram">
+-plane"></i></a>
+            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
     <section class="section" id="why-zonka">
         <h2 class="section-title">Neden Zonka?</h2>
         <div class="features-grid">
@@ -591,8 +579,7 @@
                 <h4>Gerçek Etki</h4>
                 <p>Her işlem Zonka Cares fonunu destekler.</p>
             </div>
-            <div class="feature-box">
-                <div class="feature-icon">🔒</div>
+            <                <div class="feature-icon">🔒</div>
                 <h4>Şeffaf</h4>
                 <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra 48 saat içinde dağıtılır.</p>
             </div>
@@ -621,10 +608,10 @@
                 <ul class="buy-steps">
                     <li>2. ZNK gönderdikten sonra aşağıya tıklayın.</li>
                     <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                    <li>4. Kahraman                Rozetinizi alın!</li>
-                < </ul>
+                    <li>4. Kahraman Rozetinizi alın!</li>
+                </ul>
 
-                <a href="divhttps://t.me/zonka class_coin" target="_="blank" class="donate-btn">Bağışıphase Yaptım (Bize Ulaşın)</a>
+                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">Bağışı Yaptım (Bize Ulaşın)</a>
                 <div class="donate-note">Rozetinizi onaylamak ve almak için TXID'niz ile Telegram üzerinden ekibimizle iletişime geçin.</div>
             </div>
 
@@ -658,7 +645,7 @@
                         <li>Topluluk Oluşturma</li>
                     </ul>
                 </div>
--card">
+                <div class="phase-card">
                     <h3>Aşama 2: Çözülme</h3>
                     <ul>
                         <li>Ön Satış Tükenmesi (15M ZNK)</li>
