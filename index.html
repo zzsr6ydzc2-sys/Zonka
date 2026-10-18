@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- GOOGLE SEARCH CONSOLE DOĞRULAMA KODU -->
+    <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
+    
+    <!-- GOOGLE İÇİN SİTE ADI (STRUCTURED DATA) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Zonka",
+      "url": "https://zonkacoin.com/"
+    }
+    </script>
+    
     <title>Zonka (ZNK) | The Arctic Awakens</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -251,20 +265,17 @@
             background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;
         }
 
-        /* --- STANDART VE ÇALIŞAN SONSUZ YOL HARİTASI --- */
         .roadmap-wrapper {
             position: relative; width: 100%;
-            /* Kaydırma çubuğunu gizle ama kaydırmaya izin ver */
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* iOS için akıcı kaydırma */
-            scrollbar-width: none; /* Firefox */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
             padding-bottom: 20px;
         }
-        .roadmap-wrapper::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .roadmap-wrapper::-webkit-scrollbar { display: none; }
 
         .roadmap-track {
             display: flex; gap: 20px;
-            /* JS ile çoğaltılacak */
             padding: 10px 0;
         }
         .phase-card {
@@ -460,7 +471,6 @@
         </div>
     </section>
 
-    <!-- ÇALIŞAN SONSUZ YOL HARİTASI -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-wrapper" id="roadmapWrapper">
@@ -601,50 +611,40 @@
             });
         });
 
-        // --- GERÇEK VE ÇALIŞAN SONSUZ YOL HARİTASI ---
+        // --- SONSUZ YOL HARİTASI MANTIĞI ---
         const track = document.getElementById('roadmapTrack');
         const wrapper = document.getElementById('roadmapWrapper');
         
-        // 1. Başlangıç kartlarını kopyala
         const originalCards = Array.from(track.children);
         
-        // Başa ve sona aynı kartlardan ekle (Sonsuz döngü hissi için)
         originalCards.forEach(card => {
-            track.appendChild(card.cloneNode(true)); // Sona ekle
+            track.appendChild(card.cloneNode(true));
         });
         originalCards.slice().reverse().forEach(card => {
-            track.prepend(card.cloneNode(true)); // Başa ekle
+            track.prepend(card.cloneNode(true));
         });
 
-        // 2. Başlangıç pozisyonunu ayarla (Ortadaki ilk karta konumlan)
-        let cardWidth = originalCards[0].offsetWidth + 20; // 20 gap
+        let cardWidth = originalCards[0].offsetWidth + 20;
         let scrollPos = originalCards.length * cardWidth;
         
-        // İlk açılışta görünmez kaydırma yap
         wrapper.scrollLeft = scrollPos;
         wrapper.style.scrollBehavior = 'auto'; 
 
-        // 3. Kaydırma dinleyicisi (Sonsuz döngü için)
         wrapper.addEventListener('scroll', () => {
             let currentScroll = wrapper.scrollLeft;
             
-            // Eğer sağa doğru çok gittiysek (klonların olduğu bölgeye)
             if (currentScroll >= (scrollPos * 2)) {
-                // Görünmez şekilde başa dön
                 wrapper.style.scrollBehavior = 'auto';
                 wrapper.scrollLeft = scrollPos;
-                wrapper.style.scrollBehavior = 'smooth'; // Tekrar yumuşat
+                wrapper.style.scrollBehavior = 'smooth';
             }
-            // Eğer sola doğru çok gittiysek (baştaki klonların olduğu bölgeye)
-            else if (currentScroll <= 10) { // 0'a çok yakınsa
-                // Görünmez şekilde sona dön
+            else if (currentScroll <= 10) { 
                 wrapper.style.scrollBehavior = 'auto';
-                wrapper.scrollLeft = scrollPos * 2 - 1; // Hemen tetiklenmemesi için 1 çıkar
+                wrapper.scrollLeft = scrollPos * 2 - 1;
                 wrapper.style.scrollBehavior = 'smooth';
             }
         });
 
-        // Pencere boyutu değişirse genişlikleri yeniden hesapla
         window.addEventListener('resize', () => {
             cardWidth = originalCards[0].offsetWidth + 20;
             scrollPos = originalCards.length * cardWidth;
