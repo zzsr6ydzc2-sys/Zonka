@@ -29,15 +29,15 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #94a3b8;
-            --glass: rgba(10, 15, 30, 0.7); /* Cam efektini daha koyu yaptık ki arka plan resmi okunsun */
+            --glass: rgba(15, 23, 42, 0.6);
             --glass-border: rgba(245, 158, 11, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* ARKA PLAN RESMİ EKLENDİ */
-            background: linear-gradient(rgba(5, 8, 20, 0.85), rgba(5, 8, 20, 0.95)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
+            /* Arka plana çok hafif, koyu bir dağ silüeti eklendi. Ana renk paleti korundu. */
+            background: linear-gradient(rgba(5, 8, 20, 0.92), rgba(5, 8, 20, 0.98)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
@@ -109,27 +109,27 @@
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
-        /* LOGO ALANI - Görseldeki ayı teması için geçici bir resim eklendi */
+        /* LOGO KISMI DÜZELTİLDİ - SENİN LOGO.JPG DOSYANI OKUYOR */
         .hero-image-container {
             width: 220px; height: 220px; margin: 0 auto 40px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('https://images.unsplash.com/photo-1535850579364-952ef600bf4e?q=80&w=600&auto=format&fit=crop'); /* Ayı resmi eklendi */
+            background-image: url('logo.jpg'); /* BURASI ÖNEMLİ: Logonu bu isimle kaydetmelisin */
             background-size: cover; background-position: center;
-            border-radius: 50%; border: 2px solid var(--cyan);
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), inset 0 0 20px rgba(0,0,0,0.8);
+            border-radius: 50%; border: 2px solid var(--gold);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2), inset 0 0 20px rgba(0,0,0,0.8);
             z-index: 10; animation: pulseLogo 8s ease-in-out infinite;
         }
 
         @keyframes pulseLogo {
-            0% { transform: scale(1); box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);}
-            50% { transform: scale(1.02); box-shadow: 0 0 50px rgba(139, 92, 246, 0.6);}
-            100% { transform: scale(1); box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);}
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
+            50% { transform: scale(1.01); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);}
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
         }
 
         .hero-image-container::before {
             content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
-            border-radius: 50%; border: 1px dashed var(--cyan);
-            animation: spin 20s linear infinite; opacity: 0.6; z-index: -1;
+            border-radius: 50%; border: 1px dashed var(--gold-light);
+            animation: spin 20s linear infinite; opacity: 0.4; z-index: -1;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -143,29 +143,28 @@
 
         .buy-box-container h3 {
             font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 25px;
-            color: var(--cyan); text-transform: uppercase; font-weight: 800; letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+            color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 1px;
         }
 
         .price-info {
-            display: flex; justify-content: space-between; background: rgba(0,0,0,0.4);
+            display: flex; justify-content: space-between; background: rgba(0,0,0,0.3);
             padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05);
         }
         .price-info div { text-align: center; width: 100%; }
         .price-info span { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px; letter-spacing: 1px;}
-        .price-info strong { font-size: 1.5rem; color: var(--text-light); }
+        .price-info strong { font-size: 1.5rem; color: var(--gold); }
 
         .wallet-address-box {
-            background: rgba(0,0,0,0.6); border: 1px dashed var(--cyan);
+            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px;
         }
         .wallet-address-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
         .wallet-address-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
-            color: var(--cyan); word-break: break-all; font-weight: 700; user-select: all;
+            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
         }
         .copy-wallet-btn {
-            background: var(--cyan); color: #000; border: none; padding: 6px 12px;
+            background: var(--gold); color: #000; border: none; padding: 6px 12px;
             border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
         }
 
@@ -185,10 +184,10 @@
             background: rgba(0,0,0,0.5); color: #fff; font-family: 'Poppins', sans-serif; font-size: 1rem;
             outline: none; transition: 0.3s;
         }
-        .calculator-box input:focus { border-color: var(--cyan); }
+        .calculator-box input:focus { border-color: var(--gold); }
         .calc-result {
-            margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--cyan);
-            text-align: center; background: rgba(6, 182, 212, 0.1); padding: 10px; border-radius: 8px;
+            margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--gold-light);
+            text-align: center; background: rgba(245, 158, 11, 0.1); padding: 10px; border-radius: 8px;
         }
         .calc-note {
             font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 8px;
@@ -196,16 +195,15 @@
 
         .buy-btn, .donate-btn {
             display: block; width: 100%; padding: 18px;
-            background: linear-gradient(90deg, var(--cyan), #0891b2, var(--cyan));
+            background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));
             background-size: 200% auto; color: #000;
             font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
             text-decoration: none; text-transform: uppercase; border-radius: 12px; border: none;
-            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
             position: relative; overflow: hidden;
         }
-        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5); color: #000;}
+        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
 
-        /* 48 SAATLİK DAĞITIM BİLGİ NOTU TASARIMI */
         .distribution-note {
             margin-top: 20px;
             padding: 12px;
@@ -245,8 +243,8 @@
         }
         .section-title::after {
             content: ''; display: block; width: 60px; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            margin: 15px auto 0; box-shadow: 0 0 8px var(--cyan);
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 15px auto 0; box-shadow: 0 0 8px var(--gold);
         }
 
         .features-grid {
@@ -256,19 +254,19 @@
             background: var(--glass); backdrop-filter: blur(15px); padding: 25px;
             border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.05);
         }
-        .feature-icon { font-size: 2rem; color: var(--cyan); margin-bottom: 10px; }
+        .feature-icon { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
         .feature-box h4 { font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 8px; font-size: 1rem;}
         .feature-box p { font-size: 0.85rem; color: var(--text-muted); }
 
         .vision-box {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 35px; border-radius: 20px;
-            border-left: 2px solid var(--cyan);
+            border-left: 2px solid var(--gold);
             font-size: 0.95rem; line-height: 1.8;
             text-align: center; color: var(--text-muted); font-weight: 300;
             margin-bottom: 30px;
         }
-        .vision-box strong { color: var(--cyan); font-weight: 600; }
+        .vision-box strong { color: var(--gold-light); font-weight: 600; }
 
         .donation-layout {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -280,26 +278,26 @@
             border: 1px solid var(--glass-border); text-align: center;
         }
         .donation-card h3 {
-            color: var(--cyan); font-family: 'Montserrat', sans-serif;
+            color: var(--gold-light); font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem; margin-bottom: 15px;
         }
         .counter {
             font-family: 'Montserrat', sans-serif; font-size: 2.5rem;
-            font-weight: 900; color: var(--cyan); margin-bottom: 8px;
+            font-weight: 900; color: var(--gold); margin-bottom: 8px;
         }
         .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
         
         .donation-wallet-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed var(--cyan);
+            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left;
         }
         .donation-wallet-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
         .donation-wallet-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
-            color: var(--cyan); word-break: break-all; font-weight: 700; user-select: all;
+            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
         }
         .copy-donate-btn {
-            background: var(--cyan); color: #000; border: none; padding: 6px 12px;
+            background: var(--gold); color: #000; border: none; padding: 6px 12px;
             border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
         }
 
@@ -307,7 +305,7 @@
         .badge-table th, .badge-table td {
             padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.85rem;
         }
-        .badge-table th { color: var(--cyan); }
+        .badge-table th { color: var(--gold-light); }
         .hall-of-fame { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; min-height: 80px; }
         .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; font-size: 0.9rem;}
         
@@ -333,12 +331,12 @@
             min-width: 280px; flex: 0 0 auto;
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-            border-top: 2px solid var(--cyan);
+            border-top: 2px solid var(--gold);
         }
         .phase-card h3 { color: #fff; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;}
         .phase-card ul { list-style: none; }
         .phase-card ul li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;}
-        .phase-card ul li::before { content: '✦'; font-size: 0.9rem; color: var(--cyan); margin-top: -1px; }
+        .phase-card ul li::before { content: '✦'; font-size: 0.9rem; color: var(--gold); margin-top: -1px; }
 
         .faq-container { max-width: 750px; margin: 0 auto; }
         .faq-item {
@@ -358,7 +356,7 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
         .faq-item.active .faq-answer { max-height: 300px; padding: 0 20px 20px; }
-        .faq-icon { font-size: 0.8rem; color: var(--cyan); }
+        .faq-icon { font-size: 0.8rem; color: var(--gold); }
 
         .tokenomics-table {
             width: 100%; margin: 0 auto; border-collapse: collapse;
@@ -368,9 +366,9 @@
             padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
             color: var(--text-light); font-size: 0.9rem;
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--cyan); font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
-        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--cyan); }
+        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); }
 
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(15px);
@@ -410,26 +408,25 @@
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 30px; border-radius: 15px; text-align: center;
-            margin: 0 auto; border: 1px solid rgba(6, 182, 212, 0.3); max-width: 650px;
+            margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.3); max-width: 650px;
         }
         .contract-box code {
             display: block; font-family: 'Courier New', monospace;
             font-size: 0.9rem; background: rgba(0,0,0,0.6);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; word-break: break-all;
-            color: var(--cyan); font-weight: 700;
+            color: var(--gold-light); font-weight: 700;
         }
         .copy-btn {
-            background: var(--cyan); color: #000; padding: 12px 30px; border-radius: 8px;
+            background: var(--gold); color: #000; padding: 12px 30px; border-radius: 8px;
             font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.9rem;
         }
 
         footer {
             text-align: center; padding: 30px 20px;
-            background: rgba(0, 0, 0, 0.8); color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.6); color: var(--text-muted);
             font-size: 0.8rem; margin-top: 50px;
-            border-top: 1px solid rgba(6, 182, 212, 0.2);
         }
-        .footer-verified { color: var(--cyan); display: block; margin-top: 5px; margin-bottom: 10px; }
+        .footer-verified { color: var(--gold-light); display: block; margin-top: 5px; margin-bottom: 10px; }
         .ssl-badge {
             display: inline-flex; align-items: center; gap: 6px;
             background: rgba(16, 185, 129, 0.1); color: #34d399;
@@ -466,6 +463,7 @@
         
         <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
 
+        <!-- LOGO BURADA GÖRÜNECEK -->
         <div class="hero-image-container"></div>
 
         <div class="buy-box-container">
@@ -489,7 +487,7 @@
                 <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
             </div>
 
-            <!-- YENİ EKLENEN: BORSA UYARISI -->
+            <!-- BORSA UYARISI -->
             <div style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 8px; padding: 12px; margin-bottom: 15px; text-align: left;">
                 <p style="color: #fca5a5; font-size: 0.8rem; font-weight: 600; margin-bottom: 5px;">
                     <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
@@ -681,8 +679,7 @@
                 </div>
             </div>
 
-            <▼a href</="https://solscan.io/tx/5SpWPBuHbuFXUgKspan1YvFUQYNyL91Y5NrPyycbmgP></2xjSzYF57CSGyMVnFbKdivxpopkG9KwMnyfFKxrVf>
-Sf4fSDee9Te" target="_blank" class="lock-proof-btn">
+            <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="lock-proof-btn">
                 Solana'da Kilit Kanıtını Görüntüle (Solscan)
             </a>
             <div class="calc-note" style="margin-top: 15px;">
@@ -696,7 +693,8 @@ Sf4fSDee9Te" target="_blank" class="lock-proof-btn">
         <h2 class="section-title">SSS</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">Zonka Coin (ZNK) nedir? <span class="faq-icon">                <div class="faq-answer">Zonka, Solana üzerine inşa edilmiş, hızlı küresel ödemeler ve Zonka Cares aracılığıyla sosyal etki için tasarlanmış, topluluk odaklı bir dijital varlıktır.</div>
+                <div class="faq-question">Zonka Coin (ZNK) nedir? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka, Solana üzerine inşa edilmiş, hızlı küresel ödemeler ve Zonka Cares aracılığıyla sosyal etki için tasarlanmış, topluluk odaklı bir dijital varlıktır.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Zonka Cares nedir? <span class="faq-icon">▼</span></div>
