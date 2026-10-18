@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +17,7 @@
     }
     </script>
 
-    <!-- SITEMAP KODU -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://zonkacoin.com/sitemap.xml" />
-    
-    <title>Zonka (ZNK) | The Arctic Awakens</title>
+    <title>Zonka (ZNK) | Kuzey Kutbu Uyanıyor</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -32,14 +29,16 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #94a3b8;
-            --glass: rgba(15, 23, 42, 0.6);
+            --glass: rgba(10, 15, 30, 0.7); /* Cam efektini daha koyu yaptık ki arka plan resmi okunsun */
             --glass-border: rgba(245, 158, 11, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-dark) 70%);
+            /* ARKA PLAN RESMİ EKLENDİ */
+            background: linear-gradient(rgba(5, 8, 20, 0.85), rgba(5, 8, 20, 0.95)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
+            background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -110,25 +109,27 @@
         }
         .hero p span { color: var(--gold); font-weight: 600; }
 
+        /* LOGO ALANI - Görseldeki ayı teması için geçici bir resim eklendi */
         .hero-image-container {
             width: 220px; height: 220px; margin: 0 auto 40px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.jpg'); background-size: cover; background-position: center;
-            border-radius: 50%; border: 2px solid var(--gold);
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2), inset 0 0 20px rgba(0,0,0,0.8);
+            background-image: url('https://images.unsplash.com/photo-1535850579364-952ef600bf4e?q=80&w=600&auto=format&fit=crop'); /* Ayı resmi eklendi */
+            background-size: cover; background-position: center;
+            border-radius: 50%; border: 2px solid var(--cyan);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), inset 0 0 20px rgba(0,0,0,0.8);
             z-index: 10; animation: pulseLogo 8s ease-in-out infinite;
         }
 
         @keyframes pulseLogo {
-            0% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
-            50% { transform: scale(1.01); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);}
-            100% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);}
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);}
+            50% { transform: scale(1.02); box-shadow: 0 0 50px rgba(139, 92, 246, 0.6);}
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);}
         }
 
         .hero-image-container::before {
             content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
-            border-radius: 50%; border: 1px dashed var(--gold-light);
-            animation: spin 20s linear infinite; opacity: 0.4; z-index: -1;
+            border-radius: 50%; border: 1px dashed var(--cyan);
+            animation: spin 20s linear infinite; opacity: 0.6; z-index: -1;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -142,28 +143,29 @@
 
         .buy-box-container h3 {
             font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 25px;
-            color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 1px;
+            color: var(--cyan); text-transform: uppercase; font-weight: 800; letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
         }
 
         .price-info {
-            display: flex; justify-content: space-between; background: rgba(0,0,0,0.3);
+            display: flex; justify-content: space-between; background: rgba(0,0,0,0.4);
             padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05);
         }
         .price-info div { text-align: center; width: 100%; }
         .price-info span { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 5px; letter-spacing: 1px;}
-        .price-info strong { font-size: 1.5rem; color: var(--gold); }
+        .price-info strong { font-size: 1.5rem; color: var(--text-light); }
 
         .wallet-address-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
+            background: rgba(0,0,0,0.6); border: 1px dashed var(--cyan);
             padding: 15px; border-radius: 10px; margin-bottom: 20px;
         }
         .wallet-address-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
         .wallet-address-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
-            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
+            color: var(--cyan); word-break: break-all; font-weight: 700; user-select: all;
         }
         .copy-wallet-btn {
-            background: var(--gold); color: #000; border: none; padding: 6px 12px;
+            background: var(--cyan); color: #000; border: none; padding: 6px 12px;
             border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
         }
 
@@ -183,10 +185,10 @@
             background: rgba(0,0,0,0.5); color: #fff; font-family: 'Poppins', sans-serif; font-size: 1rem;
             outline: none; transition: 0.3s;
         }
-        .calculator-box input:focus { border-color: var(--gold); }
+        .calculator-box input:focus { border-color: var(--cyan); }
         .calc-result {
-            margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--gold-light);
-            text-align: center; background: rgba(245, 158, 11, 0.1); padding: 10px; border-radius: 8px;
+            margin-top: 15px; font-size: 1.1rem; font-weight: 700; color: var(--cyan);
+            text-align: center; background: rgba(6, 182, 212, 0.1); padding: 10px; border-radius: 8px;
         }
         .calc-note {
             font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 8px;
@@ -194,16 +196,16 @@
 
         .buy-btn, .donate-btn {
             display: block; width: 100%; padding: 18px;
-            background: linear-gradient(90deg, var(--gold), #d97706, var(--gold));
+            background: linear-gradient(90deg, var(--cyan), #0891b2, var(--cyan));
             background-size: 200% auto; color: #000;
             font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
             text-decoration: none; text-transform: uppercase; border-radius: 12px; border: none;
-            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
             position: relative; overflow: hidden;
         }
-        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5); color: #000;}
+        .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5); color: #000;}
 
-        /* YENİ EKLENEN: 48 SAATLİK DAĞITIM BİLGİ NOTU TASARIMI */
+        /* 48 SAATLİK DAĞITIM BİLGİ NOTU TASARIMI */
         .distribution-note {
             margin-top: 20px;
             padding: 12px;
@@ -243,8 +245,8 @@
         }
         .section-title::after {
             content: ''; display: block; width: 60px; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 15px auto 0; box-shadow: 0 0 8px var(--gold);
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            margin: 15px auto 0; box-shadow: 0 0 8px var(--cyan);
         }
 
         .features-grid {
@@ -254,19 +256,19 @@
             background: var(--glass); backdrop-filter: blur(15px); padding: 25px;
             border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.05);
         }
-        .feature-icon { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+        .feature-icon { font-size: 2rem; color: var(--cyan); margin-bottom: 10px; }
         .feature-box h4 { font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 8px; font-size: 1rem;}
         .feature-box p { font-size: 0.85rem; color: var(--text-muted); }
 
         .vision-box {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 35px; border-radius: 20px;
-            border-left: 2px solid var(--gold);
+            border-left: 2px solid var(--cyan);
             font-size: 0.95rem; line-height: 1.8;
             text-align: center; color: var(--text-muted); font-weight: 300;
             margin-bottom: 30px;
         }
-        .vision-box strong { color: var(--gold-light); font-weight: 600; }
+        .vision-box strong { color: var(--cyan); font-weight: 600; }
 
         .donation-layout {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -278,26 +280,26 @@
             border: 1px solid var(--glass-border); text-align: center;
         }
         .donation-card h3 {
-            color: var(--gold-light); font-family: 'Montserrat', sans-serif;
+            color: var(--cyan); font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem; margin-bottom: 15px;
         }
         .counter {
             font-family: 'Montserrat', sans-serif; font-size: 2.5rem;
-            font-weight: 900; color: var(--gold); margin-bottom: 8px;
+            font-weight: 900; color: var(--cyan); margin-bottom: 8px;
         }
         .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
         
         .donation-wallet-box {
-            background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-light);
+            background: rgba(0,0,0,0.5); border: 1px dashed var(--cyan);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left;
         }
         .donation-wallet-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
         .donation-wallet-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
-            color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
+            color: var(--cyan); word-break: break-all; font-weight: 700; user-select: all;
         }
         .copy-donate-btn {
-            background: var(--gold); color: #000; border: none; padding: 6px 12px;
+            background: var(--cyan); color: #000; border: none; padding: 6px 12px;
             border-radius: 6px; font-size: 0.75rem; cursor: pointer; margin-top: 8px; font-weight: bold;
         }
 
@@ -305,7 +307,7 @@
         .badge-table th, .badge-table td {
             padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.85rem;
         }
-        .badge-table th { color: var(--gold-light); }
+        .badge-table th { color: var(--cyan); }
         .hall-of-fame { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; min-height: 80px; }
         .hall-of-fame p { color: var(--text-muted); font-style: italic; text-align: center; font-size: 0.9rem;}
         
@@ -331,12 +333,12 @@
             min-width: 280px; flex: 0 0 auto;
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-            border-top: 2px solid var(--gold);
+            border-top: 2px solid var(--cyan);
         }
         .phase-card h3 { color: #fff; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;}
         .phase-card ul { list-style: none; }
         .phase-card ul li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;}
-        .phase-card ul li::before { content: '✦'; font-size: 0.9rem; color: var(--gold); margin-top: -1px; }
+        .phase-card ul li::before { content: '✦'; font-size: 0.9rem; color: var(--cyan); margin-top: -1px; }
 
         .faq-container { max-width: 750px; margin: 0 auto; }
         .faq-item {
@@ -356,7 +358,7 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
         .faq-item.active .faq-answer { max-height: 300px; padding: 0 20px 20px; }
-        .faq-icon { font-size: 0.8rem; color: var(--gold); }
+        .faq-icon { font-size: 0.8rem; color: var(--cyan); }
 
         .tokenomics-table {
             width: 100%; margin: 0 auto; border-collapse: collapse;
@@ -366,9 +368,9 @@
             padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
             color: var(--text-light); font-size: 0.9rem;
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        .tokenomics-table th { background: rgba(0,0,0,0.4); color: var(--cyan); font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .tokenomics-table tr:last-child td { border-bottom: none; }
-        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); }
+        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--cyan); }
 
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(15px);
@@ -408,25 +410,26 @@
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 30px; border-radius: 15px; text-align: center;
-            margin: 0 auto; border: 1px solid rgba(245, 158, 11, 0.3); max-width: 650px;
+            margin: 0 auto; border: 1px solid rgba(6, 182, 212, 0.3); max-width: 650px;
         }
         .contract-box code {
             display: block; font-family: 'Courier New', monospace;
             font-size: 0.9rem; background: rgba(0,0,0,0.6);
             padding: 15px; border-radius: 10px; margin-bottom: 20px; word-break: break-all;
-            color: var(--gold-light); font-weight: 700;
+            color: var(--cyan); font-weight: 700;
         }
         .copy-btn {
-            background: var(--gold); color: #000; padding: 12px 30px; border-radius: 8px;
+            background: var(--cyan); color: #000; padding: 12px 30px; border-radius: 8px;
             font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.9rem;
         }
 
         footer {
             text-align: center; padding: 30px 20px;
-            background: rgba(0, 0, 0, 0.6); color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.8); color: var(--text-muted);
             font-size: 0.8rem; margin-top: 50px;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
         }
-        .footer-verified { color: var(--gold-light); display: block; margin-top: 5px; margin-bottom: 10px; }
+        .footer-verified { color: var(--cyan); display: block; margin-top: 5px; margin-bottom: 10px; }
         .ssl-badge {
             display: inline-flex; align-items: center; gap: 6px;
             background: rgba(16, 185, 129, 0.1); color: #34d399;
@@ -451,7 +454,7 @@
 
     <div class="news-banner">
         <div class="marquee-content">
-            BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
+            SON DAKİKA: ZONKA ÖN SATIŞI BAŞLADI! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; SON DAKİKA: ZONKA ÖN SATIŞI BAŞLADI! 🔥
         </div>
     </div>
 
@@ -459,50 +462,59 @@
 
     <section class="hero">
         <h1>ZONKA</h1>
-        <h2>THE ARCTIC AWAKENS</h2>
+        <h2>KUZEY KUTBU UYANIYOR</h2>
         
-        <p>The Arctic has awakened. <span>Power, sovereignty, and absolute control</span> in the palm of your hand. The future belongs to those who seize it.</p>
+        <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
 
         <div class="hero-image-container"></div>
 
         <div class="buy-box-container">
-            <h3>Buy $ZNK Tokens Now</h3>
+            <h3>$ZNK TOKEN'LARINI ŞİMDİ SATIN ALIN</h3>
             
             <div class="price-info">
                 <div>
-                    <span>Current Price</span>
-                    <strong>$0.007</strong>
+                    <span>GÜNCEL FİYAT</span>
+                    <strong>0,007 $</strong>
                 </div>
                 <div>
-                    <span>1 SOL Equals</span>
-                    <strong>~14,866 ZNK</strong>
+                    <span>1 SOL EŞİTTİR</span>
+                    <strong>~14.866 ZNK</strong>
                 </div>
             </div>
 
             <div class="calculator-box">
-                <label for="solInput">Enter SOL amount to calculate your ZNK:</label>
-                <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
-                <div class="calc-result" id="calcResult">You will receive: 0 ZNK</div>
-                <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
+                <label for="solInput">ZNK'nizi hesaplamak için SOL miktarını girin:</label>
+                <input type="number" id="solInput" placeholder="örn: 1" min="0" step="0.1">
+                <div class="calc-result" id="calcResult">Alacağınız: 0 ZNK</div>
+                <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
+            </div>
+
+            <!-- YENİ EKLENEN: BORSA UYARISI -->
+            <div style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 8px; padding: 12px; margin-bottom: 15px; text-align: left;">
+                <p style="color: #fca5a5; font-size: 0.8rem; font-weight: 600; margin-bottom: 5px;">
+                    <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
+                </p>
+                <p style="color: #fca5a5; font-size: 0.75rem; line-height: 1.4;">
+                    <strong>Borsalardan (Binance, Coinbase vb.) GÖNDERİM YAPMAYIN.</strong> ZNK tokenlerinizi alabilmek için kendi kontrolünüzdeki bir Solana cüzdanı (Phantom, Solflare) kullanmalısınız. Borsa adreslerine gönderilen tokenler kaybolacaktır.
+                </p>
             </div>
 
             <div class="wallet-address-box">
-                <p>1. Send SOL to this address:</p>
+                <p>1. SOL'u bu adrese gönderin:</p>
                 <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
-                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
+                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
             </div>
 
             <ul class="buy-steps">
-                <li>2. After sending SOL, click below.</li>
-                <li>3. Send TXID on Telegram.</li>
-                <li>4. Receive ZNK instantly (within 48h after sale ends).</li>
+                <li>2. SOL gönderdikten sonra aşağıya tıklayın.</li>
+                <li>3. Telegram üzerinden TXID'yi gönderin.</li>
+                <li>4. Ön satış bittikten sonra 48 saat içinde ZNK'nizi alın.</li>
             </ul>
 
-            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">I Sent the Payment (Contact Us)</a>
+            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">Ödemeyi Yaptım (Bize Ulaşın)</a>
             
-            <!-- YENİ EKLENEN: 48 SAATLİK DAĞITIM BİLGİ NOTU -->
             <div class="distribution-note">
-                <i class="fas fa-clock"></i> All tokens will be distributed within 48 hours after the presale ends.
+                <i class="fas fa-clock"></i> Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.
             </div>
         </div>
 
@@ -515,113 +527,110 @@
     </section>
 
     <section class="section" id="why-zonka">
-        <h2 class="section-title">Why Zonka?</h2>
+        <h2 class="section-title">Neden Zonka?</h2>
         <div class="features-grid">
             <div class="feature-box">
                 <div class="feature-icon">🚀</div>
-                <h4>Lightning Fast</h4>
-                <p>Built on Solana, transactions settle in seconds.</p>
+                <h4>Hızlı</h4>
+                <p>Solana üzerine inşa edildi, işlemler saniyeler içinde gerçekleşir.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">❤️</div>
-                <h4>Real Impact</h4>
-                <p>Every transaction supports the Zonka Cares fund.</p>
+                <h4>Gerçek Etki</h4>
+                <p>Her işlem Zonka Cares fonunu destekler.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">🔒</div>
-                <h4>Transparent</h4>
-                <p>Team tokens locked & all presale tokens distributed within 48 hours after sale.</p>
+                <h4>Şeffaf</h4>
+                <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra 48 saat içinde dağıtılır.</p>
             </div>
         </div>
     </section>
 
-    <!-- GÜNCELLENMİŞ BAĞIŞ ALANI -->
     <section class="section" id="vision">
-        <h2 class="section-title">Our Vision: Zonka Cares</h2>
+        <h2 class="section-title">Vizyonumuz: Zonka Cares</h2>
         
         <div class="vision-box">
-            Zonka (ZNK) is not just a token; it is a movement that <strong>feeds a child, gives a home to a street animal, and protects our planet</strong>. Powered by the speed of Solana, ZNK provides gains to its community while touching the world through the <strong>"Zonka Cares"</strong> fund.
+            Zonka (ZNK) sadece bir token değil; <strong>bir çocuğu doyuracak, sokak hayvanına yuva yapacak ve gezegenimizi koruyacak</strong> bir harekettir. Solana'nın hızıyla desteklenen ZNK, <strong>"Zonka Cares"</strong> fonu aracılığıyla dünyaya dokunurken topluluğuna kazanç sağlar.
         </div>
 
         <div class="donation-layout">
-            <!-- Bağış Yap Kartı -->
             <div class="donation-card">
-                <h3>Total Donations</h3>
+                <h3>Toplam Bağış</h3>
                 <div class="counter">0 ZNK</div>
-                <div class="counter-desc">Every contribution makes a difference.</div>
+                <div class="counter-desc">Her katkı bir fark yaratır.</div>
                 
                 <div class="donation-wallet-box">
-                    <p>1. Send ZNK to this address:</p>
+                    <p>1. ZNK'yı bu adrese gönderin:</p>
                     <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
-                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Adresi Kopyala</button>
                 </div>
 
                 <ul class="buy-steps">
-                    <li>2. After sending ZNK, click below.</li>
-                    <li>3. Send TXID on Telegram.</li>
-                    <li>4. Get your Hero Badge!</li>
+                    <li>2. ZNK gönderdikten sonra aşağıya tıklayın.</li>
+                    <li>3. Telegram üzerinden TXID'yi gönderin.</li>
+                    <li>4. Kahraman Rozetinizi alın!</li>
                 </ul>
 
-                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">I Sent the Donation (Contact Us)</a>
-                <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
+                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">Bağışı Yaptım (Bize Ulaşın)</a>
+                <div class="donate-note">Rozetinizi onaylamak ve almak için TXID'niz ile Telegram üzerinden ekibimizle iletişime geçin.</div>
             </div>
 
-            <!-- Rozetler ve Onur Listesi -->
             <div class="donation-card">
-                <h3>Hero Badges</h3>
+                <h3>Kahraman Rozetleri</h3>
                 <table class="badge-table">
-                    <tr><th>Amount</th><th>Badge</th></tr>
-                    <tr><td>1,000 ZNK</td><td>🥉 Bronze</td></tr>
-                    <tr><td>5,000 ZNK</td><td>🥈 Silver</td></tr>
-                    <tr><td>10,000 ZNK</td><td>🥇 Gold</td></tr>
-                    <tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
+                    <tr><th>Miktar</th><th>Rozet</th></tr>
+                    <tr><td>1.000 ZNK</td><td>🥉 Bronz</td></tr>
+                    <tr><td>5.000 ZNK</td><td>🥈 Gümüş</td></tr>
+                    <tr><td>10.000 ZNK</td><td>🥇 Altın</td></tr>
+                    <tr><td>50.000 ZNK</td><td>💎 Elmas</td></tr>
                 </table>
-                <h3 style="font-size: 1rem; margin-top: 15px;">Hall of Fame</h3>
+                <h3 style="font-size: 1rem; margin-top: 15px;">Onur Listesi</h3>
                 <div class="hall-of-fame">
-                    <p>Be the first hero!</p>
+                    <p>İlk kahraman olun!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="roadmap">
-        <h2 class="section-title">Roadmap</h2>
+        <h2 class="section-title">Yol Haritası</h2>
         <div class="roadmap-wrapper" id="roadmapWrapper">
             <div class="roadmap-track" id="roadmapTrack">
                 <div class="phase-card">
-                    <h3>Phase 1: Awakening</h3>
+                    <h3>Aşama 1: Uyanış</h3>
                     <ul>
-                        <li>Website & Social Media Launch</li>
-                        <li>Smart Contract Deployment</li>
-                        <li>Presale Launch ($0.007)</li>
-                        <li>Community Building</li>
+                        <li>Web Sitesi ve Sosyal Medya Lansmanı</li>
+                        <li>Akıllı Sözleşme Dağıtımı</li>
+                        <li>Ön Satış Lansmanı (0,007 $)</li>
+                        <li>Topluluk Oluşturma</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Phase 2: The Thaw</h3>
+                    <h3>Aşama 2: Çözülme</h3>
                     <ul>
-                        <li>Presale Sell-out (15M ZNK)</li>
-                        <li>Raydium Liquidity Pool</li>
+                        <li>Ön Satış Tükenmesi (15M ZNK)</li>
+                        <li>Raydium Likidite Havuzu</li>
                         <li>CoinGecko / CoinMarketCap</li>
-                        <li>Zonka Cares First Donation</li>
+                        <li>Zonka Cares İlk Bağış</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Phase 3: Arctic Empire</h3>
+                    <h3>Aşama 3: Kutup İmparatorluğu</h3>
                     <ul>
-                        <li>CEX Listings (MEXC, Gate.io)</li>
-                        <li>Zonka Staking Platform</li>
-                        <li>Global Partnerships</li>
-                        <li>Global Expansion</li>
+                        <li>CEX Listelemeleri (MEXC, Gate.io)</li>
+                        <li>Zonka Staking Platformu</li>
+                        <li>Küresel Ortaklıklar</li>
+                        <li>Küresel Genişleme</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Phase 4: Ecosystem</h3>
+                    <h3>Aşama 4: Ekosistem</h3>
                     <ul>
-                        <li>Zonka Cares Global Fund</li>
-                        <li>Community DAO Governance</li>
-                        <li>Exclusive NFT Rewards for Heroes</li>
-                        <li>Full Ecosystem Expansion</li>
+                        <li>Zonka Cares Küresel Fonu</li>
+                        <li>Topluluk DAO Yönetişimi</li>
+                        <li>Kahramanlar için Özel NFT Ödülleri</li>
+                        <li>Tam Ekosistem Genişlemesi</li>
                     </ul>
                 </div>
             </div>
@@ -629,95 +638,94 @@
     </section>
 
     <section class="section" id="tokenomics">
-        <h2 class="section-title">Tokenomics</h2>
+        <h2 class="section-title">Tokenomi</h2>
         <table class="tokenomics-table">
             <thead>
                 <tr>
-                    <th>Allocation</th>
-                    <th>Percentage</th>
+                    <th>Tahsisat</th>
+                    <th>Yüzde</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Presale (15M ZNK)</td><td>25.42%</td></tr>
-                <tr><td>DEX Liquidity</td><td>16.95%</td></tr>
-                <tr><td>Reserve / Treasury</td><td>20.34%</td></tr>
-                <tr><td>Marketing & Development</td><td>15.25%</td></tr>
-                <tr><td>Community & Rewards (Zonka Cares)</td><td>11.86%</td></tr>
-                <tr><td>Team (Locked on Launch)</td><td>10.17%</td></tr>
+                <tr><td>Ön Satış (15M ZNK)</td><td>25.42%</td></tr>
+                <tr><td>DEX Likidite</td><td>16.95%</td></tr>
+                <tr><td>Rezerv / Hazine</td><td>20.34%</td></tr>
+                <tr><td>Pazarlama ve Geliştirme</td><td>15.25%</td></tr>
+                <tr><td>Topluluk ve Ödüller (Zonka Cares)</td><td>11.86%</td></tr>
+                <tr><td>Ekip (Lansmanda Kilitli)</td><td>10.17%</td></tr>
             </tbody>
         </table>
 
-        <!-- YENİ EKLENEN: EKİP KİLİT BÖLÜMÜ -->
         <div class="lock-info-box">
-            <h3><i class="fas fa-lock"></i> Team Tokens Locked & Verified</h3>
+            <h3><i class="fas fa-lock"></i> Ekip Jetonları Kilitli ve Doğrulandı</h3>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-                The 6,000,000 ZNK allocated to the team is securely locked to ensure the long-term success of the project.
+                Projenin uzun vadeli başarısını sağlamak için ekibe tahsis edilen 6.000.000 ZNK güvenli bir şekilde kilitlenmiştir.
             </p>
             
             <div class="lock-details">
                 <div class="lock-detail-item">
-                    <span>Total Locked</span>
-                    <strong>6,000,000 ZNK</strong>
+                    <span>TOPLAM KİLİTLİ</span>
+                    <strong>6.000.000 ZNK</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>Lock Status</span>
-                    <strong>Fully Locked (None Cancellable)</strong>
+                    <span>KİLİT DURUMU</span>
+                    <strong>Tamamen Kilitli (Hiçbiri İptal Edilemez)</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>Cliff Period</span>
-                    <strong>4 Months (Starts: Feb 2027)</strong>
+                    <span>UÇURUM DÖNEMİ</span>
+                    <strong>4 Ay (Başlangıç: Şubat 2027)</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>Vesting</span>
-                    <strong>24 Months (250k ZNK / Month)</strong>
+                    <span>HAK EDİŞ</span>
+                    <strong>24 Ay (250k ZNK / Ay)</strong>
                 </div>
             </div>
 
-            <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="lock-proof-btn">
-                View Lock Proof on Solana (Solscan)
+            <▼a href</="https://solscan.io/tx/5SpWPBuHbuFXUgKspan1YvFUQYNyL91Y5NrPyycbmgP></2xjSzYF57CSGyMVnFbKdivxpopkG9KwMnyfFKxrVf>
+Sf4fSDee9Te" target="_blank" class="lock-proof-btn">
+                Solana'da Kilit Kanıtını Görüntüle (Solscan)
             </a>
             <div class="calc-note" style="margin-top: 15px;">
-                *Clicking the proof link will show you the smart contract locking the team tokens until the designated dates.
+                *Kanıt bağlantısına tıklamak, belirlenen tarihlere kadar ekip jetonlarını kilitleyen akıllı sözleşmeyi gösterecektir.
             </div>
         </div>
 
     </section>
 
     <section class="section" id="faq">
-        <h2 class="section-title">FAQ</h2>
+        <h2 class="section-title">SSS</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">What is Zonka Coin (ZNK)? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Zonka is a community-driven digital asset built on Solana, designed for fast global payments and social impact through Zonka Cares.</div>
+                <div class="faq-question">Zonka Coin (ZNK) nedir? <span class="faq-icon">                <div class="faq-answer">Zonka, Solana üzerine inşa edilmiş, hızlı küresel ödemeler ve Zonka Cares aracılığıyla sosyal etki için tasarlanmış, topluluk odaklı bir dijital varlıktır.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">What is Zonka Cares? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Our charity initiative. A portion of transaction fees and treasury funds are allocated to feed children, support animals, and protect nature.</div>
+                <div class="faq-question">Zonka Cares nedir? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Hayırseverlik girişimidir. İşlem ücretlerinin ve hazine fonlarının bir kısmı çocukları doyurmak, hayvanları desteklemek ve doğayı korumak için ayrılır.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">How do I earn Hero Badges? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">By donating ZNK to the Zonka Cares fund. Donations of 1k, 5k, 10k, and 50k ZNK earn Bronze, Silver, Gold, and Diamond status respectively.</div>
+                <div class="faq-question">Kahraman Rozetlerini nasıl kazanırım? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka Cares fonuna ZNK bağışlayarak. 1k, 5k, 10k ve 50k ZNK bağışları sırasıyla Bronz, Gümüş, Altın ve Elmas statüsü kazandırır.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">The presale will end once the 15 Million ZNK allocation is sold out. All tokens will be distributed within 48 hours after the presale ends.</div>
+                <div class="faq-question">Ön satış ne zaman bitecek? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">15 Milyon ZNK tahsisatı tükendiğinde ön satış sona erecektir. Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.</div>
             </div>
         </div>
     </section>
 
     <section class="section" id="contract">
-        <h2 class="section-title">Contract Address</h2>
+        <h2 class="section-title">Sözleşme Adresi</h2>
         <div class="contract-box">
-            <p style="margin-bottom: 10px; color: var(--text-muted); font-size: 0.85rem;">Copy the address to add ZNK to your wallet.</p>
+            <p style="margin-bottom: 10px; color: var(--text-muted); font-size: 0.85rem;">ZNK'yı cüzdanınıza eklemek için adresi kopyalayın.</p>
             <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+            <button class="copy-btn" onclick="copyAddress()">Adresi Kopyala</button>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
-        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
-        <div class="ssl-badge">🔒 256-bit SSL Secured</div>
+        &copy; 2026 Zonka (ZNK) Ekosistemi. Tüm hakları saklıdır. <br>
+        <span class="footer-verified">Akıllı Sözleşme Solana Blok Zincirinde Doğrulandı.</span>
+        <div class="ssl-badge">🔒 256-bit SSL ile Korunmaktadır</div>
     </footer>
 
     <script>
@@ -725,8 +733,8 @@
             const address = document.getElementById("address").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-btn");
-                btn.innerText = "Copied!";
-                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+                btn.innerText = "Kopyalandı!";
+                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
             });
         }
 
@@ -734,18 +742,17 @@
             const address = document.getElementById("depositAddress").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-wallet-btn");
-                btn.innerText = "Copied!";
-                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+                btn.innerText = "Kopyalandı!";
+                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
             });
         }
 
-        // YENİ: Bağış Adresi Kopyalama Fonksiyonu
         function copyDonationAddress() {
             const address = document.getElementById("donationAddress").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-donate-btn");
-                btn.innerText = "Copied!";
-                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+                btn.innerText = "Kopyalandı!";
+                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
             });
         }
 
@@ -769,22 +776,20 @@
             });
         });
 
-        // --- HESAPLAYICI MANTIĞI ---
         const solInput = document.getElementById('solInput');
         const calcResult = document.getElementById('calcResult');
-        const rate = 14866; // Sabit Kur
+        const rate = 14866;
 
         solInput.addEventListener('input', () => {
             const solAmount = parseFloat(solInput.value);
             if (isNaN(solAmount) || solAmount <= 0) {
-                calcResult.innerText = "You will receive: 0 ZNK";
+                calcResult.innerText = "Alacağınız: 0 ZNK";
             } else {
                 const zknAmount = solAmount * rate;
-                calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
+                calcResult.innerText = `Alacağınız: ~${zknAmount.toLocaleString('en-US')} ZNK`;
             }
         });
 
-        // --- SONSUZ YOL HARİTASI ---
         const track = document.getElementById('roadmapTrack');
         const wrapper = document.getElementById('roadmapWrapper');
         
