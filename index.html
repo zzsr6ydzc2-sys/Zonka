@@ -36,8 +36,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* RESMİ TAM ORTALADIK VE KARARTMAYI AZALTTIK */
-            background: linear-gradient(rgba(5, 8, 20, 0.5), rgba(5, 8, 20, 0.7)), url('arkaplan.jpeg') no-repeat center center fixed; 
+            background: linear-gradient(rgba(5, 8, 20, 0.6), rgba(5, 8, 20, 0.85)), url('arkaplan.jpeg') no-repeat center center fixed; 
             background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
@@ -529,18 +528,17 @@
                 <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
             </div>
 
-            <div style="background: rgba(220, 38, 38, 0.2); border: 1px solid #dc2626; border-radius: 6px; padding: 10px; margin-bottom: 12px; text-align: left; box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);">
-                <p style="color: #fca5a5; font-size: 0.75rem; font-weight: 600; margin-bottom: 3px;">
-                    <i class="fas fa-exclamation-triangle"></i> ÖNEMLİ UYARI:
-                </p>
-                <p style="color: #fca5a5; font-size: 0.7rem; line-height: 1.4;">
-                    <strong>Borsalardan (Binance, Coinbase vb.) GÖNDERİM YAPMAYIN.</strong> ZNK tokenlerinizi alabilmek için kendi kontrolünüzdeki bir Solana cüzdanı (Phantom, Solflare) kullanmalısınız. Borsa adreslerine gönderilen tokenler kaybolacaktır.
+            <!-- KISA VE NET UYARI -->
+            <div style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 6px; padding: 8px; margin-bottom: 12px; text-align: center;">
+                <p style="color: #fca5a5; font-size: 0.7rem; font-weight: 500; margin: 0;">
+                    <i class="fas fa-exclamation-triangle"></i> Kripto borsaları ile satın alınamaz. Sadece Web3 cüzdanları (Phantom, Solflare) ile alabilirsiniz.
                 </p>
             </div>
 
             <div class="wallet-address-box">
                 <p>1. SOL'u bu adrese gönderin:</p>
-                <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
+                <!-- ADRES BURADA GÜNCELLENDİ -->
+                <code id="depositAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
             </div>
 
@@ -555,11 +553,10 @@
             <div class="distribution-note">
                 <i class="fas fa-clock"></i> Tüm tokenler ön satış bittikten sonra 48 saat içinde dağıtılacaktır.
             </div>
-       div </div>
+        </div>
 
         <div class="socials-hero">
- class           =" <a href="https://t.me/zonfeatureka_coin" target="_blank" class="-boxbtn-tg"><i class="fab fa-telegram">
--plane"></i></a>
+            <a href="https://t.me/zonka_coin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
@@ -579,7 +576,8 @@
                 <h4>Gerçek Etki</h4>
                 <p>Her işlem Zonka Cares fonunu destekler.</p>
             </div>
-            <                <div class="feature-icon">🔒</div>
+            <div class="feature-box">
+                <div class="feature-icon">🔒</div>
                 <h4>Şeffaf</h4>
                 <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra 48 saat içinde dağıtılır.</p>
             </div>
@@ -593,6 +591,7 @@
             Zonka (ZNK) sadece bir token değil; <strong>bir çocuğu doyuracak, sokak hayvanına yuva yapacak ve gezegenimizi koruyacak</strong> bir harekettir. Solana'nın hızıyla desteklenen ZNK, <strong>"Zonka Cares"</strong> fonu aracılığıyla dünyaya dokunurken topluluğuna kazanç sağlar.
         </div>
 
+        <!-- BAĞIŞ KISMI AYNI KALDI -->
         <div class="donation-layout">
             <div class="donation-card">
                 <h3>Toplam Bağış</h3>
