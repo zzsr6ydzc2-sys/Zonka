@@ -29,18 +29,16 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #cbd5e1;
-            --glass: rgba(10, 15, 30, 0.75);
+            --glass: rgba(10, 15, 30, 0.8); /* Cam efektini biraz daha koyulaştırdık */
             --glass-border: rgba(245, 158, 11, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* Tamamen CSS ile oluşturulmuş derin, karanlık ve gizemli kuzey atmosferi */
-            background: 
-                radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
-                linear-gradient(180deg, #02040a 0%, #050814 100%);
+            /* SENİN YÜKLEDİĞİN RESİM BURADA ARKA PLAN OLARAK EKLENDİ */
+            background: linear-gradient(rgba(5, 8, 20, 0.75), rgba(5, 8, 20, 0.9)), url('arkaplan.jpg') no-repeat center center fixed; 
+            background-size: cover;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -49,7 +47,7 @@
             line-height: 1.6;
         }
 
-        /* --- DAHA CANLI VE ÇEŞİTLİ KAR TANELERİ --- */
+        /* --- CANLI KAR TANELERİ --- */
         .snow-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 1; overflow: hidden;
@@ -105,7 +103,6 @@
         .hero h1 {
             font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900;
             line-height: 1.1; text-transform: uppercase;
-            /* Buzul hissi veren beyaz-mavi-altın geçişi */
             background: linear-gradient(180deg, #ffffff 0%, #a5f3fc 40%, var(--gold) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)); margin-bottom: 5px;
@@ -130,7 +127,6 @@
         }
         .hero p span { color: var(--cyan); font-weight: 600; text-shadow: 0 0 10px rgba(6, 182, 212, 0.6); }
 
-        /* Logo Alanı */
         .hero-image-container {
             width: 160px; height: 160px; margin: 0 auto 30px; position: relative;
             display: flex; justify-content: center; align-items: center;
@@ -482,7 +478,7 @@
 </head>
 <body>
 
-    <!-- DAHA CANLI VE ÇOK KAR TANESİ -->
+    <!-- CANLI KAR TANELERİ -->
     <div class="snow-container">
         <div class="snow">❅</div>
         <div class="snow">❆</div>
