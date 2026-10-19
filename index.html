@@ -473,7 +473,7 @@
             gap: 8px;
             justify-content: flex-start; 
             border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
+            text-align: left;
         }
         
         /* Şık ve İnce Kaydırma Çubuğu Tasarımı */
@@ -496,19 +496,20 @@
         
         .hero-item {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Sola yaslandı */
             align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             padding-bottom: 5px;
             font-size: 0.85rem;
             width: 100%;
+            gap: 8px; /* İsim ve rozet arasındaki boşluk */
         }
         .hero-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
         .hero-name { color: var(--text-light); font-weight: 500; text-align: left; }
-        .hero-badge { font-size: 1rem; text-align: right;}
+        .hero-badge { font-size: 1rem; }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
@@ -1023,24 +1024,35 @@
                 const rows = data.split('\n');
                 const hallOfFameDiv = document.getElementById('hallOfFame');
                 
-                // İlk satır başlık (Name, Badge) olduğu için 1'den başlıyoruz
+                // İlk satır başlık (Name, Badge, Telegram) olduğu için 1'den başlıyoruz
                 let htmlContent = ''; 
                 let heroCount = 0;
 
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i].trim();
                     if (row) {
-                        // Satırları virgüle göre ayır (İsim ve Rozet)
+                        // Satırları virgüle göre ayır (İsim, Rozet, Telegram)
                         const columns = row.split(',');
                         
                         // Eğer isim kısmı boş değilse listeye ekle
                         if (columns[0] && columns[0].trim() !== "") {
                             const name = columns[0].trim().replace(/"/g, ''); // Tırnak işaretlerini temizle
                             const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
+                            const telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
                             
+                            // Eğer 3. sütunda (Telegram) bir link varsa tıklanabilir yap, yoksa düz yazı bırak
+                            let nameHTML = '';
+                            if (telegram) {
+                                // Kullanıcı adı "@" ile başlamıyorsa başına ekle
+                                let tgLink = telegram.startsWith('@') ? telegram.substring(1) : telegram;
+                                nameHTML = `<a href="https://t.me/${tgLink}" target="_blank" class="hero-name" style="color: var(--gold-light); text-decoration: none; border-bottom: 1px dashed var(--gold);">${name}</a>`;
+                            } else {
+                                nameHTML = `<span class="hero-name">${name}</span>`;
+                            }
+
                             htmlContent += `
                                 <div class="hero-item">
-                                    <span class="hero-name">${name}</span>
+                                    ${nameHTML}
                                     <span class="hero-badge">${badge}</span>
                                 </div>
                             `;
