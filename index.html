@@ -268,7 +268,7 @@
             color: #fff; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 3px;
         }
 
-        /* --- SONSUZ KAYAN BORSALAR --- */
+        /* --- SONSUZ KAYAN BORSALAR (GERÇEK LOGOLAR) --- */
         .exchanges-carousel {
             width: 100%;
             max-width: 600px;
@@ -298,13 +298,17 @@
             font-weight: 800;
             font-size: 0.9rem;
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
+            filter: grayscale(100%);
         }
         .exchange-item:hover {
             opacity: 1;
+            filter: grayscale(0%);
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            transform: scale(1.05);
         }
-        .exchange-item i {
-            font-size: 1.2rem;
+        .exchange-item img {
+            width: 24px; height: 24px; object-fit: contain;
         }
         @keyframes scrollExchanges {
             0% { transform: translateX(0); }
@@ -689,23 +693,23 @@
             </div>
         </div>
 
-        <!-- SONSUZ KAYAN BORSALAR -->
+        <!-- SONSUZ KAYAN BORSALAR (GERÇEK LOGOLAR) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <!-- Borsalar 1. Set -->
-                <div class="exchange-item"><i class="fab fa-btc" style="color: #f7931a;"></i> Binance</div>
-                <div class="exchange-item"><i class="fas fa-chart-line" style="color: #0052ff;"></i> Coinbase</div>
-                <div class="exchange-item"><i class="fas fa-exchange-alt" style="color: #00a3ff;"></i> Bybit</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #ffffff;"></i> OKX</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #00c087;"></i> MEXC</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #f0b90b;"></i> Gate.io</div>
-                <!-- Borsalar 2. Set -->
-                <div class="exchange-item"><i class="fab fa-btc" style="color: #f7931a;"></i> Binance</div>
-                <div class="exchange-item"><i class="fas fa-chart-line" style="color: #0052ff;"></i> Coinbase</div>
-                <div class="exchange-item"><i class="fas fa-exchange-alt" style="color: #00a3ff;"></i> Bybit</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #ffffff;"></i> OKX</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #00c087;"></i> MEXC</div>
-                <div class="exchange-item"><i class="fas fa-cube" style="color: #f0b90b;"></i> Gate.io</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"> Binance</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"> Coinbase</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"> Bybit</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"> OKX</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"> MEXC</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"> Gate.io</div>
+                <!-- Borsalar 2. Set (Sonsuz Döngü İçin) -->
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"> Binance</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"> Coinbase</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"> Bybit</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"> OKX</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"> MEXC</div>
+                <div class="exchange-item"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"> Gate.io</div>
             </div>
         </div>
 
@@ -873,6 +877,12 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Jeton Ekonomisi Kontrol Butonları -->
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveTokenomics(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
 
         <div class="lock-info-box">
             <h3><i class="fas fa-lock"></i> Team Tokens Locked & Verified</h3>
@@ -963,54 +973,108 @@
             }
         });
 
-        // Yol Haritası Sonsuz Döngü Mantığı
-        const track = document.getElementById('roadmapTrack');
-        const originalItems = Array.from(track.children);
+        // --- ROADMAP (YOL HARİTASI) SONSUZ DÖNGÜ MANTIĞI ---
+        const rTrack = document.getElementById('roadmapTrack');
+        const rOriginalItems = Array.from(rTrack.children);
         
-        originalItems.forEach(item => {
-            track.appendChild(item.cloneNode(true));
+        rOriginalItems.forEach(item => {
+            rTrack.appendChild(item.cloneNode(true));
         });
-        originalItems.slice().reverse().forEach(item => {
-            track.prepend(item.cloneNode(true));
+        rOriginalItems.slice().reverse().forEach(item => {
+            rTrack.prepend(item.cloneNode(true));
         });
 
-        let currentIndex = originalItems.length;
+        let rCurrentIndex = rOriginalItems.length;
         
-        const updateTransform = () => {
-            const itemWidth = originalItems[0].offsetWidth + 15;
-            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        const updateRTransform = () => {
+            const itemWidth = rOriginalItems[0].offsetWidth + 15; // 15px gap
+            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
         };
         
-        setTimeout(updateTransform, 100);
+        setTimeout(updateRTransform, 100);
 
         function moveRoadmap(direction) {
-            currentIndex += direction;
-            
-            const itemWidth = originalItems[0].offsetWidth + 15;
-            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+            rCurrentIndex += direction;
+            const itemWidth = rOriginalItems[0].offsetWidth + 15;
+            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
 
-            if (currentIndex >= originalItems.length * 2) {
+            if (rCurrentIndex >= rOriginalItems.length * 2) {
                 setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = originalItems.length;
-                    track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-                    setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
+                    rTrack.style.transition = 'none';
+                    rCurrentIndex = rOriginalItems.length;
+                    rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { rTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
-            } else if (currentIndex <= 0) {
+            } else if (rCurrentIndex <= 0) {
                 setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = originalItems.length;
-                    track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-                    setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
+                    rTrack.style.transition = 'none';
+                    rCurrentIndex = rOriginalItems.length;
+                    rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { rTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
             }
         }
 
         window.addEventListener('resize', () => {
-            const itemWidth = originalItems[0].offsetWidth + 15;
-            track.style.transition = 'none';
-            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-            setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
+            const itemWidth = rOriginalItems[0].offsetWidth + 15;
+            rTrack.style.transition = 'none';
+            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
+            setTimeout(() => { rTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+        });
+
+        // --- TOKENOMICS (JETON EKONOMİSİ) SONSUZ DÖNGÜ MANTIĞI ---
+        const tTrack = document.getElementById('tokenomicsTrack');
+        const tOriginalItems = Array.from(tTrack.children);
+        
+        // Klonlama yaparak sonsuz döngü hissiyatı yaratıyoruz
+        tOriginalItems.forEach(item => {
+            tTrack.appendChild(item.cloneNode(true));
+        });
+        tOriginalItems.slice().reverse().forEach(item => {
+            tTrack.prepend(item.cloneNode(true));
+        });
+
+        let tCurrentIndex = tOriginalItems.length;
+        
+        // Başlangıçta track'i ortala
+        const updateTTransform = () => {
+            const itemWidth = tOriginalItems[0].offsetWidth + 15; 
+            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+        };
+        
+        // İlk yüklemede transform'u ayarla
+        setTimeout(updateTTransform, 100);
+
+        function moveTokenomics(direction) {
+            tCurrentIndex += direction;
+            
+            const itemWidth = tOriginalItems[0].offsetWidth + 15;
+            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+
+            // Sonsuz döngü kontrolü
+            if (tCurrentIndex >= tOriginalItems.length * 2) {
+                setTimeout(() => {
+                    tTrack.style.transition = 'none';
+                    tCurrentIndex = tOriginalItems.length;
+                    tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+                }, 300);
+            } else if (tCurrentIndex <= 0) {
+                setTimeout(() => {
+                    tTrack.style.transition = 'none';
+                    tCurrentIndex = tOriginalItems.length;
+                    tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+                }, 300);
+            }
+        }
+
+        // Ekran boyutu değiştiğinde transform'u yeniden hesapla
+        window.addEventListener('resize', () => {
+            const itemWidth = tOriginalItems[0].offsetWidth + 15;
+            tTrack.style.transition = 'none';
+            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+            setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
         });
     </script>
 </body>
