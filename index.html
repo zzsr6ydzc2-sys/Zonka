@@ -1061,15 +1061,23 @@
                         if (columns[0] && columns[0].trim() !== "") {
                             const name = columns[0].trim().replace(/"/g, ''); // Tırnak işaretlerini temizle
                             const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
-                            const telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
+                            let telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
                             
-                            // Eğer 3. sütunda (Telegram) bir link varsa tıklanabilir yap, yoksa düz yazı bırak
+                            // Link varsa tıklanabilir yap
                             let nameHTML = '';
                             if (telegram) {
-                                // Kullanıcı adı "@" ile başlamıyorsa başına ekle
-                                let tgLink = telegram.startsWith('@') ? telegram.substring(1) : telegram;
-                                // Tıklanabilir Altın Rengi İsim ve Telegram İkonu
-                                nameHTML = `<a href="https://t.me/${tgLink}" target="_blank" class="hero-name" style="color: var(--gold-light);"><i class="fab fa-telegram-plane" style="color: #229ED9; margin-right: 5px;"></i>${name}</a>`;
+                                // Yazının başında @ varsa veya https://t.me/ varsa temizle
+                                if (telegram.startsWith('@')) {
+                                    telegram = telegram.substring(1);
+                                } else if (telegram.includes('t.me/')) {
+                                    telegram = telegram.split('t.me/')[1];
+                                }
+                                
+                                // Telegram mesaj taslağı oluştur
+                                const messageText = encodeURIComponent("Hello, I want to claim my Hero Badge.");
+                                const tgURL = `https://t.me/${telegram}?text=${messageText}`;
+
+                                nameHTML = `<a href="${tgURL}" target="_blank" class="hero-name" style="color: var(--gold-light);"><i class="fab fa-telegram-plane" style="color: #229ED9; margin-right: 5px;"></i>${name}</a>`;
                             } else {
                                 nameHTML = `<span class="hero-name">${name}</span>`;
                             }
