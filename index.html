@@ -552,13 +552,13 @@
 
         .hero-badge { font-size: 1rem; }
 
-        /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ (MANUEL) --- */
+        /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) --- */
         .trust-slider-wrapper {
             position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 20px;
         }
         .trust-track {
             display: flex; gap: 15px; padding: 10px 0;
-            transition: transform 0.3s ease-out;
+            transition: transform 0.4s ease-out; /* Yumuşak geçiş */
             width: max-content;
         }
         .trust-item {
@@ -567,6 +567,9 @@
             min-width: 280px; max-width: 280px; flex-shrink: 0;
             position: relative; transition: transform 0.3s, border-color 0.3s;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .trust-item:hover { transform: translateY(-3px); }
         
@@ -574,6 +577,7 @@
         .trust-item.community { border-top: 3px solid #f59e0b; }
         .trust-item.liquidity { border-top: 3px solid #06b6d4; }
         .trust-item.transparency { border-top: 3px solid #8b5cf6; }
+        .trust-item.burn { border-top: 3px solid #ef4444; } /* Yakım için kırmızı */
 
         .trust-item h3 {
             font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 10px; font-weight: 800;
@@ -582,15 +586,17 @@
         .trust-item.community h3 { color: #f59e0b; }
         .trust-item.liquidity h3 { color: #06b6d4; }
         .trust-item.transparency h3 { color: #8b5cf6; }
+        .trust-item.burn h3 { color: #ef4444; }
 
         .trust-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; }
         
         .trust-details {
             display: flex; flex-direction: column; gap: 5px; font-size: 0.75rem; color: #fff; margin-bottom: 15px;
             background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;
+            text-align: left;
         }
-        .trust-details span { display: flex; justify-content: space-between; }
-        .trust-details strong { color: #fff; }
+        .trust-details span { display: flex; justify-content: space-between; gap: 10px; }
+        .trust-details strong { color: #fff; text-align: right; }
 
         .trust-btn {
             display: block; width: 100%; padding: 10px;
@@ -604,6 +610,7 @@
         .trust-item.community .trust-btn:hover { background: rgba(245, 158, 11, 0.2); border-color: #f59e0b; }
         .trust-item.liquidity .trust-btn:hover { background: rgba(6, 182, 212, 0.2); border-color: #06b6d4; }
         .trust-item.transparency .trust-btn:hover { background: rgba(139, 92, 246, 0.2); border-color: #8b5cf6; }
+        .trust-item.burn .trust-btn:hover { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
@@ -1020,8 +1027,11 @@
             <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-        <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ (MANUEL) -->
-        <div class="trust-slider-wrapper">
+        <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) -->
+        <div class="trust-slider-wrapper" style="overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;">
+            <style>
+                .trust-slider-wrapper::-webkit-scrollbar { display: none; }
+            </style>
             <div class="trust-track" id="trustTrack">
                 <!-- 1. Kutu: Ekip -->
                 <div class="trust-item team">
@@ -1030,8 +1040,8 @@
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
-                        <span>Cliff: <strong>4 Months</strong></span>
-                        <span>Vesting: <strong>24 Months</strong></span>
+                        <span>Cliff (Wait): <strong>4 Months</strong></span>
+                        <span>Vesting (Release): <strong>24 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1043,8 +1053,8 @@
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
-                        <span>Cliff: <strong>6 Months</strong></span>
-                        <span>Vesting: <strong>60 Months</strong></span>
+                        <span>Cliff (Wait): <strong>6 Months</strong></span>
+                        <span>Vesting (Release): <strong>60 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1070,7 +1080,19 @@
                         <span>Contract: <strong>Verified</strong></span>
                         <span>Audit: <strong>Public</strong></span>
                     </div>
-                    <a href="https://solscan.io" target="_blank" class="trust-btn">View on Solscan</a>
+                    <a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
+                </div>
+
+                <!-- 5. Kutu: Yakım Mekanizması -->
+                <div class="trust-item burn">
+                    <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
+                    <p>Team tokens are unlocked early to support the ecosystem, but a portion is burned to protect the market.</p>
+                    <div class="trust-details">
+                        <span>Unlock Starts: <strong>Month 4</strong></span>
+                        <span>Mechanism: <strong>Deflationary Burn</strong></span>
+                        <span>Goal: <strong>Price Stability</strong></span>
+                    </div>
+                    <a href="#" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
                 
                 <!-- 2. Set (Sonsuz Döngü İçin Klonlandı) -->
@@ -1081,8 +1103,8 @@
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
-                        <span>Cliff: <strong>4 Months</strong></span>
-                        <span>Vesting: <strong>24 Months</strong></span>
+                        <span>Cliff (Wait): <strong>4 Months</strong></span>
+                        <span>Vesting (Release): <strong>24 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1094,8 +1116,8 @@
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
-                        <span>Cliff: <strong>6 Months</strong></span>
-                        <span>Vesting: <strong>60 Months</strong></span>
+                        <span>Cliff (Wait): <strong>6 Months</strong></span>
+                        <span>Vesting (Release): <strong>60 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1121,7 +1143,19 @@
                         <span>Contract: <strong>Verified</strong></span>
                         <span>Audit: <strong>Public</strong></span>
                     </div>
-                    <a href="https://solscan.io" target="_blank" class="trust-btn">View on Solscan</a>
+                    <a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
+                </div>
+
+                <!-- 5. Kutu: Yakım Mekanizması -->
+                <div class="trust-item burn">
+                    <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
+                    <p>Team tokens are unlocked early to support the ecosystem, but a portion is burned to protect the market.</p>
+                    <div class="trust-details">
+                        <span>Unlock Starts: <strong>Month 4</strong></span>
+                        <span>Mechanism: <strong>Deflationary Burn</strong></span>
+                        <span>Goal: <strong>Price Stability</strong></span>
+                    </div>
+                    <a href="#" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
             </div>
         </div>
@@ -1260,28 +1294,16 @@
 
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
-        // --- TRUST SLIDER (MANUEL KAYDIRMA - OTOMATİK KAPALI) ---
-        // Bu bölümdeki otomatik kaydırma iptal edildi, sadece kullanıcı parmağı/faresiyle kaydırılabilir.
+        // --- TRUST SLIDER (MANUEL KAYDIRMA - SONSUZ DÖNGÜLÜ) ---
         const trustWrapper = document.querySelector('.trust-slider-wrapper');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        const trustTrack = document.getElementById('trustTrack');
+        
+        if(trustWrapper && trustTrack) {
+            // Sürükleme (Drag) Fonksiyonları
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
-        if(trustWrapper) {
-            trustWrapper.style.overflowX = 'auto'; // Yatay kaydırmayı aktif et
-            trustWrapper.style.scrollbarWidth = 'none'; // Scrollbar'ı gizle (Firefox)
-            trustWrapper.style.msOverflowStyle = 'none'; // IE
-            // Chrome/Safari için scrollbar gizleme
-            trustWrapper.style.webkitOverflowScrolling = 'touch';
-            trustWrapper.style.cssText += '::-webkit-scrollbar { display: none; }'; 
-            
-            // Tekerlek ile yatay kaydırma desteği (Bilgisayar için)
-            trustWrapper.addEventListener('wheel', (evt) => {
-                evt.preventDefault();
-                trustWrapper.scrollLeft += evt.deltaY;
-            });
-
-            // Parmakla veya fareyle sürükleme desteği
             trustWrapper.addEventListener('mousedown', (e) => {
                 isDown = true;
                 startX = e.pageX - trustWrapper.offsetLeft;
@@ -1296,6 +1318,32 @@
                 const walk = (x - startX) * 2; // Hız çarpanı
                 trustWrapper.scrollLeft = scrollLeft - walk;
             });
+
+            // Tekerlek ile yatay kaydırma
+            trustWrapper.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                trustWrapper.scrollLeft += evt.deltaY;
+            });
+
+            // Sonsuz Döngü Mantığı (Sona gelince başa dön)
+            const handleInfiniteScroll = () => {
+                const maxScrollLeft = trustWrapper.scrollWidth - trustWrapper.clientWidth;
+                const scrollLeft = trustWrapper.scrollLeft;
+                
+                // Eğer en sağa ulaşırsa (son kutular)
+                if (scrollLeft >= maxScrollLeft - 10) {
+                    // Başa dön (1. setin başına)
+                    trustWrapper.scrollLeft = maxScrollLeft / 2;
+                }
+                // Eğer en sola ulaşırsa (başlangıç)
+                else if (scrollLeft <= 10) {
+                    // Sona git (2. setin başına)
+                    trustWrapper.scrollLeft = maxScrollLeft / 2;
+                }
+            };
+
+            // Kaydırma olayını dinle
+            trustWrapper.addEventListener('scroll', handleInfiniteScroll);
         }
 
         // --- ROADMAP (YOL HARİTASI) SONSUZ DÖNGÜ MANTIĞI ---
