@@ -78,17 +78,19 @@
         .news-banner {
             background: linear-gradient(90deg, #06b6d4, #8b5cf6, #f59e0b, #06b6d4);
             background-size: 300% auto; animation: gradientMove 5s linear infinite;
-            color: #fff; padding: 10px 0; font-family: 'Montserrat', sans-serif;
-            font-weight: 800; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase;
-            width: 100%; box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+            color: #fff; padding: 8px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500; font-size: 0.8rem; letter-spacing: 2px;
+            text-transform: uppercase;
+            width: 100%; box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
             position: relative; z-index: 100; overflow: hidden; white-space: nowrap;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
         
         .news-banner::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: shine 3s infinite linear;
             z-index: 1;
         }
@@ -103,6 +105,7 @@
         .marquee-content i {
             color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.9); margin: 0 10px;
             animation: pulseSnow 2s infinite alternate;
+            font-size: 0.9rem;
         }
         @keyframes pulseSnow { 0% { opacity: 0.6; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1.1); } }
         
@@ -115,25 +118,38 @@
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
         }
 
+        /* --- PARLAYAN VE HAREKETLİ ZONKA BAŞLIĞI --- */
         .hero h1 {
-            font-family: 'Montserrat', sans-serif; font-size: 2.8rem;
+            font-family: 'Montserrat', sans-serif; font-size: 3rem;
             font-weight: 900; line-height: 1.1; text-transform: uppercase;
-            background: linear-gradient(180deg, #ffffff 0%, #a5f3fc 50%, var(--gold) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.4)); margin-bottom: 5px;
-            animation: floatText 5s ease-in-out infinite;
+            color: #fff;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 70%);
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s infinite linear, floatText 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+        }
+
+        @keyframes shineText {
+            0% { background-position: 150% 0; }
+            100% { background-position: -50% 0; }
         }
 
         @keyframes floatText {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-6px); }
             100% { transform: translateY(0); }
         }
 
         .hero h2 {
-            font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 400;
-            margin-bottom: 20px; color: var(--gold-light); letter-spacing: 5px;
-            text-transform: uppercase; text-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+            font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 400;
+            margin-bottom: 20px; color: var(--gold-light); letter-spacing: 6px;
+            text-transform: uppercase; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
         }
 
         .hero p {
@@ -536,7 +552,7 @@
 
         .hero-badge { font-size: 1rem; }
 
-        /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ --- */
+        /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ (MANUEL) --- */
         .trust-slider-wrapper {
             position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 20px;
         }
@@ -769,6 +785,7 @@
     </div>
 
     <section class="hero">
+        <!-- PARLAYAN VE HAREKETLİ ZONKA BAŞLIĞI -->
         <h1>ZONKA</h1>
         <h2>THE ARCTIC AWAKENS</h2>
         
@@ -1003,7 +1020,7 @@
             <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-        <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ -->
+        <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ (MANUEL) -->
         <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
                 <!-- 1. Kutu: Ekip -->
@@ -1243,35 +1260,43 @@
 
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
-        // --- TRUST SLIDER (YENİ GÜVEN PANELİ) SONSUZ DÖNGÜ MANTIĞI ---
-        const trustTrack = document.getElementById('trustTrack');
-        const trustItems = Array.from(trustTrack.children);
-        
-        // İkinci seti zaten HTML içinde klonladık, burada sadece genişliği hesaplayacağız
-        let trustIndex = 0;
-        let trustItemWidth = 0;
-        
-        const updateTrustTransform = () => {
-            trustItemWidth = trustItems[0].offsetWidth + 15; // 15px gap
-            trustIndex++;
-            if (trustIndex > trustItems.length / 2) { // Yarısına gelince sıfırla
-                trustIndex = 1;
-                trustTrack.style.transition = 'none';
-                trustTrack.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    trustTrack.style.transition = 'transform 0.5s linear';
-                    trustTrack.style.transform = `translateX(${-trustIndex * trustItemWidth}px)`;
-                }, 50);
-            } else {
-                trustTrack.style.transform = `translateX(${-trustIndex * trustItemWidth}px)`;
-            }
-        };
+        // --- TRUST SLIDER (MANUEL KAYDIRMA - OTOMATİK KAPALI) ---
+        // Bu bölümdeki otomatik kaydırma iptal edildi, sadece kullanıcı parmağı/faresiyle kaydırılabilir.
+        const trustWrapper = document.querySelector('.trust-slider-wrapper');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        setTimeout(() => {
-            trustTrack.style.transition = 'transform 0.5s linear';
-            setInterval(updateTrustTransform, 3000); // Her 3 saniyede bir kaydır
-        }, 100);
+        if(trustWrapper) {
+            trustWrapper.style.overflowX = 'auto'; // Yatay kaydırmayı aktif et
+            trustWrapper.style.scrollbarWidth = 'none'; // Scrollbar'ı gizle (Firefox)
+            trustWrapper.style.msOverflowStyle = 'none'; // IE
+            // Chrome/Safari için scrollbar gizleme
+            trustWrapper.style.webkitOverflowScrolling = 'touch';
+            trustWrapper.style.cssText += '::-webkit-scrollbar { display: none; }'; 
+            
+            // Tekerlek ile yatay kaydırma desteği (Bilgisayar için)
+            trustWrapper.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                trustWrapper.scrollLeft += evt.deltaY;
+            });
 
+            // Parmakla veya fareyle sürükleme desteği
+            trustWrapper.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - trustWrapper.offsetLeft;
+                scrollLeft = trustWrapper.scrollLeft;
+            });
+            trustWrapper.addEventListener('mouseleave', () => { isDown = false; });
+            trustWrapper.addEventListener('mouseup', () => { isDown = false; });
+            trustWrapper.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - trustWrapper.offsetLeft;
+                const walk = (x - startX) * 2; // Hız çarpanı
+                trustWrapper.scrollLeft = scrollLeft - walk;
+            });
+        }
 
         // --- ROADMAP (YOL HARİTASI) SONSUZ DÖNGÜ MANTIĞI ---
         const rTrack = document.getElementById('roadmapTrack');
