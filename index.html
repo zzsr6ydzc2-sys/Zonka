@@ -564,7 +564,7 @@
         .trust-item {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 20px 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
-            min-width: 270px; max-width: 270px; flex-shrink: 0; /* Genişlik artırıldı, kareye yakın */
+            width: 320px; height: 320px; flex-shrink: 0; /* TAM KARE YAPILDI */
             position: relative; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
             text-align: center;
             display: flex;
@@ -792,7 +792,7 @@
             .vision-box { padding: 15px; }
             .roadmap-item { min-width: 180px; max-width: 180px; }
             .tokenomics-item { min-width: 220px; max-width: 220px; }
-            .trust-item { min-width: 250px; max-width: 250px; } /* Mobilde de genişlik artırıldı */
+            .trust-item { width: 300px; height: 300px; } /* Mobilde de tam kare yapıldı */
             .roadmap-btn { width: 40px; height: 40px; font-size: 1.1rem; }
         }
     </style>
@@ -1055,13 +1055,16 @@
             <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
+        <!-- YENİ EKLENEN BAŞLIK: LOCKED & VERIFIED -->
+        <h2 class="section-title" style="margin-top: 30px;">Locked & Verified</h2>
+
         <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) -->
         <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
                 <!-- 1. Kutu: Ekip -->
                 <div class="trust-item team">
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
-                    <p>The team's 6,000,000 ZNK is securely locked to ensure long-term success and protect our community.</p>
+                    <p>Team's 6M ZNK locked for long-term success and community protection.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1073,8 +1076,8 @@
 
                 <!-- 2. Kutu: Topluluk -->
                 <div class="trust-item community">
-                    <h3><i class="fas fa-users"></i> Community Rewards Locked</h3>
-                    <p>While rewarding the loyalty of our community, maintaining market stability is our priority. The 7,000,000 ZNK reward pool has been placed in a long-term protection plan to prevent sudden sell pressure and ensure the healthy growth of our token.</p>
+                    <h3><i class="fas fa-users"></i> Community Rewards</h3>
+                    <p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1084,16 +1087,15 @@
                     <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
-                <!-- 3. Kutu: Likidite (GÜNCELLENDİ) -->
+                <!-- 3. Kutu: Likidite -->
                 <div class="trust-item liquidity">
-                    <h3><i class="fas fa-water"></i> Liquidity Locked & Verified</h3>
-                    <p>To guarantee absolute safety and fuel a massive price surge, we have permanently locked a 5,000,000 ZNK liquidity reserve! While other projects sell, we secure. No withdrawals, no rug pulls—just pure, unstoppable market momentum.</p>
+                    <h3><i class="fas fa-water"></i> Liquidity Verified</h3>
+                    <p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>5,000,000 ZNK</strong></span>
                         <span>Pool Status: <strong>Fully Locked</strong></span>
                         <span>Cliff (Wait): <strong>3 Months</strong></span>
                         <span>Vesting (Release): <strong>65 Months</strong></span>
-                        <span>Monthly Unlock: <strong>~76,923 ZNK</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1101,7 +1103,7 @@
                 <!-- 4. Kutu: Şeffaflık -->
                 <div class="trust-item transparency">
                     <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
-                    <p>Zonka operates transparently on the Solana blockchain. All transactions and locks are publicly verifiable.</p>
+                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
                     <div class="trust-details">
                         <span>Network: <strong>Solana</strong></span>
                         <span>Contract: <strong>Verified</strong></span>
@@ -1112,12 +1114,12 @@
 
                 <!-- 5. Kutu: Yakım Mekanizması -->
                 <div class="trust-item burn">
-                    <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
-                    <p>To accelerate development and support marketing, team tokens will unlock gradually over 24 months starting from month 4. To balance market supply and prove our commitment to the community, a portion of these unlocked team tokens will be permanently burned immediately. This deflationary approach protects the long-term value and reliability of the Zonka ecosystem.</p>
+                    <h3><i class="fas fa-fire"></i> Vesting & Burn</h3>
+                    <p>Team tokens unlock gradually over 24 months starting month 4. A portion is permanently burned to balance supply and prove commitment.</p>
                     <div class="trust-details">
-                        <span>Unlock Starts: <strong>Month 4 (Gradual)</strong></span>
+                        <span>Unlock Starts: <strong>Month 4</strong></span>
                         <span>Mechanism: <strong>Deflationary Burn</strong></span>
-                        <span>Goal: <strong>Long-Term Value & Trust</strong></span>
+                        <span>Goal: <strong>Long-Term Value</strong></span>
                     </div>
                     <a href="javascript:void(0);" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
@@ -1126,7 +1128,7 @@
                 <!-- 1. Kutu: Ekip -->
                 <div class="trust-item team">
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
-                    <p>The team's 6,000,000 ZNK is securely locked to ensure long-term success and protect our community.</p>
+                    <p>Team's 6M ZNK locked for long-term success and community protection.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1138,8 +1140,8 @@
 
                 <!-- 2. Kutu: Topluluk -->
                 <div class="trust-item community">
-                    <h3><i class="fas fa-users"></i> Community Rewards Locked</h3>
-                    <p>While rewarding the loyalty of our community, maintaining market stability is our priority. The 7,000,000 ZNK reward pool has been placed in a long-term protection plan to prevent sudden sell pressure and ensure the healthy growth of our token.</p>
+                    <h3><i class="fas fa-users"></i> Community Rewards</h3>
+                    <p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1149,16 +1151,15 @@
                     <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
-                <!-- 3. Kutu: Likidite (GÜNCELLENDİ) -->
+                <!-- 3. Kutu: Likidite -->
                 <div class="trust-item liquidity">
-                    <h3><i class="fas fa-water"></i> Liquidity Locked & Verified</h3>
-                    <p>To guarantee absolute safety and fuel a massive price surge, we have permanently locked a 5,000,000 ZNK liquidity reserve! While other projects sell, we secure. No withdrawals, no rug pulls—just pure, unstoppable market momentum.</p>
+                    <h3><i class="fas fa-water"></i> Liquidity Verified</h3>
+                    <p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>5,000,000 ZNK</strong></span>
                         <span>Pool Status: <strong>Fully Locked</strong></span>
                         <span>Cliff (Wait): <strong>3 Months</strong></span>
                         <span>Vesting (Release): <strong>65 Months</strong></span>
-                        <span>Monthly Unlock: <strong>~76,923 ZNK</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1166,7 +1167,7 @@
                 <!-- 4. Kutu: Şeffaflık -->
                 <div class="trust-item transparency">
                     <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
-                    <p>Zonka operates transparently on the Solana blockchain. All transactions and locks are publicly verifiable.</p>
+                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
                     <div class="trust-details">
                         <span>Network: <strong>Solana</strong></span>
                         <span>Contract: <strong>Verified</strong></span>
@@ -1177,12 +1178,12 @@
 
                 <!-- 5. Kutu: Yakım Mekanizması -->
                 <div class="trust-item burn">
-                    <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
-                    <p>To accelerate development and support marketing, team tokens will unlock gradually over 24 months starting from month 4. To balance market supply and prove our commitment to the community, a portion of these unlocked team tokens will be permanently burned immediately. This deflationary approach protects the long-term value and reliability of the Zonka ecosystem.</p>
+                    <h3><i class="fas fa-fire"></i> Vesting & Burn</h3>
+                    <p>Team tokens unlock gradually over 24 months starting month 4. A portion is permanently burned to balance supply and prove commitment.</p>
                     <div class="trust-details">
-                        <span>Unlock Starts: <strong>Month 4 (Gradual)</strong></span>
+                        <span>Unlock Starts: <strong>Month 4</strong></span>
                         <span>Mechanism: <strong>Deflationary Burn</strong></span>
-                        <span>Goal: <strong>Long-Term Value & Trust</strong></span>
+                        <span>Goal: <strong>Long-Term Value</strong></span>
                     </div>
                     <a href="javascript:void(0);" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
