@@ -301,6 +301,18 @@
             color: var(--cyan); margin-bottom: 20px; text-transform: uppercase;
             text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
         }
+        .vision-icons {
+            display: flex; justify-content: center; gap: 40px; margin: 30px 0 10px;
+            flex-wrap: wrap;
+        }
+        .vision-icon-item { text-align: center; }
+        .vision-icon-item i {
+            font-size: 2rem; color: var(--gold); margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(245,158,11,0.4);
+        }
+        .vision-icon-item span {
+            display: block; font-size: 0.85rem; font-weight: 600; color: #fff;
+        }
 
         /* --- BİR FONU (BAĞIŞ) --- */
         .donation-layout {
@@ -359,34 +371,46 @@
         .hall-of-fame { background: rgba(0,0,0,0.6); border-radius: 10px; padding: 20px; min-height: 80px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05);}
         .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.95rem;}
 
-        /* --- YOL HARİTASI (ROADMAP) --- */
-        .roadmap-container {
-            display: flex; flex-direction: column; gap: 20px;
-            position: relative; max-width: 800px; margin: 0 auto;
+        /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
+        .roadmap-wrapper {
+            position: relative; width: 100%; overflow: hidden; padding: 20px 0;
         }
-        .roadmap-container::before {
-            content: ''; position: absolute; top: 0; left: 20px; height: 100%; width: 2px;
-            background: linear-gradient(180deg, var(--gold), transparent);
-            z-index: 1;
+        .roadmap-track {
+            display: flex; gap: 20px; padding: 10px 0;
+            transition: transform 0.3s ease-out;
+            width: max-content;
         }
         .roadmap-item {
-            display: flex; align-items: flex-start; gap: 20px;
             background: var(--glass); backdrop-filter: blur(15px);
-            padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
-            position: relative; z-index: 2; transition: transform 0.3s;
+            padding: 30px 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+            min-width: 300px; max-width: 300px; flex-shrink: 0;
+            position: relative; border-top: 3px solid var(--gold);
+            transition: transform 0.3s, border-color 0.3s;
         }
-        .roadmap-item:hover { transform: translateX(10px); border-color: var(--gold); }
+        .roadmap-item:hover { transform: translateY(-5px); border-color: var(--cyan); }
         .roadmap-icon {
-            background: var(--bg-dark); border: 2px solid var(--gold);
-            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(245, 158, 11, 0.1); border: 1px solid var(--gold);
+            width: 45px; height: 45px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--gold);
-            flex-shrink: 0; box-shadow: 0 0 15px rgba(245,158,11,0.4);
+            margin-bottom: 15px; box-shadow: 0 0 15px rgba(245,158,11,0.2);
         }
         .roadmap-content h4 {
-            font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.1rem; margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.1rem; margin-bottom: 10px;
         }
-        .roadmap-content p { color: var(--text-muted); font-size: 0.9rem; }
+        .roadmap-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+        
+        /* Yol Haritası Kontrol Butonları */
+        .roadmap-controls {
+            display: flex; justify-content: center; gap: 15px; margin-top: 20px;
+        }
+        .roadmap-btn {
+            background: rgba(245, 158, 11, 0.1); border: 1px solid var(--gold);
+            color: var(--gold); width: 40px; height: 40px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: all 0.3s;
+        }
+        .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px rgba(245,158,11,0.5); }
 
         /* --- TOKENOMICS & LOCK --- */
         .tokenomics-table {
@@ -480,8 +504,7 @@
             .buy-box-container { padding: 25px 15px; }
             .donation-card { padding: 25px 15px; }
             .vision-box { padding: 25px 15px; }
-            .roadmap-container::before { left: 15px; }
-            .roadmap-item { padding: 15px; }
+            .roadmap-item { min-width: 260px; max-width: 260px; }
         }
     </style>
 </head>
@@ -550,7 +573,6 @@
 
             <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">PROCEED TO VERIFICATION</a>
             
-            <!-- KURUMSAL OTOMATİK SİSTEM AÇIKLAMASI -->
             <div class="distribution-note">
                 <i class="fas fa-shield-alt"></i>
                 <strong>Instant & Automated Delivery</strong>
@@ -568,18 +590,33 @@
 
     <!-- HİKAYEMİZ VE VİZYON BÖLÜMÜ -->
     <section class="section" id="vision">
-        <h2 class="section-title">Our Vision: The Bear Care</h2>
+        <h2 class="section-title">Our Vision: Guardians of Life</h2>
         
         <div class="vision-box">
-            <h3>Why a Bear? What is "Bir"?</h3>
+            <h3>Why a Bear? What is "Guardians of Life"?</h3>
             <p style="margin-bottom: 15px;">Zonka (ZNK) is not just a token; it is a movement. <strong>The Bear in our logo</strong> represents the strength of nature and the wild. But just as the Arctic is melting, many lives are in danger. We stand strong to protect them.</p>
-            <p>The name <strong>"Bir"</strong> represents unity and singularity. Because for us, <strong>every single animal is unique, and every single life matters.</strong> We don't just say we care; we act. A portion of every transaction and all direct donations are used to feed, shelter, and heal street animals, while also supporting wildlife conservation projects.</p>
+            <p>The <strong>"Guardians of Life Fund"</strong> represents our commitment to protecting every living being. We are not just protecting animals; we are also standing up for vulnerable children around the world, providing clean water, and supporting disaster relief. <strong>Because for us, every single life matters.</strong></p>
+            
+            <div class="vision-icons">
+                <div class="vision-icon-item">
+                    <i class="fas fa-paw"></i>
+                    <span>Animals</span>
+                </div>
+                <div class="vision-icon-item">
+                    <i class="fas fa-child"></i>
+                    <span>Children</span>
+                </div>
+                <div class="vision-icon-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Nature</span>
+                </div>
+            </div>
         </div>
 
         <div class="donation-layout">
-            <!-- BİR FONU BAĞIŞ KUTUSU -->
+            <!-- GUARDIANS OF LIFE FONU (BAĞIŞ) -->
             <div class="donation-card">
-                <h3><i class="fas fa-paw"></i> Bir Fund</h3>
+                <h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
                 
                 <div class="counter">0 ZNK</div>
                 <div class="counter-desc">Every contribution changes a life.</div>
@@ -617,35 +654,41 @@
     <!-- YOL HARİTASI (PREMIUM ZAMAN TÜNELİ) -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
-        <div class="roadmap-container">
-            <div class="roadmap-item">
-                <div class="roadmap-icon">1</div>
-                <div class="roadmap-content">
-                    <h4>Phase 1: Awakening</h4>
-                    <p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
+        <div class="roadmap-wrapper">
+            <div class="roadmap-track" id="roadmapTrack">
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">1</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 1: Awakening</h4>
+                        <p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">2</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 2: The Thaw</h4>
+                        <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First Guardians of Life Donation.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">3</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 3: Arctic Empire</h4>
+                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Expansion.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">4</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 4: Ecosystem</h4>
+                        <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
+                    </div>
                 </div>
             </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon">2</div>
-                <div class="roadmap-content">
-                    <h4>Phase 2: The Thaw</h4>
-                    <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First "Bir" Fund Donation.</p>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon">3</div>
-                <div class="roadmap-content">
-                    <h4>Phase 3: Arctic Empire</h4>
-                    <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Expansion.</p>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-icon">4</div>
-                <div class="roadmap-content">
-                    <h4>Phase 4: Ecosystem</h4>
-                    <p>"Bir" Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
-                </div>
-            </div>
+        </div>
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveRoadmap(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveRoadmap(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -664,7 +707,7 @@
                 <tr><td>DEX Liquidity</td><td>16.95%</td></tr>
                 <tr><td>Reserve / Treasury</td><td>20.34%</td></tr>
                 <tr><td>Marketing & Development</td><td>15.25%</td></tr>
-                <tr><td>Community & Rewards (Bir Fund)</td><td>11.86%</td></tr>
+                <tr><td>Community & Rewards (Guardians of Life)</td><td>11.86%</td></tr>
                 <tr><td>Team (Locked on Launch)</td><td>10.17%</td></tr>
             </tbody>
         </table>
@@ -756,6 +799,61 @@
                 const zknAmount = solAmount * rate;
                 calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
             }
+        });
+
+        // Yol Haritası Sonsuz Döngü Mantığı
+        const track = document.getElementById('roadmapTrack');
+        const originalItems = Array.from(track.children);
+        
+        // Klonlama yaparak sonsuz döngü hissiyatı yaratıyoruz
+        originalItems.forEach(item => {
+            track.appendChild(item.cloneNode(true));
+        });
+        originalItems.slice().reverse().forEach(item => {
+            track.prepend(item.cloneNode(true));
+        });
+
+        let currentIndex = originalItems.length; // Başlangıç noktası (Ortadaki ilk orijinal öğe)
+        
+        // Başlangıçta track'i ortala
+        const updateTransform = () => {
+            const itemWidth = originalItems[0].offsetWidth + 20; // 20px gap
+            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        };
+        
+        // İlk yüklemede transform'u ayarla
+        setTimeout(updateTransform, 100);
+
+        function moveRoadmap(direction) {
+            currentIndex += direction;
+            
+            const itemWidth = originalItems[0].offsetWidth + 20;
+            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+
+            // Sonsuz döngü kontrolü
+            if (currentIndex >= originalItems.length * 2) {
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    currentIndex = originalItems.length;
+                    track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+                    setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
+                }, 300);
+            } else if (currentIndex <= 0) {
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    currentIndex = originalItems.length;
+                    track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+                    setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
+                }, 300);
+            }
+        }
+
+        // Ekran boyutu değiştiğinde transform'u yeniden hesapla
+        window.addEventListener('resize', () => {
+            const itemWidth = originalItems[0].offsetWidth + 20;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+            setTimeout(() => { track.style.transition = 'transform 0.3s ease-out'; }, 50);
         });
     </script>
 </body>
