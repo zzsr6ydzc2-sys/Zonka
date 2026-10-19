@@ -346,7 +346,7 @@
         .socials-hero a:hover { transform: translateY(-3px) scale(1.05); filter: brightness(1.2); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
 
         /* --- BÖLÜMLER (GENEL DÜZEN) --- */
-        .section { padding: 30px 10px; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;} /* Genişlik ve boşluklar küçültüldü */
+        .section { padding: 30px 10px; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;}
         .section-title {
             font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 900;
             text-align: center; margin-bottom: 20px; text-transform: uppercase;
@@ -554,7 +554,7 @@
 
         /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) --- */
         .trust-slider-wrapper {
-            position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 20px;
+            position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 10px;
         }
         .trust-track {
             display: flex; gap: 12px; padding: 10px 0;
@@ -1143,6 +1143,12 @@
                 </div>
             </div>
         </div>
+        
+        <!-- YENİ EKLENEN: GÜVEN PANELİ OK BUTONLARI -->
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveTrust(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveTrust(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </section>
 
     <!-- SÖZLEŞME ADRESİ -->
@@ -1278,59 +1284,60 @@
 
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
-        // --- TRUST SLIDER (OKLARLA VE ELLE KAYDIRMA - YUMUŞAK) ---
+        // --- GÜVEN PANELİ (TRUST SLIDER) SONSUZ DÖNGÜ VE BUTON MANTIĞI ---
         const trustWrapper = document.querySelector('.trust-slider-wrapper');
         const trustTrack = document.getElementById('trustTrack');
-        let trustScrollAmount = 0;
+        
+        // Orijinal öğeleri al ve iki tarafa da klonla (sonsuz döngü için)
+        const tOriginalItems = Array.from(trustTrack.children);
+        
+        tOriginalItems.forEach(item => {
+            trustTrack.appendChild(item.cloneNode(true));
+        });
+        tOriginalItems.slice().reverse().forEach(item => {
+            trustTrack.prepend(item.cloneNode(true));
+        });
 
-        if(trustWrapper && trustTrack) {
-            // Ok Butonları için Fonksiyonlar (Eğer buton eklersek diye hazır)
-            // Şu an sadece kaydırma çubuğunu gizleyip yumuşak kaydırma yapıyoruz.
-            
-            // Sürükleme (Drag) Fonksiyonları
-            let isDown = false;
-            let startX;
-            let scrollLeft;
+        let tCurrentIndex = tOriginalItems.length;
+        
+        const updateTTransform = () => {
+            const itemWidth = tOriginalItems[0].offsetWidth + 12; // 12px gap
+            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+        };
+        
+        // Başlangıç pozisyonunu ayarla
+        setTimeout(updateTTransform, 100);
 
-            trustWrapper.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - trustWrapper.offsetLeft;
-                scrollLeft = trustWrapper.scrollLeft;
-            });
-            trustWrapper.addEventListener('mouseleave', () => { isDown = false; });
-            trustWrapper.addEventListener('mouseup', () => { isDown = false; });
-            trustWrapper.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - trustWrapper.offsetLeft;
-                const walk = (x - startX) * 2; 
-                trustWrapper.scrollLeft = scrollLeft - walk;
-            });
+        function moveTrust(direction) {
+            tCurrentIndex += direction;
+            const itemWidth = tOriginalItems[0].offsetWidth + 12;
+            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
 
-            // Tekerlek ile yatay kaydırma
-            trustWrapper.addEventListener('wheel', (evt) => {
-                evt.preventDefault();
-                trustWrapper.scrollLeft += evt.deltaY;
-            });
-
-            // Sonsuz Döngü Mantığı (Sona gelince yumuşakça başa dön)
-            const handleInfiniteScroll = () => {
-                const maxScrollLeft = trustWrapper.scrollWidth - trustWrapper.clientWidth;
-                const scrollLeft = trustWrapper.scrollLeft;
-                
-                if (scrollLeft >= maxScrollLeft - 5) {
-                    // Yumuşak geçiş için transition ekle
-                    trustWrapper.style.scrollBehavior = 'auto'; 
-                    trustWrapper.scrollLeft = maxScrollLeft / 2;
-                }
-                else if (scrollLeft <= 5) {
-                    trustWrapper.style.scrollBehavior = 'auto';
-                    trustWrapper.scrollLeft = maxScrollLeft / 2;
-                }
-            };
-
-            trustWrapper.addEventListener('scroll', handleInfiniteScroll);
+            // Sona gelince başa dön (sonsuz döngü)
+            if (tCurrentIndex >= tOriginalItems.length * 2) {
+                setTimeout(() => {
+                    trustTrack.style.transition = 'none';
+                    tCurrentIndex = tOriginalItems.length;
+                    trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
+                }, 400);
+            } else if (tCurrentIndex <= 0) {
+                setTimeout(() => {
+                    trustTrack.style.transition = 'none';
+                    tCurrentIndex = tOriginalItems.length;
+                    trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
+                }, 400);
+            }
         }
+
+        // Pencere boyutu değiştiğinde pozisyonu güncelle
+        window.addEventListener('resize', () => {
+            const itemWidth = tOriginalItems[0].offsetWidth + 12;
+            trustTrack.style.transition = 'none';
+            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+            setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
+        });
 
         // --- ROADMAP (YOL HARİTASI) SONSUZ DÖNGÜ MANTIĞI ---
         const rTrack = document.getElementById('roadmapTrack');
@@ -1346,7 +1353,7 @@
         let rCurrentIndex = rOriginalItems.length;
         
         const updateRTransform = () => {
-            const itemWidth = rOriginalItems[0].offsetWidth + 15; // 15px gap
+            const itemWidth = rOriginalItems[0].offsetWidth + 15;
             rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
         };
         
@@ -1382,53 +1389,52 @@
         });
 
         // --- TOKENOMICS (JETON EKONOMİSİ) SONSUZ DÖNGÜ MANTIĞI ---
-        const tTrack = document.getElementById('tokenomicsTrack');
-        const tOriginalItems = Array.from(tTrack.children);
+        const tokTrack = document.getElementById('tokenomicsTrack');
+        const tokOriginalItems = Array.from(tokTrack.children);
         
-        tOriginalItems.forEach(item => {
-            tTrack.appendChild(item.cloneNode(true));
+        tokOriginalItems.forEach(item => {
+            tokTrack.appendChild(item.cloneNode(true));
         });
-        tOriginalItems.slice().reverse().forEach(item => {
-            tTrack.prepend(item.cloneNode(true));
+        tokOriginalItems.slice().reverse().forEach(item => {
+            tokTrack.prepend(item.cloneNode(true));
         });
 
-        let tCurrentIndex = tOriginalItems.length;
+        let tokCurrentIndex = tokOriginalItems.length;
         
-        const updateTTransform = () => {
-            const itemWidth = tOriginalItems[0].offsetWidth + 15; 
-            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+        const updateTokTransform = () => {
+            const itemWidth = tokOriginalItems[0].offsetWidth + 15;
+            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
         };
         
-        setTimeout(updateTTransform, 100);
+        setTimeout(updateTokTransform, 100);
 
         function moveTokenomics(direction) {
-            tCurrentIndex += direction;
-            
-            const itemWidth = tOriginalItems[0].offsetWidth + 15;
-            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+            tokCurrentIndex += direction;
+            const itemWidth = tokOriginalItems[0].offsetWidth + 15;
+            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
 
-            if (tCurrentIndex >= tOriginalItems.length * 2) {
+            if (tokCurrentIndex >= tokOriginalItems.length * 2) {
                 setTimeout(() => {
-                    tTrack.style.transition = 'none';
-                    tCurrentIndex = tOriginalItems.length;
-                    tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+                    tokTrack.style.transition = 'none';
+                    tokCurrentIndex = tokOriginalItems.length;
+                    tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { tokTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
-            } else if (tCurrentIndex <= 0) {
+            } else if (tokCurrentIndex <= 0) {
                 setTimeout(() => {
-                    tTrack.style.transition = 'none';
-                    tCurrentIndex = tOriginalItems.length;
-                    tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+                    tokTrack.style.transition = 'none';
+                    tokCurrentIndex = tokOriginalItems.length;
+                    tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
+                    setTimeout(() => { tokTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
             }
         }
 
         window.addEventListener('resize', () => {
-            const itemWidth = tOriginalItems[0].offsetWidth + 15;
-            tTrack.style.transition = 'none';
-            tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-            setTimeout(() => { tTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
+            const itemWidth = tokOriginalItems[0].offsetWidth + 15;
+            tokTrack.style.transition = 'none';
+            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
+            setTimeout(() => { tokTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
         });
     </script>
 </body>
