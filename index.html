@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     }
     </script>
 
-    <title>Zonka (ZNK) | Kuzey Kutbu Uyanıyor</title>
+    <title>Zonka (ZNK) | The Arctic Awakens</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -242,7 +242,7 @@
         }
         .buy-btn:hover, .donate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.7); color: #000;}
 
-        /* YENİ TASARLANAN PREMIUM AÇIKLAMA KUTUSU */
+        /* PREMIUM AUTOMATIC DISTRIBUTION NOTE */
         .distribution-note {
             margin-top: 20px;
             padding: 15px;
@@ -250,7 +250,7 @@
             border: 1px solid rgba(6, 182, 212, 0.4);
             border-radius: 10px;
             color: var(--cyan);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
             text-align: center;
             display: flex;
@@ -270,13 +270,17 @@
             opacity: 0.5;
         }
         .distribution-note i {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 2px;
             text-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+            color: #34d399; 
         }
         .distribution-note strong {
             color: #fff;
             font-weight: 700;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .socials-hero {
@@ -549,7 +553,7 @@
 
     <div class="news-banner">
         <div class="marquee-content">
-            SON DAKİKA: ZONKA ÖN SATIŞI BAŞLADI! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; SON DAKİKA: ZONKA ÖN SATIŞI BAŞLADI! 🔥
+            BREAKING: ZONKA PRESALE IS LIVE! 🔥 &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! 🔥
         </div>
     </div>
 
@@ -557,57 +561,58 @@
 
     <section class="hero">
         <h1>ZONKA</h1>
-        <h2>KUZEY KUTBU UYANIYOR</h2>
+        <h2>THE ARCTIC AWAKENS</h2>
         
-        <p>Kuzey kutbu uyandı. <span>Güç, egemenlik ve mutlak kontrol</span> avucunuzun içinde. Gelecek, onu ele geçirenlere aittir.</p>
+        <p>The Arctic has awakened. <span>Power, sovereignty, and absolute control</span> in the palm of your hand. The future belongs to those who seize it.</p>
 
         <div class="hero-image-container"></div>
 
         <div class="buy-box-container">
-            <h3>$ZNK TOKEN'LARINI ŞİMDİ SATIN ALIN</h3>
+            <h3>Buy $ZNK Tokens Now</h3>
             
             <div class="price-info">
                 <div>
-                    <span>GÜNCEL FİYAT</span>
-                    <strong>0,007 $</strong>
+                    <span>Current Price</span>
+                    <strong>$0.007</strong>
                 </div>
                 <div>
-                    <span>1 SOL EŞİTTİR</span>
-                    <strong>~14.866 ZNK</strong>
+                    <span>1 SOL Equals</span>
+                    <strong>~14,866 ZNK</strong>
                 </div>
             </div>
 
             <div class="calculator-box">
-                <label for="solInput">ZNK'nizi hesaplamak için SOL miktarını girin:</label>
-                <input type="number" id="solInput" placeholder="örn: 1" min="0" step="0.1">
-                <div class="calc-result" id="calcResult">Alacağınız: 0 ZNK</div>
-                <div class="calc-note">Sabit Kur: 1 SOL = 14.866 ZNK</div>
+                <label for="solInput">Enter SOL amount to calculate your ZNK:</label>
+                <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
+                <div class="calc-result" id="calcResult">You will receive: 0 ZNK</div>
+                <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
             </div>
 
             <div style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 6px; padding: 8px; margin-bottom: 12px; text-align: center;">
                 <p style="color: #fca5a5; font-size: 0.7rem; font-weight: 500; margin: 0;">
-                    <i class="fas fa-exclamation-triangle"></i> Kripto borsaları ile satın alınamaz. Sadece Web3 cüzdanları (Phantom, Solflare) ile alabilirsiniz.
+                    <i class="fas fa-exclamation-triangle"></i> Cannot be purchased with crypto exchanges. Only Web3 wallets (Phantom, Solflare) are accepted.
                 </p>
             </div>
 
             <div class="wallet-address-box">
-                <p>1. SOL'u bu adrese gönderin:</p>
+                <p>1. Send SOL to this address:</p>
                 <code id="depositAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
-                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Adresi Kopyala</button>
+                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
             </div>
 
             <ul class="buy-steps">
-                <li>2. SOL gönderdikten sonra aşağıya tıklayın.</li>
-                <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                <li>4. ZNK tokenlerinizi anında cüzdanınıza alın.</li>
+                <li>2. After sending SOL, click below.</li>
+                <li>3. Send TXID on Telegram.</li>
+                <li>4. Receive ZNK instantly to your wallet.</li>
             </ul>
 
-            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">ÖDEMEYİ YAPTIM (BİZE ULAŞIN)</a>
+            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">I SENT THE PAYMENT (TELEGRAM)</a>
             
-            <!-- PREMIUM AÇIKLAMA KUTUSU -->
+            <!-- PREMIUM OTOMATİK AÇIKLAMA KUTUSU (İngilizce) -->
             <div class="distribution-note">
-                <i class="fas fa-shield-check"></i>
-                <span><strong>Ödemenizi yaptıktan sonra Telegram üzerinden bize ulaşın.</strong><br>ZNK tokenleriniz <strong>otomatik olarak</strong> cüzdanınıza yatırılacaktır.</span>
+                <i class="fas fa-check-circle"></i>
+                <strong>Transaction Approved!</strong>
+                <span>The ZNK tokens you purchased will be <strong>automatically deposited</strong> into your account.</span>
             </div>
         </div>
 
@@ -620,113 +625,113 @@
     </section>
 
     <section class="section" id="why-zonka">
-        <h2 class="section-title">Neden Zonka?</h2>
+        <h2 class="section-title">Why Zonka?</h2>
         <div class="features-grid">
             <div class="feature-box">
                 <div class="feature-icon">🚀</div>
-                <h4>Hızlı</h4>
-                <p>Solana üzerine inşa edildi, işlemler saniyeler içinde gerçekleşir.</p>
+                <h4>Lightning Fast</h4>
+                <p>Built on Solana, transactions settle in seconds.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">❤️</div>
-                <h4>Gerçek Etki</h4>
-                <p>Her işlem Zonka Cares fonunu destekler.</p>
+                <h4>Real Impact</h4>
+                <p>Every transaction supports the Zonka Cares fund.</p>
             </div>
             <div class="feature-box">
                 <div class="feature-icon">🔒</div>
-                <h4>Şeffaf</h4>
-                <p>Ekip tokenleri kilitli ve tüm ön satış tokenleri satış bittikten sonra dağıtılır.</p>
+                <h4>Transparent</h4>
+                <p>Team tokens are locked and all presale tokens are distributed after the sale ends.</p>
             </div>
         </div>
     </section>
 
     <section class="section" id="vision">
-        <h2 class="section-title">Vizyonumuz: Zonka Cares</h2>
+        <h2 class="section-title">Our Vision: Zonka Cares</h2>
         
         <div class="vision-box">
-            Zonka (ZNK) sadece bir token değil; <strong>bir çocuğu doyuracak, sokak hayvanına yuva yapacak ve gezegenimizi koruyacak</strong> bir harekettir. Solana'nın hızıyla desteklenen ZNK, <strong>"Zonka Cares"</strong> fonu aracılığıyla dünyaya dokunurken topluluğuna kazanç sağlar.
+            Zonka (ZNK) is not just a token; it is a movement that <strong>feeds a child, gives a home to a street animal, and protects our planet</strong>. Powered by the speed of Solana, ZNK provides gains to its community while touching the world through the <strong>"Zonka Cares"</strong> fund.
         </div>
 
         <div class="donation-layout">
             <div class="donation-card">
-                <h3><i class="fas fa-hand-holding-heart"></i> Toplam Bağış</h3>
+                <h3><i class="fas fa-hand-holding-heart"></i> Total Donations</h3>
                 
                 <div class="counter">0 ZNK</div>
-                <div class="counter-desc">Her katkı bir fark yaratır.</div>
+                <div class="counter-desc">Every contribution makes a difference.</div>
 
                 <div class="donation-wallet-box">
-                    <p>1. ZNK'yı bu adrese gönderin:</p>
+                    <p>1. Send ZNK to this address:</p>
                     <code id="donationAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
-                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Adresi Kopyala</button>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
 
                 <ul class="buy-steps" style="margin-bottom: 20px;">
-                    <li>2. ZNK gönderdikten sonra aşağıya tıklayın.</li>
-                    <li>3. Telegram üzerinden TXID'yi gönderin.</li>
-                    <li>4. Kahraman Rozetinizi alın!</li>
+                    <li>2. After sending ZNK, click below.</li>
+                    <li>3. Send TXID on Telegram.</li>
+                    <li>4. Get your Hero Badge!</li>
                 </ul>
 
                 <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">
-                    <i class="fas fa-heart"></i> BAĞIŞI YAPTIM (BİZE ULAŞIN)
+                    <i class="fas fa-heart"></i> I SENT THE DONATION (CONTACT US)
                 </a>
-                <div class="donate-note">Rozetinizi onaylamak ve almak için TXID'niz ile Telegram üzerinden ekibimizle iletişime geçin.</div>
+                <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
             <div class="donation-card">
-                <h3><i class="fas fa-medal"></i> Kahraman Rozetleri</h3>
+                <h3><i class="fas fa-medal"></i> Hero Badges</h3>
                 <table class="badge-table">
-                    <tr><th>Miktar</th><th>Rozet</th></tr>
-                    <tr><td>1.000 ZNK</td><td>🥉 Bronz</td></tr>
-                    <tr><td>5.000 ZNK</td><td>🥈 Gümüş</td></tr>
-                    <tr><td>10.000 ZNK</td><td>🥇 Altın</td></tr>
-                    <tr><td>50.000 ZNK</td><td>💎 Elmas</td></tr>
+                    <tr><th>Amount</th><th>Badge</th></tr>
+                    <tr><td>1,000 ZNK</td><td>🥉 Bronze</td></tr>
+                    <tr><td>5,000 ZNK</td><td>🥈 Silver</td></tr>
+                    <tr><td>10,000 ZNK</td><td>🥇 Gold</td></tr>
+                    <tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
                 </table>
-                <h3 style="font-size: 0.9rem; margin-top: 15px;"><i class="fas fa-star"></i> Onur Listesi</h3>
+                <h3 style="font-size: 0.9rem; margin-top: 15px;"><i class="fas fa-star"></i> Hall of Fame</h3>
                 <div class="hall-of-fame">
-                    <p>İlk kahraman olun!</p>
+                    <p>Be the first hero!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="roadmap">
-        <h2 class="section-title">Yol Haritası</h2>
+        <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-wrapper" id="roadmapWrapper">
             <div class="roadmap-track" id="roadmapTrack">
                 <div class="phase-card">
-                    <h3>Aşama 1: Uyanış</h3>
+                    <h3>Phase 1: Awakening</h3>
                     <ul>
-                        <li>Web Sitesi ve Sosyal Medya Lansmanı</li>
-                        <li>Akıllı Sözleşme Dağıtımı</li>
-                        <li>Ön Satış Lansmanı (0,007 $)</li>
-                        <li>Topluluk Oluşturma</li>
+                        <li>Website & Social Media Launch</li>
+                        <li>Smart Contract Deployment</li>
+                        <li>Presale Launch ($0.007)</li>
+                        <li>Community Building</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Aşama 2: Çözülme</h3>
+                    <h3>Phase 2: The Thaw</h3>
                     <ul>
-                        <li>Ön Satış Tükenmesi (15M ZNK)</li>
-                        <li>Raydium Likidite Havuzu</li>
+                        <li>Presale Sell-out (15M ZNK)</li>
+                        <li>Raydium Liquidity Pool</li>
                         <li>CoinGecko / CoinMarketCap</li>
-                        <li>Zonka Cares İlk Bağış</li>
+                        <li>Zonka Cares First Donation</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Aşama 3: Kutup İmparatorluğu</h3>
+                    <h3>Phase 3: Arctic Empire</h3>
                     <ul>
-                        <li>CEX Listelemeleri (MEXC, Gate.io)</li>
-                        <li>Zonka Staking Platformu</li>
-                        <li>Küresel Ortaklıklar</li>
-                        <li>Küresel Genişleme</li>
+                        <li>CEX Listings (MEXC, Gate.io)</li>
+                        <li>Zonka Staking Platform</li>
+                        <li>Global Partnerships</li>
+                        <li>Global Expansion</li>
                     </ul>
                 </div>
                 <div class="phase-card">
-                    <h3>Aşama 4: Ekosistem</h3>
+                    <h3>Phase 4: Ecosystem</h3>
                     <ul>
-                        <li>Zonka Cares Küresel Fonu</li>
-                        <li>Topluluk DAO Yönetişimi</li>
-                        <li>Kahramanlar için Özel NFT Ödülleri</li>
-                        <li>Tam Ekosistem Genişlemesi</li>
+                        <li>Zonka Cares Global Fund</li>
+                        <li>Community DAO Governance</li>
+                        <li>Exclusive NFT Rewards for Heroes</li>
+                        <li>Full Ecosystem Expansion</li>
                     </ul>
                 </div>
             </div>
@@ -734,91 +739,91 @@
     </section>
 
     <section class="section" id="tokenomics">
-        <h2 class="section-title">Tokenomi</h2>
+        <h2 class="section-title">Tokenomics</h2>
         <table class="tokenomics-table">
             <thead>
                 <tr>
-                    <th>Tahsisat</th>
-                    <th>Yüzde</th>
+                    <th>Allocation</th>
+                    <th>Percentage</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Ön Satış (15M ZNK)</td><td>25.42%</td></tr>
-                <tr><td>DEX Likidite</td><td>16.95%</td></tr>
-                <tr><td>Rezerv / Hazine</td><td>20.34%</td></tr>
-                <tr><td>Pazarlama ve Geliştirme</td><td>15.25%</td></tr>
-                <tr><td>Topluluk ve Ödüller (Zonka Cares)</td><td>11.86%</td></tr>
-                <tr><td>Ekip (Lansmanda Kilitli)</td><td>10.17%</td></tr>
+                <tr><td>Presale (15M ZNK)</td><td>25.42%</td></tr>
+                <tr><td>DEX Liquidity</td><td>16.95%</td></tr>
+                <tr><td>Reserve / Treasury</td><td>20.34%</td></tr>
+                <tr><td>Marketing & Development</td><td>15.25%</td></tr>
+                <tr><td>Community & Rewards (Zonka Cares)</td><td>11.86%</td></tr>
+                <tr><td>Team (Locked on Launch)</td><td>10.17%</td></tr>
             </tbody>
         </table>
 
         <div class="lock-info-box">
-            <h3><i class="fas fa-lock"></i> Ekip Jetonları Kilitli ve Doğrulandı</h3>
+            <h3><i class="fas fa-lock"></i> Team Tokens Locked & Verified</h3>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">
-                Projenin uzun vadeli başarısını sağlamak için ekibe tahsis edilen 6.000.000 ZNK güvenli bir şekilde kilitlenmiştir.
+                The 6,000,000 ZNK allocated to the team is securely locked to ensure the long-term success of the project.
             </p>
             
             <div class="lock-details">
                 <div class="lock-detail-item">
-                    <span>TOPLAM KİLİTLİ</span>
-                    <strong>6.000.000 ZNK</strong>
+                    <span>Total Locked</span>
+                    <strong>6,000,000 ZNK</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>KİLİT DURUMU</span>
-                    <strong>Tamamen Kilitli (İptal Edilemez)</strong>
+                    <span>Lock Status</span>
+                    <strong>Fully Locked (None Cancellable)</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>UÇURUM DÖNEMİ</span>
-                    <strong>4 Ay (Şubat 2027)</strong>
+                    <span>Cliff Period</span>
+                    <strong>4 Months (Starts: Feb 2027)</strong>
                 </div>
                 <div class="lock-detail-item">
-                    <span>HAK EDİŞ</span>
-                    <strong>24 Ay (250k ZNK / Ay)</strong>
+                    <span>Vesting</span>
+                    <strong>24 Months (250k ZNK / Month)</strong>
                 </div>
             </div>
 
             <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="lock-proof-btn">
-                Solana'da Kilit Kanıtını Görüntüle (Solscan)
+                View Lock Proof on Solana (Solscan)
             </a>
         </div>
 
     </section>
 
     <section class="section" id="faq">
-        <h2 class="section-title">SSS</h2>
+        <h2 class="section-title">FAQ</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">Zonka Coin (ZNK) nedir? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Zonka, Solana üzerine inşa edilmiş, hızlı küresel ödemeler ve Zonka Cares aracılığıyla sosyal etki için tasarlanmış, topluluk odaklı bir dijital varlıktır.</div>
+                <div class="faq-question">What is Zonka Coin (ZNK)? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Zonka is a community-driven digital asset built on Solana, designed for fast global payments and social impact through Zonka Cares.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Zonka Cares nedir? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Hayırseverlik girişimidir. İşlem ücretlerinin ve hazine fonlarının bir kısmı çocukları doyurmak, hayvanları desteklemek ve doğayı korumak için ayrılır.</div>
+                <div class="faq-question">What is Zonka Cares? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Our charity initiative. A portion of transaction fees and treasury funds are allocated to feed children, support animals, and protect nature.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Kahraman Rozetlerini nasıl kazanırım? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">Zonka Cares fonuna ZNK bağışlayarak. 1k, 5k, 10k ve 50k ZNK bağışları sırasıyla Bronz, Gümüş, Altın ve Elmas statüsü kazandırır.</div>
+                <div class="faq-question">How do I earn Hero Badges? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">By donating ZNK to the Zonka Cares fund. Donations of 1k, 5k, 10k, and 50k ZNK earn Bronze, Silver, Gold, and Diamond status respectively.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Ön satış ne zaman bitecek? <span class="faq-icon">▼</span></div>
-                <div class="faq-answer">15 Milyon ZNK tahsisatı tükendiğinde ön satış sona erecektir. Tüm tokenler ön satış bittikten sonra dağıtılacaktır.</div>
+                <div class="faq-question">When will the presale end? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">The presale will end once the 15 Million ZNK allocation is sold out. All tokens will be distributed after the presale ends.</div>
             </div>
         </div>
     </section>
 
     <section class="section" id="contract">
-        <h2 class="section-title">Sözleşme Adresi</h2>
+        <h2 class="section-title">Contract Address</h2>
         <div class="contract-box">
-            <p style="margin-bottom: 8px; color: var(--text-muted); font-size: 0.8rem;">ZNK'yı cüzdanınıza eklemek için adresi kopyalayın.</p>
+            <p style="margin-bottom: 8px; color: var(--text-muted); font-size: 0.8rem;">Copy the address to add ZNK to your wallet.</p>
             <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-            <button class="copy-btn" onclick="copyAddress()">Adresi Kopyala</button>
+            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Zonka (ZNK) Ekosistemi. Tüm hakları saklıdır. <br>
-        <span class="footer-verified">Akıllı Sözleşme Solana Blok Zincirinde Doğrulandı.</span>
-        <div class="ssl-badge">🔒 256-bit SSL ile Korunmaktadır</div>
+        &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
+        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
+        <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
 
     <script>
@@ -826,8 +831,8 @@
             const address = document.getElementById("address").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-btn");
-                btn.innerText = "Kopyalandı!";
-                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
 
@@ -835,8 +840,8 @@
             const address = document.getElementById("depositAddress").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-wallet-btn");
-                btn.innerText = "Kopyalandı!";
-                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
 
@@ -844,8 +849,8 @@
             const address = document.getElementById("donationAddress").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-donate-btn");
-                btn.innerText = "Kopyalandı!";
-                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
 
@@ -876,10 +881,10 @@
         solInput.addEventListener('input', () => {
             const solAmount = parseFloat(solInput.value);
             if (isNaN(solAmount) || solAmount <= 0) {
-                calcResult.innerText = "Alacağınız: 0 ZNK";
+                calcResult.innerText = "You will receive: 0 ZNK";
             } else {
                 const zknAmount = solAmount * rate;
-                calcResult.innerText = `Alacağınız: ~${zknAmount.toLocaleString('en-US')} ZNK`;
+                calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
             }
         });
 
