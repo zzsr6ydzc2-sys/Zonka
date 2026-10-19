@@ -298,7 +298,7 @@
             transform: translateY(-3px) scale(1.1);
         }
         .exchange-item img {
-            width: 45px; /* Biraz daha büyütüp görünür yaptık */
+            width: 45px;
             height: 45px; 
             object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
@@ -460,8 +460,34 @@
             padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; font-size: 0.8rem;
         }
         .badge-table th { color: var(--gold-light); font-weight: 600; }
-        .hall-of-fame { background: rgba(0,0,0,0.5); border-radius: 8px; padding: 15px; min-height: 60px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05);}
-        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem;}
+        
+        /* --- GÜNCELLENMİŞ HALL OF FAME ALANI --- */
+        .hall-of-fame { 
+            background: rgba(0,0,0,0.5); 
+            border-radius: 8px; 
+            padding: 15px; 
+            min-height: 60px; 
+            display: flex; 
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center; 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; }
+        .hero-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+            font-size: 0.85rem;
+        }
+        .hero-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .hero-name { color: var(--text-light); font-weight: 500; }
+        .hero-badge { font-size: 1rem; }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
@@ -569,9 +595,9 @@
             border-radius: 8px; font-family: 'Montserrat', sans-serif;
             font-weight: 700; font-size: 0.8rem; transition: all 0.3s ease;
         }
-        .lock-proof-btn:hover { background: rgba(16, 185, 129, 0.3); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(16,185,129,0.4); }
+        .lock-proof-btn:hover { background: rgba(16, 185, 129, 0.3); transform: translateY(-2px-family); box-shadow: 0 :5px 15px rgba( '16,Mont185,129,0.4);ser }
 
-        /* --- SÖZLEŞME --- */
+        /* --- SratÖZLEŞME --- */
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 20px; border-radius: 12px; text-align: center;
@@ -586,7 +612,7 @@
         }
         .copy-btn {
             background: var(--gold); color: #000; padding: 10px 20px; border-radius: 6px;
-            font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.8rem;
+            font-weight: 800; font', sans-serif; border: none; cursor: pointer; font-size: 0.8rem;
             transition: all 0.3s;
         }
         .copy-btn:hover { background: var(--gold-light); box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
@@ -782,7 +808,7 @@
                     <tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
                 </table>
                 <h3 style="font-size: 0.9rem; margin-top: 15px;"><i class="fas fa-star"></i> Hall of Fame</h3>
-                <div class="hall-of-fame">
+                <div class="hall-of-fame" id="hallOfFame">
                     <p>Be the first hero!</p>
                 </div>
             </div>
@@ -963,6 +989,61 @@
                 calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
             }
         });
+
+        // --- GOOGLE SHEETS HALL OF FAME ENTEGRASYONU ---
+        // Senin gönderdiğin linkin CSV (Tablo) formatına çevrilmiş hali:
+        const sheetURL = "https://docs.google.com/spreadsheets/d/1-CIXynhu_qimqlIZBmiOiXOsB5Sn7Q83Pg3eZX3ST-o/export?format=csv";
+
+        async function loadHallOfFame() {
+            try {
+                const response = await fetch(sheetURL);
+                const data = await response.text();
+                
+                // CSV'yi satırlara böl
+                const rows = data.split('\n');
+                const hallOfFameDiv = document.getElementById('hallOfFame');
+                
+                // İlk satır başlık (Isim, Rozet) olduğu için 1'den başlıyoruz
+                let htmlContent = ''; 
+                let heroCount = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i].trim();
+                    if (row) {
+                        // Satırları virgüle göre ayır (İsim ve Rozet)
+                        const columns = row.split(',');
+                        
+                        // Eğer isim kısmı boş değilse listeye ekle
+                        if (columns[0] && columns[0].trim() !== "") {
+                            const name = columns[0].trim().replace(/"/g, ''); // Tırnak işaretlerini temizle
+                            const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
+                            
+                            htmlContent += `
+                                <div class="hero-item">
+                                    <span class="hero-name">${name}</span>
+                                    <span class="hero-badge">${badge}</span>
+                                </div>
+                            `;
+                            heroCount++;
+                        }
+                    }
+                }
+
+                // Eğer tabloda kimse yoksa eski yazıyı göster
+                if (heroCount === 0) {
+                    hallOfFameDiv.innerHTML = `<p>Be the first hero!</p>`;
+                } else {
+                    hallOfFameDiv.innerHTML = htmlContent;
+                }
+
+            } catch (error) {
+                console.error("Hall of Fame verisi yüklenemedi:", error);
+                // Hata olursa (internet yoksa vs.) eski yazıda kalsın
+            }
+        }
+
+        // Sayfa yüklendiğinde tabloyu çek
+        document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
         // --- ROADMAP (YOL HARİTASI) SONSUZ DÖNGÜ MANTIĞI ---
         const rTrack = document.getElementById('roadmapTrack');
