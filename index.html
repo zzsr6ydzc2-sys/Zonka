@@ -28,14 +28,13 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #cbd5e1;
-            --glass: rgba(15, 23, 42, 0.65); /* Premium Buzlu Cam Efekti */
+            --glass: rgba(15, 23, 42, 0.65);
             --glass-border: rgba(245, 158, 11, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            /* Arka plan: Kuzey Işıkları ve Karlı Dağlar (senin seçtiğin tema) */
             background: linear-gradient(rgba(5, 8, 20, 0.75), rgba(5, 8, 20, 0.9)), url('https://images.unsplash.com/photo-1478719059408-592965723cbc?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover;
             color: var(--text-light);
@@ -193,24 +192,18 @@
             background: rgba(0,0,0,0.7); border: 1px dashed var(--gold-light);
             padding: 15px; border-radius: 10px; margin-bottom: 20px;
         }
-        .wallet-address-box p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+        .wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
         .wallet-address-box code {
-            display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
+            display: block; font-family: 'Courier New', monospace; font-size: 0.9rem;
             color: var(--gold-light); word-break: break-all; font-weight: 700; user-select: all;
-            background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;
+            background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;
         }
         .copy-wallet-btn {
-            background: var(--gold); color: #000; border: none; padding: 8px 15px;
-            border-radius: 6px; font-size: 0.8rem; cursor: pointer; margin-top: 10px; font-weight: bold;
+            background: var(--gold); color: #000; border: none; padding: 10px 15px;
+            border-radius: 6px; font-size: 0.85rem; cursor: pointer; margin-top: 10px; font-weight: bold;
             transition: all 0.3s; width: 100%;
         }
         .copy-wallet-btn:hover { background: var(--gold-light); box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
-
-        .buy-steps {
-            text-align: left; margin-bottom: 25px; font-size: 0.85rem; color: var(--text-muted);
-            background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px;
-        }
-        .buy-steps li { margin-bottom: 8px; margin-left: 20px; }
 
         .buy-btn, .donate-btn {
             display: block; width: 100%; padding: 16px;
@@ -219,12 +212,12 @@
             font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
             text-decoration: none; text-transform: uppercase; border-radius: 12px; border: none;
             cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 20px rgba(245, 158, 11, 0.5);
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; margin-bottom: 20px;
         }
         .buy-btn:hover, .donate-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(245, 158, 11, 0.8); color: #000;}
 
         .distribution-note {
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 15px;
             background: linear-gradient(180deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
             border: 1px solid rgba(6, 182, 212, 0.5);
@@ -366,6 +359,35 @@
         .hall-of-fame { background: rgba(0,0,0,0.6); border-radius: 10px; padding: 20px; min-height: 80px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05);}
         .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.95rem;}
 
+        /* --- YOL HARİTASI (ROADMAP) --- */
+        .roadmap-container {
+            display: flex; flex-direction: column; gap: 20px;
+            position: relative; max-width: 800px; margin: 0 auto;
+        }
+        .roadmap-container::before {
+            content: ''; position: absolute; top: 0; left: 20px; height: 100%; width: 2px;
+            background: linear-gradient(180deg, var(--gold), transparent);
+            z-index: 1;
+        }
+        .roadmap-item {
+            display: flex; align-items: flex-start; gap: 20px;
+            background: var(--glass); backdrop-filter: blur(15px);
+            padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+            position: relative; z-index: 2; transition: transform 0.3s;
+        }
+        .roadmap-item:hover { transform: translateX(10px); border-color: var(--gold); }
+        .roadmap-icon {
+            background: var(--bg-dark); border: 2px solid var(--gold);
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--gold);
+            flex-shrink: 0; box-shadow: 0 0 15px rgba(245,158,11,0.4);
+        }
+        .roadmap-content h4 {
+            font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.1rem; margin-bottom: 8px;
+        }
+        .roadmap-content p { color: var(--text-muted); font-size: 0.9rem; }
+
         /* --- TOKENOMICS & LOCK --- */
         .tokenomics-table {
             width: 100%; margin: 0 auto; border-collapse: collapse;
@@ -458,6 +480,8 @@
             .buy-box-container { padding: 25px 15px; }
             .donation-card { padding: 25px 15px; }
             .vision-box { padding: 25px 15px; }
+            .roadmap-container::before { left: 15px; }
+            .roadmap-item { padding: 15px; }
         }
     </style>
 </head>
@@ -524,18 +548,13 @@
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
             </div>
 
-            <ul class="buy-steps">
-                <li>2. After sending SOL, click below.</li>
-                <li>3. Send TXID on Telegram.</li>
-                <li>4. Receive ZNK instantly to your wallet.</li>
-            </ul>
-
             <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">PROCEED TO VERIFICATION</a>
             
+            <!-- KURUMSAL OTOMATİK SİSTEM AÇIKLAMASI -->
             <div class="distribution-note">
                 <i class="fas fa-shield-alt"></i>
-                <strong>Secure Transaction Protocol</strong>
-                <span>To ensure the security of your assets, please verify your transaction via our official support channel. <strong>Your tokens will be automatically deposited</strong> upon verification.</span>
+                <strong>Instant & Automated Delivery</strong>
+                <span>Our Smart Contract system processes your transaction instantly. To ensure network security, your transaction is automatically verified. <strong>Your ZNK tokens will be deposited into your Web3 wallet immediately upon confirmation.</strong></span>
             </div>
         </div>
 
@@ -554,13 +573,13 @@
         <div class="vision-box">
             <h3>Why a Bear? What is "Bir"?</h3>
             <p style="margin-bottom: 15px;">Zonka (ZNK) is not just a token; it is a movement. <strong>The Bear in our logo</strong> represents the strength of nature and the wild. But just as the Arctic is melting, many lives are in danger. We stand strong to protect them.</p>
-            <p>Our charity fund, <strong>"Bir"</strong> (which means "One" in Turkish), is built on the belief that <strong>every single animal matters</strong>. We don't just say we care; we act. A portion of every transaction and all direct donations are used to feed, shelter, and heal street animals, while also supporting wildlife conservation projects.</p>
+            <p>The name <strong>"Bir"</strong> represents unity and singularity. Because for us, <strong>every single animal is unique, and every single life matters.</strong> We don't just say we care; we act. A portion of every transaction and all direct donations are used to feed, shelter, and heal street animals, while also supporting wildlife conservation projects.</p>
         </div>
 
         <div class="donation-layout">
             <!-- BİR FONU BAĞIŞ KUTUSU -->
             <div class="donation-card">
-                <h3><i class="fas fa-hand-holding-heart"></i> Bir Fund</h3>
+                <h3><i class="fas fa-paw"></i> Bir Fund</h3>
                 
                 <div class="counter">0 ZNK</div>
                 <div class="counter-desc">Every contribution changes a life.</div>
@@ -571,14 +590,8 @@
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
 
-                <ul class="buy-steps" style="margin-bottom: 20px;">
-                    <li>2. After sending ZNK, click below.</li>
-                    <li>3. Send TXID on Telegram.</li>
-                    <li>4. Get your Hero Badge!</li>
-                </ul>
-
                 <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">
-                    <i class="fas fa-paw"></i> I SENT THE DONATION (CONTACT US)
+                    I SENT THE DONATION
                 </a>
                 <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
@@ -596,6 +609,41 @@
                 <h3 style="font-size: 1rem; margin-top: 20px;"><i class="fas fa-star"></i> Hall of Fame</h3>
                 <div class="hall-of-fame">
                     <p>Be the first hero!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOL HARİTASI (PREMIUM ZAMAN TÜNELİ) -->
+    <section class="section" id="roadmap">
+        <h2 class="section-title">Roadmap</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-item">
+                <div class="roadmap-icon">1</div>
+                <div class="roadmap-content">
+                    <h4>Phase 1: Awakening</h4>
+                    <p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">2</div>
+                <div class="roadmap-content">
+                    <h4>Phase 2: The Thaw</h4>
+                    <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First "Bir" Fund Donation.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">3</div>
+                <div class="roadmap-content">
+                    <h4>Phase 3: Arctic Empire</h4>
+                    <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Expansion.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">4</div>
+                <div class="roadmap-content">
+                    <h4>Phase 4: Ecosystem</h4>
+                    <p>"Bir" Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
                 </div>
             </div>
         </div>
