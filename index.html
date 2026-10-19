@@ -268,7 +268,7 @@
             color: #fff; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 3px;
         }
 
-        /* --- SONSUZ KAYAN BORSALAR (SADECE LOGOLAR) --- */
+        /* --- SONSUZ KAYAN BORSALAR (SADECE LOGOLAR - KODA GÖMÜLÜ) --- */
         .exchanges-carousel {
             width: 100%;
             max-width: 600px;
@@ -301,13 +301,10 @@
             object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
             transition: filter 0.3s;
-            border-radius: 50%; /* Resimlerin köşelerini yumuşatır */
         }
         .exchange-item:hover img {
             filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.8));
         }
-        
-        /* İSİMLER YAZMASIN DİYE SPAN KISMINI TAMAMEN KALDIRDIK */
 
         @keyframes scrollExchanges {
             0% { transform: translateX(0); }
@@ -692,30 +689,46 @@
             </div>
         </div>
 
-        <!-- SONSUZ KAYAN BORSALAR (GÖRSELDEKİ GİBİ SADECE LOGOLAR) -->
+        <!-- SONSUZ KAYAN BORSALAR (SADECE LOGOLAR - KODA GÖMÜLÜ) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <!-- 1. Set -->
-                <div class="exchange-item" title="KuCoin"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/KuCoin_logo.svg" alt="KuCoin"></div>
-                <div class="exchange-item" title="MEXC"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/MEXC_logo.svg" alt="MEXC"></div>
-                <div class="exchange-item" title="Binance"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Binance_logo.svg" alt="Binance"></div>
-                <div class="exchange-item" title="Coinbase"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" alt="Coinbase"></div>
-                <div class="exchange-item" title="Upbit"><img src="https://proicons.com/icon/371951.svg" alt="Upbit"></div>
-                <div class="exchange-item" title="OKX"><img src="https://upload.wikimedia.org/wikipedia/commons/8/85/OKX_logo.svg" alt="OKX"></div>
-                <div class="exchange-item" title="Bybit"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Bybit_logo.svg" alt="Bybit"></div>
-                <div class="exchange-item" title="Bitget"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitget_logo.svg" alt="Bitget"></div>
-                <div class="exchange-item" title="Gate.io"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Gate.io_logo.svg" alt="Gate.io"></div>
+                <div class="exchange-item" title="KuCoin"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300C087' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-5.55 22.52l-4.83 4.83c-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3zm5.55-5.55l-4.83 4.83c-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3zM27.1 9.74l-4.83 4.83c-1.19 1.19-3.11 1.19-4.3 0-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3z'/></svg>" alt="KuCoin"></div>
                 
+                <div class="exchange-item" title="MEXC"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300C087' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zM9.5 22.5v-13l6.5 6.5-6.5 6.5zm13 0v-13l-6.5 6.5 6.5 6.5z'/></svg>" alt="MEXC"></div>
+                
+                <div class="exchange-item" title="Binance"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23F0B90B' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-3.85 20.73l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0l3.86 3.86c.43.43.43 1.13 0 1.56l-3.86 3.86c-.43.43-1.13.43-1.56 0zm8.22 2.6l-2.7 2.7c-.43.43-1.13.43-1.56 0l-2.7-2.7c-.43-.43-.43-1.13 0-1.56l2.7-2.7c.43-.43 1.13-.43 1.56 0l2.7 2.7c.43.43.43 1.13 0 1.56zm-8.22-14.82l3.86 3.86c.43.43.43 1.13 0 1.56l-3.86 3.86c-.43.43-1.13.43-1.56 0l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0zm-2.15 5.64l-3.86 3.86c-.43.43-1.13.43-1.56 0l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0l3.86 3.86c.43.43.43 1.13 0 1.56z'/></svg>" alt="Binance"></div>
+                
+                <div class="exchange-item" title="Coinbase"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230052FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 5c6.075 0 11 4.925 11 11s-4.925 11-11 11S5 22.075 5 16 9.925 5 16 5zm-3.5 6.5a1.5 1.5 0 0 0 0 3h3a1.5 1.5 0 0 0 0-3h-3zm0 9a1.5 1.5 0 0 0 0 3h7a1.5 1.5 0 0 0 0-3h-7z'/></svg>" alt="Coinbase"></div>
+                
+                <div class="exchange-item" title="Upbit"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230057D9' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-3.5 8.5a3.5 3.5 0 0 1 0 7h-3a3.5 3.5 0 0 1 0-7h3zm7 7a3.5 3.5 0 0 1 0 7h-3a3.5 3.5 0 0 1 0-7h3z'/></svg>" alt="Upbit"></div>
+                
+                <div class="exchange-item" title="OKX"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-5 5h10v10H11V5zm0 12h10v10H11V17z'/></svg>" alt="OKX"></div>
+                
+                <div class="exchange-item" title="Bybit"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23F7A600' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zM9 8h9a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-9V8zm0 12h9a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4H9V20z'/></svg>" alt="Bybit"></div>
+                
+                <div class="exchange-item" title="Bitget"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300F0FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-4 8a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H8V8h4zm8 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-4V8h4z'/></svg>" alt="Bitget"></div>
+                
+                <div class="exchange-item" title="Gate.io"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230052FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-4 8a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H8V8h4zm8 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-4V8h4z'/></svg>" alt="Gate.io"></div>
+
                 <!-- 2. Set (Sonsuz Döngü İçin) -->
-                <div class="exchange-item" title="KuCoin"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/KuCoin_logo.svg" alt="KuCoin"></div>
-                <div class="exchange-item" title="MEXC"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/MEXC_logo.svg" alt="MEXC"></div>
-                <div class="exchange-item" title="Binance"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Binance_logo.svg" alt="Binance"></div>
-                <div class="exchange-item" title="Coinbase"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" alt="Coinbase"></div>
-                <div class="exchange-item" title="Upbit"><img src="https://proicons.com/icon/371951.svg" alt="Upbit"></div>
-                <div class="exchange-item" title="OKX"><img src="https://upload.wikimedia.org/wikipedia/commons/8/85/OKX_logo.svg" alt="OKX"></div>
-                <div class="exchange-item" title="Bybit"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Bybit_logo.svg" alt="Bybit"></div>
-                <div class="exchange-item" title="Bitget"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitget_logo.svg" alt="Bitget"></div>
-                <div class="exchange-item" title="Gate.io"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Gate.io_logo.svg" alt="Gate.io"></div>
+                <div class="exchange-item" title="KuCoin"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300C087' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-5.55 22.52l-4.83 4.83c-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3zm5.55-5.55l-4.83 4.83c-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3zM27.1 9.74l-4.83 4.83c-1.19 1.19-3.11 1.19-4.3 0-1.19-1.19-1.19-3.11 0-4.3l4.83-4.83c1.19-1.19 3.11-1.19 4.3 0 1.19 1.19 1.19 3.11 0 4.3z'/></svg>" alt="KuCoin"></div>
+                
+                <div class="exchange-item" title="MEXC"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300C087' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zM9.5 22.5v-13l6.5 6.5-6.5 6.5zm13 0v-13l-6.5 6.5 6.5 6.5z'/></svg>" alt="MEXC"></div>
+                
+                <div class="exchange-item" title="Binance"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23F0B90B' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-3.85 20.73l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0l3.86 3.86c.43.43.43 1.13 0 1.56l-3.86 3.86c-.43.43-1.13.43-1.56 0zm8.22 2.6l-2.7 2.7c-.43.43-1.13.43-1.56 0l-2.7-2.7c-.43-.43-.43-1.13 0-1.56l2.7-2.7c.43-.43 1.13-.43 1.56 0l2.7 2.7c.43.43.43 1.13 0 1.56zm-8.22-14.82l3.86 3.86c.43.43.43 1.13 0 1.56l-3.86 3.86c-.43.43-1.13.43-1.56 0l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0zm-2.15 5.64l-3.86 3.86c-.43.43-1.13.43-1.56 0l-3.86-3.86c-.43-.43-.43-1.13 0-1.56l3.86-3.86c.43-.43 1.13-.43 1.56 0l3.86 3.86c.43.43.43 1.13 0 1.56z'/></svg>" alt="Binance"></div>
+                
+                <div class="exchange-item" title="Coinbase"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230052FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 5c6.075 0 11 4.925 11 11s-4.925 11-11 11S5 22.075 5 16 9.925 5 16 5zm-3.5 6.5a1.5 1.5 0 0 0 0 3h3a1.5 1.5 0 0 0 0-3h-3zm0 9a1.5 1.5 0 0 0 0 3h7a1.5 1.5 0 0 0 0-3h-7z'/></svg>" alt="Coinbase"></div>
+                
+                <div class="exchange-item" title="Upbit"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230057D9' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-3.5 8.5a3.5 3.5 0 0 1 0 7h-3a3.5 3.5 0 0 1 0-7h3zm7 7a3.5 3.5 0 0 1 0 7h-3a3.5 3.5 0 0 1 0-7h3z'/></svg>" alt="Upbit"></div>
+                
+                <div class="exchange-item" title="OKX"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-5 5h10v10H11V5zm0 12h10v10H11V17z'/></svg>" alt="OKX"></div>
+                
+                <div class="exchange-item" title="Bybit"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23F7A600' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zM9 8h9a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-9V8zm0 12h9a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4H9V20z'/></svg>" alt="Bybit"></div>
+                
+                <div class="exchange-item" title="Bitget"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%2300F0FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-4 8a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H8V8h4zm8 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-4V8h4z'/></svg>" alt="Bitget"></div>
+                
+                <div class="exchange-item" title="Gate.io"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%230052FF' d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm-4 8a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H8V8h4zm8 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-4V8h4z'/></svg>" alt="Gate.io"></div>
             </div>
         </div>
 
@@ -835,15 +848,15 @@
                     <div class="roadmap-content">
                         <h4>Phase 4: Ecosystem</h4>
                         <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
-                    </div>
+                    </div       >
                 </div>
             </div>
-        </div>
+        </ </div>
         <div class="roadmap-controls">
-            <button class="roadmap-btn" onclick="moveRoadmap(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button class="roadmap-btn" onclick="moveRoadmap(1)"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </section>
+            <button class="roadmap-btn" onclick="divmoveRoadmap(-1)"><i class="fas fa->
+chevron-left"></i></button   >
+            <button class="roadmap </-btn" onclick="moveRoadmap(1)"><i class="fas fa-chevron-right"></i></button>
+section>
 
     <!-- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) -->
     <section class="section" id="tokenomics">
