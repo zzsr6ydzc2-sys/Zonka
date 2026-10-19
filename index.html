@@ -628,6 +628,19 @@
         .trust-item.transparency .trust-btn:hover { background: rgba(139, 92, 246, 0.2); border-color: #8b5cf6; }
         .trust-item.burn .trust-btn:hover { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
 
+        /* --- YOL HARİTASI VE JETON EKONOMİSİ OK BUTONLARI BÜYÜTÜLDÜ --- */
+        .roadmap-controls {
+            display: flex; justify-content: center; gap: 20px; margin-top: 15px; margin-bottom: 15px;
+        }
+        .roadmap-btn {
+            background: rgba(245, 158, 11, 0.15); border: 2px solid var(--gold);
+            color: var(--gold); width: 45px; height: 45px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(245,158,11,0.3);
+        }
+        .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(245,158,11,0.8); }
+
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
             position: relative; width: 100%; overflow: hidden; padding: 15px 0;
@@ -656,17 +669,6 @@
             font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.85rem; margin-bottom: 6px;
         }
         .roadmap-content p { color: var(--text-muted); font-size: 0.75rem; line-height: 1.3; }
-        
-        .roadmap-controls {
-            display: flex; justify-content: center; gap: 15px; margin-top: 15px;
-        }
-        .roadmap-btn {
-            background: rgba(245, 158, 11, 0.1); border: 1px solid var(--gold);
-            color: var(--gold); width: 30px; height: 30px; border-radius: 50%;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem; transition: all 0.3s;
-        }
-        .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 10px rgba(245,158,11,0.5); }
 
         /* --- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) --- */
         .tokenomics-wrapper {
@@ -750,6 +752,7 @@
             .roadmap-item { min-width: 180px; max-width: 180px; }
             .tokenomics-item { min-width: 220px; max-width: 220px; }
             .trust-item { min-width: 220px; max-width: 220px; }
+            .roadmap-btn { width: 40px; height: 40px; font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -1012,10 +1015,7 @@
         </div>
 
         <!-- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) -->
-        <div class="trust-slider-wrapper" style="overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;">
-            <style>
-                .trust-slider-wrapper::-webkit-scrollbar { display: none; }
-            </style>
+        <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
                 <!-- 1. Kutu: Ekip -->
                 <div class="trust-item team">
@@ -1033,7 +1033,7 @@
                 <!-- 2. Kutu: Topluluk -->
                 <div class="trust-item community">
                     <h3><i class="fas fa-users"></i> Community Rewards Locked</h3>
-                    <p>Topluluğumuzun sadakatini ödüllendirirken, piyasa istikrarını sarsmamak önceliğimizdir. 7.000.000 ZNK'lik ödül havuzu, ani satış baskısını önlemek ve tokenımızın sağlıklı büyümesini sağlamak amacıyla uzun vadeli bir koruma planına alınmıştır.</p>
+                    <p>While rewarding the loyalty of our community, maintaining market stability is our priority. The 7,000,000 ZNK reward pool has been placed in a long-term protection plan to prevent sudden sell pressure and ensure the healthy growth of our token.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1070,7 +1070,7 @@
                 <!-- 5. Kutu: Yakım Mekanizması -->
                 <div class="trust-item burn">
                     <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
-                    <p>Ekip jetonlarımız, projenin gelişimini hızlandırmak ve pazarlama faaliyetlerini desteklemek için 4. aydan itibaren kademeli olarak (24 aya yayılarak) açılacaktır. Piyasa arzını dengelemek ve topluluğumuza olan bağlılığımızı kanıtlamak adına, açılan bu ekip jetonlarının belirli bir kısmı anında kalıcı olarak yakılacaktır (Burn). Bu deflasyonist yaklaşım, Zonka ekosisteminin uzun vadeli değerini ve güvenilirliğini korur.</p>
+                    <p>To accelerate development and support marketing, team tokens will unlock gradually over 24 months starting from month 4. To balance market supply and prove our commitment to the community, a portion of these unlocked team tokens will be permanently burned immediately. This deflationary approach protects the long-term value and reliability of the Zonka ecosystem.</p>
                     <div class="trust-details">
                         <span>Unlock Starts: <strong>Month 4 (Gradual)</strong></span>
                         <span>Mechanism: <strong>Deflationary Burn</strong></span>
@@ -1096,7 +1096,7 @@
                 <!-- 2. Kutu: Topluluk -->
                 <div class="trust-item community">
                     <h3><i class="fas fa-users"></i> Community Rewards Locked</h3>
-                    <p>Topluluğumuzun sadakatini ödüllendirirken, piyasa istikrarını sarsmamak önceliğimizdir. 7.000.000 ZNK'lik ödül havuzu, ani satış baskısını önlemek ve tokenımızın sağlıklı büyümesini sağlamak amacıyla uzun vadeli bir koruma planına alınmıştır.</p>
+                    <p>While rewarding the loyalty of our community, maintaining market stability is our priority. The 7,000,000 ZNK reward pool has been placed in a long-term protection plan to prevent sudden sell pressure and ensure the healthy growth of our token.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>7,000,000 ZNK</strong></span>
                         <span>Status: <strong>Fully Locked</strong></span>
@@ -1133,7 +1133,7 @@
                 <!-- 5. Kutu: Yakım Mekanizması -->
                 <div class="trust-item burn">
                     <h3><i class="fas fa-fire"></i> Team Vesting & Burn</h3>
-                    <p>Ekip jetonlarımız, projenin gelişimini hızlandırmak ve pazarlama faaliyetlerini desteklemek için 4. aydan itibaren kademeli olarak (24 aya yayılarak) açılacaktır. Piyasa arzını dengelemek ve topluluğumuza olan bağlılığımızı kanıtlamak adına, açılan bu ekip jetonlarının belirli bir kısmı anında kalıcı olarak yakılacaktır (Burn). Bu deflasyonist yaklaşım, Zonka ekosisteminin uzun vadeli değerini ve güvenilirliğini korur.</p>
+                    <p>To accelerate development and support marketing, team tokens will unlock gradually over 24 months starting from month 4. To balance market supply and prove our commitment to the community, a portion of these unlocked team tokens will be permanently burned immediately. This deflationary approach protects the long-term value and reliability of the Zonka ecosystem.</p>
                     <div class="trust-details">
                         <span>Unlock Starts: <strong>Month 4 (Gradual)</strong></span>
                         <span>Mechanism: <strong>Deflationary Burn</strong></span>
@@ -1144,7 +1144,7 @@
             </div>
         </div>
         
-        <!-- YENİ EKLENEN: GÜVEN PANELİ OK BUTONLARI -->
+        <!-- YENİ EKLENEN: GÜVEN PANELİ OK BUTONLARI (BÜYÜK) -->
         <div class="roadmap-controls">
             <button class="roadmap-btn" onclick="moveTrust(-1)"><i class="fas fa-chevron-left"></i></button>
             <button class="roadmap-btn" onclick="moveTrust(1)"><i class="fas fa-chevron-right"></i></button>
