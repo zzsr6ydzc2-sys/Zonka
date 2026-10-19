@@ -461,95 +461,79 @@
         }
         .badge-table th { color: var(--gold-light); font-weight: 600; }
         
-        /* --- ALTIN KAPLAMA HALL OF FAME ALANI --- */
+        /* --- KÜÇÜLTÜLMÜŞ VE HİZALANMIŞ ALTIN HALL OF FAME ALANI --- */
         .hall-of-fame { 
-            background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%); /* Altın Gradient */
-            border-radius: 12px; 
-            padding: 15px; 
-            max-height: 180px; 
+            background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+            border-radius: 10px; /* Köşeler biraz daha yumuşak */
+            padding: 10px 12px; /* İç boşluklar küçültüldü */
+            max-height: 160px; /* Yükseklik sınırı biraz daha aşağı çekildi */
             overflow-y: auto; 
             display: flex; 
             flex-direction: column;
-            gap: 10px;
+            gap: 8px; /* Elemanlar arası boşluk azaltıldı */
             justify-content: flex-start; 
-            border: 1px solid #b45309; /* Koyu altın çerçeve */
-            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.4), 0 0 20px rgba(245, 158, 11, 0.4); /* Işıltı */
+            border: 1px solid #b45309; 
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(245, 158, 11, 0.3); 
             text-align: left;
             transition: all 0.3s;
         }
         .hall-of-fame:hover {
-            box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.6), 0 0 30px rgba(245, 158, 11, 0.6);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(245, 158, 11, 0.5);
         }
         
-        /* Şık ve İnce Kaydırma Çubuğu Tasarımı */
-        .hall-of-fame::-webkit-scrollbar {
-            width: 6px;
-        }
-        .hall-of-fame::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-            border-radius: 4px;
-        }
-        .hall-of-fame::-webkit-scrollbar-thumb {
-            background: #b45309;
-            border-radius: 4px;
-        }
-        .hall-of-fame::-webkit-scrollbar-thumb:hover {
-            background: #78350f;
-        }
+        .hall-of-fame::-webkit-scrollbar { width: 5px; }
+        .hall-of-fame::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
+        .hall-of-fame::-webkit-scrollbar-thumb { background: #b45309; border-radius: 3px; }
+        .hall-of-fame::-webkit-scrollbar-thumb:hover { background: #78350f; }
 
-        .hall-of-fame p { color: #78350f; font-style: italic; font-size: 0.85rem; text-align: center; margin: auto; font-weight: 600;}
+        .hall-of-fame p { color: #78350f; font-style: italic; font-size: 0.8rem; text-align: center; margin: auto; font-weight: 600;}
         
         .hero-item {
             display: flex;
-            justify-content: space-between; /* İsim sola, ikon+rozet sağa */
+            justify-content: flex-start; /* Sola yaslandı */
             align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.1); /* Siyah çizgi */
-            padding-bottom: 8px;
-            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 6px;
+            font-size: 0.85rem;
             width: 100%;
+            gap: 8px; /* Elemanlar arası boşluk */
         }
         .hero-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
         
-        /* İsim ve Link Tasarımı */
+        /* İsim */
         .hero-name { 
-            color: #000; /* Siyah isim */
+            color: #000;
             font-weight: 700; 
             text-align: left; 
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
             transition: all 0.2s;
         }
-        
-        .hero-name:hover {
-            color: #333;
-            text-shadow: 0 0 5px rgba(255,255,255,0.8);
-        }
+        .hero-name:hover { color: #333; text-shadow: 0 0 5px rgba(255,255,255,0.8); }
 
-        /* Sağ Taraf (İkon ve Rozet) */
-        .hero-right-side {
+        /* Rozet ve İkon İçin Grup */
+        .hero-icon-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
+            margin-left: 5px;
         }
 
-        .hero-badge { font-size: 1.1rem; }
-
-        /* Telegram İkonu (Büyütüldü ve Sağa Alındı) */
+        /* Telegram İkonu (Canlı Mavi ve Büyük) */
         .tg-icon { 
-            color: #000; /* Siyah ikon */
-            font-size: 1.2rem; /* Büyük ikon */
+            color: #229ED9; /* Telegram Mavi */
+            font-size: 1.1rem; /* Biraz büyütüldü */
             transition: transform 0.3s;
         }
         
         .hero-name:hover .tg-icon {
-            transform: scale(1.2);
-            color: #1d4ed8; /* Hover olunca hafif mavi */
+            transform: scale(1.2); /* Üzerine gelince büyüme */
         }
+
+        /* Rozet */
+        .hero-badge { font-size: 1rem; }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
@@ -1090,17 +1074,17 @@
                                     telegram = telegram.split('t.me/')[1];
                                 }
                                 
-                                // Tıklanınca gidecek gizli mesaj (❄️🐻‍❄️❄️)
-                                const messageText = encodeURIComponent("❄️🐻‍❄️❄️");
+                                // İstenilen 2 kelimelik gizli mesaj: Hero Support
+                                const messageText = encodeURIComponent("Hero Support");
                                 const tgURL = `https://t.me/${telegram}?text=${messageText}`;
 
-                                // İsim solda, ikon ve rozet sağda olacak şekilde HTML
+                                // İsim, tıklanabilir. Yanında mavi ikon ve rozet.
                                 nameHTML = `
                                     <a href="${tgURL}" target="_blank" class="hero-name">
                                         ${name}
                                     </a>
-                                    <div class="hero-right-side">
-                                        <i class="fab fa-telegram tg-icon"></i>
+                                    <div class="hero-icon-group">
+                                        <i class="fab fa-telegram-plane tg-icon"></i>
                                         <span class="hero-badge">${badge}</span>
                                     </div>
                                 `;
@@ -1108,7 +1092,7 @@
                                 // Telegram yoksa sadece isim ve rozet
                                 nameHTML = `
                                     <span class="hero-name">${name}</span>
-                                    <div class="hero-right-side">
+                                    <div class="hero-icon-group">
                                         <span class="hero-badge">${badge}</span>
                                     </div>
                                 `;
