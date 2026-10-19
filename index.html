@@ -287,28 +287,34 @@
         }
         .exchange-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05); /* Hafif şeffaf arka plan */
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            width: 60px;
+            gap: 5px;
             transition: all 0.3s;
             opacity: 0.8;
         }
         .exchange-item:hover {
             opacity: 1;
-            transform: scale(1.15);
-            background: rgba(245, 158, 11, 0.1);
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+            transform: scale(1.1);
         }
         .exchange-item img {
-            width: 24px; 
-            height: 24px; 
+            width: 30px; 
+            height: 30px; 
             object-fit: contain;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        .exchange-item span {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         @keyframes scrollExchanges {
             0% { transform: translateX(0); }
@@ -697,19 +703,19 @@
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <!-- Borsalar 1. Set -->
-                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"></div>
-                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"></div>
-                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"></div>
-                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"></div>
-                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"></div>
-                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"></div>
+                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"><span>Binance</span></div>
+                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"><span>Coinbase</span></div>
+                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"><span>Bybit</span></div>
+                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"><span>OKX</span></div>
+                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"><span>MEXC</span></div>
+                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"><span>Gate.io</span></div>
                 <!-- Borsalar 2. Set (Sonsuz Döngü İçin) -->
-                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"></div>
-                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"></div>
-                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"></div>
-                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"></div>
-                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"></div>
-                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"></div>
+                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"><span>Binance</span></div>
+                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"><span>Coinbase</span></div>
+                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"><span>Bybit</span></div>
+                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"><span>OKX</span></div>
+                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"><span>MEXC</span></div>
+                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"><span>Gate.io</span></div>
             </div>
         </div>
 
