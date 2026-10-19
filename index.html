@@ -461,20 +461,39 @@
         }
         .badge-table th { color: var(--gold-light); font-weight: 600; }
         
-        /* --- DÜZELTİLMİŞ HALL OF FAME ALANI --- */
+        /* --- DÜZELTİLMİŞ VE SINIRLANDIRILMIŞ HALL OF FAME ALANI --- */
         .hall-of-fame { 
             background: rgba(0,0,0,0.5); 
             border-radius: 8px; 
             padding: 15px; 
-            min-height: 60px; 
+            max-height: 180px; /* Kutunun maksimum boyutu sınırlandırıldı */
+            overflow-y: auto; /* İçerik çoğalırsa kaydırma çubuğu çıkar */
             display: flex; 
             flex-direction: column;
             gap: 8px;
-            justify-content: center; 
+            justify-content: flex-start; 
             border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
         }
-        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; }
+        
+        /* Şık ve İnce Kaydırma Çubuğu Tasarımı */
+        .hall-of-fame::-webkit-scrollbar {
+            width: 6px;
+        }
+        .hall-of-fame::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+        .hall-of-fame::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        .hall-of-fame::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; margin: auto;}
+        
         .hero-item {
             display: flex;
             justify-content: space-between;
@@ -568,7 +587,7 @@
             height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 2px;
         }
 
-        /* --- TOKENOMICS & LOCK (Eski Şık Hali) --- */
+        /* --- TOKENOMICS & LOCK --- */
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 20px; border-radius: 15px;
@@ -599,7 +618,7 @@
         }
         .lock-proof-btn:hover { background: rgba(16, 185, 129, 0.3); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(16,185,129,0.4); }
 
-        /* --- SÖZLEŞME (Eski Şık Hali) --- */
+        /* --- SÖZLEŞME --- */
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 20px; border-radius: 12px; text-align: center;
@@ -796,7 +815,6 @@
                 <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">
                     I SENT THE DONATION
                 </a>
-                <!-- TELEGRAM YÖNLENDİRME YAZISI GERİ EKLENDİ -->
                 <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
@@ -1005,7 +1023,7 @@
                 const rows = data.split('\n');
                 const hallOfFameDiv = document.getElementById('hallOfFame');
                 
-                // İlk satır başlık (Isim, Rozet) olduğu için 1'den başlıyoruz
+                // İlk satır başlık (Name, Badge) olduğu için 1'den başlıyoruz
                 let htmlContent = ''; 
                 let heroCount = 0;
 
