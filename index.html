@@ -461,9 +461,9 @@
         }
         .badge-table th { color: var(--gold-light); font-weight: 600; }
         
-        /* --- IŞIL IŞIL HALL OF FAME ALANI --- */
+        /* --- ALTIN KAPLAMA HALL OF FAME ALANI --- */
         .hall-of-fame { 
-            background: rgba(0,0,0,0.6); 
+            background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%); /* Altın Gradient */
             border-radius: 12px; 
             padding: 15px; 
             max-height: 180px; 
@@ -472,14 +472,13 @@
             flex-direction: column;
             gap: 10px;
             justify-content: flex-start; 
-            border: 1px solid rgba(6, 182, 212, 0.3); /* Mavi Neon Çerçeve */
-            box-shadow: inset 0 0 15px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.15); /* Neon Parlama */
+            border: 1px solid #b45309; /* Koyu altın çerçeve */
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.4), 0 0 20px rgba(245, 158, 11, 0.4); /* Işıltı */
             text-align: left;
             transition: all 0.3s;
         }
         .hall-of-fame:hover {
-            box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.2), 0 0 30px rgba(6, 182, 212, 0.3);
-            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.6), 0 0 30px rgba(245, 158, 11, 0.6);
         }
         
         /* Şık ve İnce Kaydırma Çubuğu Tasarımı */
@@ -487,28 +486,27 @@
             width: 6px;
         }
         .hall-of-fame::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.1);
             border-radius: 4px;
         }
         .hall-of-fame::-webkit-scrollbar-thumb {
-            background: var(--cyan);
+            background: #b45309;
             border-radius: 4px;
         }
         .hall-of-fame::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
+            background: #78350f;
         }
 
-        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; margin: auto;}
+        .hall-of-fame p { color: #78350f; font-style: italic; font-size: 0.85rem; text-align: center; margin: auto; font-weight: 600;}
         
         .hero-item {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between; /* İsim sola, ikon+rozet sağa */
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.1); /* Siyah çizgi */
             padding-bottom: 8px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             width: 100%;
-            gap: 8px;
         }
         .hero-item:last-child {
             border-bottom: none;
@@ -517,8 +515,8 @@
         
         /* İsim ve Link Tasarımı */
         .hero-name { 
-            color: var(--text-light); 
-            font-weight: 600; 
+            color: #000; /* Siyah isim */
+            font-weight: 700; 
             text-align: left; 
             text-decoration: none;
             display: inline-flex;
@@ -528,11 +526,30 @@
         }
         
         .hero-name:hover {
-            color: var(--gold-light);
-            text-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+            color: #333;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
         }
 
-        .hero-badge { font-size: 1rem; margin-left: 5px; }
+        /* Sağ Taraf (İkon ve Rozet) */
+        .hero-right-side {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge { font-size: 1.1rem; }
+
+        /* Telegram İkonu (Büyütüldü ve Sağa Alındı) */
+        .tg-icon { 
+            color: #000; /* Siyah ikon */
+            font-size: 1.2rem; /* Büyük ikon */
+            transition: transform 0.3s;
+        }
+        
+        .hero-name:hover .tg-icon {
+            transform: scale(1.2);
+            color: #1d4ed8; /* Hover olunca hafif mavi */
+        }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
         .roadmap-wrapper {
@@ -1063,8 +1080,8 @@
                             const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
                             let telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
                             
-                            // Link varsa tıklanabilir yap
                             let nameHTML = '';
+                            
                             if (telegram) {
                                 // Yazının başında @ varsa veya https://t.me/ varsa temizle
                                 if (telegram.startsWith('@')) {
@@ -1073,19 +1090,33 @@
                                     telegram = telegram.split('t.me/')[1];
                                 }
                                 
-                                // Telegram mesaj taslağı oluştur
-                                const messageText = encodeURIComponent("Hello, I want to claim my Hero Badge.");
+                                // Tıklanınca gidecek gizli mesaj (❄️🐻‍❄️❄️)
+                                const messageText = encodeURIComponent("❄️🐻‍❄️❄️");
                                 const tgURL = `https://t.me/${telegram}?text=${messageText}`;
 
-                                nameHTML = `<a href="${tgURL}" target="_blank" class="hero-name" style="color: var(--gold-light);"><i class="fab fa-telegram-plane" style="color: #229ED9; margin-right: 5px;"></i>${name}</a>`;
+                                // İsim solda, ikon ve rozet sağda olacak şekilde HTML
+                                nameHTML = `
+                                    <a href="${tgURL}" target="_blank" class="hero-name">
+                                        ${name}
+                                    </a>
+                                    <div class="hero-right-side">
+                                        <i class="fab fa-telegram tg-icon"></i>
+                                        <span class="hero-badge">${badge}</span>
+                                    </div>
+                                `;
                             } else {
-                                nameHTML = `<span class="hero-name">${name}</span>`;
+                                // Telegram yoksa sadece isim ve rozet
+                                nameHTML = `
+                                    <span class="hero-name">${name}</span>
+                                    <div class="hero-right-side">
+                                        <span class="hero-badge">${badge}</span>
+                                    </div>
+                                `;
                             }
 
                             htmlContent += `
                                 <div class="hero-item">
                                     ${nameHTML}
-                                    <span class="hero-badge">${badge}</span>
                                 </div>
                             `;
                             heroCount++;
