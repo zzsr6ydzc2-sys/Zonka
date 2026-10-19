@@ -35,7 +35,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(rgba(5, 8, 20, 0.75), rgba(5, 8, 20, 0.85)), url('ayi.JPG') no-repeat center center fixed; 
+            background: linear-gradient(rgba(5, 8, 20, 0.65), rgba(5, 8, 20, 0.8)), url('ayi.JPG') no-repeat center center fixed; 
             background-size: cover;
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -171,7 +171,7 @@
             background: var(--glass); backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border); border-radius: 15px;
             padding: 20px 15px; width: 100%; max-width: 380px;
-            margin: 0 auto 10px; /* Alt boşluğu azalttık ki borsalar hemen altına gelsin */
+            margin: 0 auto 10px;
             box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9);
             text-align: center; position: relative;
         }
@@ -268,7 +268,7 @@
             color: #fff; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 3px;
         }
 
-        /* --- YENİ: SONSUZ KAYAN BORSALAR --- */
+        /* --- SONSUZ KAYAN BORSALAR --- */
         .exchanges-carousel {
             width: 100%;
             max-width: 600px;
@@ -308,7 +308,7 @@
         }
         @keyframes scrollExchanges {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* İçeriği iki kere klonladığımız için -50% */
+            100% { transform: translateX(-50%); } 
         }
 
         /* --- SOSYAL MEDYA --- */
@@ -501,20 +501,44 @@
         }
         .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 10px rgba(245,158,11,0.5); }
 
-        /* --- TOKENOMICS & LOCK --- */
-        .tokenomics-table {
-            width: 100%; margin: 0 auto; border-collapse: collapse;
-            background: var(--glass); backdrop-filter: blur(20px); border-radius: 12px; overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        /* --- YENİ EKLENEN: SONSUZ KAYAN JETON EKONOMİSİ (TOKENOMICS) --- */
+        .tokenomics-wrapper {
+            position: relative; width: 100%; overflow: hidden; padding: 15px 0;
+            margin-bottom: 20px;
         }
-        .tokenomics-table th, .tokenomics-table td {
-            padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-light); font-size: 0.8rem;
+        .tokenomics-track {
+            display: flex; gap: 15px; padding: 10px 0;
+            transition: transform 0.3s ease-out;
+            width: max-content;
         }
-        .tokenomics-table th { background: rgba(0,0,0,0.6); color: var(--gold); font-family: 'Montserrat', sans-serif; font-weight: 800; }
-        .tokenomics-table tr:last-child td { border-bottom: none; }
-        .tokenomics-table td:last-child { text-align: right; font-weight: 800; color: var(--gold-light); }
+        .tokenomics-item {
+            background: var(--glass); backdrop-filter: blur(15px);
+            padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+            min-width: 280px; max-width: 280px; flex-shrink: 0;
+            position: relative; border-top: 3px solid var(--cyan);
+            transition: transform 0.3s, border-color 0.3s;
+            text-align: left;
+        }
+        .tokenomics-item:hover { transform: translateY(-3px); border-color: var(--gold); }
+        .tokenomics-title {
+            font-family: 'Montserrat', sans-serif; color: var(--gold); font-size: 1.1rem; font-weight: 800;
+            margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .tokenomics-title span {
+            font-size: 1.2rem; color: var(--cyan); text-shadow: 0 0 10px rgba(6,182,212,0.5);
+        }
+        .tokenomics-desc {
+            color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;
+        }
+        .tokenomics-bar {
+            width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;
+            margin-top: 15px; overflow: hidden;
+        }
+        .tokenomics-bar-fill {
+            height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 2px;
+        }
 
+        /* --- TOKENOMICS & LOCK (Eski tablo kaldırıldı, kilit kutusu kaldı) --- */
         .lock-info-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 20px; border-radius: 15px;
@@ -588,6 +612,7 @@
             .donation-card { padding: 20px 15px; }
             .vision-box { padding: 20px 15px; }
             .roadmap-item { min-width: 220px; max-width: 220px; }
+            .tokenomics-item { min-width: 260px; max-width: 260px; }
         }
     </style>
 </head>
@@ -664,7 +689,7 @@
             </div>
         </div>
 
-        <!-- YENİ: SONSUZ KAYAN BORSALAR (Tam alım satım butonunun altında) -->
+        <!-- SONSUZ KAYAN BORSALAR -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <!-- Borsalar 1. Set -->
@@ -674,7 +699,7 @@
                 <div class="exchange-item"><i class="fas fa-cube" style="color: #ffffff;"></i> OKX</div>
                 <div class="exchange-item"><i class="fas fa-cube" style="color: #00c087;"></i> MEXC</div>
                 <div class="exchange-item"><i class="fas fa-cube" style="color: #f0b90b;"></i> Gate.io</div>
-                <!-- Borsalar 2. Set (Sonsuz döngü için klonlandı) -->
+                <!-- Borsalar 2. Set -->
                 <div class="exchange-item"><i class="fab fa-btc" style="color: #f7931a;"></i> Binance</div>
                 <div class="exchange-item"><i class="fas fa-chart-line" style="color: #0052ff;"></i> Coinbase</div>
                 <div class="exchange-item"><i class="fas fa-exchange-alt" style="color: #00a3ff;"></i> Bybit</div>
@@ -810,25 +835,44 @@
         </div>
     </section>
 
-    <!-- TOKENOMICS -->
+    <!-- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) -->
     <section class="section" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
-        <table class="tokenomics-table">
-            <thead>
-                <tr>
-                    <th>Allocation</th>
-                    <th>Percentage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Presale (15M ZNK)</td><td>25.42%</td></tr>
-                <tr><td>DEX Liquidity</td><td>16.95%</td></tr>
-                <tr><td>Reserve / Treasury</td><td>20.34%</td></tr>
-                <tr><td>Marketing & Development</td><td>15.25%</td></tr>
-                <tr><td>Community & Rewards (Guardians of Life)</td><td>11.86%</td></tr>
-                <tr><td>Team (Locked on Launch)</td><td>10.17%</td></tr>
-            </tbody>
-        </table>
+        
+        <div class="tokenomics-wrapper">
+            <div class="tokenomics-track" id="tokenomicsTrack">
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Presale <span>25.42%</span></div>
+                    <p class="tokenomics-desc">Reserved for the early community to participate in the project's growth and secure initial liquidity.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 25.42%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">DEX Liquidity <span>16.95%</span></div>
+                    <p class="tokenomics-desc">Allocated to ensure smooth trading and market stability on decentralized exchanges like Raydium.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 16.95%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Treasury <span>20.34%</span></div>
+                    <p class="tokenomics-desc">A strategic reserve to fund future development, partnerships, and global expansion of the Zonka ecosystem.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 20.34%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Marketing <span>15.25%</span></div>
+                    <p class="tokenomics-desc">Dedicated to spreading awareness, building the community, and driving global adoption of ZNK.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 15.25%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Community <span>11.86%</span></div>
+                    <p class="tokenomics-desc">Used for the "Guardians of Life" fund, supporting animals, vulnerable children, and nature conservation.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 11.86%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Team <span>10.17%</span></div>
+                    <p class="tokenomics-desc">Securely locked to align the team's long-term interests with the project's success and the community.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 10.17%;"></div></div>
+                </div>
+            </div>
+        </div>
 
         <div class="lock-info-box">
             <h3><i class="fas fa-lock"></i> Team Tokens Locked & Verified</h3>
@@ -923,7 +967,6 @@
         const track = document.getElementById('roadmapTrack');
         const originalItems = Array.from(track.children);
         
-        // Klonlama yaparak sonsuz döngü hissiyatı yaratıyoruz
         originalItems.forEach(item => {
             track.appendChild(item.cloneNode(true));
         });
@@ -931,15 +974,13 @@
             track.prepend(item.cloneNode(true));
         });
 
-        let currentIndex = originalItems.length; // Başlangıç noktası (Ortadaki ilk orijinal öğe)
+        let currentIndex = originalItems.length;
         
-        // Başlangıçta track'i ortala
         const updateTransform = () => {
-            const itemWidth = originalItems[0].offsetWidth + 15; // 15px gap
+            const itemWidth = originalItems[0].offsetWidth + 15;
             track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
         };
         
-        // İlk yüklemede transform'u ayarla
         setTimeout(updateTransform, 100);
 
         function moveRoadmap(direction) {
@@ -948,7 +989,6 @@
             const itemWidth = originalItems[0].offsetWidth + 15;
             track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
 
-            // Sonsuz döngü kontrolü
             if (currentIndex >= originalItems.length * 2) {
                 setTimeout(() => {
                     track.style.transition = 'none';
@@ -966,7 +1006,6 @@
             }
         }
 
-        // Ekran boyutu değiştiğinde transform'u yeniden hesapla
         window.addEventListener('resize', () => {
             const itemWidth = originalItems[0].offsetWidth + 15;
             track.style.transition = 'none';
