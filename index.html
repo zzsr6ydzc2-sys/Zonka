@@ -275,40 +275,40 @@
             margin: 0 auto 30px;
             overflow: hidden;
             position: relative;
-            padding: 10px 0;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 15px 0;
+            /* Arka planı kaldırdık, sadece logolar akıyor */
         }
         .exchanges-track {
             display: flex;
-            gap: 30px;
+            gap: 40px; /* Logolar arası boşluk */
             width: max-content;
-            animation: scrollExchanges 20s linear infinite;
+            animation: scrollExchanges 25s linear infinite;
             align-items: center;
         }
         .exchange-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 0.9rem;
-            opacity: 0.7;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05); /* Hafif şeffaf arka plan */
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
             transition: all 0.3s;
-            filter: grayscale(100%);
+            opacity: 0.8;
         }
         .exchange-item:hover {
             opacity: 1;
-            filter: grayscale(0%);
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-            transform: scale(1.05);
+            transform: scale(1.15);
+            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
         }
         .exchange-item img {
-            width: 24px; height: 24px; object-fit: contain;
+            width: 24px; 
+            height: 24px; 
+            object-fit: contain;
         }
         @keyframes scrollExchanges {
             0% { transform: translateX(0); }
@@ -505,7 +505,7 @@
         }
         .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 10px rgba(245,158,11,0.5); }
 
-        /* --- SONSUZ KAYAN JETON EKONOMİSİ (TOKENOMICS) --- */
+        /* --- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) --- */
         .tokenomics-wrapper {
             position: relative; width: 100%; overflow: hidden; padding: 15px 0;
             margin-bottom: 20px;
@@ -693,23 +693,23 @@
             </div>
         </div>
 
-        <!-- SONSUZ KAYAN BORSALAR (GERÇEK LOGOLAR) -->
+        <!-- SONSUZ KAYAN BORSALAR (GERÇEK VE ŞIK LOGOLAR) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <!-- Borsalar 1. Set -->
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"> Binance</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"> Coinbase</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"> Bybit</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"> OKX</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"> MEXC</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"> Gate.io</div>
+                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"></div>
+                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"></div>
+                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"></div>
+                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"></div>
+                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"></div>
+                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"></div>
                 <!-- Borsalar 2. Set (Sonsuz Döngü İçin) -->
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"> Binance</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"> Coinbase</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"> Bybit</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"> OKX</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"> MEXC</div>
-                <div class="exchange-item"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"> Gate.io</div>
+                <div class="exchange-item" title="Binance"><img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=026" alt="Binance"></div>
+                <div class="exchange-item" title="Coinbase"><img src="https://cryptologos.cc/logos/coinbase-coin-coin-logo.png?v=026" alt="Coinbase"></div>
+                <div class="exchange-item" title="Bybit"><img src="https://cryptologos.cc/logos/bybit-bybit-logo.png?v=026" alt="Bybit"></div>
+                <div class="exchange-item" title="OKX"><img src="https://cryptologos.cc/logos/okb-okb-logo.png?v=026" alt="OKX"></div>
+                <div class="exchange-item" title="MEXC"><img src="https://cryptologos.cc/logos/mexc-mexc-logo.png?v=026" alt="MEXC"></div>
+                <div class="exchange-item" title="Gate.io"><img src="https://cryptologos.cc/logos/gate-token-gt-logo.png?v=026" alt="Gate.io"></div>
             </div>
         </div>
 
@@ -1026,7 +1026,6 @@
         const tTrack = document.getElementById('tokenomicsTrack');
         const tOriginalItems = Array.from(tTrack.children);
         
-        // Klonlama yaparak sonsuz döngü hissiyatı yaratıyoruz
         tOriginalItems.forEach(item => {
             tTrack.appendChild(item.cloneNode(true));
         });
@@ -1036,13 +1035,11 @@
 
         let tCurrentIndex = tOriginalItems.length;
         
-        // Başlangıçta track'i ortala
         const updateTTransform = () => {
             const itemWidth = tOriginalItems[0].offsetWidth + 15; 
             tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
         };
         
-        // İlk yüklemede transform'u ayarla
         setTimeout(updateTTransform, 100);
 
         function moveTokenomics(direction) {
@@ -1051,7 +1048,6 @@
             const itemWidth = tOriginalItems[0].offsetWidth + 15;
             tTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
 
-            // Sonsuz döngü kontrolü
             if (tCurrentIndex >= tOriginalItems.length * 2) {
                 setTimeout(() => {
                     tTrack.style.transition = 'none';
@@ -1069,7 +1065,6 @@
             }
         }
 
-        // Ekran boyutu değiştiğinde transform'u yeniden hesapla
         window.addEventListener('resize', () => {
             const itemWidth = tOriginalItems[0].offsetWidth + 15;
             tTrack.style.transition = 'none';
