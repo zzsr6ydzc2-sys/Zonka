@@ -270,6 +270,7 @@
             border-radius: 10px;
             margin-bottom: 12px;
             box-shadow: inset 0 0 15px rgba(186, 230, 253, 0.03);
+            display: none; /* Başlangıçta gizli */
         }
         .wallet-address-box p { 
             font-size: 0.75rem; color: #e2e8f0; margin-bottom: 8px; 
@@ -778,6 +779,15 @@
                 <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
                 <div class="calc-result" id="calcResult">You will receive: 0 ZNK</div>
                 <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
+                <!-- YENİ EKLENEN "BUY NOW" BUTONU -->
+                <button class="buy-btn" onclick="showAddress()" style="margin-top: 15px; margin-bottom: 0;">Buy Now</button>
+            </div>
+
+            <!-- GİZLİ ADRES KUTUSU -->
+            <div id="addressBox" class="wallet-address-box">
+                <p><strong>1.</strong> Send <strong>ONLY SOL</strong> to this address (Network: Solana).<br><span style="font-size: 0.7rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
+                <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
+                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
             </div>
 
             <!-- GÜNCELLENMİŞ TOPLU UYARI KUTUSU -->
@@ -786,15 +796,6 @@
                     <i class="fas fa-exclamation-triangle"></i> Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
                 </p>
             </div>
-
-            <!-- GÜNCELLENMİŞ TOPLU ADRES KUTUSU -->
-            <div class="wallet-address-box">
-                <p><strong>1.</strong> Send <strong>ONLY SOL</strong> to this address (Network: Solana).<br><span style="font-size: 0.7rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
-                <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
-                <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
-            </div>
-
-            <a href="https://t.me/zonka_coin" target="_blank" class="buy-btn">PROCEED TO VERIFICATION</a>
             
             <!-- GÜNCELLENMİŞ TOPLU BİLGİ KUTUSU -->
             <div class="distribution-note">
@@ -870,7 +871,7 @@
                 <div class="counter-desc">Every contribution changes a life.</div>
 
                 <div class="donation-wallet-box">
-                    <p>1. Send ZNK to this address:</p>
+                    <p>Send ONLY SOL or ZNK to this address:</p>
                     <code id="donationAddress">E8wwDUpvvPg9VoKHxpwJcNEyifesd74Rdj8j3NBGbZNp</code>
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
@@ -922,7 +923,7 @@
                     <div class="roadmap-icon">3</div>
                     <div class="roadmap-content">
                         <h4>Phase 3: Arctic Empire</h4>
-                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Expansion.</p>
+                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Early Community Airdrop Rewards.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
@@ -1152,6 +1153,17 @@
     </footer>
 
     <script>
+        // Adres kutusunu gösterme fonksiyonu
+        function showAddress() {
+            const addressBox = document.getElementById('addressBox');
+            if (addressBox.style.display === 'none' || addressBox.style.display === '') {
+                addressBox.style.display = 'block';
+                addressBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                addressBox.style.display = 'none';
+            }
+        }
+
         function copyAddress() {
             const address = document.getElementById("address").innerText;
             navigator.clipboard.writeText(address).then(() => {
