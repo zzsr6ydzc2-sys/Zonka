@@ -56,16 +56,27 @@
             color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.9);
             animation: fall linear infinite;
         }
-        .snow:nth-child(1) { left: 10%; font-size: 1.2em; animation-duration: 8s; color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
-        .snow:nth-child(2) { left: 20%; font-size: 0.7em; animation-duration: 12s; animation-delay: -2s; }
-        .snow:nth-child(3) { left: 30%; font-size: 1em; animation-duration: 10s; animation-delay: -4s; color: var(--gold-light); text-shadow: 0 0 15px var(--gold); }
-        .snow:nth-child(4) { left: 40%; font-size: 1.5em; animation-duration: 15s; animation-delay: -5s; opacity: 0.6; }
-        .snow:nth-child(5) { left: 50%; font-size: 0.9em; animation-duration: 9s; animation-delay: -1s; color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
-        .snow:nth-child(6) { left: 60%; font-size: 0.6em; animation-duration: 14s; animation-delay: -6s; }
-        .snow:nth-child(7) { left: 70%; font-size: 1.1em; animation-duration: 11s; animation-delay: -3s; color: var(--gold); }
-        .snow:nth-child(8) { left: 80%; font-size: 0.8em; animation-duration: 13s; animation-delay: -7s; }
-        .snow:nth-child(9) { left: 90%; font-size: 1.4em; animation-duration: 16s; animation-delay: -2s; opacity: 0.5; }
-        .snow:nth-child(10) { left: 15%; font-size: 1em; animation-duration: 7s; animation-delay: -8s; color: var(--cyan); }
+        /* Yeni Eklenen Kar Taneleri (Daha hafif ve logoya uygun renkler) */
+        .snow:nth-child(1) { left: 5%; font-size: 0.8em; animation-duration: 9s; color: #cbd5e1; text-shadow: 0 0 10px #cbd5e1; }
+        .snow:nth-child(2) { left: 12%; font-size: 0.6em; animation-duration: 13s; animation-delay: -2s; color: #bae6fd; }
+        .snow:nth-child(3) { left: 20%; font-size: 0.9em; animation-duration: 10s; animation-delay: -4s; color: #f8fafc; text-shadow: 0 0 15px #bae6fd; }
+        .snow:nth-child(4) { left: 28%; font-size: 0.7em; animation-duration: 16s; animation-delay: -5s; opacity: 0.7; color: #cbd5e1; }
+        .snow:nth-child(5) { left: 35%; font-size: 1em; animation-duration: 8s; animation-delay: -1s; color: #bae6fd; text-shadow: 0 0 12px #bae6fd; }
+        .snow:nth-child(6) { left: 42%; font-size: 0.5em; animation-duration: 15s; animation-delay: -6s; color: #fff; }
+        .snow:nth-child(7) { left: 50%; font-size: 0.8em; animation-duration: 11s; animation-delay: -3s; color: #f8fafc; }
+        .snow:nth-child(8) { left: 58%; font-size: 0.6em; animation-duration: 14s; animation-delay: -7s; color: #bae6fd; }
+        .snow:nth-child(9) { left: 65%; font-size: 1.1em; animation-duration: 12s; animation-delay: -2s; opacity: 0.6; color: #cbd5e1; }
+        .snow:nth-child(10) { left: 72%; font-size: 0.7em; animation-duration: 7s; animation-delay: -8s; color: #fff; }
+        .snow:nth-child(11) { left: 78%; font-size: 0.9em; animation-duration: 17s; animation-delay: -1s; color: #bae6fd; }
+        .snow:nth-child(12) { left: 85%; font-size: 0.5em; animation-duration: 10s; animation-delay: -9s; color: #cbd5e1; }
+        .snow:nth-child(13) { left: 92%; font-size: 0.8em; animation-duration: 13s; animation-delay: -4s; color: #fff; }
+        .snow:nth-child(14) { left: 98%; font-size: 0.6em; animation-duration: 18s; animation-delay: -6s; color: #bae6fd; }
+        .snow:nth-child(15) { left: 15%; font-size: 0.7em; animation-duration: 12s; animation-delay: -11s; color: #f8fafc; }
+        .snow:nth-child(16) { left: 30%; font-size: 0.9em; animation-duration: 9s; animation-delay: -14s; color: #cbd5e1; }
+        .snow:nth-child(17) { left: 48%; font-size: 0.6em; animation-duration: 15s; animation-delay: -10s; color: #bae6fd; }
+        .snow:nth-child(18) { left: 62%; font-size: 1em; animation-duration: 11s; animation-delay: -13s; color: #fff; }
+        .snow:nth-child(19) { left: 80%; font-size: 0.7em; animation-duration: 14s; animation-delay: -12s; color: #cbd5e1; }
+        .snow:nth-child(20) { left: 88%; font-size: 0.8em; animation-duration: 16s; animation-delay: -15s; color: #bae6fd; }
 
         @keyframes fall {
             0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
@@ -175,10 +186,12 @@
             100% { transform: scale(1); box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);}
         }
 
+        /* Logonun etrafında dönen belirgin çember - Rengi kurda uygun buzul mavisi/gümüş yapıldı */
         .hero-image-container::before {
             content: ''; position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px;
-            border-radius: 50%; border: 1px dashed var(--cyan);
-            animation: spin 20s linear infinite; opacity: 0.5; z-index: -1;
+            border-radius: 50%; border: 2px dashed #bae6fd;
+            box-shadow: 0 0 15px rgba(186, 230, 253, 0.4);
+            animation: spin 20s linear infinite; opacity: 0.8; z-index: -1;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -801,6 +814,16 @@
 
     <!-- PREMIUM HAREKETLİ KAR TANELERİ -->
     <div class="snow-container">
+        <div class="snow">❅</div>
+        <div class="snow">❆</div>
+        <div class="snow">❅</div>
+        <div class="snow">❆</div>
+        <div class="snow">❅</div>
+        <div class="snow">❆</div>
+        <div class="snow">❅</div>
+        <div class="snow">❆</div>
+        <div class="snow">❅</div>
+        <div class="snow">❆</div>
         <div class="snow">❅</div>
         <div class="snow">❆</div>
         <div class="snow">❅</div>
