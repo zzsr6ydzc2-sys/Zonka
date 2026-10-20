@@ -84,22 +84,22 @@
             100% { transform: translateY(110vh) translateX(20px) rotate(360deg); opacity: 0; }
         }
 
-        /* --- YENİ PREMIUM ÜST BANT (GÜNCELLENDİ) --- */
+        /* --- YENİ PREMIUM ÜST BANT (KURT RENGİNE UYGUN) --- */
         .news-banner {
-            background: linear-gradient(90deg, #050814, #0f172a, #050814);
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6, #93c5fd, #3b82f6, #1e3a8a);
             background-size: 300% auto; animation: gradientMove 5s linear infinite;
             padding: 12px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800; font-size: 0.9rem; letter-spacing: 2px;
             text-transform: uppercase;
-            width: 100%; box-shadow: 0 4px 20px rgba(186, 230, 253, 0.15);
+            width: 100%; box-shadow: 0 4px 20px rgba(186, 230, 253, 0.4);
             position: relative; z-index: 100; overflow: hidden; white-space: nowrap;
-            border-bottom: 1px solid rgba(186, 230, 253, 0.3);
+            border-bottom: 1px solid rgba(186, 230, 253, 0.6);
         }
         
         .news-banner::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(186, 230, 253, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: shine 3s infinite linear;
             z-index: 1;
         }
@@ -110,22 +110,15 @@
         .marquee-content { 
             display: inline-block; animation: marquee 20s linear infinite;
             position: relative; z-index: 2;
-            
-            /* ZONKA yazısı ile aynı parlayan efekt ve renk */
-            color: #e2e8f0;
-            text-shadow: 0 0 10px rgba(186, 230, 253, 0.5);
-            background: linear-gradient(120deg, rgba(226,232,240,0) 30%, rgba(186, 230, 253, 0.9) 50%, rgba(226,232,240,0) 70%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(186, 230, 253, 0.6);
             animation: marquee 20s linear infinite, shineText 4s infinite linear;
         }
 
         .marquee-content i {
-            color: #bae6fd; text-shadow: 0 0 10px rgba(186, 230, 253, 0.8); margin: 0 10px;
+            color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); margin: 0 10px;
             animation: pulseSnow 2s infinite alternate;
             font-size: 0.9rem;
-            -webkit-text-fill-color: #bae6fd; /* İkonun şeffaf olmasını engeller */
         }
         @keyframes pulseSnow { 0% { opacity: 0.6; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1.1); } }
         
@@ -306,55 +299,32 @@
             color: #fff; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 3px;
         }
 
-        /* --- SONSUZ KAYAN BORSALAR (SADECE BINANCE VE COINBASE) --- */
+        /* --- SONSUZ KAYAN BORSALAR --- */
         .exchanges-carousel {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            overflow: hidden;
-            position: relative;
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
+            width: 100%; max-width: 600px; margin: 0 auto 30px;
+            overflow: hidden; position: relative; padding: 15px 0;
+            display: flex; justify-content: center;
         }
         .exchanges-track {
-            display: flex;
-            gap: 40px;
-            width: max-content;
+            display: flex; gap: 40px; width: max-content;
             animation: scrollExchanges 15s linear infinite;
             align-items: center;
         }
         .exchange-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            opacity: 0.95;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; opacity: 0.95;
         }
-        .exchange-item:hover {
-            opacity: 1;
-            transform: translateY(-3px) scale(1.1);
-        }
+        .exchange-item:hover { opacity: 1; transform: translateY(-3px) scale(1.1); }
         .exchange-item img {
-            width: 45px;
-            height: 45px; 
-            object-fit: contain;
+            width: 45px; height: 45px; object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
             transition: filter 0.3s;
         }
-        .exchange-item:hover img {
-            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.9));
-        }
-
-        @keyframes scrollExchanges {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
+        .exchange-item:hover img { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.9)); }
+        @keyframes scrollExchanges { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- SOSYAL MEDYA --- */
-        .socials-hero {
-            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 15px;
-        }
+        .socials-hero { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 15px; }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
             width: 35px; height: 35px; border-radius: 50%;
@@ -391,14 +361,15 @@
             box-shadow: inset 0 0 20px rgba(245,158,11,0.05), 0 10px 20px -10px rgba(0,0,0,0.8);
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
+        
+        /* VİZYON BAŞLIĞI PARLAK VE CANLI */
         .vision-box h3 {
-            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800;
-            color: var(--cyan); margin-bottom: 15px; text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+            font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;
+            color: #bae6fd; margin-bottom: 15px; text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(186, 230, 253, 0.6), 0 0 30px rgba(186, 230, 253, 0.3);
         }
-        .vision-icons {
-            display: flex; justify-content: center; gap: 20px; margin: 20px 0 5px; flex-wrap: wrap;
-        }
+
+        .vision-icons { display: flex; justify-content: center; gap: 20px; margin: 20px 0 5px; flex-wrap: wrap; }
         .vision-icon-item { text-align: center; }
         .vision-icon-item i {
             font-size: 1.3rem; color: var(--gold); margin-bottom: 5px;
@@ -407,9 +378,7 @@
         .vision-icon-item span { display: block; font-size: 0.7rem; font-weight: 600; color: #fff; }
 
         /* --- GÖRSEL VE DUYGU BÖLÜMÜ --- */
-        .impact-gallery {
-            display: flex; justify-content: center; margin: 20px 0;
-        }
+        .impact-gallery { display: flex; justify-content: center; margin: 20px 0; }
         .impact-card {
             background: var(--glass); backdrop-filter: blur(15px);
             border: 2px solid var(--glass-border); border-radius: 15px;
@@ -424,32 +393,23 @@
             border-color: rgba(245, 158, 11, 0.8);
         }
         .impact-image-placeholder {
-            width: 100%; height: auto;
-            background: rgba(0,0,0,0.5);
+            width: 100%; height: auto; background: rgba(0,0,0,0.5);
             display: flex; justify-content: center; align-items: center;
-            border-bottom: 2px solid var(--gold);
-            overflow: hidden;
+            border-bottom: 2px solid var(--gold); overflow: hidden;
         }
-        .impact-image-placeholder img {
-            width: 100%; height: auto; display: block;
-        }
-        .impact-content {
-            padding: 15px;
-        }
+        .impact-image-placeholder img { width: 100%; height: auto; display: block; }
+        .impact-content { padding: 15px; }
         .impact-content h4 {
             font-family: 'Montserrat', sans-serif; color: var(--gold);
             font-size: 1.1rem; margin-bottom: 10px;
         }
-        .impact-content p {
-            font-size: 0.85rem; color: var(--text-muted);
-        }
+        .impact-content p { font-size: 0.85rem; color: var(--text-muted); }
 
         /* --- GUARDIANS OF LIFE (BAĞIŞ) --- */
         .donation-layout {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px; margin-top: 15px;
         }
-        
         .donation-card {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 20px 15px; border-radius: 15px;
@@ -499,25 +459,15 @@
         }
         .badge-table th { color: var(--gold-light); font-weight: 600; }
         
-        /* --- KÜÇÜLTÜLMÜŞ VE HİZALANMIŞ ALTIN HALL OF FAME ALANI --- */
         .hall-of-fame { 
             background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-            border-radius: 10px; 
-            padding: 8px 10px; 
-            max-height: 150px; 
-            overflow-y: auto; 
-            display: flex; 
-            flex-direction: column;
-            gap: 6px; 
-            justify-content: flex-start; 
-            border: 1px solid #b45309; 
+            border-radius: 10px; padding: 8px 10px; max-height: 150px; 
+            overflow-y: auto; display: flex; flex-direction: column;
+            gap: 6px; justify-content: flex-start; border: 1px solid #b45309; 
             box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(245, 158, 11, 0.3); 
-            text-align: left;
-            transition: all 0.3s;
+            text-align: left; transition: all 0.3s;
         }
-        .hall-of-fame:hover {
-            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(245, 158, 11, 0.5);
-        }
+        .hall-of-fame:hover { box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(245, 158, 11, 0.5); }
         
         .hall-of-fame::-webkit-scrollbar { width: 5px; }
         .hall-of-fame::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
@@ -526,72 +476,33 @@
 
         .hall-of-fame p { color: #78350f; font-style: italic; font-size: 0.75rem; text-align: center; margin: auto; font-weight: 600;}
         
-        /* Tıklanabilir alanı genişletmek için */
         .hero-item-link {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 4px;
-            font-size: 0.8rem;
-            width: 100%;
-            gap: 6px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
+            display: flex; justify-content: flex-start; align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 4px;
+            font-size: 0.8rem; width: 100%; gap: 6px;
+            text-decoration: none; cursor: pointer; transition: all 0.2s;
         }
-        .hero-item-link:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .hero-item-link:hover {
-            opacity: 0.8;
-        }
+        .hero-item-link:last-child { border-bottom: none; padding-bottom: 0; }
+        .hero-item-link:hover { opacity: 0.8; }
         
-        .hero-name { 
-            color: #000;
-            font-weight: 700; 
-            text-align: left; 
-            text-decoration: none;
-        }
-
-        .hero-icon-group {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: 4px;
-        }
-
-        .tg-icon { 
-            color: #229ED9;
-            font-size: 1rem;
-            transition: transform 0.3s;
-        }
-        
-        .hero-item-link:hover .tg-icon {
-            transform: scale(1.2);
-        }
-
+        .hero-name { color: #000; font-weight: 700; text-align: left; text-decoration: none; }
+        .hero-icon-group { display: flex; align-items: center; gap: 4px; margin-left: 4px; }
+        .tg-icon { color: #229ED9; font-size: 1rem; transition: transform 0.3s; }
+        .hero-item-link:hover .tg-icon { transform: scale(1.2); }
         .hero-badge { font-size: 0.9rem; }
 
         /* --- YENİ SONSUZ KAYAN GÜVEN PANELİ (5 KUTU) --- */
-        .trust-slider-wrapper {
-            position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 10px;
-        }
+        .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 10px; }
         .trust-track {
             display: flex; gap: 12px; padding: 10px 0;
-            transition: transform 0.4s ease-out; 
-            width: max-content;
+            transition: transform 0.4s ease-out; width: max-content;
         }
         .trust-item {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 20px 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
             width: 320px; height: 320px; flex-shrink: 0; 
             position: relative; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
         }
         .trust-item:hover { transform: translateY(-3px); }
         
@@ -633,12 +544,9 @@
 
         /* --- YENİ AYRI PAZARLAMA BÖLÜMÜ --- */
         .marketing-section {
-            margin-top: 30px;
-            background: var(--glass); backdrop-filter: blur(20px);
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
+            margin-top: 30px; background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 15px;
+            padding: 25px 20px; text-align: center;
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.15);
             border-top: 3px solid #f59e0b;
         }
@@ -647,12 +555,9 @@
             font-size: 1.1rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(245,158,11,0.4);
         }
-        .marketing-section p {
-            color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;
-        }
-        .marketing-details-grid {
-            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;
-        }
+        .marketing-section p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; }
+        
+        .marketing-details-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
         .marketing-detail-item {
             background: rgba(0,0,0,0.3); padding: 10px 15px; border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.05); text-align: center;
@@ -662,6 +567,7 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;
         }
         .marketing-detail-item strong { font-size: 0.95rem; color: #fff; }
+        
         .marketing-lock-btn {
             display: inline-block; padding: 10px 25px;
             background: rgba(245, 158, 11, 0.15); color: #f59e0b;
@@ -673,9 +579,7 @@
         .marketing-lock-btn:hover { background: rgba(245, 158, 11, 0.3); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(245,158,11,0.4); }
 
         /* --- YOL HARİTASI VE JETON EKONOMİSİ OK BUTONLARI BÜYÜTÜLDÜ --- */
-        .roadmap-controls {
-            display: flex; justify-content: center; gap: 20px; margin-top: 15px; margin-bottom: 15px;
-        }
+        .roadmap-controls { display: flex; justify-content: center; gap: 20px; margin-top: 15px; margin-bottom: 15px; }
         .roadmap-btn {
             background: rgba(245, 158, 11, 0.15); border: 2px solid var(--gold);
             color: var(--gold); width: 45px; height: 45px; border-radius: 50%;
@@ -686,13 +590,10 @@
         .roadmap-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(245,158,11,0.8); }
 
         /* --- YOL HARİTASI (SONSUZ DÖNGÜLÜ SLIDER) --- */
-        .roadmap-wrapper {
-            position: relative; width: 100%; overflow: hidden; padding: 15px 0;
-        }
+        .roadmap-wrapper { position: relative; width: 100%; overflow: hidden; padding: 15px 0; }
         .roadmap-track {
             display: flex; gap: 15px; padding: 10px 0;
-            transition: transform 0.3s ease-out;
-            width: max-content;
+            transition: transform 0.3s ease-out; width: max-content;
         }
         .roadmap-item {
             background: var(--glass); backdrop-filter: blur(15px);
@@ -709,49 +610,33 @@
             font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--gold);
             margin-bottom: 8px; box-shadow: 0 0 10px rgba(245,158,11,0.2); font-size: 0.8rem;
         }
-        .roadmap-content h4 {
-            font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.85rem; margin-bottom: 6px;
-        }
+        .roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.85rem; margin-bottom: 6px; }
         .roadmap-content p { color: var(--text-muted); font-size: 0.75rem; line-height: 1.3; }
 
         /* --- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) --- */
-        .tokenomics-wrapper {
-            position: relative; width: 100%; overflow: hidden; padding: 15px 0;
-            margin-bottom: 20px;
-        }
+        .tokenomics-wrapper { position: relative; width: 100%; overflow: hidden; padding: 15px 0; margin-bottom: 20px; }
         .tokenomics-track {
             display: flex; gap: 15px; padding: 10px 0;
-            transition: transform 0.3s ease-out;
-            width: max-content;
+            transition: transform 0.3s ease-out; width: max-content;
         }
         .tokenomics-item {
             background: var(--glass); backdrop-filter: blur(15px);
             padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
             min-width: 240px; max-width: 240px; flex-shrink: 0;
             position: relative; border-top: 3px solid var(--cyan);
-            transition: transform 0.3s, border-color 0.3s;
-            text-align: left;
+            transition: transform 0.3s, border-color 0.3s; text-align: left;
         }
         .tokenomics-item:hover { transform: translateY(-3px); border-color: var(--gold); }
         .tokenomics-title {
             font-family: 'Montserrat', sans-serif; color: var(--gold); font-size: 1rem; font-weight: 800;
             margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;
         }
-        .tokenomics-title span {
-            font-size: 1.1rem; color: var(--cyan); text-shadow: 0 0 10px rgba(6,182,212,0.5);
-        }
-        .tokenomics-desc {
-            color: var(--text-muted); font-size: 0.75rem; line-height: 1.4;
-        }
-        .tokenomics-bar {
-            width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;
-            margin-top: 10px; overflow: hidden;
-        }
-        .tokenomics-bar-fill {
-            height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 2px;
-        }
+        .tokenomics-title span { font-size: 1.1rem; color: var(--cyan); text-shadow: 0 0 10px rgba(6,182,212,0.5); }
+        .tokenomics-desc { color: var(--text-muted); font-size: 0.75rem; line-height: 1.4; }
+        .tokenomics-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+        .tokenomics-bar-fill { height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 2px; }
 
-        /* --- SÖZLEŞME (Eski Şık Hali) --- */
+        /* --- SÖZLEŞME --- */
         .contract-box {
             background: var(--glass); backdrop-filter: blur(20px);
             padding: 15px; border-radius: 12px; text-align: center;
@@ -826,7 +711,7 @@
         <div class="snow">❆</div>
     </div>
 
-    <!-- YENİ PREMIUM ÜST BANT (GÜNCELLENDİ) -->
+    <!-- YENİ PREMIUM ÜST BANT (KURT RENGİNE UYGUN) -->
     <div class="news-banner">
         <div class="marquee-content">
             BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i>
@@ -887,11 +772,8 @@
         <!-- SONSUZ KAYAN BORSALAR (SADECE BINANCE VE COINBASE) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
-                <!-- 1. Set -->
                 <div class="exchange-item" title="Binance"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Binance_logo.svg" alt="Binance"></div>
                 <div class="exchange-item" title="Coinbase"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" alt="Coinbase"></div>
-                
-                <!-- 2. Set (Sonsuz Döngü İçin) -->
                 <div class="exchange-item" title="Binance"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Binance_logo.svg" alt="Binance"></div>
                 <div class="exchange-item" title="Coinbase"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" alt="Coinbase"></div>
             </div>
@@ -910,8 +792,9 @@
         <h2 class="section-title">Our Vision: Guardians of Life</h2>
         
         <div class="vision-box">
-            <h3>Why a Bear? What is "Guardians of Life"?</h3>
-            <p style="margin-bottom: 10px;">Zonka (ZNK) is not just a token; it is a movement. <strong>The Bear in our logo</strong> represents the strength of nature and the wild. But just as the Arctic is melting, many lives are in danger. We stand strong to protect them.</p>
+            <!-- BURADAKİ BAŞLIK VE METİN GÜNCELLENDİ -->
+            <h3>Why a Wolf? What is "Guardians of Life"?</h3>
+            <p style="margin-bottom: 10px;">Zonka (ZNK) is not just a token; it is a movement. <strong>The Wolf and the Child in our logo</strong> represent the bond between the wild and the innocent, the strength of nature protecting the vulnerable. But just as the Arctic is melting, many lives are in danger. We stand strong to protect them.</p>
             <p>The <strong>"Guardians of Life Fund"</strong> represents our commitment to protecting every living being. We are not just protecting animals; we are also standing up for vulnerable children around the world, providing clean water, and supporting disaster relief. <strong>Because for us, every single life matters.</strong></p>
             
             <div class="vision-icons">
