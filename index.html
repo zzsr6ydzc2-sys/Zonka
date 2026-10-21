@@ -160,17 +160,25 @@
             100% { transform: translateY(0); }
         }
 
+        /* --- YENİ HAVALI ALT BAŞLIK --- */
         .hero h2 {
-            font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 400;
-            margin-bottom: 20px; color: var(--gold-light); letter-spacing: 6px;
-            text-transform: uppercase; text-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 800;
+            margin-bottom: 20px; color: #bae6fd; letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(186, 230, 253, 0.8), 0 0 30px rgba(186, 230, 253, 0.4);
+            animation: shineText 4s infinite linear;
+            background: linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%);
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 0.9rem; max-width: 500px; margin: 0 auto 25px;
-            font-weight: 400; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-size: 0.9rem; max-width: 550px; margin: 0 auto 25px;
+            font-weight: 300; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            line-height: 1.6;
         }
-        .hero p span { color: var(--cyan); font-weight: 600; text-shadow: 0 0 10px rgba(6, 182, 212, 0.6); }
+        .hero p strong { color: var(--gold-light); font-weight: 600; }
 
         /* --- AYI LOGOSU --- */
         .hero-image-container {
@@ -757,9 +765,9 @@
     <section class="hero">
         <!-- PARLAYAN VE HAREKETLİ ZONKA BAŞLIĞI -->
         <h1>ZONKA</h1>
-        <h2>THE ARCTIC AWAKENS</h2>
+        <h2>GUARDIANS OF LIFE</h2>
         
-        <p>The Arctic has awakened. <span>Power, sovereignty, and absolute control</span> in the palm of your hand. The future belongs to those who seize it.</p>
+        <p>True power isn't about what you hold, but what you protect. We are the <strong>Guardians of Life</strong>, standing strong for vulnerable children, innocent animals, and our planet.</p>
 
         <div class="hero-image-container"></div>
 
