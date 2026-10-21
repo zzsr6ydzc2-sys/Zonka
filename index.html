@@ -273,7 +273,7 @@
             display: none; /* Başlangıçta gizli */
         }
         .wallet-address-box p { 
-            font-size: 0.75rem; color: #e2e8f0; margin-bottom: 8px; 
+            font-size: 0.75rem; color: #f8fafc; margin-bottom: 8px; /* Rengi parlak beyaza çevrildi */
             font-weight: 400; line-height: 1.4; text-align: center;
         }
         .wallet-address-box p strong {
@@ -784,18 +784,18 @@
             <!-- YENİ YERLEŞTİRİLMİŞ BUTON -->
             <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled style="opacity: 0.6; cursor: not-allowed;">PROCEED TO PURCHASE</button>
 
+            <!-- TAŞINMIŞ UYARI KUTUSU (Adres kutusunun üstüne) -->
+            <div class="warning-box">
+                <p>
+                    <i class="fas fa-exclamation-triangle"></i> Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
+                </p>
+            </div>
+
             <!-- GİZLİ ADRES KUTUSU -->
             <div id="addressBox" class="wallet-address-box">
                 <p><strong>1.</strong> Send <strong>ONLY SOL</strong> to this address (Network: Solana).<br><span style="font-size: 0.7rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
                 <code id="depositAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
-            </div>
-
-            <!-- GÜNCELLENMİŞ TOPLU UYARI KUTUSU -->
-            <div class="warning-box">
-                <p>
-                    <i class="fas fa-exclamation-triangle"></i> Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
-                </p>
             </div>
             
             <!-- GÜNCELLENMİŞ TOPLU BİLGİ KUTUSU -->
