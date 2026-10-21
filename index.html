@@ -544,6 +544,7 @@
         .trust-item.liquidity { border-top: 3px solid #06b6d4; box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); }
         .trust-item.transparency { border-top: 3px solid #8b5cf6; box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); }
         .trust-item.burn { border-top: 3px solid #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
+        .trust-item.treasury { border-top: 3px solid #fcd34d; box-shadow: 0 0 15px rgba(252, 211, 77, 0.2); }
 
         .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 10px; font-weight: 800; }
         .trust-item.team h3 { color: #34d399; }
@@ -551,6 +552,7 @@
         .trust-item.liquidity h3 { color: #06b6d4; }
         .trust-item.transparency h3 { color: #8b5cf6; }
         .trust-item.burn h3 { color: #ef4444; }
+        .trust-item.treasury h3 { color: #fcd34d; }
 
         .trust-item p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
         
@@ -574,6 +576,7 @@
         .trust-item.liquidity .trust-btn:hover { background: rgba(6, 182, 212, 0.2); border-color: #06b6d4; }
         .trust-item.transparency .trust-btn:hover { background: rgba(139, 92, 246, 0.2); border-color: #8b5cf6; }
         .trust-item.burn .trust-btn:hover { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
+        .trust-item.treasury .trust-btn:hover { background: rgba(252, 211, 77, 0.2); border-color: #fcd34d; }
 
         /* --- YENİ AYRI PAZARLAMA BÖLÜMÜ --- */
         .marketing-section {
@@ -990,6 +993,20 @@
 
         <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
+                <!-- YENİ EKLENEN: TREASURY KİLİDİ -->
+                <div class="trust-item treasury">
+                    <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
+                    <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
+                    <div class="trust-details">
+                        <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
+                        <span>Status: <strong>Fully Locked</strong></span>
+                        <span>Cliff (Wait): <strong>24 Months</strong></span>
+                        <span>Vesting (Release): <strong>36 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+                <!-- YENİ EKLENEN BİTİŞ -->
+
                 <div class="trust-item team">
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
                     <p>Team's 6M ZNK locked for long-term success and community protection.</p>
@@ -1048,6 +1065,20 @@
                     <a href="javascript:void(0);" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
                 
+                <!-- 2. Set (Sonsuz Döngü İçin Klonlandı) -->
+                <!-- YENİ EKLENEN: TREASURY KİLİDİ KLONU -->
+                <div class="trust-item treasury">
+                    <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
+                    <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
+                    <div class="trust-details">
+                        <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
+                        <span>Status: <strong>Fully Locked</strong></span>
+                        <span>Cliff (Wait): <strong>24 Months</strong></span>
+                        <span>Vesting (Release): <strong>36 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
                 <div class="trust-item team">
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
                     <p>Team's 6M ZNK locked for long-term success and community protection.</p>
