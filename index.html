@@ -779,9 +779,10 @@
                 <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
                 <div class="calc-result" id="calcResult">You will receive: 0 ZNK</div>
                 <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
-                <!-- YENİ EKLENEN "BUY NOW" BUTONU -->
-                <button class="buy-btn" onclick="showAddress()" style="margin-top: 15px; margin-bottom: 0;">Buy Now</button>
             </div>
+
+            <!-- YENİ YERLEŞTİRİLMİŞ BUTON -->
+            <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled style="opacity: 0.6; cursor: not-allowed;">PROCEED TO PURCHASE</button>
 
             <!-- GİZLİ ADRES KUTUSU -->
             <div id="addressBox" class="wallet-address-box">
@@ -818,7 +819,7 @@
         <!-- GÜNCELLENMİŞ SOSYAL MEDYA LİNKLERİ -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://x.com/zonkacoin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
+            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
         </div>
@@ -1153,7 +1154,26 @@
     </footer>
 
     <script>
-        // Adres kutusunu gösterme fonksiyonu
+        // Butonun aktif/pasif mantığı ve adres gösterme
+        const solInput = document.getElementById('solInput');
+        const buyNowBtn = document.getElementById('buyNowBtn');
+
+        solInput.addEventListener('input', () => {
+            const solAmount = parseFloat(solInput.value);
+            if (isNaN(solAmount) || solAmount <= 0) {
+                buyNowBtn.disabled = true;
+                buyNowBtn.style.opacity = '0.6';
+                buyNowBtn.style.cursor = 'not-allowed';
+                document.getElementById('calcResult').innerText = "You will receive: 0 ZNK";
+            } else {
+                buyNowBtn.disabled = false;
+                buyNowBtn.style.opacity = '1';
+                buyNowBtn.style.cursor = 'pointer';
+                const zknAmount = solAmount * 14866;
+                document.getElementById('calcResult').innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
+            }
+        });
+
         function showAddress() {
             const addressBox = document.getElementById('addressBox');
             if (addressBox.style.display === 'none' || addressBox.style.display === '') {
@@ -1190,20 +1210,6 @@
                 setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
-
-        const solInput = document.getElementById('solInput');
-        const calcResult = document.getElementById('calcResult');
-        const rate = 14866;
-
-        solInput.addEventListener('input', () => {
-            const solAmount = parseFloat(solInput.value);
-            if (isNaN(solAmount) || solAmount <= 0) {
-                calcResult.innerText = "You will receive: 0 ZNK";
-            } else {
-                const zknAmount = solAmount * rate;
-                calcResult.innerText = `You will receive: ~${zknAmount.toLocaleString('en-US')} ZNK`;
-            }
-        });
 
         const sheetURL = "https://docs.google.com/spreadsheets/d/1-CIXynhu_qimqlIZBmiOiXOsB5Sn7Q83Pg3eZX3ST-o/export?format=csv";
 
