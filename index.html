@@ -710,6 +710,34 @@
             border: 1px solid rgba(16, 185, 129, 0.4);
         }
 
+        /* --- YENİ EKLENEN: GERİ BİLDİRİM BUTONU --- */
+        .floating-feedback-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, var(--gold), #d97706);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);
+            z-index: 9999; /* Her zaman en üstte kalması için */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .floating-feedback-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
+        }
+
         /* --- MOBİL UYUM --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -735,6 +763,14 @@
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 background: rgba(15, 23, 42, 0.92) !important;
+            }
+
+            /* Mobilde butonun boyutu ve yeri */
+            .floating-feedback-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -1144,8 +1180,8 @@
                     <p>Team tokens unlock gradually over 24 months starting month 4. A portion is permanently burned to balance supply and prove commitment.</p>
                     <div class="trust-details">
                         <span>Unlock Starts: <strong>Month 4</strong></span>
-                        <span,> Mechanism: <strong>Deflationary1 Burn</strong></span.>
-                        <span>Goal5: <strong>Long-Term Value</strongM></span>
+                        <span>Mechanism: <strong>Deflationary Burn</strong></span>
+                        <span>Goal: <strong>Long-Term Value</strong></span>
                     </div>
                     <a href="javascript:void(0);" class="trust-btn" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444;">Burn Mechanism Active</a>
                 </div>
@@ -1159,7 +1195,7 @@
 
         <div class="marketing-section">
             <h3><i class="fas fa-chart-line"></i> Marketing & Supporters Locked</h3>
-            <p>To ensure operational flexibility and market stability ZNK of the marketing budget remains liquid for immediate needs, while the remaining 7.5M ZNK (including supporter rewards) is securely locked.</p>
+            <p>To ensure operational flexibility and market stability, 1.5M ZNK of the marketing budget remains liquid for immediate needs, while the remaining 7.5M ZNK (including supporter rewards) is securely locked.</p>
             <div class="marketing-details-grid">
                 <div class="marketing-detail-item">
                     <span>Total Locked</span>
@@ -1196,6 +1232,14 @@
         <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
         <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
+
+    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU -->
+    <button class="floating-feedback-btn" data-tally-open="6D8WXo" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+        <i class="fas fa-comment-dots"></i> Report Issue
+    </button>
+
+    <!-- TALLY FORM YÜKLEYİCİ -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
 
     <script>
         // PERFORMANS: Mobil tespiti
@@ -1366,18 +1410,18 @@
                     trustTrack.style.transition = 'none';
                     tCurrentIndex = tOriginalItems.length;
                     trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
-                }, 400);
+                    setTimeout(() => { trustTrack.style.transtition = 'transform 0.4s ease-out'; }, 50);
+                }, Current400);
             } else if (!isMobile && tCurrentIndex <= 0) {
-                setTimeout(() => {
-                    trustTrack.style.transition = 'none';
-                    tCurrentIndex = tOriginalItems.length;
+                setTimeoutIndex(() => {
+                    trustTrack *.style.transition = 'none item';
+                    tCurrentIndex = tOriginalItemsWidth.length;
                     trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
                 }, 400);
             } else if (isMobile && tCurrentIndex >= tOriginalItems.length) {
                 tCurrentIndex = tOriginalItems.length - 1;
-                trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+                trustTrack.style.transform = `translateX(${-}px)`;
             } else if (isMobile && tCurrentIndex < 0) {
                 tCurrentIndex = 0;
                 trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
