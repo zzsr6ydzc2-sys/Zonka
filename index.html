@@ -753,7 +753,6 @@
             align-items: center;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            /* Sadece Tally formu açıkken görünmesi için JS ile kontrol edilecek */
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -1287,20 +1286,17 @@
         // Tally formunun açılıp kapanmasını dinle ve şeridi göster/gizle
         document.addEventListener("DOMContentLoaded", function() {
             const tallyCover = document.getElementById('tallyCover');
-            let tallyOpen = false;
 
             // Tally formu açıldığında çalışacak gözlemci
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
                     mutation.addedNodes.forEach((node) => {
                         if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
-                            tallyOpen = true;
                             tallyCover.classList.add('active');
                         }
                     });
                     mutation.removedNodes.forEach((node) => {
                         if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
-                            tallyOpen = false;
                             tallyCover.classList.remove('active');
                         }
                     });
