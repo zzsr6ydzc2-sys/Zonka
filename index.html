@@ -738,23 +738,17 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
         }
 
-        /* --- YENİ EKLENEN: TALLY MASKELEME KODU --- */
-        /* Tally formunun açıldığı iframe'in en altındaki reklam yazısını beyaz bir kutu ile kapatır */
+        /* --- TALLY GİZLEME DENEMESİ (KLAVYEYİ ENGELLEMEZ) --- */
         iframe[src*="tally.so"] {
-            position: relative;
+            /* iframe'in kendisini etkilemez */
         }
-        
         /* Tally'nin oluşturduğu gölge DOM (shadow DOM) içine giremediğimiz için, 
-           formun en altına mutlak konumlandırılmış beyaz bir maske koyuyoruz */
-        .tally-mask {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 45px; /* Reklam yazısının yüksekliği kadar */
-            background-color: #ffffff; /* Formun arka plan rengiyle aynı */
-            z-index: 10;
-            pointer-events: none; /* Tıklamaları engellememesi için */
+           sadece dışarıdan görünen Tally linkini gizlemeye çalışıyoruz */
+        .tally-footer, 
+        a[href*="tally.so/?utm_source=embed"] {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
 
         /* --- MOBİL UYUM --- */
@@ -790,11 +784,6 @@
                 right: 15px;
                 padding: 10px 15px;
                 font-size: 0.75rem;
-            }
-            
-            /* Mobilde maske yüksekliğini ayarla */
-            .tally-mask {
-                height: 40px; 
             }
         }
     </style>
@@ -1264,36 +1253,6 @@
 
     <!-- TALLY FORM YÜKLEYİCİ -->
     <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <script>
-        // Tally formunun yüklenmesini bekle ve en altına maske ekle
-        document.addEventListener("DOMContentLoaded", function() {
-            // Her 500ms'de bir Tally iframe'inin yüklenip yüklenmediğini kontrol et
-            const checkTally = setInterval(() => {
-                const tallyIframes = document.querySelectorAll('iframe[src*="tally.so"]');
-                
-                tallyIframes.forEach(iframe => {
-                    // Eğer bu iframe'e daha önce maske eklenmediyse
-                    if (!iframe.parentElement.querySelector('.tally-mask')) {
-                        // İframe'in etrafına relative bir kapsayıcı ekle (eğer yoksa)
-                        if (window.getComputedStyle(iframe.parentElement).position === 'static') {
-                            iframe.parentElement.style.position = 'relative';
-                        }
-                        
-                        // Maskeyi oluştur
-                        const mask = document.createElement('div');
-                        mask.className = 'tally-mask';
-                        
-                        // Maskeyi iframe'in hemen üstüne (kapsayıcıya) ekle
-                        iframe.parentElement.appendChild(mask);
-                    }
-                });
-            }, 500);
-
-            // 10 saniye sonra kontrolü durdur (iframe yüklenmiş olmalı)
-            setTimeout(() => clearInterval(checkTally), 10000);
-        });
-    </script>
 
     <script>
         // PERFORMANS: Mobil tespiti
