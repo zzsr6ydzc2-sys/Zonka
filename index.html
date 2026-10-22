@@ -739,21 +739,27 @@
         }
 
         /* --- TALLY REKLAMINI GİZLEMEK İÇİN PARLAYAN ZONKA ŞERİDİ --- */
-        /* Tally formunun en altına, o reklam yazısının tam üzerine gelecek şekilde yerleştirilir */
         .tally-cover {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 40px; /* Reklam yazısını kapatacak yükseklik */
-            background: var(--bg-dark); /* Sitenin koyu arka plan rengi */
-            z-index: 10;
-            pointer-events: none; /* Altındaki butonlara tıklamayı engellemez */
+            height: 45px; /* Reklam yazısını kapatacak yükseklik */
+            background: #ffffff; /* Tally formunun beyaz arka planına uyum sağlaması için beyaz */
+            z-index: 2147483647; /* En üst katman */
+            pointer-events: none; /* Tıklamaları engellemez! Klavye açılır. */
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 1px solid rgba(245, 158, 11, 0.3);
-            overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            /* Sadece Tally formu açıkken görünmesi için JS ile kontrol edilecek */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tally-cover.active {
+            opacity: 1;
         }
 
         .tally-cover span {
@@ -762,13 +768,7 @@
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #bae6fd;
-            background: linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 4s infinite linear;
-            text-shadow: 0 0 10px rgba(186, 230, 253, 0.4);
+            color: #050814; /* Siyahımsı koyu renk */
         }
 
         /* --- MOBİL UYUM --- */
@@ -807,7 +807,7 @@
             }
 
             .tally-cover {
-                height: 35px; /* Mobilde biraz daha ince */
+                height: 40px; /* Mobilde biraz daha ince */
             }
         }
     </style>
@@ -1275,32 +1275,40 @@
         <i class="fas fa-comment-dots"></i> Report Issue
     </button>
 
+    <!-- TALLY FORMU AÇILDIĞINDA ALTINI KAPATACAK ŞERİT -->
+    <div class="tally-cover" id="tallyCover">
+        <span>Zonka</span>
+    </div>
+
     <!-- TALLY FORM YÜKLEYİCİ -->
     <script async src="https://tally.so/widgets/embed.js"></script>
 
     <script>
-        // Tally formu açıldığında en altına parlayan Zonka şeridini ekle
+        // Tally formunun açılıp kapanmasını dinle ve şeridi göster/gizle
         document.addEventListener("DOMContentLoaded", function() {
-            const checkTally = setInterval(() => {
-                // Tally'nin oluşturduğu popup kapsayıcısını bul
-                const tallyPopups = document.querySelectorAll('.tally-popup, [data-tally-popup]');
-                
-                tallyPopups.forEach(popup => {
-                    // Eğer bu popup'a daha önce şerit eklenmediyse
-                    if (!popup.querySelector('.tally-cover')) {
-                        // Şeridi oluştur
-                        const cover = document.createElement('div');
-                        cover.className = 'tally-cover';
-                        cover.innerHTML = '<span>Zonka</span>'; // Şeridin üzerine yazılacak yazı
-                        
-                        // Popup'ın en altına ekle
-                        popup.appendChild(cover);
-                    }
-                });
-            }, 500);
+            const tallyCover = document.getElementById('tallyCover');
+            let tallyOpen = false;
 
-            // 10 saniye sonra kontrolü durdur
-            setTimeout(() => clearInterval(checkTally), 10000);
+            // Tally formu açıldığında çalışacak gözlemci
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
+                            tallyOpen = true;
+                            tallyCover.classList.add('active');
+                        }
+                    });
+                    mutation.removedNodes.forEach((node) => {
+                        if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
+                            tallyOpen = false;
+                            tallyCover.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Body'deki değişiklikleri izle
+            observer.observe(document.body, { childList: true, subtree: true });
         });
     </script>
 
