@@ -35,7 +35,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(rgba(5, 8, 20, 0.65), rgba(5, 8, 20, 0.8)), url('ayi.JPG') no-repeat center center fixed; 
+            background: linear-gradient(rgba(5, 8, 20, 0.65), rgba(5, 8, 20, 0.8)), url('ayi.JPG') no-repeat center center scroll; 
             background-size: cover;
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -71,11 +71,6 @@
         .snow:nth-child(13) { left: 92%; font-size: 0.8em; animation-duration: 13s; animation-delay: -4s; color: #fff; }
         .snow:nth-child(14) { left: 98%; font-size: 0.6em; animation-duration: 18s; animation-delay: -6s; color: #bae6fd; }
         .snow:nth-child(15) { left: 15%; font-size: 0.7em; animation-duration: 12s; animation-delay: -11s; color: #f8fafc; }
-        .snow:nth-child(16) { left: 30%; font-size: 0.9em; animation-duration: 9s; animation-delay: -14s; color: #cbd5e1; }
-        .snow:nth-child(17) { left: 48%; font-size: 0.6em; animation-duration: 15s; animation-delay: -10s; color: #bae6fd; }
-        .snow:nth-child(18) { left: 62%; font-size: 1em; animation-duration: 11s; animation-delay: -13s; color: #fff; }
-        .snow:nth-child(19) { left: 80%; font-size: 0.7em; animation-duration: 14s; animation-delay: -12s; color: #cbd5e1; }
-        .snow:nth-child(20) { left: 88%; font-size: 0.8em; animation-duration: 16s; animation-delay: -15s; color: #bae6fd; }
 
         @keyframes fall {
             0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
@@ -726,6 +721,21 @@
             .tokenomics-item { min-width: 220px; max-width: 220px; }
             .trust-item { width: 300px; height: 300px; }
             .roadmap-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+
+            /* PERFORMANS: Mobilde blur efektlerini kaldır */
+            .buy-box-container,
+            .vision-box,
+            .donation-card,
+            .trust-item,
+            .roadmap-item,
+            .tokenomics-item,
+            .marketing-section,
+            .contract-box,
+            .impact-card {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(15, 23, 42, 0.92) !important;
+            }
         }
     </style>
 </head>
@@ -748,11 +758,6 @@
         <div class="snow">❅</div>
         <div class="snow">❆</div>
         <div class="snow">❅</div>
-        <div class="snow">❆</div>
-        <div class="snow">❅</div>
-        <div class="snow">❆</div>
-        <div class="snow">❅</div>
-        <div class="snow">❆</div>
     </div>
 
     <!-- YENİ PREMIUM ÜST BANT (KURT RENGİNE UYGUN) -->
@@ -1193,6 +1198,9 @@
     </footer>
 
     <script>
+        // PERFORMANS: Mobil tespiti
+        const isMobile = window.innerWidth <= 768;
+
         // Butonun aktif/pasif mantığı ve adres gösterme
         const solInput = document.getElementById('solInput');
         const buyNowBtn = document.getElementById('buyNowBtn');
@@ -1329,12 +1337,15 @@
         
         const tOriginalItems = Array.from(trustTrack.children);
         
-        tOriginalItems.forEach(item => {
-            trustTrack.appendChild(item.cloneNode(true));
-        });
-        tOriginalItems.slice().reverse().forEach(item => {
-            trustTrack.prepend(item.cloneNode(true));
-        });
+        // PERFORMANS: Mobilde klonlama yapma
+        if (!isMobile) {
+            tOriginalItems.forEach(item => {
+                trustTrack.appendChild(item.cloneNode(true));
+            });
+            tOriginalItems.slice().reverse().forEach(item => {
+                trustTrack.prepend(item.cloneNode(true));
+            });
+        }
 
         let tCurrentIndex = tOriginalItems.length;
         
@@ -1377,12 +1388,15 @@
         const rTrack = document.getElementById('roadmapTrack');
         const rOriginalItems = Array.from(rTrack.children);
         
-        rOriginalItems.forEach(item => {
-            rTrack.appendChild(item.cloneNode(true));
-        });
-        rOriginalItems.slice().reverse().forEach(item => {
-            rTrack.prepend(item.cloneNode(true));
-        });
+        // PERFORMANS: Mobilde klonlama yapma
+        if (!isMobile) {
+            rOriginalItems.forEach(item => {
+                rTrack.appendChild(item.cloneNode(true));
+            });
+            rOriginalItems.slice().reverse().forEach(item => {
+                rTrack.prepend(item.cloneNode(true));
+            });
+        }
 
         let rCurrentIndex = rOriginalItems.length;
         
@@ -1425,12 +1439,15 @@
         const tokTrack = document.getElementById('tokenomicsTrack');
         const tokOriginalItems = Array.from(tokTrack.children);
         
-        tokOriginalItems.forEach(item => {
-            tokTrack.appendChild(item.cloneNode(true));
-        });
-        tokOriginalItems.slice().reverse().forEach(item => {
-            tokTrack.prepend(item.cloneNode(true));
-        });
+        // PERFORMANS: Mobilde klonlama yapma
+        if (!isMobile) {
+            tokOriginalItems.forEach(item => {
+                tokTrack.appendChild(item.cloneNode(true));
+            });
+            tokOriginalItems.slice().reverse().forEach(item => {
+                tokTrack.prepend(item.cloneNode(true));
+            });
+        }
 
         let tokCurrentIndex = tokOriginalItems.length;
         
