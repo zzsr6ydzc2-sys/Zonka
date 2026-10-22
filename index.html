@@ -22,38 +22,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0a0f1c; /* Daha koyu bir gece mavisi */
+            --bg-dark: #080b11; /* Gece Yarısı Kurt Rengi */
             --gold: #f59e0b;
             --gold-light: #fcd34d;
             --cyan: #06b6d4;
             --text-light: #f8fafc;
-            --text-muted: #94a3b8; /* Yazılar için daha okunaklı bir gri */
-            --glass: rgba(15, 23, 42, 0.85); 
+            --text-muted: #cbd5e1;
+            --glass: rgba(15, 23, 42, 0.85); /* Cam efektini biraz daha koyulaştırdık */
             --glass-border: rgba(245, 158, 11, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* --- YENİ KURT RENGİ ARKA PLANI --- */
+        /* --- YENİ 1. SEÇENEK ARKA PLAN (GECE YARISI KURT) --- */
         body {
-            /* Kurt tüyü ve kutup gecesi tonlarında derinlik */
-            background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 40%, #020617 100%);
+            /* Tamamen koyu, antrasit-siyah bir zemin */
+            background: #080b11;
+            /* Çok hafif derinlik katan, göz almayan bir gradyan */
+            background-image: radial-gradient(circle at 50% 0%, #111827 0%, #080b11 60%, #000000 100%);
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
             line-height: 1.5;
-        }
-
-        /* Hafif Buzul Yansıması */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(ellipse at 50% 10%, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
-            z-index: -1;
-            pointer-events: none;
         }
 
         /* --- PREMIUM HAREKETLİ KAR TANELERİ --- */
@@ -179,9 +171,9 @@
         }
 
         .hero p {
-            font-size: 0.9rem; max-width: 550px; margin: 0 auto 25px;
-            font-weight: 400; color: #cbd5e1; /* Yazı rengi daha belirgin yapıldı */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+            font-size: 0.95rem; max-width: 550px; margin: 0 auto 25px;
+            font-weight: 400; color: #e2e8f0; /* Rengi daha da belirginleştirdik */
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9); /* Yazı gölgesi eklendi */
             line-height: 1.6;
         }
         .hero p strong { color: var(--gold-light); font-weight: 600; }
