@@ -738,6 +738,93 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
         }
 
+        /* --- JOTFORM MODAL (AÇILIR PENCERE) AYARLARI --- */
+        .feedback-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85); /* Koyu arka plan */
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .feedback-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            height: 80vh;
+            max-height: 700px;
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feedback-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            flex-grow: 1;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .close-modal-btn:hover { background: #ef4444; }
+
+        /* Efsane ZONKA Şeridi (En altta, Jotform yazısını kapatır) */
+        .zonka-modal-cover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            background: var(--bg-dark); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(245, 158, 11, 0.3);
+            pointer-events: none; /* Tıklamayı engellemez */
+            z-index: 5;
+        }
+
+        .zonka-modal-cover span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #bae6fd;
+            background: linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%);
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s infinite linear;
+            text-shadow: 0 0 10px rgba(186, 230, 253, 0.4);
+        }
+
         /* --- MOBİL UYUM --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -771,6 +858,11 @@
                 right: 15px;
                 padding: 10px 15px;
                 font-size: 0.75rem;
+            }
+            
+            .feedback-modal-content {
+                width: 95%;
+                height: 85vh;
             }
         }
     </style>
@@ -1233,10 +1325,49 @@
         <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
 
-    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU (Jotform'u yeni sekmede açar) -->
-    <a href="https://form.jotform.com/262944764497071" target="_blank" class="floating-feedback-btn">
+    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU (Modal'ı açar) -->
+    <button class="floating-feedback-btn" id="openFeedbackBtn">
         <i class="fas fa-comment-dots"></i> Report Issue
-    </a>
+    </button>
+
+    <!-- JOTFORM AÇILIR PENCERE (MODAL) -->
+    <div class="feedback-modal-overlay" id="feedbackModal">
+        <div class="feedback-modal-content">
+            <button class="close-modal-btn" id="closeFeedbackBtn"><i class="fas fa-times"></i></button>
+            
+            <!-- Jotform Iframe -->
+            <iframe class="feedback-iframe" src="https://form.jotform.com/262944764497071" allowfullscreen></iframe>
+            
+            <!-- Efsane ZONKA Şeridi (Jotform yazısını kapatır) -->
+            <div class="zonka-modal-cover">
+                <span>ZONKA</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // MODAL (AÇILIR PENCERE) MANTIĞI
+        const modal = document.getElementById('feedbackModal');
+        const openBtn = document.getElementById('openFeedbackBtn');
+        const closeBtn = document.getElementById('closeFeedbackBtn');
+
+        // Butona tıklanınca modalı aç
+        openBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        // X butonuna tıklanınca modalı kapat
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Modal'ın arka planına (karartılmış alana) tıklanınca kapat
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 
     <script>
         // PERFORMANS: Mobil tespiti
