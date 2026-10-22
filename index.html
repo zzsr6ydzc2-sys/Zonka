@@ -1233,78 +1233,10 @@
         <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
 
-    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU -->
-    <button class="floating-feedback-btn" id="openFeedbackBtn">
+    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU (Jotform'u yeni sekmede açar) -->
+    <a href="https://form.jotform.com/262944764497071" target="_blank" class="floating-feedback-btn">
         <i class="fas fa-comment-dots"></i> Report Issue
-    </button>
-
-    <!-- JOTFORM LIGHTBOX SCRIPT -->
-    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-    
-    <script>
-        // Jotform Lightbox'ı başlat
-        window.jotformEmbedHandler("iframe[id='JotFormIFrame-262944764497071']", "https://form.jotform.com/262944764497071");
-        
-        // Kendi butonumuza tıklandığında Jotform'u aç
-        document.getElementById('openFeedbackBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Jotform'un otomatik oluşturduğu gizli butona tıkla
-            const jotformBtn = document.querySelector('a[href*="262944764497071"]');
-            if(jotformBtn) {
-                jotformBtn.click();
-            }
-        });
-    </script>
-
-    <!-- JOTFORM'UN GİZLİ IFRAME'İ VE TALLY'İ ANDIRAN ZONKA ŞERİDİ -->
-    <!-- Jotform formu açıldığında bu iframe görünür olur -->
-    <div id="jotform-container" style="display:none;">
-        <!-- Jotform embed kodunu buraya ekliyoruz -->
-        <iframe
-            id="JotFormIFrame-262944764497071"
-            title="Zonka Feedback"
-            onload="window.parent.scrollTo(0,0)"
-            allowtransparency="true"
-            allowfullscreen="true"
-            allow="geolocation; microphone; camera"
-            src="https://form.jotform.com/262944764497071"
-            frameborder="0"
-            style="min-width: 100%; height: 539px; border: none;"
-            scrolling="no"
-        >
-        </iframe>
-    </div>
-
-    <!-- EFSANE ZONKA ŞERİDİ (Jotform açıldığında en üste çıkacak) -->
-    <div id="zonka-cover" style="display:none; position:fixed; bottom:0; left:0; width:100%; height:45px; background:#050814; z-index:2147483647; pointer-events:none; justify-content:center; align-items:center; border-top:1px solid rgba(245,158,11,0.3);">
-        <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#bae6fd; background:linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%); background-size:250% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shineText 4s infinite linear;">
-            Zonka
-        </span>
-    </div>
-
-    <style>
-        /* Jotform formunun arka planını sitenin koyu rengine uydur */
-        #JotFormIFrame-262944764497071 {
-            filter: invert(0.9) hue-rotate(180deg); /* Bu bir deneme, formun iç tasarımına göre değişebilir */
-        }
-        
-        /* Jotform açıldığında şeridi göster */
-        body.jotform-open #zonka-cover {
-            display: flex;
-        }
-    </style>
-
-    <script>
-        // Jotform açıldığında body'e class ekleyip şeridi göster
-        document.getElementById('openFeedbackBtn').addEventListener('click', function() {
-            setTimeout(function() {
-                document.body.classList.add('jotform-open');
-            }, 500); // Jotform'un açılması için biraz bekle
-        });
-
-        // Jotform kapandığında şeridi gizle (Bunu Jotform'un kendi kapatma butonuna bağlamak zor, 
-        // şimdilik sadece açıldığında gösteriyoruz. Kullanıcı sayfayı yenilerse gider.)
-    </script>
+    </a>
 
     <script>
         // PERFORMANS: Mobil tespiti
