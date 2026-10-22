@@ -1347,7 +1347,7 @@
             });
         }
 
-        let tCurrentIndex = tOriginalItems.length;
+        let tCurrentIndex = isMobile ? 0 : tOriginalItems.length;
         
         const updateTTransform = () => {
             const itemWidth = tOriginalItems[0].offsetWidth + 12; 
@@ -1361,20 +1361,26 @@
             const itemWidth = tOriginalItems[0].offsetWidth + 12;
             trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
 
-            if (tCurrentIndex >= tOriginalItems.length * 2) {
+            if (!isMobile && tCurrentIndex >= tOriginalItems.length * 2) {
                 setTimeout(() => {
                     trustTrack.style.transition = 'none';
                     tCurrentIndex = tOriginalItems.length;
                     trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
                 }, 400);
-            } else if (tCurrentIndex <= 0) {
+            } else if (!isMobile && tCurrentIndex <= 0) {
                 setTimeout(() => {
                     trustTrack.style.transition = 'none';
                     tCurrentIndex = tOriginalItems.length;
                     trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
                 }, 400);
+            } else if (isMobile && tCurrentIndex >= tOriginalItems.length) {
+                tCurrentIndex = tOriginalItems.length - 1;
+                trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
+            } else if (isMobile && tCurrentIndex < 0) {
+                tCurrentIndex = 0;
+                trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
             }
         }
 
@@ -1398,7 +1404,7 @@
             });
         }
 
-        let rCurrentIndex = rOriginalItems.length;
+        let rCurrentIndex = isMobile ? 0 : rOriginalItems.length;
         
         const updateRTransform = () => {
             const itemWidth = rOriginalItems[0].offsetWidth + 15;
@@ -1412,20 +1418,26 @@
             const itemWidth = rOriginalItems[0].offsetWidth + 15;
             rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
 
-            if (rCurrentIndex >= rOriginalItems.length * 2) {
+            if (!isMobile && rCurrentIndex >= rOriginalItems.length * 2) {
                 setTimeout(() => {
                     rTrack.style.transition = 'none';
                     rCurrentIndex = rOriginalItems.length;
                     rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { rTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
-            } else if (rCurrentIndex <= 0) {
+            } else if (!isMobile && rCurrentIndex <= 0) {
                 setTimeout(() => {
                     rTrack.style.transition = 'none';
                     rCurrentIndex = rOriginalItems.length;
                     rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { rTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
+            } else if (isMobile && rCurrentIndex >= rOriginalItems.length) {
+                rCurrentIndex = rOriginalItems.length - 1;
+                rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
+            } else if (isMobile && rCurrentIndex < 0) {
+                rCurrentIndex = 0;
+                rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
             }
         }
 
@@ -1449,7 +1461,7 @@
             });
         }
 
-        let tokCurrentIndex = tokOriginalItems.length;
+        let tokCurrentIndex = isMobile ? 0 : tokOriginalItems.length;
         
         const updateTokTransform = () => {
             const itemWidth = tokOriginalItems[0].offsetWidth + 15;
@@ -1463,20 +1475,26 @@
             const itemWidth = tokOriginalItems[0].offsetWidth + 15;
             tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
 
-            if (tokCurrentIndex >= tokOriginalItems.length * 2) {
+            if (!isMobile && tokCurrentIndex >= tokOriginalItems.length * 2) {
                 setTimeout(() => {
                     tokTrack.style.transition = 'none';
                     tokCurrentIndex = tokOriginalItems.length;
                     tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { tokTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
-            } else if (tokCurrentIndex <= 0) {
+            } else if (!isMobile && tokCurrentIndex <= 0) {
                 setTimeout(() => {
                     tokTrack.style.transition = 'none';
                     tokCurrentIndex = tokOriginalItems.length;
                     tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
                     setTimeout(() => { tokTrack.style.transition = 'transform 0.3s ease-out'; }, 50);
                 }, 300);
+            } else if (isMobile && tokCurrentIndex >= tokOriginalItems.length) {
+                tokCurrentIndex = tokOriginalItems.length - 1;
+                tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
+            } else if (isMobile && tokCurrentIndex < 0) {
+                tokCurrentIndex = 0;
+                tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
             }
         }
 
