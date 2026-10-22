@@ -738,26 +738,21 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
         }
 
-        /* --- TALLY REKLAMINI GİZLEMEK İÇİN PARLAYAN ZONKA ŞERİDİ --- */
+        /* --- TALLY REKLAMINI GİZLEMEK İÇİN ZONKA ŞERİDİ (FORMUN EN ALTINDA) --- */
+        /* Bu sefer ekranın en altına değil, formun içine (en altına) yerleştiriyoruz */
         .tally-cover {
-            position: fixed;
+            position: absolute; /* Formun içinde konumlanması için */
             bottom: 0;
             left: 0;
             width: 100%;
             height: 45px; /* Reklam yazısını kapatacak yükseklik */
             background: var(--bg-dark); /* Sitenin koyu arka plan rengi */
-            z-index: 2147483647; /* En üst katman */
+            z-index: 99999; /* En üst katman */
             pointer-events: none; /* Tıklamaları engellemez! Klavye açılır. */
             display: flex;
             justify-content: center;
             align-items: center;
             border-top: 1px solid rgba(245, 158, 11, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .tally-cover.active {
-            opacity: 1;
         }
 
         .tally-cover span {
@@ -1134,8 +1129,9 @@
                 </div>
 
                 <div class="trust-item transparency">
-                    <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
-                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
+                    <h3><i class="fas fa-eye"></i> ed100%</ Transparent</h3>
+                    <strongp>Zonka></ operates transparently onspan Solana. All transactions and locks>
+ are publicly verifiable.</p>
                     <div class="trust-details">
                         <span>Network: <strong>Solana</strong></span>
                         <span>Contract: <strong>Verified</strong></span>
@@ -1162,8 +1158,7 @@
                     <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
-                        <span>Status: <strong>Fully Locked</strong></span>
-                        <span>Cliff (Wait): <strong>24 Months</strong></span>
+                        <span>Status: <strong>Fully Lock                        <span>Cliff (Wait): <strong>24 Months</strong></span>
                         <span>Vesting (Release): <strong>36 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
@@ -1251,11 +1246,11 @@
                     <strong>3 Months</strong>
                 </div>
                 <div class="marketing-detail-item">
-                    <span>Vesting (Release)</span>
-                    <strong>40 Months</strong>
+xi                    <span>Vesting (Release)</span>
+                    <ustrong>40 Months</strong>
                 </div>
-            </div>
-            <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="marketing-lock-btn">View Lock Proof</a>
+CM            </div>
+            <a href="https://qsolscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="marketing-lock-btn">View Lock Proof</a>
         </div>
     </section>
 
