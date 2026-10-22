@@ -738,38 +738,6 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
         }
 
-        /* --- TALLY REKLAMINI GİZLEMEK İÇİN ZONKA ŞERİDİ (FORMUN EN ALTINDA) --- */
-        /* Bu sefer ekranın en altına değil, formun içine (en altına) yerleştiriyoruz */
-        .tally-cover {
-            position: absolute; /* Formun içinde konumlanması için */
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 45px; /* Reklam yazısını kapatacak yükseklik */
-            background: var(--bg-dark); /* Sitenin koyu arka plan rengi */
-            z-index: 99999; /* En üst katman */
-            pointer-events: none; /* Tıklamaları engellemez! Klavye açılır. */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-top: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .tally-cover span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #bae6fd;
-            background: linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 4s infinite linear;
-            text-shadow: 0 0 10px rgba(186, 230, 253, 0.4);
-        }
-
         /* --- MOBİL UYUM --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -803,10 +771,6 @@
                 right: 15px;
                 padding: 10px 15px;
                 font-size: 0.75rem;
-            }
-
-            .tally-cover {
-                height: 40px; /* Mobilde biraz daha ince */
             }
         }
     </style>
@@ -1129,9 +1093,8 @@
                 </div>
 
                 <div class="trust-item transparency">
-                    <h3><i class="fas fa-eye"></i> ed100%</ Transparent</h3>
-                    <strongp>Zonka></ operates transparently onspan Solana. All transactions and locks>
- are publicly verifiable.</p>
+                    <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
+                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
                     <div class="trust-details">
                         <span>Network: <strong>Solana</strong></span>
                         <span>Contract: <strong>Verified</strong></span>
@@ -1158,7 +1121,8 @@
                     <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
                     <div class="trust-details">
                         <span>Total Locked: <strong>6,000,000 ZNK</strong></span>
-                        <span>Status: <strong>Fully Lock                        <span>Cliff (Wait): <strong>24 Months</strong></span>
+                        <span>Status: <strong>Fully Locked</strong></span>
+                        <span>Cliff (Wait): <strong>24 Months</strong></span>
                         <span>Vesting (Release): <strong>36 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
@@ -1246,11 +1210,11 @@
                     <strong>3 Months</strong>
                 </div>
                 <div class="marketing-detail-item">
-xi                    <span>Vesting (Release)</span>
-                    <ustrong>40 Months</strong>
+                    <span>Vesting (Release)</span>
+                    <strong>40 Months</strong>
                 </div>
-CM            </div>
-            <a href="https://qsolscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="marketing-lock-btn">View Lock Proof</a>
+            </div>
+            <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="marketing-lock-btn">View Lock Proof</a>
         </div>
     </section>
 
@@ -1270,42 +1234,76 @@ CM            </div>
     </footer>
 
     <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU -->
-    <button class="floating-feedback-btn" data-tally-open="6D8WXo" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+    <button class="floating-feedback-btn" id="openFeedbackBtn">
         <i class="fas fa-comment-dots"></i> Report Issue
     </button>
 
-    <!-- TALLY FORMU AÇILDIĞINDA ALTINI KAPATACAK ŞERİT -->
-    <div class="tally-cover" id="tallyCover">
-        <span>Zonka</span>
+    <!-- JOTFORM LIGHTBOX SCRIPT -->
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+    
+    <script>
+        // Jotform Lightbox'ı başlat
+        window.jotformEmbedHandler("iframe[id='JotFormIFrame-262944764497071']", "https://form.jotform.com/262944764497071");
+        
+        // Kendi butonumuza tıklandığında Jotform'u aç
+        document.getElementById('openFeedbackBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Jotform'un otomatik oluşturduğu gizli butona tıkla
+            const jotformBtn = document.querySelector('a[href*="262944764497071"]');
+            if(jotformBtn) {
+                jotformBtn.click();
+            }
+        });
+    </script>
+
+    <!-- JOTFORM'UN GİZLİ IFRAME'İ VE TALLY'İ ANDIRAN ZONKA ŞERİDİ -->
+    <!-- Jotform formu açıldığında bu iframe görünür olur -->
+    <div id="jotform-container" style="display:none;">
+        <!-- Jotform embed kodunu buraya ekliyoruz -->
+        <iframe
+            id="JotFormIFrame-262944764497071"
+            title="Zonka Feedback"
+            onload="window.parent.scrollTo(0,0)"
+            allowtransparency="true"
+            allowfullscreen="true"
+            allow="geolocation; microphone; camera"
+            src="https://form.jotform.com/262944764497071"
+            frameborder="0"
+            style="min-width: 100%; height: 539px; border: none;"
+            scrolling="no"
+        >
+        </iframe>
     </div>
 
-    <!-- TALLY FORM YÜKLEYİCİ -->
-    <script async src="https://tally.so/widgets/embed.js"></script>
+    <!-- EFSANE ZONKA ŞERİDİ (Jotform açıldığında en üste çıkacak) -->
+    <div id="zonka-cover" style="display:none; position:fixed; bottom:0; left:0; width:100%; height:45px; background:#050814; z-index:2147483647; pointer-events:none; justify-content:center; align-items:center; border-top:1px solid rgba(245,158,11,0.3);">
+        <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#bae6fd; background:linear-gradient(120deg, rgba(186,230,253,0) 30%, rgba(255,255,255,0.9) 50%, rgba(186,230,253,0) 70%); background-size:250% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shineText 4s infinite linear;">
+            Zonka
+        </span>
+    </div>
+
+    <style>
+        /* Jotform formunun arka planını sitenin koyu rengine uydur */
+        #JotFormIFrame-262944764497071 {
+            filter: invert(0.9) hue-rotate(180deg); /* Bu bir deneme, formun iç tasarımına göre değişebilir */
+        }
+        
+        /* Jotform açıldığında şeridi göster */
+        body.jotform-open #zonka-cover {
+            display: flex;
+        }
+    </style>
 
     <script>
-        // Tally formunun açılıp kapanmasını dinle ve şeridi göster/gizle
-        document.addEventListener("DOMContentLoaded", function() {
-            const tallyCover = document.getElementById('tallyCover');
-
-            // Tally formu açıldığında çalışacak gözlemci
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    mutation.addedNodes.forEach((node) => {
-                        if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
-                            tallyCover.classList.add('active');
-                        }
-                    });
-                    mutation.removedNodes.forEach((node) => {
-                        if (node.nodeType === 1 && (node.classList.contains('tally-popup') || node.hasAttribute('data-tally-popup'))) {
-                            tallyCover.classList.remove('active');
-                        }
-                    });
-                });
-            });
-
-            // Body'deki değişiklikleri izle
-            observer.observe(document.body, { childList: true, subtree: true });
+        // Jotform açıldığında body'e class ekleyip şeridi göster
+        document.getElementById('openFeedbackBtn').addEventListener('click', function() {
+            setTimeout(function() {
+                document.body.classList.add('jotform-open');
+            }, 500); // Jotform'un açılması için biraz bekle
         });
+
+        // Jotform kapandığında şeridi gizle (Bunu Jotform'un kendi kapatma butonuna bağlamak zor, 
+        // şimdilik sadece açıldığında gösteriyoruz. Kullanıcı sayfayı yenilerse gider.)
     </script>
 
     <script>
