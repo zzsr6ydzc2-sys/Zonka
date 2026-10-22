@@ -738,18 +738,23 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.8);
         }
 
-        /* --- YENİ EKLENEN: TALLY BRANDING GİZLEME --- */
-        /* Tally iframe içindeki "Made with Tally" yazısını CSS ile gizler */
-        iframe[title="Don't use .js-embed"] {
-            /* Bu kısım Tally'nin kendi yapısına müdahale eder */
+        /* --- YENİ EKLENEN: TALLY MASKELEME KODU --- */
+        /* Tally formunun açıldığı iframe'in en altındaki reklam yazısını beyaz bir kutu ile kapatır */
+        iframe[src*="tally.so"] {
+            position: relative;
         }
-        /* Daha genel bir yaklaşım: Tally'nin oluşturduğu footer elementini hedef al */
-        .tally-form-footer, 
-        [class*="tally-"] a[href*="tally.so"] {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            height: 0 !important;
+        
+        /* Tally'nin oluşturduğu gölge DOM (shadow DOM) içine giremediğimiz için, 
+           formun en altına mutlak konumlandırılmış beyaz bir maske koyuyoruz */
+        .tally-mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45px; /* Reklam yazısının yüksekliği kadar */
+            background-color: #ffffff; /* Formun arka plan rengiyle aynı */
+            z-index: 10;
+            pointer-events: none; /* Tıklamaları engellememesi için */
         }
 
         /* --- MOBİL UYUM --- */
@@ -785,6 +790,11 @@
                 right: 15px;
                 padding: 10px 15px;
                 font-size: 0.75rem;
+            }
+            
+            /* Mobilde maske yüksekliğini ayarla */
+            .tally-mask {
+                height: 40px; 
             }
         }
     </style>
@@ -1255,26 +1265,35 @@
     <!-- TALLY FORM YÜKLEYİCİ -->
     <script async src="https://tally.so/widgets/embed.js"></script>
 
-    <!-- TALLY REKLAM YAZISINI GİZLEME KODU -->
-    <style>
-        /* Tally iframe içindeki "Made with Tally" yazısını gizler */
-        iframe[src*="tally.so"] {
-            /* Bu, iframe'in kendisini etkilemez, sadece içeriğini gizlemeye çalışır */
-        }
-        
-        /* Tally'nin ana sayfasındaki reklam linkini hedef al */
-        a[href*="tally.so/?utm_source=embed"] {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
+    <script>
+        // Tally formunun yüklenmesini bekle ve en altına maske ekle
+        document.addEventListener("DOMContentLoaded", function() {
+            // Her 500ms'de bir Tally iframe'inin yüklenip yüklenmediğini kontrol et
+            const checkTally = setInterval(() => {
+                const tallyIframes = document.querySelectorAll('iframe[src*="tally.so"]');
+                
+                tallyIframes.forEach(iframe => {
+                    // Eğer bu iframe'e daha önce maske eklenmediyse
+                    if (!iframe.parentElement.querySelector('.tally-mask')) {
+                        // İframe'in etrafına relative bir kapsayıcı ekle (eğer yoksa)
+                        if (window.getComputedStyle(iframe.parentElement).position === 'static') {
+                            iframe.parentElement.style.position = 'relative';
+                        }
+                        
+                        // Maskeyi oluştur
+                        const mask = document.createElement('div');
+                        mask.className = 'tally-mask';
+                        
+                        // Maskeyi iframe'in hemen üstüne (kapsayıcıya) ekle
+                        iframe.parentElement.appendChild(mask);
+                    }
+                });
+            }, 500);
 
-        /* Alternatif olarak, Tally'nin widget'ındaki footer'ı gizle */
-        .tally-footer, 
-        div[class*="tally-footer"] {
-            display: none !important;
-        }
-    </style>
+            // 10 saniye sonra kontrolü durdur (iframe yüklenmiş olmalı)
+            setTimeout(() => clearInterval(checkTally), 10000);
+        });
+    </script>
 
     <script>
         // PERFORMANS: Mobil tespiti
