@@ -281,12 +281,21 @@
         .distribution-note i { font-size: 2rem; color: var(--cyan); text-shadow: 0 0 25px rgba(6, 182, 212, 1);}
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
+        /* --- EXCHANGES LOGOS (KÜÇÜK VE SADECE LOGO) --- */
         .exchanges-carousel { width: 100%; max-width: 640px; margin: 15px auto 40px; overflow: hidden; padding: 15px 0; display: flex; justify-content: center; }
-        .exchanges-track { display: flex; gap: 70px; width: max-content; animation: scrollExchanges 20s linear infinite; align-items: center; }
-        .exchange-item { display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; opacity: 0.92; }
-        .exchange-item:hover { opacity: 1; transform: translateY(-5px) scale(1.2); }
-        .exchange-item img { width: 130px; height: auto; max-height: 45px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.8)); transition: all 0.3s; }
-        .exchange-item:hover img { filter: drop-shadow(0 14px 28px rgba(245, 158, 11, 0.8)); }
+        .exchanges-track { display: flex; gap: 30px; width: max-content; animation: scrollExchanges 20s linear infinite; align-items: center; }
+        .exchange-item { display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; opacity: 0.95; }
+        .exchange-item:hover { opacity: 1; transform: translateY(-5px) scale(1.1); }
+        
+        .exchange-item img { 
+            width: 50px; 
+            height: 50px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.6)); 
+            transition: all 0.3s; 
+        }
+        .exchange-item:hover img { filter: drop-shadow(0 8px 20px rgba(245, 158, 11, 0.6)); }
         @keyframes scrollExchanges { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
@@ -704,6 +713,7 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
+            .exchange-item img { width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -770,19 +780,39 @@
             </div>
         </div>
 
+        <!-- YENİ LOGOLAR (KÜÇÜK VE SADECE LOGO) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <div class="exchange-item" title="Binance">
-                    <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance">
+                    <img src="binance.jpg" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="https://assets.coingecko.com/markets/images/23/large/Coinbase_Coin_Primary_Logo.png" alt="Coinbase">
+                    <img src="coinbase.jpg" alt="Coinbase">
                 </div>
+                <div class="exchange-item" title="Gate.io">
+                    <img src="gate.jpg" alt="Gate.io">
+                </div>
+                <div class="exchange-item" title="Bybit">
+                    <img src="bybit.jpg" alt="Bybit">
+                </div>
+                <div class="exchange-item" title="CoinMarketCap">
+                    <img src="cmc.jpg" alt="CoinMarketCap">
+                </div>
+                <!-- Kopyalar (Sonsuz döngü için) -->
                 <div class="exchange-item" title="Binance">
-                    <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance">
+                    <img src="binance.jpg" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="https://assets.coingecko.com/markets/images/23/large/Coinbase_Coin_Primary_Logo.png" alt="Coinbase">
+                    <img src="coinbase.jpg" alt="Coinbase">
+                </div>
+                <div class="exchange-item" title="Gate.io">
+                    <img src="gate.jpg" alt="Gate.io">
+                </div>
+                <div class="exchange-item" title="Bybit">
+                    <img src="bybit.jpg" alt="Bybit">
+                </div>
+                <div class="exchange-item" title="CoinMarketCap">
+                    <img src="cmc.jpg" alt="CoinMarketCap">
                 </div>
             </div>
         </div>
