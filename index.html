@@ -574,26 +574,22 @@
             min-width: 270px; max-width: 270px; flex-shrink: 0; position: relative; transition: transform 0.4s ease, border-color 0.3s, box-shadow 0.3s;
             box-shadow: 0 35px 70px rgba(0,0,0,0.9); transform: translateZ(0px); -webkit-transform: translateZ(0px);
         }
-        .roadmap-item:nth-child(1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(6,182,212,0.5), inset 0 0 25px rgba(6,182,212,0.15); }
-        .roadmap-item:nth-child(2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(52,211,153,0.5), inset 0 0 25px rgba(52,211,153,0.15); }
-        .roadmap-item:nth-child(3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(245,158,11,0.5), inset 0 0 25px rgba(245,158,11,0.15); }
-        .roadmap-item:nth-child(4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(168,85,247,0.5), inset 0 0 25px rgba(168,85,247,0.15); }
+        .roadmap-item:nth-child(4n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(6,182,212,0.5), inset 0 0 25px rgba(6,182,212,0.15); }
+        .roadmap-item:nth-child(4n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(52,211,153,0.5), inset 0 0 25px rgba(52,211,153,0.15); }
+        .roadmap-item:nth-child(4n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(245,158,11,0.5), inset 0 0 25px rgba(245,158,11,0.15); }
+        .roadmap-item:nth-child(4n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 55px rgba(168,85,247,0.5), inset 0 0 25px rgba(168,85,247,0.15); }
 
         .roadmap-item:hover { transform: translateY(-8px) translateZ(35px) scale(1.03); -webkit-transform: translateY(-8px) translateZ(35px) scale(1.03); }
-        .roadmap-item:nth-child(1):hover { border-color: rgba(6,182,212,1); box-shadow: 0 45px 95px rgba(6,182,212,0.85); }
-        .roadmap-item:nth-child(2):hover { border-color: rgba(52,211,153,1); box-shadow: 0 45px 95px rgba(52,211,153,0.85); }
-        .roadmap-item:nth-child(3):hover { border-color: rgba(245,158,11,1); box-shadow: 0 45px 95px rgba(245,158,11,0.85); }
-        .roadmap-item:nth-child(4):hover { border-color: rgba(168,85,247,1); box-shadow: 0 45px 95px rgba(168,85,247,0.85); }
 
         .roadmap-icon { 
             width: 44px; height: 44px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; 
             margin-bottom: 18px; font-size: 1.1rem; 
         }
-        .roadmap-item:nth-child(1) .roadmap-icon { background: rgba(6,182,212,0.4); border: 2px solid var(--cyan); color: var(--cyan); text-shadow: 0 0 18px var(--cyan); }
-        .roadmap-item:nth-child(2) .roadmap-icon { background: rgba(52,211,153,0.4); border: 2px solid #34d399; color: #34d399; text-shadow: 0 0 18px #34d399; }
-        .roadmap-item:nth-child(3) .roadmap-icon { background: rgba(245,158,11,0.4); border: 2px solid var(--gold); color: var(--gold); text-shadow: 0 0 18px var(--gold); }
-        .roadmap-item:nth-child(4) .roadmap-icon { background: rgba(168,85,247,0.4); border: 2px solid #a855f7; color: #a855f7; text-shadow: 0 0 18px #a855f7; }
+        .roadmap-item:nth-child(4n+1) .roadmap-icon { background: rgba(6,182,212,0.4); border: 2px solid var(--cyan); color: var(--cyan); text-shadow: 0 0 18px var(--cyan); }
+        .roadmap-item:nth-child(4n+2) .roadmap-icon { background: rgba(52,211,153,0.4); border: 2px solid #34d399; color: #34d399; text-shadow: 0 0 18px #34d399; }
+        .roadmap-item:nth-child(4n+3) .roadmap-icon { background: rgba(245,158,11,0.4); border: 2px solid var(--gold); color: var(--gold); text-shadow: 0 0 18px var(--gold); }
+        .roadmap-item:nth-child(4n+0) .roadmap-icon { background: rgba(168,85,247,0.4); border: 2px solid #a855f7; color: #a855f7; text-shadow: 0 0 18px #a855f7; }
 
         .roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700; }
         .roadmap-content p { color: #e2e8f0; font-size: 0.9rem; line-height: 1.75; }
@@ -607,39 +603,33 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.9);
             overflow: hidden;
         }
-        .tokenomics-item:nth-child(1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(245,158,11,0.5), inset 0 0 25px rgba(245,158,11,0.15); }
-        .tokenomics-item:nth-child(2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(6,182,212,0.5), inset 0 0 25px rgba(6,182,212,0.15); }
-        .tokenomics-item:nth-child(3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(168,85,247,0.5), inset 0 0 25px rgba(168,85,247,0.15); }
-        .tokenomics-item:nth-child(4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(52,211,153,0.5), inset 0 0 25px rgba(52,211,153,0.15); }
-        .tokenomics-item:nth-child(5) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 4px solid rgba(236,72,153,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(236,72,153,0.5), inset 0 0 25px rgba(236,72,153,0.15); }
-        .tokenomics-item:nth-child(6) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(59,130,246,0.35)); border: 4px solid rgba(59,130,246,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(59,130,246,0.5), inset 0 0 25px rgba(59,130,246,0.15); }
+        .tokenomics-item:nth-child(6n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(245,158,11,0.5), inset 0 0 25px rgba(245,158,11,0.15); }
+        .tokenomics-item:nth-child(6n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(6,182,212,0.5), inset 0 0 25px rgba(6,182,212,0.15); }
+        .tokenomics-item:nth-child(6n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(168,85,247,0.5), inset 0 0 25px rgba(168,85,247,0.15); }
+        .tokenomics-item:nth-child(6n+4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(52,211,153,0.5), inset 0 0 25px rgba(52,211,153,0.15); }
+        .tokenomics-item:nth-child(6n+5) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 4px solid rgba(236,72,153,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(236,72,153,0.5), inset 0 0 25px rgba(236,72,153,0.15); }
+        .tokenomics-item:nth-child(6n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(59,130,246,0.35)); border: 4px solid rgba(59,130,246,0.95); box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 55px rgba(59,130,246,0.5), inset 0 0 25px rgba(59,130,246,0.15); }
 
         .tokenomics-item:hover { transform: translateY(-6px); }
-        .tokenomics-item:nth-child(1):hover { border-color: rgba(245,158,11,1); box-shadow: 0 35px 75px rgba(245,158,11,0.8); }
-        .tokenomics-item:nth-child(2):hover { border-color: rgba(6,182,212,1); box-shadow: 0 35px 75px rgba(6,182,212,0.8); }
-        .tokenomics-item:nth-child(3):hover { border-color: rgba(168,85,247,1); box-shadow: 0 35px 75px rgba(168,85,247,0.8); }
-        .tokenomics-item:nth-child(4):hover { border-color: rgba(52,211,153,1); box-shadow: 0 35px 75px rgba(52,211,153,0.8); }
-        .tokenomics-item:nth-child(5):hover { border-color: rgba(236,72,153,1); box-shadow: 0 35px 75px rgba(236,72,153,0.8); }
-        .tokenomics-item:nth-child(6):hover { border-color: rgba(59,130,246,1); box-shadow: 0 35px 75px rgba(59,130,246,0.8); }
 
         .tokenomics-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
         .tokenomics-title span { font-size: 1.25rem; font-family: 'Inter', sans-serif; }
-        .tokenomics-item:nth-child(1) .tokenomics-title span { color: var(--gold); text-shadow: 0 0 15px var(--gold); }
-        .tokenomics-item:nth-child(2) .tokenomics-title span { color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
-        .tokenomics-item:nth-child(3) .tokenomics-title span { color: #a855f7; text-shadow: 0 0 15px #a855f7; }
-        .tokenomics-item:nth-child(4) .tokenomics-title span { color: #34d399; text-shadow: 0 0 15px #34d399; }
-        .tokenomics-item:nth-child(5) .tokenomics-title span { color: #ec4899; text-shadow: 0 0 15px #ec4899; }
-        .tokenomics-item:nth-child(6) .tokenomics-title span { color: #3b82f6; text-shadow: 0 0 15px #3b82f6; }
+        .tokenomics-item:nth-child(6n+1) .tokenomics-title span { color: var(--gold); text-shadow: 0 0 15px var(--gold); }
+        .tokenomics-item:nth-child(6n+2) .tokenomics-title span { color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
+        .tokenomics-item:nth-child(6n+3) .tokenomics-title span { color: #a855f7; text-shadow: 0 0 15px #a855f7; }
+        .tokenomics-item:nth-child(6n+4) .tokenomics-title span { color: #34d399; text-shadow: 0 0 15px #34d399; }
+        .tokenomics-item:nth-child(6n+5) .tokenomics-title span { color: #ec4899; text-shadow: 0 0 15px #ec4899; }
+        .tokenomics-item:nth-child(6n+0) .tokenomics-title span { color: #3b82f6; text-shadow: 0 0 15px #3b82f6; }
 
         .tokenomics-desc { color: #e2e8f0; font-size: 0.88rem; line-height: 1.7; }
         .tokenomics-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.12); border-radius: 4px; margin-top: 20px; overflow: hidden; }
         .tokenomics-bar-fill { height: 100%; border-radius: 4px; }
-        .tokenomics-item:nth-child(1) .tokenomics-bar-fill { background: linear-gradient(90deg, #d97706, var(--gold)); box-shadow: 0 0 15px var(--gold); }
-        .tokenomics-item:nth-child(2) .tokenomics-bar-fill { background: linear-gradient(90deg, #0e7490, var(--cyan)); box-shadow: 0 0 15px var(--cyan); }
-        .tokenomics-item:nth-child(3) .tokenomics-bar-fill { background: linear-gradient(90deg, #7e22ce, #a855f7); box-shadow: 0 0 15px #a855f7; }
-        .tokenomics-item:nth-child(4) .tokenomics-bar-fill { background: linear-gradient(90deg, #065f46, #34d399); box-shadow: 0 0 15px #34d399; }
-        .tokenomics-item:nth-child(5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); box-shadow: 0 0 15px #ec4899; }
-        .tokenomics-item:nth-child(6) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); box-shadow: 0 0 15px #3b82f6; }
+        .tokenomics-item:nth-child(6n+1) .tokenomics-bar-fill { background: linear-gradient(90deg, #d97706, var(--gold)); box-shadow: 0 0 15px var(--gold); }
+        .tokenomics-item:nth-child(6n+2) .tokenomics-bar-fill { background: linear-gradient(90deg, #0e7490, var(--cyan)); box-shadow: 0 0 15px var(--cyan); }
+        .tokenomics-item:nth-child(6n+3) .tokenomics-bar-fill { background: linear-gradient(90deg, #7e22ce, #a855f7); box-shadow: 0 0 15px #a855f7; }
+        .tokenomics-item:nth-child(6n+4) .tokenomics-bar-fill { background: linear-gradient(90deg, #065f46, #34d399); box-shadow: 0 0 15px #34d399; }
+        .tokenomics-item:nth-child(6n+5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); box-shadow: 0 0 15px #ec4899; }
+        .tokenomics-item:nth-child(6n+0) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); box-shadow: 0 0 15px #3b82f6; }
 
         .contract-box { 
             background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
@@ -1017,7 +1007,7 @@
                 </div>
 
                 <div class="trust-item liquidity">
-                    ### <i class="fas fa-water"></i> Likidite Doğrulandı
+                    <h3><i class="fas fa-water"></i> Likidite Doğrulandı</h3>
                     <p>5M ZNK likidite rezervi kalıcı olarak kilitlendi. Rug pull yok, sadece güçlü piyasa.</p>
                     <div class="trust-details">
                         <span><span class="label-txt">Toplam Kilitli:</span> <strong>5.000.000 ZNK</strong></span>
@@ -1319,160 +1309,63 @@
 
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
-        const trustWrapper = document.querySelector('.trust-slider-wrapper');
-        const trustTrack = document.getElementById('trustTrack');
-        
-        const tOriginalItems = Array.from(trustTrack.children);
-        
-        if (!isMobile) {
-            tOriginalItems.forEach(item => { trustTrack.appendChild(item.cloneNode(true)); });
-            tOriginalItems.slice().reverse().forEach(item => { trustTrack.prepend(item.cloneNode(true)); });
+        /* ==========================================================
+           SEAMLESS INFINITE LOOP CAROUSEL CONTROLLER
+           ========================================================== */
+        function initInfiniteCarousel(trackId, itemGap) {
+            const track = document.getElementById(trackId);
+            const originalItems = Array.from(track.children);
+            const count = originalItems.length;
+            
+            // Clone items before and after for seamless endless loop
+            originalItems.forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+            originalItems.slice().reverse().forEach(item => {
+                track.prepend(item.cloneNode(true));
+            });
+
+            let currentIndex = count; // Start at the middle set
+            
+            const getItemWidth = () => originalItems[0].offsetWidth + itemGap;
+
+            // Set initial position instantly without transition
+            const applyTransform = (smooth = true) => {
+                track.style.transition = smooth ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+            };
+
+            // Initialize after layout settles
+            setTimeout(() => applyTransform(false), 50);
+
+            const move = (direction) => {
+                currentIndex += direction;
+                applyTransform(true);
+
+                // Seamless modulo normalization without visual jump
+                setTimeout(() => {
+                    if (currentIndex >= count * 2) {
+                        track.style.transition = 'none';
+                        currentIndex -= count;
+                        track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+                    } else if (currentIndex < count) {
+                        track.style.transition = 'none';
+                        currentIndex += count;
+                        track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+                    }
+                }, 400);
+            };
+
+            window.addEventListener('resize', () => {
+                applyTransform(false);
+            });
+
+            return move;
         }
 
-        let tCurrentIndex = isMobile ? 0 : tOriginalItems.length;
-        
-        const updateTTransform = () => {
-            const itemWidth = tOriginalItems[0].offsetWidth + 28; 
-            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-        };
-        setTimeout(updateTTransform, 100);
-
-        function moveTrust(direction) {
-            tCurrentIndex += direction;
-            const itemWidth = tOriginalItems[0].offsetWidth + 28;
-            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-
-            if (!isMobile && tCurrentIndex >= tOriginalItems.length * 2) {
-                setTimeout(() => {
-                    trustTrack.style.transition = 'none';
-                    tCurrentIndex = tOriginalItems.length;
-                    trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
-                }, 400);
-            } else if (!isMobile && tCurrentIndex <= 0) {
-                setTimeout(() => {
-                    trustTrack.style.transition = 'none';
-                    tCurrentIndex = tOriginalItems.length;
-                    trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
-                }, 400);
-            } else if (isMobile && tCurrentIndex >= tOriginalItems.length) {
-                tCurrentIndex = tOriginalItems.length - 1;
-                trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-            } else if (isMobile && tCurrentIndex < 0) {
-                tCurrentIndex = 0;
-                trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            const itemWidth = tOriginalItems[0].offsetWidth + 28;
-            trustTrack.style.transition = 'none';
-            trustTrack.style.transform = `translateX(${-tCurrentIndex * itemWidth}px)`;
-            setTimeout(() => { trustTrack.style.transition = 'transform 0.4s ease-out'; }, 50);
-        });
-
-        const rTrack = document.getElementById('roadmapTrack');
-        const rOriginalItems = Array.from(rTrack.children);
-        
-        if (!isMobile) {
-            rOriginalItems.forEach(item => { rTrack.appendChild(item.cloneNode(true)); });
-            rOriginalItems.slice().reverse().forEach(item => { rTrack.prepend(item.cloneNode(true)); });
-        }
-
-        let rCurrentIndex = isMobile ? 0 : rOriginalItems.length;
-        
-        const updateRTransform = () => {
-            const itemWidth = rOriginalItems[0].offsetWidth + 30;
-            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-        };
-        setTimeout(updateRTransform, 100);
-
-        function moveRoadmap(direction) {
-            rCurrentIndex += direction;
-            const itemWidth = rOriginalItems[0].offsetWidth + 30;
-            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-
-            if (!isMobile && rCurrentIndex >= rOriginalItems.length * 2) {
-                setTimeout(() => {
-                    rTrack.style.transition = 'none';
-                    rCurrentIndex = rOriginalItems.length;
-                    rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { rTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-                }, 400);
-            } else if (!isMobile && rCurrentIndex <= 0) {
-                setTimeout(() => {
-                    rTrack.style.transition = 'none';
-                    rCurrentIndex = rOriginalItems.length;
-                    rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { rTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-                }, 400);
-            } else if (isMobile && rCurrentIndex >= rOriginalItems.length) {
-                rCurrentIndex = rOriginalItems.length - 1;
-                rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-            } else if (isMobile && rCurrentIndex < 0) {
-                rCurrentIndex = 0;
-                rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            const itemWidth = rOriginalItems[0].offsetWidth + 30;
-            rTrack.style.transition = 'none';
-            rTrack.style.transform = `translateX(${-rCurrentIndex * itemWidth}px)`;
-            setTimeout(() => { rTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-        });
-
-        const tokTrack = document.getElementById('tokenomicsTrack');
-        const tokOriginalItems = Array.from(tokTrack.children);
-        
-        if (!isMobile) {
-            tokOriginalItems.forEach(item => { tokTrack.appendChild(item.cloneNode(true)); });
-            tokOriginalItems.slice().reverse().forEach(item => { tokTrack.prepend(item.cloneNode(true)); });
-        }
-
-        let tokCurrentIndex = isMobile ? 0 : tokOriginalItems.length;
-        
-        const updateTokTransform = () => {
-            const itemWidth = tokOriginalItems[0].offsetWidth + 26;
-            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-        };
-        setTimeout(updateTokTransform, 100);
-
-        function moveTokenomics(direction) {
-            tokCurrentIndex += direction;
-            const itemWidth = tokOriginalItems[0].offsetWidth + 26;
-            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-
-            if (!isMobile && tokCurrentIndex >= tokOriginalItems.length * 2) {
-                setTimeout(() => {
-                    tokTrack.style.transition = 'none';
-                    tokCurrentIndex = tokOriginalItems.length;
-                    tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { tokTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-                }, 400);
-            } else if (!isMobile && tokCurrentIndex <= 0) {
-                setTimeout(() => {
-                    tokTrack.style.transition = 'none';
-                    tokCurrentIndex = tokOriginalItems.length;
-                    tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-                    setTimeout(() => { tokTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-                }, 400);
-            } else if (isMobile && tokCurrentIndex >= tokOriginalItems.length) {
-                tokCurrentIndex = tokOriginalItems.length - 1;
-                tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-            } else if (isMobile && tokCurrentIndex < 0) {
-                tokCurrentIndex = 0;
-                tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            const itemWidth = tokOriginalItems[0].offsetWidth + 26;
-            tokTrack.style.transition = 'none';
-            tokTrack.style.transform = `translateX(${-tokCurrentIndex * itemWidth}px)`;
-            setTimeout(() => { tokTrack.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)'; }, 50);
-        });
+        const moveTrust = initInfiniteCarousel('trustTrack', 28);
+        const moveRoadmap = initInfiniteCarousel('roadmapTrack', 30);
+        const moveTokenomics = initInfiniteCarousel('tokenomicsTrack', 26);
     </script>
 </body>
 </html>
