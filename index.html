@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #080b11; /* Gece Yarısı Kurt Rengi */
+            --bg-dark: #080b11;
             --gold: #f59e0b;
             --gold-light: #fcd34d;
             --cyan: #06b6d4;
@@ -175,11 +175,11 @@
         }
         .hero p strong { color: var(--gold-light); font-weight: 600; }
 
-        /* --- AYI LOGOSU (DÜZELTİLDİ: logo.jpg) --- */
+        /* --- AYI LOGOSU --- */
         .hero-image-container {
             width: 140px; height: 140px; margin: 0 auto 25px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.jpg'); /* BÜYÜK HARF HATASI DÜZELTİLDİ */
+            background-image: url('logo.jpg'); 
             background-size: cover; background-position: center;
             border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.4), inset 0 0 20px rgba(0,0,0,0.9);
@@ -273,10 +273,10 @@
             border-radius: 10px;
             margin-bottom: 12px;
             box-shadow: inset 0 0 15px rgba(186, 230, 253, 0.03);
-            display: none; /* Başlangıçta gizli */
+            display: none;
         }
         .wallet-address-box p { 
-            font-size: 0.75rem; color: #f8fafc; margin-bottom: 8px; /* Rengi parlak beyaza çevrildi */
+            font-size: 0.75rem; color: #f8fafc; margin-bottom: 8px;
             font-weight: 400; line-height: 1.4; text-align: center;
         }
         .wallet-address-box p strong {
@@ -386,6 +386,56 @@
             margin: 8px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
+        /* --- YENİ EKLENEN: ZONKA TRANSMISSIONS (HABERLER) --- */
+        .transmissions-wrapper {
+            margin-top: 30px; margin-bottom: 30px;
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 15px;
+            padding: 20px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.9);
+            position: relative; overflow: hidden;
+        }
+        
+        .transmissions-header {
+            display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;
+        }
+
+        .live-dot {
+            width: 10px; height: 10px; background-color: #ef4444; border-radius: 50%;
+            box-shadow: 0 0 10px #ef4444; animation: pulseLive 1.5s infinite;
+        }
+        @keyframes pulseLive { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+
+        .transmissions-header h3 {
+            font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900;
+            color: #fff; text-transform: uppercase; letter-spacing: 2px; margin: 0;
+        }
+
+        .transmissions-header span {
+            font-size: 0.7rem; color: var(--gold); font-weight: 700; letter-spacing: 1px;
+        }
+
+        .transmission-list {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+
+        .transmission-item {
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05);
+            border-left: 3px solid var(--gold); border-radius: 8px;
+            padding: 12px 15px; transition: transform 0.3s, background 0.3s;
+        }
+        .transmission-item:hover { background: rgba(0,0,0,0.6); transform: translateX(5px); }
+
+        .transmission-date {
+            font-size: 0.7rem; color: var(--cyan); font-weight: 700; margin-bottom: 5px;
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .transmission-text {
+            font-size: 0.85rem; color: #e2e8f0; line-height: 1.5;
+            font-weight: 400;
+        }
+
         /* --- HİKAYEMİZ & GÜVEN (VİZYON) --- */
         .vision-box {
             background: var(--glass); backdrop-filter: blur(20px);
@@ -398,7 +448,6 @@
         }
         .vision-box strong { color: var(--gold-light); font-weight: 600; }
         
-        /* VİZYON BAŞLIĞI PARLAK VE CANLI */
         .vision-box h3 {
             font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;
             color: #bae6fd; margin-bottom: 15px; text-transform: uppercase;
@@ -465,7 +514,7 @@
             text-shadow: 0 0 10px rgba(245,158,11,0.4);
         }
         
-        /* --- YENİ EKLENEN: 0 ZNK YERİNE GELEN UMUT YAZISI --- */
+        /* YENİ: HOPE YAZISI */
         .hope-counter {
             font-family: 'Montserrat', sans-serif; font-size: 1.8rem;
             font-weight: 900; color: var(--gold); margin-bottom: 5px;
@@ -733,7 +782,7 @@
             font-size: 0.85rem;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);
-            z-index: 9999; /* Her zaman en üstte kalması için */
+            z-index: 9999;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -755,7 +804,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85); /* Koyu arka plan */
+            background: rgba(0, 0, 0, 0.85);
             z-index: 99999;
             justify-content: center;
             align-items: center;
@@ -803,7 +852,7 @@
         }
         .close-modal-btn:hover { background: #ef4444; }
 
-        /* Efsane ZONKA Şeridi (En altta, Jotform yazısını kapatır) */
+        /* Efsane ZONKA Şeridi */
         .zonka-modal-cover {
             position: absolute;
             bottom: 0;
@@ -815,7 +864,7 @@
             justify-content: center;
             align-items: center;
             border-top: 1px solid rgba(245, 158, 11, 0.3);
-            pointer-events: none; /* Tıklamayı engellemez */
+            pointer-events: none;
             z-index: 5;
         }
 
@@ -846,7 +895,6 @@
             .trust-item { width: 300px; height: 300px; }
             .roadmap-btn { width: 40px; height: 40px; font-size: 1.1rem; }
 
-            /* PERFORMANS: Mobilde blur efektlerini kaldır */
             .buy-box-container,
             .vision-box,
             .donation-card,
@@ -855,13 +903,13 @@
             .tokenomics-item,
             .marketing-section,
             .contract-box,
-            .impact-card {
+            .impact-card,
+            .transmissions-wrapper {
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 background: rgba(15, 23, 42, 0.92) !important;
             }
 
-            /* Mobilde butonun boyutu ve yeri */
             .floating-feedback-btn {
                 bottom: 15px;
                 right: 15px;
@@ -878,7 +926,6 @@
 </head>
 <body>
 
-    <!-- PREMIUM HAREKETLİ KAR TANELERİ -->
     <div class="snow-container">
         <div class="snow">❅</div>
         <div class="snow">❆</div>
@@ -897,7 +944,6 @@
         <div class="snow">❅</div>
     </div>
 
-    <!-- YENİ PREMIUM ÜST BANT (KURT RENGİNE UYGUN) -->
     <div class="news-banner">
         <div class="marquee-content">
             BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i>
@@ -905,7 +951,6 @@
     </div>
 
     <section class="hero">
-        <!-- PARLAYAN VE HAREKETLİ ZONKA BAŞLIĞI -->
         <h1>ZONKA</h1>
         <h2>GUARDIANS OF LIFE</h2>
         
@@ -934,24 +979,20 @@
                 <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
             </div>
 
-            <!-- YENİ YERLEŞTİRİLMİŞ BUTON -->
             <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled style="opacity: 0.6; cursor: not-allowed;">PROCEED TO PURCHASE</button>
 
-            <!-- TAŞINMIŞ UYARI KUTUSU (Adres kutusunun üstüne) -->
             <div class="warning-box">
                 <p>
                     <i class="fas fa-exclamation-triangle"></i> Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
                 </p>
             </div>
 
-            <!-- GİZLİ ADRES KUTUSU -->
             <div id="addressBox" class="wallet-address-box">
                 <p><strong>1.</strong> Send <strong>ONLY SOL</strong> to this address (Network: Solana).<br><span style="font-size: 0.7rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
                 <code id="depositAddress">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
             </div>
             
-            <!-- GÜNCELLENMİŞ TOPLU BİLGİ KUTUSU -->
             <div class="distribution-note">
                 <i class="fas fa-shield-alt"></i>
                 <strong>Secure & Manual Verification</strong>
@@ -959,7 +1000,6 @@
             </div>
         </div>
 
-        <!-- SONSUZ KAYAN BORSALAR (SADECE BINANCE VE COINBASE) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <div class="exchange-item" title="Binance"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Binance_logo.svg" alt="Binance"></div>
@@ -969,12 +1009,29 @@
             </div>
         </div>
 
-        <!-- GÜNCELLENMİŞ SOSYAL MEDYA LİNKLERİ -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <!-- YENİ EKLENEN: ZONKA TRANSMISSIONS (HABERLER) -->
+    <section class="section" id="transmissions">
+        <div class="transmissions-wrapper">
+            <div class="transmissions-header">
+                <div class="live-dot"></div>
+                <h3>ZONKA TRANSMISSIONS</h3>
+                <span>LIVE UPDATES</span>
+            </div>
+            <div class="transmission-list" id="transmissionList">
+                <!-- Haberler buraya JavaScript ile eklenecek -->
+                <div class="transmission-item">
+                    <div class="transmission-date"><i class="fas fa-spinner fa-spin"></i> Loading updates...</div>
+                    <div class="transmission-text">Fetching the latest news from the Arctic...</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1003,7 +1060,6 @@
             </div>
         </div>
 
-        <!-- GÖRSEL VE DUYGU BÖLÜMÜ -->
         <div class="impact-gallery">
             <div class="impact-card">
                 <div class="impact-image-placeholder">
@@ -1017,11 +1073,9 @@
         </div>
 
         <div class="donation-layout">
-            <!-- GUARDIANS OF LIFE FONU (BAĞIŞ) -->
             <div class="donation-card">
                 <h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
                 
-                <!-- YENİ EKLENEN: 0 ZNK YERİNE GELEN UMUT YAZISI -->
                 <div class="hope-counter">HOPE IS GROWING</div>
                 <div class="counter-desc">Every contribution changes a life.</div>
 
@@ -1037,7 +1091,6 @@
                 <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
-            <!-- KAHRAMAN ROZETLERİ -->
             <div class="donation-card">
                 <h3><i class="fas fa-medal"></i> Hero Badges</h3>
                 <table class="badge-table">
@@ -1055,7 +1108,6 @@
         </div>
     </section>
 
-    <!-- YOL HARİTASI (PREMIUM ZAMAN TÜNELİ) -->
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-wrapper">
@@ -1096,7 +1148,6 @@
         </div>
     </section>
 
-    <!-- JETON EKONOMİSİ (SONSUZ KAYAN SLIDER) -->
     <section class="section" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
         
@@ -1144,7 +1195,6 @@
 
         <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
-                <!-- YENİ EKLENEN: TREASURY KİLİDİ -->
                 <div class="trust-item treasury">
                     <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
                     <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
@@ -1156,7 +1206,6 @@
                     </div>
                     <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
-                <!-- YENİ EKLENEN BİTİŞ -->
 
                 <div class="trust-item team">
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
@@ -1252,20 +1301,14 @@
         <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
 
-    <!-- YENİ EKLENEN: GERİ BİLDİRİM BUTONU (Modal'ı açar) -->
     <button class="floating-feedback-btn" id="openFeedbackBtn">
         <i class="fas fa-comment-dots"></i> Report Issue
     </button>
 
-    <!-- JOTFORM AÇILIR PENCERE (MODAL) -->
     <div class="feedback-modal-overlay" id="feedbackModal">
         <div class="feedback-modal-content">
             <button class="close-modal-btn" id="closeFeedbackBtn"><i class="fas fa-times"></i></button>
-            
-            <!-- Jotform Iframe -->
             <iframe class="feedback-iframe" src="https://form.jotform.com/262944764497071" allowfullscreen></iframe>
-            
-            <!-- Efsane ZONKA Şeridi (Jotform yazısını kapatır) -->
             <div class="zonka-modal-cover">
                 <span>ZONKA</span>
             </div>
@@ -1278,22 +1321,9 @@
         const openBtn = document.getElementById('openFeedbackBtn');
         const closeBtn = document.getElementById('closeFeedbackBtn');
 
-        // Butona tıklanınca modalı aç
-        openBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-
-        // X butonuna tıklanınca modalı kapat
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Modal'ın arka planına (karartılmış alana) tıklanınca kapat
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+        closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; } });
     </script>
 
     <script>
@@ -1357,6 +1387,66 @@
             });
         }
 
+        // ZONKA TRANSMISSIONS (HABERLER) MANTIĞI
+        const transmissionsSheetURL = "https://docs.google.com/spreadsheets/d/1-JZlaHPJDEUwEfTV9d0lnScLFQGzoLNxrx3eAx-AZEU/export?format=csv";
+
+        async function loadTransmissions() {
+            try {
+                const response = await fetch(transmissionsSheetURL);
+                const data = await response.text();
+                const rows = data.split('\n');
+                const transmissionList = document.getElementById('transmissionList');
+                
+                let htmlContent = '';
+                let count = 0;
+
+                // Başlık satırını atla (i=1), son 4 haberi al (veya hepsini)
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i].trim();
+                    if (row) {
+                        // Virgüllere göre ayır (CSV formatı)
+                        const columns = row.split(',');
+                        if (columns[0] && columns[1]) {
+                            const date = columns[0].replace(/"/g, '').trim();
+                            const announcement = columns[1].replace(/"/g, '').trim();
+                            
+                            htmlContent += `
+                                <div class="transmission-item">
+                                    <div class="transmission-date"><i class="fas fa-calendar-alt"></i> ${date}</div>
+                                    <div class="transmission-text">${announcement}</div>
+                                </div>
+                            `;
+                            count++;
+                            if(count >= 4) break; // Sadece en son 4 haberi göster
+                        }
+                    }
+                }
+
+                if (count === 0) {
+                    transmissionList.innerHTML = `
+                        <div class="transmission-item">
+                            <div class="transmission-date"><i class="fas fa-info-circle"></i> System</div>
+                            <div class="transmission-text">No updates found. Check back later.</div>
+                        </div>`;
+                } else {
+                    // En yeni haber en üstte olacak şekilde ters çevir
+                    // (Eğer tabloya eskiden yeniye yazıyorsan ters çevirmeye gerek yok, ama garantiye alalım)
+                    transmissionList.innerHTML = htmlContent;
+                }
+
+            } catch (error) {
+                console.error("Transmissions could not be loaded:", error);
+                document.getElementById('transmissionList').innerHTML = `
+                    <div class="transmission-item">
+                        <div class="transmission-date"><i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i> Error</div>
+                        <div class="transmission-text">Could not connect to the transmission network. Please check the spreadsheet link.</div>
+                    </div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTransmissions);
+
+        // HALL OF FAME MANTIĞI
         const sheetURL = "https://docs.google.com/spreadsheets/d/1-CIXynhu_qimqlIZBmiOiXOsB5Sn7Q83Pg3eZX3ST-o/export?format=csv";
 
         async function loadHallOfFame() {
@@ -1431,12 +1521,12 @@
 
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
+        // SLIDER MANTIKLARI (TRUST, ROADMAP, TOKENOMICS)
         const trustWrapper = document.querySelector('.trust-slider-wrapper');
         const trustTrack = document.getElementById('trustTrack');
         
         const tOriginalItems = Array.from(trustTrack.children);
         
-        // PERFORMANS: Mobilde klonlama yapma
         if (!isMobile) {
             tOriginalItems.forEach(item => {
                 trustTrack.appendChild(item.cloneNode(true));
@@ -1493,7 +1583,6 @@
         const rTrack = document.getElementById('roadmapTrack');
         const rOriginalItems = Array.from(rTrack.children);
         
-        // PERFORMANS: Mobilde klonlama yapma
         if (!isMobile) {
             rOriginalItems.forEach(item => {
                 rTrack.appendChild(item.cloneNode(true));
@@ -1550,7 +1639,6 @@
         const tokTrack = document.getElementById('tokenomicsTrack');
         const tokOriginalItems = Array.from(tokTrack.children);
         
-        // PERFORMANS: Mobilde klonlama yapma
         if (!isMobile) {
             tokOriginalItems.forEach(item => {
                 tokTrack.appendChild(item.cloneNode(true));
