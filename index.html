@@ -281,26 +281,24 @@
         .distribution-note i { font-size: 2rem; color: var(--cyan); text-shadow: 0 0 25px rgba(6, 182, 212, 1);}
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
-        /* --- EXCHANGES LOGOS (ARKA PLAN SİYAH, BOYUTLAR TAM KIVAMINDA) --- */
+        /* --- EXCHANGES LOGOS (KIRPILMIŞ, ARKA PLAN SİYAH, TAM KIVAMINDA) --- */
         .exchanges-carousel { width: 100%; max-width: 640px; margin: 15px auto 40px; overflow: hidden; padding: 15px 0; display: flex; justify-content: center; }
-        .exchanges-track { display: flex; gap: 30px; width: max-content; animation: scrollExchanges 20s linear infinite; align-items: center; }
+        .exchanges-track { display: flex; gap: 40px; width: max-content; animation: scrollExchanges 25s linear infinite; align-items: center; }
         .exchange-item { display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; opacity: 0.95; }
         .exchange-item:hover { opacity: 1; transform: translateY(-5px) scale(1.1); }
         
         .exchange-item img { 
-            width: 60px; 
-            height: 60px; 
+            width: 65px; 
+            height: 65px; 
             object-fit: cover; 
             object-position: center;
-            border-radius: 16px; /* Köşeleri yuvarlatılmış kare */
-            background-color: #000000; /* O istenmeyen beyazlığı yok eden siyah arka plan */
-            padding: 2px; /* Kenarlarda hafif boşluk */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8); /* Derinlik gölgesi */
+            border-radius: 18px; /* Yuvarlak köşeler */
+            background-color: #000000; /* Beyaz lekeyi yok eden siyah zemin */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.9); 
             transition: all 0.3s; 
         }
         .exchange-item:hover img { 
-            box-shadow: 0 12px 25px rgba(245, 158, 11, 0.5); 
-            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6); 
         }
         @keyframes scrollExchanges { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -719,7 +717,7 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            .exchange-item img { width: 50px; height: 50px; }
+            .exchange-item img { width: 55px; height: 55px; }
         }
     </style>
 </head>
@@ -786,33 +784,34 @@
             </div>
         </div>
 
-        <!-- YENİ LOGOLAR (ARKA PLAN SİYAH, SADECE LOGO) -->
+        <!-- YENİ LOGOLAR (ARKA PLAN SİYAH, SADECE LOGO, TARAYICI ÖNBELLEĞİNİ ATLATAN KOD) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg" alt="Binance">
+                    <!-- ?v=2 EKLENDİ: Tarayıcı eski resmi değil, yenisini yüklemek zorunda kalır -->
+                    <img src="binance.jpg?v=2" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg" alt="Coinbase">
+                    <img src="coinbase.jpg?v=2" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg" alt="Bybit">
+                    <img src="bybit.jpg?v=2" alt="Bybit">
                 </div>
                 <div class="exchange-item" title="CoinMarketCap">
-                    <img src="cmc.jpg" alt="CoinMarketCap">
+                    <img src="cmc.jpg?v=2" alt="CoinMarketCap">
                 </div>
                 <!-- Kopyalar (Sonsuz döngü için) -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg" alt="Binance">
+                    <img src="binance.jpg?v=2" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg" alt="Coinbase">
+                    <img src="coinbase.jpg?v=2" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg" alt="Bybit">
+                    <img src="bybit.jpg?v=2" alt="Bybit">
                 </div>
                 <div class="exchange-item" title="CoinMarketCap">
-                    <img src="cmc.jpg" alt="CoinMarketCap">
+                    <img src="cmc.jpg?v=2" alt="CoinMarketCap">
                 </div>
             </div>
         </div>
