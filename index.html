@@ -281,54 +281,6 @@
         .distribution-note i { font-size: 2rem; color: var(--cyan); text-shadow: 0 0 25px rgba(6, 182, 212, 1);}
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
-        /* ==========================================================
-           KRİTİK DÜZELTME: SADECE LOGOLAR İÇİN TAM KIVAMINDA AYARLAR
-           ========================================================== */
-        .exchanges-carousel { 
-            width: 100%; 
-            max-width: 600px; 
-            margin: 15px auto 25px; 
-            overflow: hidden; 
-            padding: 10px 0; 
-            position: relative;
-        }
-        
-        .exchanges-track { 
-            display: flex; 
-            gap: 70px; 
-            width: max-content; 
-            animation: scrollExchanges 25s linear infinite; 
-            align-items: center; 
-            will-change: transform;
-            padding-left: 15px;
-        }
-        
-        .exchange-item { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: transform 0.3s ease; 
-            opacity: 0.95; 
-            flex-shrink: 0; 
-        }
-        .exchange-item:hover { opacity: 1; transform: scale(1.1); }
-        
-        .exchange-item img { 
-            width: 42px; 
-            height: 42px; 
-            object-fit: cover; 
-            object-position: center;
-            border-radius: 10px;
-            background-color: #000000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.9); 
-            display: block; 
-        }
-        
-        @keyframes scrollExchanges { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(calc(-50% - 35px)); } 
-        }
-
         .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
@@ -744,7 +696,6 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            .exchange-item img { width: 35px; height: 35px; }
         }
     </style>
 </head>
@@ -864,7 +815,8 @@
         <div class="impact-gallery">
             <div class="impact-card">
                 <div class="impact-image-placeholder">
-                    <img src="yardim.JPG" alt="Hope and Care">
+                    <!-- RESİM ADI KÜÇÜK HARFE ÇEVRİLDİ -->
+                    <img src="yardim.jpg" alt="Hope and Care">
                 </div>
                 <div class="impact-content">
                     <h4>A Bond of Hope</h4>
