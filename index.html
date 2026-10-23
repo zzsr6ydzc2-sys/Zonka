@@ -286,34 +286,36 @@
            ========================================================== */
         .exchanges-carousel { 
             width: 100%; 
-            max-width: 350px; /* Boşluğu daraltmak için maksimum genişlik kısıldı */
-            margin: 15px auto 30px; 
+            max-width: 400px; 
+            margin: 10px auto 20px; 
             overflow: hidden; 
             padding: 10px 0; 
             display: flex; 
-            justify-content: center; /* Ortalandı */
+            justify-content: flex-start; /* Animasyonun akıcı başlaması için */
         }
         
         .exchanges-track { 
             display: flex; 
-            gap: 20px; /* Aradaki boşluk istediğin gibi daraltıldı */
+            gap: 25px; /* Logolar arası boşluk */
             width: max-content; 
-            animation: scrollExchanges 12s linear infinite; 
-            align-items: center;
-            padding: 0 10px; /* Kenarlara nefes payı */
+            animation: scrollExchanges 15s linear infinite; 
+            align-items: center; 
+            will-change: transform;
         }
         
         .exchange-item { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
+            transition: transform 0.3s ease; 
             opacity: 0.95; 
             flex-shrink: 0; 
         }
+        .exchange-item:hover { opacity: 1; transform: scale(1.1); }
         
         .exchange-item img { 
-            width: 50px; /* Boyut tam istediğin kıvamda küçültüldü */
-            height: 50px; 
+            width: 45px; /* Boyut tam istediğin kıvamda küçültüldü */
+            height: 45px; 
             object-fit: cover; 
             object-position: center;
             border-radius: 12px;
@@ -322,10 +324,10 @@
             display: block; 
         }
         
-        /* Animasyon artık boşluksuz ve kesintisiz dönüyor */
+        /* SAF CSS İLE KESİNTİSİZ VE ZIPLAMASIZ ANİMASYON */
         @keyframes scrollExchanges { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(calc(-50% - 10px)); } 
+            100% { transform: translateX(calc(-50% - 12.5px)); } /* Gap'in yarısı kadar kaydırma */
         }
 
         .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
@@ -743,7 +745,7 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            .exchange-item img { width: 45px; height: 45px; }
+            .exchange-item img { width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -810,27 +812,27 @@
             </div>
         </div>
 
-        <!-- YENİ LOGOLAR (SADECE BURASI DEĞİŞTİ, BOŞLUK VE KAYMA YOK) -->
+        <!-- YENİ LOGOLAR (SADECE BURASI DEĞİŞTİ, CSS İLE KUSURSUZ AKIŞ) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=7" alt="Binance">
+                    <img src="binance.jpg?v=8" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=7" alt="Coinbase">
+                    <img src="coinbase.jpg?v=8" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=7" alt="Bybit">
+                    <img src="bybit.jpg?v=8" alt="Bybit">
                 </div>
                 <!-- Kopyalar (Sonsuz döngü için) -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=7" alt="Binance">
+                    <img src="binance.jpg?v=8" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=7" alt="Coinbase">
+                    <img src="coinbase.jpg?v=8" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=7" alt="Bybit">
+                    <img src="bybit.jpg?v=8" alt="Bybit">
                 </div>
             </div>
         </div>
@@ -1358,10 +1360,12 @@
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
         /* ==========================================================
-           SEAMLESS INFINITE LOOP CAROUSEL CONTROLLER
+           SEAMLESS INFINITE LOOP CAROUSEL CONTROLLER (JS'den kaldırıldı, artık CSS ile çalışıyor)
            ========================================================== */
         function initInfiniteCarousel(trackId, itemGap) {
             const track = document.getElementById(trackId);
+            if(!track) return () => {}; // Hata vermemesi için kontrol
+            
             const originalItems = Array.from(track.children);
             const count = originalItems.length;
             
