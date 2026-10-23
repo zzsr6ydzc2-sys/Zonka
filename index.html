@@ -282,7 +282,7 @@
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
         /* ==========================================================
-           KRİTİK DÜZELTME: SADECE LOGOLAR İÇİN TAM KIVAMINDA AYARLAR
+           KUSURSUZ AKIŞ: SADECE LOGOLAR İÇİN TAM KIVAMINDA AYARLAR
            ========================================================== */
         .exchanges-carousel { 
             width: 100%; 
@@ -296,7 +296,7 @@
         
         .exchanges-track { 
             display: flex; 
-            gap: 25px; /* Logolar arası boşluk */
+            gap: 30px; /* Logolar arası boşluk genişletildi */
             width: max-content; 
             animation: scrollExchanges 15s linear infinite; 
             align-items: center; 
@@ -314,11 +314,11 @@
         .exchange-item:hover { opacity: 1; transform: scale(1.1); }
         
         .exchange-item img { 
-            width: 45px; /* Boyut tam istediğin kıvamda küçültüldü */
-            height: 45px; 
+            width: 38px; /* Boyut senin isteğinle küçültüldü */
+            height: 38px; 
             object-fit: cover; 
             object-position: center;
-            border-radius: 12px;
+            border-radius: 10px;
             background-color: #000000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.9); 
             display: block; 
@@ -327,7 +327,7 @@
         /* SAF CSS İLE KESİNTİSİZ VE ZIPLAMASIZ ANİMASYON */
         @keyframes scrollExchanges { 
             0% { transform: translateX(0); } 
-            100% { transform: translateX(calc(-50% - 12.5px)); } /* Gap'in yarısı kadar kaydırma */
+            100% { transform: translateX(calc(-50% - 15px)); } /* Gap'in yarısı kadar kaydırma */
         }
 
         .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
@@ -745,7 +745,7 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            .exchange-item img { width: 40px; height: 40px; }
+            .exchange-item img { width: 35px; height: 35px; }
         }
     </style>
 </head>
@@ -816,23 +816,23 @@
         <div class="exchanges-carousel">
             <div class="exchanges-track">
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=8" alt="Binance">
+                    <img src="binance.jpg?v=9" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=8" alt="Coinbase">
+                    <img src="coinbase.jpg?v=9" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=8" alt="Bybit">
+                    <img src="bybit.jpg?v=9" alt="Bybit">
                 </div>
                 <!-- Kopyalar (Sonsuz döngü için) -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=8" alt="Binance">
+                    <img src="binance.jpg?v=9" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=8" alt="Coinbase">
+                    <img src="coinbase.jpg?v=9" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=8" alt="Bybit">
+                    <img src="bybit.jpg?v=9" alt="Bybit">
                 </div>
             </div>
         </div>
@@ -1360,12 +1360,10 @@
         document.addEventListener('DOMContentLoaded', loadHallOfFame);
 
         /* ==========================================================
-           SEAMLESS INFINITE LOOP CAROUSEL CONTROLLER (JS'den kaldırıldı, artık CSS ile çalışıyor)
+           SEAMLESS INFINITE LOOP CAROUSEL CONTROLLER
            ========================================================== */
         function initInfiniteCarousel(trackId, itemGap) {
             const track = document.getElementById(trackId);
-            if(!track) return () => {}; // Hata vermemesi için kontrol
-            
             const originalItems = Array.from(track.children);
             const count = originalItems.length;
             
