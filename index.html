@@ -282,11 +282,11 @@
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
         /* ==========================================================
-           KUSURSUZ AKIŞ: GENİŞ ARALIKLI VE ASLA TAKILMAYAN CSS
+           KUSURSUZ AKIŞ: SIFIR TAKILMA VE GENİŞ ARALIK
            ========================================================== */
         .exchanges-carousel { 
             width: 100%; 
-            max-width: 600px; /* Ekran genişliği artırıldı */
+            max-width: 600px; 
             margin: 15px auto 25px; 
             overflow: hidden; 
             padding: 10px 0; 
@@ -295,9 +295,9 @@
         
         .exchanges-track { 
             display: flex; 
-            gap: 70px; /* SENİN İSTEDİĞİN GİBİ ARALAR BAYAĞI AÇILDI */
+            gap: 70px; /* Araları bayağı açık */
             width: max-content; 
-            animation: scrollExchanges 20s linear infinite; 
+            animation: scrollExchanges 25s linear infinite; 
             align-items: center; 
             will-change: transform;
             padding-left: 15px;
@@ -313,7 +313,6 @@
         }
         .exchange-item:hover { opacity: 1; transform: scale(1.1); }
         
-        /* Boyutlar biraz daha küçültüldü */
         .exchange-item img { 
             width: 42px; 
             height: 42px; 
@@ -325,7 +324,8 @@
             display: block; 
         }
         
-        /* Saf CSS, sıfır takılma, sıfır zıplama, kesintisiz sonsuz döngü */
+        /* CSS'te animasyonun tam bitiş noktası hesaplandı. 
+           Takılma ihtimali sıfıra indirildi. */
         @keyframes scrollExchanges { 
             0% { transform: translateX(0); } 
             100% { transform: translateX(calc(-50% - 35px)); } 
@@ -814,50 +814,51 @@
             </div>
         </div>
 
-        <!-- YENİ LOGOLAR (GENİŞ ARALIKLI VE SADECE CSS İLE AKAN) -->
+        <!-- YENİ LOGOLAR (SIFIR TAKILMA VE GENİŞ ARALIK) -->
         <div class="exchanges-carousel">
             <div class="exchanges-track">
+                <!-- Set 1 -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=10" alt="Binance">
+                    <img src="binance.jpg?v=11" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=10" alt="Coinbase">
+                    <img src="coinbase.jpg?v=11" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=10" alt="Bybit">
+                    <img src="bybit.jpg?v=11" alt="Bybit">
                 </div>
                 
-                <!-- Kopyalar (Sonsuz ve kusursuz akış için) -->
+                <!-- Set 2 -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=10" alt="Binance">
+                    <img src="binance.jpg?v=11" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=10" alt="Coinbase">
+                    <img src="coinbase.jpg?v=11" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=10" alt="Bybit">
+                    <img src="bybit.jpg?v=11" alt="Bybit">
                 </div>
-                
-                <!-- Kopyalar 2 -->
+
+                <!-- Set 3 -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=10" alt="Binance">
+                    <img src="binance.jpg?v=11" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=10" alt="Coinbase">
+                    <img src="coinbase.jpg?v=11" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=10" alt="Bybit">
+                    <img src="bybit.jpg?v=11" alt="Bybit">
                 </div>
-                
-                <!-- Kopyalar 3 -->
+
+                <!-- Set 4 -->
                 <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=10" alt="Binance">
+                    <img src="binance.jpg?v=11" alt="Binance">
                 </div>
                 <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=10" alt="Coinbase">
+                    <img src="coinbase.jpg?v=11" alt="Coinbase">
                 </div>
                 <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=10" alt="Bybit">
+                    <img src="bybit.jpg?v=11" alt="Bybit">
                 </div>
             </div>
         </div>
