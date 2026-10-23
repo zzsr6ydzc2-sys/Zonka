@@ -386,7 +386,7 @@
             margin: 8px auto 0; box-shadow: 0 0 10px var(--gold);
         }
 
-        /* --- YENİ EKLENEN: ZONKA TRANSMISSIONS (HABERLER) --- */
+        /* --- YENİ EKLENEN: RESMİ DUYURULAR --- */
         .transmissions-wrapper {
             margin-top: 30px; margin-bottom: 30px;
             background: var(--glass); backdrop-filter: blur(20px);
@@ -1017,12 +1017,12 @@
         </div>
     </section>
 
-    <!-- YENİ EKLENEN: ZONKA TRANSMISSIONS (HABERLER) -->
+    <!-- YENİ EKLENEN: RESMİ DUYURULAR -->
     <section class="section" id="transmissions">
         <div class="transmissions-wrapper">
             <div class="transmissions-header">
                 <div class="live-dot"></div>
-                <h3>ZONKA TRANSMISSIONS</h3>
+                <h3>OFFICIAL ANNOUNCEMENTS</h3>
                 <span>LIVE UPDATES</span>
             </div>
             <div class="transmission-list" id="transmissionList">
@@ -1123,11 +1123,12 @@
                     <div class="roadmap-icon">2</div>
                     <div class="roadmap-content">
                         <h4>Phase 2: The Thaw</h4>
-                        <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First Guardians of Life Donation.</p>
+                        <p>Presale Sell-out, Raydium Liquidity Pool, CoinGeckoomics/CMC Listings, and First">
+ Guardians        of Life Donation.</p>
                     </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-icon">3</div>
+ <                </div>
+                <div class="roadmaph-item">
+                    <div class="2roadmap-icon">3</div>
                     <div class="roadmap-content">
                         <h4>Phase 3: Arctic Empire</h4>
                         <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Early Community Airdrop Rewards.</p>
@@ -1148,8 +1149,7 @@
         </div>
     </section>
 
-    <section class="section" id="tokenomics">
-        <h2 class="section-title">Tokenomics</h2>
+    <section class="section" id="token class="section-title">Tokenomics</h2>
         
         <div class="tokenomics-wrapper">
             <div class="tokenomics-track" id="tokenomicsTrack">
@@ -1387,7 +1387,7 @@
             });
         }
 
-        // ZONKA TRANSMISSIONS (HABERLER) MANTIĞI
+        // RESMİ DUYURULAR (HABERLER) MANTIĞI
         const transmissionsSheetURL = "https://docs.google.com/spreadsheets/d/1-JZlaHPJDEUwEfTV9d0lnScLFQGzoLNxrx3eAx-AZEU/export?format=csv";
 
         async function loadTransmissions() {
@@ -1400,16 +1400,35 @@
                 let htmlContent = '';
                 let count = 0;
 
-                // Başlık satırını atla (i=1), son 4 haberi al (veya hepsini)
+                // Başlık satırını atla (i=1), son 4 haberi al
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i].trim();
                     if (row) {
-                        // Virgüllere göre ayır (CSV formatı)
-                        const columns = row.split(',');
-                        if (columns[0] && columns[1]) {
-                            const date = columns[0].replace(/"/g, '').trim();
-                            const announcement = columns[1].replace(/"/g, '').trim();
-                            
+                        // Tarih ve Duyuruyu ayırmak için virgülü kullan ama tarihteki virgülleri görmezden gel
+                        // Örnek satır: "October 23, 2023", "Zonka official website is now live!"
+                        // Bu yüzden ilk virgülü değil, tırnak işaretlerinin arasındaki virgülleri kontrol edeceğiz
+                        
+                        // Basit bir yaklaşımla, eğer tarih tırnak içindeyse onu koru
+                        let date = "";
+                        let announcement = "";
+                        
+                        // Satırda tırnak varsa (CSV standardı)
+                        if (row.includes('"')) {
+                            const matches = row.match(/"([^"]+)"/g);
+                            if (matches && matches.length >= 2) {
+                                date = matches[0].replace(/"/g, '').trim();
+                                announcement = matches[1].replace(/"/g, '').trim();
+                            }
+                        } else {
+                            // Tırnak yoksa, ilk virgülden böl
+                            const firstCommaIndex = row.indexOf(',');
+                            if (firstCommaIndex !== -1) {
+                                date = row.substring(0, firstCommaIndex).trim();
+                                announcement = row.substring(firstCommaIndex + 1).trim();
+                            }
+                        }
+                        
+                        if (date && announcement) {
                             htmlContent += `
                                 <div class="transmission-item">
                                     <div class="transmission-date"><i class="fas fa-calendar-alt"></i> ${date}</div>
@@ -1429,8 +1448,6 @@
                             <div class="transmission-text">No updates found. Check back later.</div>
                         </div>`;
                 } else {
-                    // En yeni haber en üstte olacak şekilde ters çevir
-                    // (Eğer tabloya eskiden yeniye yazıyorsan ters çevirmeye gerek yok, ama garantiye alalım)
                     transmissionList.innerHTML = htmlContent;
                 }
 
