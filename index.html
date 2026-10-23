@@ -28,17 +28,14 @@
             --cyan: #06b6d4;
             --text-light: #f8fafc;
             --text-muted: #cbd5e1;
-            --glass: rgba(15, 23, 42, 0.85); /* Cam efektini biraz daha koyulaştırdık */
+            --glass: rgba(15, 23, 42, 0.85); 
             --glass-border: rgba(245, 158, 11, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* --- YENİ 1. SEÇENEK ARKA PLAN (GECE YARISI KURT) --- */
         body {
-            /* Tamamen koyu, antrasit-siyah bir zemin */
             background: #080b11;
-            /* Çok hafif derinlik katan, göz almayan bir gradyan */
             background-image: radial-gradient(circle at 50% 0%, #111827 0%, #080b11 60%, #000000 100%);
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
@@ -172,17 +169,17 @@
 
         .hero p {
             font-size: 0.95rem; max-width: 550px; margin: 0 auto 25px;
-            font-weight: 400; color: #e2e8f0; /* Rengi daha da belirginleştirdik */
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9); /* Yazı gölgesi eklendi */
+            font-weight: 400; color: #e2e8f0; 
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
             line-height: 1.6;
         }
         .hero p strong { color: var(--gold-light); font-weight: 600; }
 
-        /* --- AYI LOGOSU --- */
+        /* --- AYI LOGOSU (DÜZELTİLDİ: logo.jpg) --- */
         .hero-image-container {
             width: 140px; height: 140px; margin: 0 auto 25px; position: relative;
             display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.JPG'); 
+            background-image: url('logo.jpg'); /* BÜYÜK HARF HATASI DÜZELTİLDİ */
             background-size: cover; background-position: center;
             border-radius: 50%; border: 3px solid var(--gold);
             box-shadow: 0 0 30px rgba(245, 158, 11, 0.4), inset 0 0 20px rgba(0,0,0,0.9);
@@ -467,12 +464,21 @@
             font-size: 1rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(245,158,11,0.4);
         }
-        .counter {
-            font-family: 'Montserrat', sans-serif; font-size: 2rem;
+        
+        /* --- YENİ EKLENEN: 0 ZNK YERİNE GELEN UMUT YAZISI --- */
+        .hope-counter {
+            font-family: 'Montserrat', sans-serif; font-size: 1.8rem;
             font-weight: 900; color: var(--gold); margin-bottom: 5px;
-            text-shadow: 0 0 20px rgba(245,158,11,0.6);
+            text-shadow: 0 0 20px rgba(245,158,11,0.8), 0 0 40px rgba(245,158,11,0.4);
+            letter-spacing: 1px;
+            background: linear-gradient(120deg, var(--gold-light), #fff, var(--gold-light));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 3s linear infinite;
         }
-        .counter-desc { color: var(--text-muted); font-size: 0.75rem; margin-bottom: 15px; }
+
+        .counter-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; font-weight: 500; }
         
         .donation-wallet-box {
             background: rgba(0,0,0,0.6); border: 1px dashed var(--gold-light);
@@ -1015,7 +1021,8 @@
             <div class="donation-card">
                 <h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
                 
-                <div class="counter">0 ZNK</div>
+                <!-- YENİ EKLENEN: 0 ZNK YERİNE GELEN UMUT YAZISI -->
+                <div class="hope-counter">HOPE IS GROWING</div>
                 <div class="counter-desc">Every contribution changes a life.</div>
 
                 <div class="donation-wallet-box">
