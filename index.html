@@ -282,7 +282,7 @@
         .distribution-note strong { color: #fff; font-weight: 700; font-size: 1rem; display: block; letter-spacing: 0.5px; }
 
         /* ==========================================================
-           KUSURSUZ AKIŞ: SIFIR TAKILMA VE GENİŞ ARALIK
+           KRİTİK DÜZELTME: SADECE LOGOLAR İÇİN TAM KIVAMINDA AYARLAR
            ========================================================== */
         .exchanges-carousel { 
             width: 100%; 
@@ -295,7 +295,7 @@
         
         .exchanges-track { 
             display: flex; 
-            gap: 70px; /* Araları bayağı açık */
+            gap: 70px; 
             width: max-content; 
             animation: scrollExchanges 25s linear infinite; 
             align-items: center; 
@@ -324,8 +324,6 @@
             display: block; 
         }
         
-        /* CSS'te animasyonun tam bitiş noktası hesaplandı. 
-           Takılma ihtimali sıfıra indirildi. */
         @keyframes scrollExchanges { 
             0% { transform: translateX(0); } 
             100% { transform: translateX(calc(-50% - 35px)); } 
@@ -746,8 +744,7 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 20px; right: 20px; padding: 15px 25px; font-size: 0.88rem; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            .exchange-item img { width: 38px; height: 38px; }
-            .exchanges-track { gap: 40px; } /* Mobilde de boşluklar korunuyor */
+            .exchange-item img { width: 35px; height: 35px; }
         }
     </style>
 </head>
@@ -814,55 +811,8 @@
             </div>
         </div>
 
-        <!-- YENİ LOGOLAR (SIFIR TAKILMA VE GENİŞ ARALIK) -->
-        <div class="exchanges-carousel">
-            <div class="exchanges-track">
-                <!-- Set 1 -->
-                <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=11" alt="Binance">
-                </div>
-                <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=11" alt="Coinbase">
-                </div>
-                <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=11" alt="Bybit">
-                </div>
-                
-                <!-- Set 2 -->
-                <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=11" alt="Binance">
-                </div>
-                <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=11" alt="Coinbase">
-                </div>
-                <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=11" alt="Bybit">
-                </div>
-
-                <!-- Set 3 -->
-                <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=11" alt="Binance">
-                </div>
-                <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=11" alt="Coinbase">
-                </div>
-                <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=11" alt="Bybit">
-                </div>
-
-                <!-- Set 4 -->
-                <div class="exchange-item" title="Binance">
-                    <img src="binance.jpg?v=11" alt="Binance">
-                </div>
-                <div class="exchange-item" title="Coinbase">
-                    <img src="coinbase.jpg?v=11" alt="Coinbase">
-                </div>
-                <div class="exchange-item" title="Bybit">
-                    <img src="bybit.jpg?v=11" alt="Bybit">
-                </div>
-            </div>
-        </div>
-
+        <!-- BURADAKİ LOGOLAR VE ANİMASYONLAR TAMAMEN KALDIRILDI -->
+        
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
