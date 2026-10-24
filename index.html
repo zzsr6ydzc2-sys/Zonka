@@ -820,6 +820,13 @@
 
             <div id="addressBox" class="wallet-address-box">
                 <p><strong>1.</strong> Send <strong>ONLY SOL</strong> to this address (Network: Solana).<br><span style="font-size: 0.75rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
+                <!-- BURAYA AĞ UYARISI EKLENDİ -->
+                <div style="background: rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: left;">
+                    <p style="color: #fca5a5; font-size: 0.85rem; margin: 0; font-weight: 600; line-height: 1.4;">
+                        ⚠️ CRITICAL: Use ONLY the Solana (SPL) Network. Funds sent from other networks (ERC-20, BEP-20) will be permanently lost.
+                    </p>
+                </div>
+                
                 <code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
                 <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
             </div>
@@ -1122,6 +1129,11 @@
     </section>
 
     <footer>
+        <!-- YASAL UYARI EKLENDİ -->
+        <p style="margin-bottom: 20px; color: #64748b; font-size: 0.75rem; line-height: 1.5; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+            <strong>Disclaimer:</strong> Cryptocurrency investments carry high risk. $ZNK is a community-driven project. This website does not constitute financial advice. Please do your own research (DYOR) before participating.
+        </p>
+
         &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
         <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
         <div class="ssl-badge">🔒 256-bit SSL Secured</div>
