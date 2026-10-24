@@ -315,16 +315,21 @@
 
         .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
+        /* YENİ PREMIUM BAŞLIK TASARIMI */
         .section-title {
-            font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 800;
+            font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 900;
             text-align: center; margin-bottom: 45px; text-transform: uppercase;
-            color: #ffffff; letter-spacing: 4px; 
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+            letter-spacing: 6px; 
+            background: linear-gradient(135deg, #06b6d4 0%, #ffffff 50%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.6));
         }
         .section-title::after {
-            content: ''; display: block; width: 120px; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 20px auto 0; box-shadow: 0 0 30px var(--gold);
+            content: ''; display: block; width: 150px; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--cyan), transparent);
+            margin: 20px auto 0; box-shadow: 0 0 35px var(--gold);
+            border-radius: 2px;
         }
 
         .transmissions-wrapper {
@@ -341,7 +346,6 @@
             box-shadow: 0 45px 95px rgba(0,0,0,0.99), 0 0 100px rgba(168, 85, 247, 0.9);
         }
         
-        /* --- YENİ: KARİZMATİK BAŞLIK VE CANLI TASARIMI --- */
         .transmissions-header { 
             display: flex; align-items: center; justify-content: space-between; 
             margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.12); 
@@ -370,15 +374,13 @@
             100% { opacity: 1; transform: scale(1); box-shadow: 0 0 15px #ef4444; } 
         }
 
-        /* --- YENİ: KAYDIRMA ÇUBUĞU (SCROLL) ÖZELLİĞİ --- */
         .transmission-list { 
             display: flex; flex-direction: column; gap: 22px; 
-            max-height: 480px; /* Kutu sabit yükseklikte kalacak */
-            overflow-y: auto;  /* İçerik sığmazsa kaydırma çubuğu çıkacak */
-            padding-right: 12px; /* Kaydırma çubuğu yazılara yapışmasın */
+            max-height: 480px;
+            overflow-y: auto; 
+            padding-right: 12px; 
         }
         
-        /* Kaydırma Çubuğu Tasarımı (Scrollbar) */
         .transmission-list::-webkit-scrollbar { width: 8px; }
         .transmission-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 4px; }
         .transmission-list::-webkit-scrollbar-thumb { 
@@ -393,7 +395,7 @@
             border-left: 6px solid var(--cyan); border-radius: 14px;
             padding: 22px 26px; transition: transform 0.3s, background 0.3s, border-color 0.3s;
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(6,182,212,0.15);
-            flex-shrink: 0; /* Duyuruların ezilmesini engeller */
+            flex-shrink: 0;
         }
         .transmission-item:hover { background: rgba(0,0,0,0.95); transform: translateX(10px); border-left-color: var(--gold); border-color: rgba(245,158,11,0.9); box-shadow: 0 0 35px rgba(245, 158, 11, 0.45), inset 0 2px 8px rgba(0,0,0,0.9); }
         .transmission-date { font-size: 0.85rem; color: var(--gold-light); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 10px rgba(252,211,77,0.5); }
@@ -762,7 +764,7 @@
             /* Mobil için Başlık Düzenlemesi */
             .transmissions-header { flex-direction: column; align-items: flex-start; gap: 12px; }
             .transmissions-header h3 { font-size: 1.3rem; }
-            .transmission-list { max-height: 400px; /* Mobilde biraz daha kısa */ }
+            .transmission-list { max-height: 400px; }
         }
     </style>
 </head>
@@ -859,7 +861,8 @@
     </section>
 
     <section class="section" id="vision">
-        <h2 class="section-title">Our Vision: Guardians of Life</h2>
+        <!-- BURASI PREMIUM BAŞLIK OLARAK DEĞİŞTİRİLDİ -->
+        <h2 class="section-title">THE WOLF'S PROMISE</h2>
         
         <div class="vision-box">
             <h3>Why a Wolf? What is "Guardians of Life"?</h3>
@@ -1256,7 +1259,6 @@
                                 </div>
                             `;
                             count++;
-                            // SINIR KALDIRILDI: Artık sınırsız duyuru çekebilir, kutu içinde kaydırılır.
                         }
                     }
                 }
@@ -1367,7 +1369,6 @@
             const originalItems = Array.from(track.children);
             const count = originalItems.length;
             
-            // Clone items before and after for seamless endless loop
             originalItems.forEach(item => {
                 track.appendChild(item.cloneNode(true));
             });
@@ -1375,24 +1376,21 @@
                 track.prepend(item.cloneNode(true));
             });
 
-            let currentIndex = count; // Start at the middle set
+            let currentIndex = count; 
             
             const getItemWidth = () => originalItems[0].offsetWidth + itemGap;
 
-            // Set initial position instantly without transition
             const applyTransform = (smooth = true) => {
                 track.style.transition = smooth ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
                 track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
             };
 
-            // Initialize after layout settles
             setTimeout(() => applyTransform(false), 50);
 
             const move = (direction) => {
                 currentIndex += direction;
                 applyTransform(true);
 
-                // Seamless modulo normalization without visual jump
                 setTimeout(() => {
                     if (currentIndex >= count * 2) {
                         track.style.transition = 'none';
