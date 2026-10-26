@@ -37,6 +37,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Solana Web3 Kütüphanesi (ücretsiz CDN) -->
+    <script src="https://unpkg.com/@solana/web3.js@1.95.4/lib/index.iife.min.js"></script>
+    
     <style>
         :root {
             --bg-base: #030712; 
@@ -821,7 +824,7 @@
                 <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
             </div>
 
-            <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled style="opacity: 0.5; cursor: not-allowed;">PROCEED TO PURCHASE</button>
+            <button class="buy-btn" id="buyNowBtn" onclick="handleBuy()" disabled style="opacity: 0.5; cursor: not-allowed;">PROCEED TO PURCHASE</button>
 
             <div class="warning-box">
                 <p>
@@ -1439,6 +1442,70 @@
         const moveTrust = initInfiniteCarousel('trustTrack', 28);
         const moveRoadmap = initInfiniteCarousel('roadmapTrack', 30);
         const moveTokenomics = initInfiniteCarousel('tokenomicsTrack', 26);
+
+        /* ==========================================================
+           WALLET CONNECT + AUTOMATIC SOL TRANSFER (FREE)
+           ========================================================== */
+        async function handleBuy() {
+            const solAmount = parseFloat(solInput.value);
+            if (isNaN(solAmount) || solAmount <= 0) {
+                alert("Please enter a valid SOL amount.");
+                return;
+            }
+
+            const provider = window.phantom?.solana || window.solflare || window.backpack || window.solana;
+
+            if (!provider) {
+                alert("No Solana wallet detected. Please install Phantom, Solflare, or Backpack.");
+                return;
+            }
+
+            try {
+                // 1. Bağlan
+                const resp = await provider.connect();
+                const buyerPubKey = resp.publicKey || resp.publicKey;
+
+                // 2. İşlem oluştur
+                const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com", "confirmed");
+                const receiverPubKey = new solanaWeb3.PublicKey(fullDepositAddress);
+
+                const transaction = new solanaWeb3.Transaction().add(
+                    solanaWeb3.SystemProgram.transfer({
+                        fromPubkey: buyerPubKey,
+                        toPubkey: receiverPubKey,
+                        lamports: Math.round(solAmount * solanaWeb3.LAMPORTS_PER_SOL),
+                    })
+                );
+
+                transaction.feePayer = buyerPubKey;
+                const { blockhash } = await connection.getLatestBlockhash();
+                transaction.recentBlockhash = blockhash;
+
+                // 3. İmzala ve gönder
+                let signature;
+                if (provider.signAndSendTransaction) {
+                    const result = await provider.signAndSendTransaction(transaction);
+                    signature = result.signature || result;
+                } else {
+                    const signed = await provider.signTransaction(transaction);
+                    signature = await connection.sendRawTransaction(signed.serialize());
+                }
+
+                // 4. Sonuç
+                alert("✅ Transaction sent!\n\nSignature: " + signature + "\n\nYour ZNK tokens will be credited within 30 minutes after verification. Contact Telegram support if you don't receive them.");
+
+                // 5. Adres kutusunu da göster (manuel kopyalama için)
+                document.getElementById('addressBox').style.display = 'block';
+
+            } catch (error) {
+                console.error("Transaction failed:", error);
+                if (error.message && error.message.includes("User rejected")) {
+                    alert("Transaction cancelled by user.");
+                } else {
+                    alert("Transaction failed: " + (error.message || "Unknown error"));
+                }
+            }
+        }
     </script>
 </body>
 </html>
