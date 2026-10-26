@@ -269,15 +269,15 @@
         .buy-btn:hover:not(:disabled) { background: var(--gold-light); }
         .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0,0,0,0.5); cursor: not-allowed; }
 
-        /* Uyarı Kutusu - Sade ve göz yormayan */
+        /* Uyarı Kutusu - Sade ve göz yormayan, okunaklı */
         .warning-box {
-            background: transparent;
-            border: none; border-left: 2px solid #ef4444; border-radius: 0;
-            padding: 0 0 0 15px; margin-bottom: 0; margin-top: 24px;
+            background: rgba(239, 68, 68, 0.08); /* Hafif kırmızı arka plan */
+            border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
+            padding: 16px; margin-bottom: 0; margin-top: 24px;
             box-shadow: none;
         }
-        .warning-box p { color: var(--text-muted); font-size: 0.8rem; font-weight: 400; line-height: 1.5; margin: 0; }
-        .warning-box i { display: none; } /* İkonu kaldırdık, sadece çizgi kaldı */
+        .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
+        .warning-box i { display: none; } /* İkonu kaldırdık */
 
         /* Cüzdan Kutusu */
         .wallet-address-box {
@@ -317,8 +317,8 @@
             color: var(--text-muted); font-size: 0.8rem; text-align: left;
             display: block; box-shadow: none;
         }
-        .distribution-note strong { color: #fff; font-weight: 500; display: block; margin-bottom: 6px; font-size: 0.85rem; }
-        .distribution-note i { display: none; } /* İkonu kaldırdık */
+        /* Başlık silindi, sadece metin kaldı */
+        .distribution-note span { display: block; line-height: 1.6; }
         /* ========================================================== */
 
         .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
@@ -509,7 +509,7 @@
         .copy-donate-btn { background: rgba(255,255,255,0.18); color: #fff; border: 2px solid rgba(255,255,255,0.6); padding: 12px 18px; border-radius: 12px; font-size: 0.82rem; cursor: pointer; margin-top: 15px; font-weight: bold; transition: all 0.3s; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 0 45px rgba(245,158,11,1); }
 
-        /* YENİ EKLENEN: BAĞIŞI DOĞRULA BUTONU */
+        /* YENİ BUTON TASARIMI */
         .verify-donation-btn {
             display: block; width: 100%; padding: 16px;
             background: var(--gold); color: #000;
@@ -858,6 +858,7 @@
 
                 <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>PROCEED TO PURCHASE</button>
 
+                <!-- DÜZELTİLEN UYARI KUTUSU -->
                 <div class="warning-box">
                     <p>
                         Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
@@ -876,8 +877,8 @@
                 </div>
             </div>
             
+            <!-- DÜZELTİLEN ALT BİLGİ (Başlık silindi) -->
             <div class="distribution-note">
-                <strong>Secure & Manual Verification</strong>
                 <span>Once your deposit is successfully verified, your $ZNK tokens will be credited to your Web3 wallet within 30 minutes. Contact our Telegram support if your tokens do not arrive within this time.</span>
             </div>
         </div>
@@ -965,7 +966,7 @@
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
 
-                <!-- YENİ BUTON TASARIMI BURADA -->
+                <!-- DÜZELTİLEN BUTON TASARIMI -->
                 <a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
                     Verify My Donation
                 </a>
