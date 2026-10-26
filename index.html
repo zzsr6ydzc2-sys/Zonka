@@ -124,87 +124,100 @@
         .marquee-content i { margin: 0 12px; color: #bae6fd; text-shadow: 0 0 15px #bae6fd; }
         @keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
-        /* --- HERO --- */
+        /* ==========================================================
+           YENİ PREMIUM, SADE VE FERAH ÜST KISIM (HERO)
+           ========================================================== */
         .hero {
-            text-align: center; padding: 50px 15px;
+            text-align: center; padding: 80px 20px 60px;
             display: flex; flex-direction: column;
-            align-items: center; max-width: 860px; margin: 0 auto; position: relative; z-index: 10;
+            align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
         }
 
         .hero h1 {
             font-family: 'Cinzel', serif; 
-            font-size: 4.6rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
+            font-size: 5.5rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
             color: #ffffff; 
-            text-shadow: 0 0 50px rgba(6, 182, 212, 0.85), 0 5px 25px rgba(0,0,0,0.95); 
-            letter-spacing: 12px; margin-bottom: 12px;
+            letter-spacing: 15px; margin-bottom: 15px;
             display: inline-block;
-            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 30%, #06b6d4 65%, #ffffff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shineText 6s infinite linear;
-            filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.8));
+            animation: shineText 8s infinite linear;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
         }
         @keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
 
         .hero h2 {
-            font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 800;
-            margin-bottom: 28px; color: #bae6fd; letter-spacing: 10px;
+            font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 40px; color: var(--text-muted); letter-spacing: 12px;
             text-transform: uppercase;
-            text-shadow: 0 2px 20px rgba(6, 182, 212, 0.9);
         }
 
         .hero p {
-            font-size: 1.1rem; max-width: 660px; margin: 0 auto 38px;
-            font-weight: 400; color: #e2e8f0; line-height: 1.85;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            font-size: 1.15rem; max-width: 600px; margin: 0 auto 45px;
+            font-weight: 300; color: #cbd5e1; line-height: 1.8;
         }
-        .hero p strong { color: var(--gold-light); font-weight: 600; text-shadow: 0 0 18px rgba(252, 211, 77, 0.8); }
+        .hero p strong { color: var(--gold-light); font-weight: 600; }
 
+        /* SADE VE ASİL LOGO */
         .hero-image-container {
-            width: 180px; height: 180px; margin: 0 auto 38px; position: relative;
+            width: 170px; height: 170px; margin: 0 auto 50px; position: relative;
             display: flex; justify-content: center; align-items: center;
             background-image: url('logo.jpg'); 
             background-size: cover; background-position: center;
-            border-radius: 50%; border: 4px solid var(--gold);
-            box-shadow: 0 0 85px rgba(245, 158, 11, 0.9), inset 0 0 35px rgba(0,0,0,0.95);
+            border-radius: 50%; 
+            border: 2px solid rgba(245, 158, 11, 0.4); /* İnce, asil bir çerçeve */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.8); /* Derinlik */
             z-index: 10;
         }
-        .hero-image-container::before, .hero-image-container::after {
-            content: ''; position: absolute; border-radius: 50%; z-index: -1;
-        }
-        .hero-image-container::before {
-            top: -18px; left: -18px; right: -18px; bottom: -18px;
-            border: 2.5px dashed rgba(6, 182, 212, 0.95);
-            animation: spin 20s linear infinite;
-        }
+        /* Dönen çizgiler silindi, sadece yumuşak bir ışık kaldı */
         .hero-image-container::after {
-            top: -34px; left: -34px; right: -34px; bottom: -34px;
-            border: 2px solid rgba(168, 85, 247, 0.9);
-            box-shadow: 0 0 50px rgba(168, 85, 247, 0.75);
-            animation: spin 35s linear infinite reverse;
+            content: ''; position: absolute; 
+            width: 220px; height: 220px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            z-index: -1;
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* SOSYAL MEDYA İKONLARI (DAHA SADE VE ŞIK) */
+        .socials-hero { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 40px; }
+        .socials-hero a {
+            display: flex; align-items: center; justify-content: center;
+            width: 45px; height: 45px; border-radius: 50%; text-decoration: none; 
+            color: var(--text-muted); font-size: 1.2rem;
+            transition: all 0.3s ease; 
+            border: 1px solid rgba(255,255,255,0.1); /* Çok ince çerçeve */
+            background: transparent;
+        }
+        .socials-hero a:hover { 
+            color: var(--gold-light); 
+            border-color: var(--gold-light); 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.2);
+        }
+        /* Eski renkli arka planlar silindi, hepsi sadeleşti */
+        .btn-tg, .btn-x, .btn-yt, .btn-ig { background: transparent; }
+        /* ========================================================== */
 
         /* ==========================================================
            YENİ PREMIUM, SADE VE FERAH "BUY BOX" TASARIMI
            ========================================================== */
         .buy-box-container {
-            background: rgba(10, 17, 40, 0.85); /* Sakin, yarı saydam arktik mavisi */
+            background: rgba(10, 17, 40, 0.85); 
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1); /* İnce, zarif çerçeve */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             border-radius: 16px;
-            padding: 0; /* İç boşlukları alt elemanlara dağıtacağız */
+            padding: 0; 
             width: 100%; max-width: 520px;
             margin: 0 auto 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); /* Yumuşak gölge */
-            text-align: left; /* Ferahlık için sola hizalı */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
+            text-align: left; 
             position: relative; overflow: hidden;
         }
 
         .buy-box-header {
             padding: 24px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* İnce ayırıcı çizgi */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             display: flex; justify-content: space-between; align-items: center;
         }
         .buy-box-header h3 {
@@ -219,7 +232,6 @@
 
         .buy-box-body { padding: 30px; }
 
-        /* Fiyat Alanı - Siyah temadaki gibi çizgilerle bölünmüş */
         .price-info {
             display: flex; justify-content: space-between; 
             background: transparent; padding: 0; margin-bottom: 24px; 
@@ -234,7 +246,6 @@
             font-weight: 600;
         }
 
-        /* Hesaplama Alanı - Sade, ince çerçeveli */
         .calculator-box {
             background: transparent; border-radius: 0; padding: 0;
             margin-bottom: 24px; border: none; box-shadow: none;
@@ -257,7 +268,6 @@
         .calc-result::before { content: "You receive"; color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
         .calc-note { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 6px; }
 
-        /* Buton - Mat, düz ve şık */
         .buy-btn {
             display: block; width: 100%; padding: 18px;
             background: var(--gold); color: #000;
@@ -269,17 +279,15 @@
         .buy-btn:hover:not(:disabled) { background: var(--gold-light); }
         .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0,0,0,0.5); cursor: not-allowed; }
 
-        /* Uyarı Kutusu - Sade ve göz yormayan, okunaklı */
         .warning-box {
-            background: rgba(239, 68, 68, 0.08); /* Hafif kırmızı arka plan */
+            background: rgba(239, 68, 68, 0.08); 
             border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
             padding: 16px; margin-bottom: 0; margin-top: 24px;
             box-shadow: none;
         }
         .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
-        .warning-box i { display: none; } /* İkonu kaldırdık */
+        .warning-box i { display: none; }
 
-        /* Cüzdan Kutusu */
         .wallet-address-box {
             background: rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 24px; border-radius: 12px; margin-top: 24px; display: none;
@@ -311,32 +319,16 @@
         }
         .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
 
-        /* Alt Bilgi Alanı */
         .distribution-note {
             padding: 24px 30px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted); font-size: 0.8rem; text-align: left;
             display: block; box-shadow: none;
         }
-        /* Başlık silindi, sadece metin kaldı */
         .distribution-note span { display: block; line-height: 1.6; }
         /* ========================================================== */
 
-        .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-        .socials-hero a {
-            display: flex; align-items: center; justify-content: center;
-            width: 52px; height: 52px; border-radius: 50%; text-decoration: none; color: #fff; font-size: 1.35rem;
-            transition: all 0.3s ease; border: 2.5px solid rgba(255,255,255,0.4);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-        }
-        .socials-hero a:hover { transform: translateY(-5px) scale(1.2); box-shadow: 0 16px 40px rgba(0,0,0,0.95), 0 0 35px rgba(255,255,255,0.8); border-color: rgba(255,255,255,1); }
-        .btn-tg { background: #229ED9; }
-        .btn-x { background: #000000; border: 2.5px solid rgba(255,255,255,0.6); }
-        .btn-yt { background: #FF0000; }
-        .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
         .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
-        /* PREMIUM VE KREMLİ BAŞLIK TASARIMI */
         .section-title {
             font-family: 'Cinzel', serif; font-size: 2.6rem; font-weight: 900;
             text-align: center; margin-bottom: 45px; text-transform: uppercase;
@@ -422,9 +414,6 @@
         .transmission-date { font-size: 0.85rem; color: var(--gold-light); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 10px rgba(252,211,77,0.5); }
         .transmission-text { font-size: 1rem; color: #e2e8f0; line-height: 1.8; font-weight: 400; }
 
-        /* ==========================================================
-           GÜNCELLENMİŞ VİZYON KUTUSU (DAHA KISA VE FERAH)
-           ========================================================== */
         .vision-box {
             background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
             backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
@@ -450,7 +439,6 @@
         .vision-icon-item { text-align: center; }
         .vision-icon-item i { font-size: 1.8rem; color: var(--cyan); margin-bottom: 10px; text-shadow: 0 0 20px rgba(6,182,212,0.8); }
         .vision-icon-item span { display: block; font-size: 0.8rem; font-weight: 600; color: #fff; letter-spacing: 1px; }
-        /* ========================================================== */
 
         .impact-gallery { display: flex; justify-content: center; margin: 40px 0; }
         .impact-card {
@@ -509,7 +497,6 @@
         .copy-donate-btn { background: rgba(255,255,255,0.18); color: #fff; border: 2px solid rgba(255,255,255,0.6); padding: 12px 18px; border-radius: 12px; font-size: 0.82rem; cursor: pointer; margin-top: 15px; font-weight: bold; transition: all 0.3s; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 0 45px rgba(245,158,11,1); }
 
-        /* YENİ BUTON TASARIMI */
         .verify-donation-btn {
             display: block; width: 100%; padding: 16px;
             background: var(--gold); color: #000;
@@ -543,9 +530,6 @@
         .hero-item-link:hover .tg-icon { transform: scale(1.3); }
         .hero-badge { font-size: 1.1rem; }
 
-        /* ==========================================================
-           FIXED TRUST CARDS WITH ZERO OVERFLOW & PERFECT MOBILE FIT
-           ========================================================== */
         .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; margin-bottom: 20px; }
         .trust-track { display: flex; gap: 28px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; }
         
@@ -560,44 +544,19 @@
         }
         .trust-item:hover { transform: translateY(-6px); }
         
-        .trust-item.treasury {
-            background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35));
-            border: 4px solid rgba(245, 158, 11, 0.95);
-            border-top: 6px solid #fcd34d;
-            box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(245, 158, 11, 0.6), inset 0 0 30px rgba(245, 158, 11, 0.2);
-        }
+        .trust-item.treasury { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35)); border: 4px solid rgba(245, 158, 11, 0.95); border-top: 6px solid #fcd34d; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(245, 158, 11, 0.6), inset 0 0 30px rgba(245, 158, 11, 0.2); }
         .trust-item.treasury:hover { border-color: rgba(245, 158, 11, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(245, 158, 11, 0.95); }
 
-        .trust-item.team {
-            background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35));
-            border: 4px solid rgba(52, 211, 153, 0.95);
-            border-top: 6px solid #34d399;
-            box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(52, 211, 153, 0.6), inset 0 0 30px rgba(52, 211, 153, 0.2);
-        }
+        .trust-item.team { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35)); border: 4px solid rgba(52, 211, 153, 0.95); border-top: 6px solid #34d399; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(52, 211, 153, 0.6), inset 0 0 30px rgba(52, 211, 153, 0.2); }
         .trust-item.team:hover { border-color: rgba(52, 211, 153, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(52, 211, 153, 0.95); }
 
-        .trust-item.community {
-            background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35));
-            border: 4px solid rgba(249, 115, 22, 0.95);
-            border-top: 6px solid #f97316;
-            box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(249, 115, 22, 0.6), inset 0 0 30px rgba(249, 115, 22, 0.2);
-        }
+        .trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 4px solid rgba(249, 115, 22, 0.95); border-top: 6px solid #f97316; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(249, 115, 22, 0.6), inset 0 0 30px rgba(249, 115, 22, 0.2); }
         .trust-item.community:hover { border-color: rgba(249, 115, 22, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(249, 115, 22, 0.95); }
 
-        .trust-item.liquidity {
-            background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35));
-            border: 4px solid rgba(6, 182, 212, 0.95);
-            border-top: 6px solid #06b6d4;
-            box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(6, 182, 212, 0.6), inset 0 0 30px rgba(6, 182, 212, 0.2);
-        }
+        .trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 4px solid rgba(6, 182, 212, 0.95); border-top: 6px solid #06b6d4; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(6, 182, 212, 0.6), inset 0 0 30px rgba(6, 182, 212, 0.2); }
         .trust-item.liquidity:hover { border-color: rgba(6, 182, 212, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(6, 182, 212, 0.95); }
 
-        .trust-item.transparency {
-            background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35));
-            border: 4px solid rgba(139, 92, 246, 0.95);
-            border-top: 6px solid #8b5cf6;
-            box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(139, 92, 246, 0.6), inset 0 0 30px rgba(139, 92, 246, 0.2);
-        }
+        .trust-item.transparency { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35)); border: 4px solid rgba(139, 92, 246, 0.95); border-top: 6px solid #8b5cf6; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(139, 92, 246, 0.6), inset 0 0 30px rgba(139, 92, 246, 0.2); }
         .trust-item.transparency:hover { border-color: rgba(139, 92, 246, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(139, 92, 246, 0.95); }
 
         .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; margin-bottom: 10px; font-weight: 800; flex-shrink: 0; }
@@ -786,8 +745,8 @@
         .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); text-shadow: 0 0 16px rgba(245,158,11,0.8); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.4rem; letter-spacing: 7px; }
-            .hero h2 { font-size: 0.9rem; letter-spacing: 5px;}
+            .hero h1 { font-size: 3.8rem; letter-spacing: 10px; }
+            .hero h2 { font-size: 0.9rem; letter-spacing: 6px;}
             .buy-box-body { padding: 24px 20px; }
             .buy-box-header { padding: 20px; }
             .distribution-note { padding: 20px; }
@@ -800,7 +759,6 @@
             .floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; gap: 8px; }
             .feedback-modal-content { width: 95%; height: 88vh; }
             
-            /* Mobil için Başlık Düzenlemesi */
             .transmissions-header { flex-direction: column; align-items: flex-start; gap: 12px; }
             .transmissions-header h3 { font-size: 1.3rem; }
             .transmission-list { max-height: 400px; }
@@ -820,6 +778,7 @@
         </div>
     </div>
 
+    <!-- YENİ PREMIUM ÜST KISIM (HERO) -->
     <section class="hero">
         <h1>ZONKA</h1>
         <h2>GUARDIANS OF LIFE</h2>
@@ -828,7 +787,13 @@
 
         <div class="hero-image-container"></div>
 
-        <!-- YENİ PREMIUM TASARIMLI BUY KUTUSU -->
+        <div class="socials-hero">
+            <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+        </div>
+
         <div class="buy-box-container">
             <div class="buy-box-header">
                 <h3>Buy $ZNK</h3>
@@ -858,7 +823,6 @@
 
                 <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>PROCEED TO PURCHASE</button>
 
-                <!-- DÜZELTİLEN UYARI KUTUSU -->
                 <div class="warning-box">
                     <p>
                         Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
@@ -877,20 +841,12 @@
                 </div>
             </div>
             
-            <!-- DÜZELTİLEN ALT BİLGİ (Başlık silindi) -->
             <div class="distribution-note">
                 <span>Once your deposit is successfully verified, your $ZNK tokens will be credited to your Web3 wallet within 30 minutes. Contact our Telegram support if your tokens do not arrive within this time.</span>
             </div>
         </div>
-        <!-- YENİ PREMIUM TASARIMLI BUY KUTUSU BİTİŞ -->
-
-        <div class="socials-hero">
-            <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
-            <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
-        </div>
     </section>
+    <!-- YENİ PREMIUM ÜST KISIM (HERO) BİTİŞ -->
 
     <section class="section" id="transmissions">
         <div class="transmissions-wrapper">
@@ -910,7 +866,6 @@
         </div>
     </section>
 
-    <!-- GÜNCELLENMİŞ VİZYON BÖLÜMÜ BAŞLANGICI -->
     <section class="section" id="vision">
         <h2 class="section-title">MORE THAN A COMMUNITY</h2>
         
@@ -966,7 +921,6 @@
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
 
-                <!-- DÜZELTİLEN BUTON TASARIMI -->
                 <a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
                     Verify My Donation
                 </a>
@@ -989,7 +943,6 @@
             </div>
         </div>
     </section>
-    <!-- GÜNCELLENMİŞ VİZYON BÖLÜMÜ BİTİŞİ -->
 
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
