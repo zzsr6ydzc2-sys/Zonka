@@ -509,6 +509,17 @@
         .copy-donate-btn { background: rgba(255,255,255,0.18); color: #fff; border: 2px solid rgba(255,255,255,0.6); padding: 12px 18px; border-radius: 12px; font-size: 0.82rem; cursor: pointer; margin-top: 15px; font-weight: bold; transition: all 0.3s; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 0 45px rgba(245,158,11,1); }
 
+        /* YENİ EKLENEN: BAĞIŞI DOĞRULA BUTONU */
+        .verify-donation-btn {
+            display: block; width: 100%; padding: 16px;
+            background: var(--gold); color: #000;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
+            text-decoration: none; text-transform: none; border-radius: 8px; border: none;
+            cursor: pointer; transition: all 0.2s ease; 
+            box-shadow: none; text-align: center;
+        }
+        .verify-donation-btn:hover { background: var(--gold-light); }
+
         .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 22px; }
         .badge-table th, .badge-table td { padding: 16px 10px; border-bottom: 1px solid rgba(255,255,255,0.15); text-align: left; font-size: 0.9rem; color: #fff; }
         .badge-table th { color: var(--cyan); font-weight: 600; text-shadow: 0 0 18px rgba(6,182,212,0.9); }
@@ -954,10 +965,11 @@
                     <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
                 </div>
 
-                <a href="https://t.me/zonka_coin" target="_blank" class="donate-btn">
+                <!-- YENİ BUTON TASARIMI BURADA -->
+                <a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
                     Verify My Donation
                 </a>
-                <div class="donate-note">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
+                <div class="donate-note" style="margin-top: 15px;">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
             <div class="donation-card">
