@@ -177,163 +177,44 @@
             z-index: -1;
         }
 
-        /* SOSYAL MEDYA İKONLARI (MARKA RENKLERİYLE) */
-        .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 40px; }
+        /* SOSYAL MEDYA İKONLARI (DAHA KÜÇÜK VE ZARİF) */
+        .socials-hero { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 0px; margin-bottom: 40px; }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
-            width: 50px; height: 50px; border-radius: 50%; text-decoration: none; color: #fff; font-size: 1.35rem;
-            transition: all 0.3s ease; border: 2.5px solid rgba(255,255,255,0.4);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+            width: 40px; height: 40px; border-radius: 50%; text-decoration: none; color: #fff; font-size: 1.1rem;
+            transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         .socials-hero a:hover { 
-            transform: translateY(-5px) scale(1.15); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.95), 0 0 25px rgba(255,255,255,0.6); 
-            border-color: rgba(255,255,255,1); 
+            transform: translateY(-4px) scale(1.1); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.5); 
+            border-color: rgba(255,255,255,0.8); 
         }
         .btn-tg { background: #229ED9; }
-        .btn-x { background: #000000; border: 2.5px solid rgba(255,255,255,0.6); }
+        .btn-x { background: #000000; border: 2px solid rgba(255,255,255,0.5); }
         .btn-yt { background: #FF0000; }
         .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 
-        .buy-box-container {
-            background: rgba(10, 17, 40, 0.85); 
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 16px;
-            padding: 0; 
-            width: 100%; max-width: 520px;
-            margin: 0 auto 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
-            text-align: left; 
-            position: relative; overflow: hidden;
-        }
-
-        .buy-box-header {
-            padding: 24px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .buy-box-header h3 {
-            font-family: 'Inter', sans-serif; font-size: 1.25rem; margin: 0;
-            color: #ffffff; font-weight: 600;
-        }
-        .live-indicator {
-            display: flex; align-items: center; gap: 6px;
-            font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #10b981; font-weight: 600;
-        }
-        .live-dot-small { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
-
-        .buy-box-body { padding: 30px; }
-
-        .price-info {
-            display: flex; justify-content: space-between; 
-            background: transparent; padding: 0; margin-bottom: 24px; 
-            border: none; box-shadow: none;
-        }
-        .price-info div { width: 50%; }
-        .price-info div:first-child { border-right: 1px solid rgba(255, 255, 255, 0.08); padding-right: 20px; }
-        .price-info div:last-child { padding-left: 20px; }
-        .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.5px; }
-        .price-info strong { 
-            font-family: 'Inter', sans-serif; font-size: 1.6rem; color: var(--gold-light); 
-            font-weight: 600;
-        }
-
-        .calculator-box {
-            background: transparent; border-radius: 0; padding: 0;
-            margin-bottom: 24px; border: none; box-shadow: none;
-        }
-        .calculator-box label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-        .calculator-box input {
-            width: 100%; padding: 16px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(0,0,0,0.2); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
-            outline: none; transition: 0.2s;
-        }
-        .calculator-box input:focus { border-color: rgba(255, 255, 255, 0.4); }
-        
-        .calc-result {
-            margin-top: 12px; font-size: 1rem; font-weight: 500; color: #ffffff;
-            text-align: right; background: transparent;
-            padding: 0; border-radius: 0; border: none;
-            font-family: 'Inter', sans-serif;
-            display: flex; justify-content: space-between;
-        }
-        .calc-result::before { content: "You receive"; color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
-        .calc-note { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 6px; }
-
-        .buy-btn {
-            display: block; width: 100%; padding: 18px;
-            background: var(--gold); color: #000;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
-            text-decoration: none; text-transform: none; border-radius: 8px; border: none;
-            cursor: pointer; transition: all 0.2s ease; 
-            box-shadow: none; text-align: center;
-        }
-        .buy-btn:hover:not(:disabled) { background: var(--gold-light); }
-        .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0,0,0,0.5); cursor: not-allowed; }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.08); 
-            border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
-            padding: 16px; margin-bottom: 0; margin-top: 24px;
-            box-shadow: none;
-        }
-        .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
-        .warning-box i { display: none; }
-
-        .wallet-address-box {
-            background: rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px; border-radius: 12px; margin-top: 24px; display: none;
-        }
-        .wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; text-align: left; }
-        .wallet-address-box p strong { color: #fff; }
-        .wallet-address-box code {
-            display: block; font-family: 'Courier New', monospace; font-size: 1rem;
-            color: var(--gold-light); font-weight: 600; user-select: all;
-            background: rgba(255,255,255,0.05); padding: 14px; border-radius: 8px;
-            border: 1px dashed rgba(255, 255, 255, 0.2); text-align: center; margin-bottom: 12px;
-            cursor: pointer; transition: 0.2s;
-        }
-        .wallet-address-box code:hover { background: rgba(255,255,255,0.1); }
-
-        .copy-wallet-btn {
-            background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px;
-            border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500;
-            font-family: 'Inter', sans-serif; transition: 0.2s; width: 100%; margin-bottom: 12px;
-        }
-        .copy-wallet-btn:hover { background: rgba(255,255,255,0.1); }
-
-        .telegram-support-btn {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            background: transparent; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; 
-            font-weight: 500; font-family: 'Inter', sans-serif;
-            text-decoration: none; transition: 0.2s;
-        }
-        .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
-
-        .distribution-note {
-            padding: 24px 30px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-muted); font-size: 0.8rem; text-align: left;
-            display: block; box-shadow: none;
-        }
-        .distribution-note span { display: block; line-height: 1.6; }
-
+        /* ==========================================================
+           BÖLÜM BAŞLIKLARI (ÇEVİRİ SORUNU İÇİN GÜNCELLENDİ)
+           ========================================================== */
         .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
         .section-title {
-            font-family: 'Cinzel', serif; font-size: 2.6rem; font-weight: 900;
+            font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900;
             text-align: center; margin-bottom: 45px; text-transform: uppercase;
-            letter-spacing: 8px; 
+            letter-spacing: 3px; /* Harf aralığı daraltıldı */
             background: linear-gradient(180deg, #ffffff 0%, #fef08a 40%, #fcd34d 70%, #d97706 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 20px rgba(252, 211, 77, 0.7));
+            word-wrap: break-word;
+            padding: 0 10px;
         }
         .section-title::after {
-            content: ''; display: block; width: 200px; height: 3px;
+            content: ''; display: block; width: 150px; height: 3px;
             background: linear-gradient(90deg, transparent, #fef08a, #fcd34d, transparent);
-            margin: 25px auto 0; box-shadow: 0 0 35px #fcd34d;
+            margin: 20px auto 0; box-shadow: 0 0 35px #fcd34d;
             border-radius: 50%;
         }
 
@@ -523,7 +404,7 @@
         .hero-badge { font-size: 1.1rem; }
 
         /* ==========================================================
-           TRUST CARDS (KİLİT KARTLARI) - GÜNCELLENDİ
+           TRUST CARDS (KİLİT KARTLARI)
            ========================================================== */
         .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; margin-bottom: 20px; }
         .trust-track { display: flex; gap: 28px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; }
@@ -567,7 +448,6 @@
 
         .trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; flex-shrink: 0; }
         
-        /* KART İÇİ DETAYLAR DÜZENLENDİ */
         .trust-details { 
             display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; color: #fff; margin-bottom: 15px; 
             background: rgba(0,0,0,0.85); padding: 14px; border-radius: 12px; text-align: left; 
@@ -731,6 +611,7 @@
             .distribution-note { padding: 20px; }
             .donation-card { padding: 32px 20px; }
             .vision-box { padding: 30px 20px; }
+            .section-title { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 30px; padding: 0; }
             .roadmap-item { min-width: 220px; max-width: 220px; padding: 26px; }
             .tokenomics-item { min-width: 250px; max-width: 250px; padding: 26px; }
             .trust-item { width: 320px; min-height: 450px; padding: 24px 18px; }
@@ -765,11 +646,12 @@
 
         <div class="hero-image-container"></div>
 
+        <!-- İKONLAR KÜÇÜLTÜLDÜ VE INSTAGRAM LİNKİ GÜNCELLENDİ -->
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/zonkafamilytr" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
         </div>
 
         <div class="buy-box-container">
