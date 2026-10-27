@@ -394,79 +394,83 @@
         .impact-content h4 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.5rem; margin-bottom: 16px; letter-spacing: 1px; text-shadow: 0 0 20px rgba(245,158,11,0.85); }
         .impact-content p { font-size: 1rem; color: #e2e8f0; line-height: 1.85; }
 
-        .donation-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-top: 35px; }
+        /* ==========================================================
+           DONATION & BADGE CARDS (KOMPAKT HALE GETİRİLDİ)
+           ========================================================== */
+        .donation-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 30px; }
         
         .donation-card:nth-child(1) {
             background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.3));
-            border: 4px solid rgba(6, 182, 212, 0.95);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.98), 0 0 75px rgba(6, 182, 212, 0.65), inset 0 0 30px rgba(255,255,255,0.1);
+            border: 2px solid rgba(6, 182, 212, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(6, 182, 212, 0.3);
         }
         .donation-card:nth-child(1):hover {
             border-color: rgba(6, 182, 212, 1);
-            box-shadow: 0 45px 95px rgba(0,0,0,0.99), 0 0 100px rgba(6, 182, 212, 0.95);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 60px rgba(6, 182, 212, 0.5);
         }
         .donation-card:nth-child(2) {
             background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(168, 85, 247, 0.3));
-            border: 4px solid rgba(168, 85, 247, 0.95);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.98), 0 0 75px rgba(168, 85, 247, 0.65), inset 0 0 30px rgba(255,255,255,0.1);
+            border: 2px solid rgba(168, 85, 247, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(168, 85, 247, 0.3);
         }
         .donation-card:nth-child(2):hover {
             border-color: rgba(168, 85, 247, 1);
-            box-shadow: 0 45px 95px rgba(0,0,0,0.99), 0 0 100px rgba(168, 85, 247, 0.95);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 60px rgba(168, 85, 247, 0.5);
         }
 
         .donation-card {
-            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); padding: 40px 25px; border-radius: 28px;
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); padding: 24px 20px; border-radius: 20px;
             text-align: center; position: relative; overflow: hidden;
             display: flex; flex-direction: column; justify-content: space-between;
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
-        .donation-card h3 { color: var(--gold-light); font-family: 'Montserrat', sans-serif; font-size: 1.25rem; margin-bottom: 25px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 0 14px rgba(245,158,11,0.6); }
+        .donation-card h3 { color: var(--gold-light); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 0 14px rgba(245,158,11,0.6); }
         
         .hope-counter {
-            font-family: 'Cinzel', serif; font-size: 2.3rem; font-weight: 900; color: var(--gold); margin-bottom: 15px;
-            text-shadow: 0 0 40px rgba(245,158,11,0.95); letter-spacing: 2px;
+            font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(245,158,11,0.95); letter-spacing: 2px;
         }
-        .counter-desc { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; font-weight: 400; }
+        .counter-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; font-weight: 400; }
         
-        .donation-wallet-box { background: rgba(0,0,0,0.8); border: 2.5px dashed rgba(255,255,255,0.6); padding: 22px; border-radius: 16px; margin-bottom: 30px; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.9); }
-        .donation-wallet-box p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; }
-        .donation-wallet-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.95rem; color: #fff; word-break: break-all; font-weight: 700; user-select: all; background: rgba(255,255,255,0.09); padding: 15px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.25); box-shadow: inset 0 0 10px rgba(0,0,0,0.8); }
-        .copy-donate-btn { background: rgba(255,255,255,0.18); color: #fff; border: 2px solid rgba(255,255,255,0.6); padding: 12px 18px; border-radius: 12px; font-size: 0.82rem; cursor: pointer; margin-top: 15px; font-weight: bold; transition: all 0.3s; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 0 45px rgba(245,158,11,1); }
+        .donation-wallet-box { background: rgba(0,0,0,0.8); border: 2px dashed rgba(255,255,255,0.4); padding: 16px; border-radius: 12px; margin-bottom: 20px; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.9); }
+        .donation-wallet-box p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 600; }
+        .donation-wallet-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #fff; word-break: break-all; font-weight: 700; user-select: all; background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); box-shadow: inset 0 0 10px rgba(0,0,0,0.8); }
+        .copy-donate-btn { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 10px 14px; border-radius: 8px; font-size: 0.78rem; cursor: pointer; margin-top: 12px; font-weight: bold; transition: all 0.3s; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); box-shadow: 0 0 30px rgba(245,158,11,1); }
 
         .verify-donation-btn {
-            display: block; width: 100%; padding: 16px;
+            display: block; width: 100%; padding: 12px;
             background: var(--gold); color: #000;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
             text-decoration: none; text-transform: none; border-radius: 8px; border: none;
             cursor: pointer; transition: all 0.2s ease; 
             box-shadow: none; text-align: center;
         }
         .verify-donation-btn:hover { background: var(--gold-light); }
 
-        .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 22px; }
-        .badge-table th, .badge-table td { padding: 16px 10px; border-bottom: 1px solid rgba(255,255,255,0.15); text-align: left; font-size: 0.9rem; color: #fff; }
+        .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .badge-table th, .badge-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.15); text-align: left; font-size: 0.85rem; color: #fff; }
         .badge-table th { color: var(--cyan); font-weight: 600; text-shadow: 0 0 18px rgba(6,182,212,0.9); }
         
         .hall-of-fame { 
-            background: rgba(0,0,0,0.8); border: 3px solid rgba(168, 85, 247, 0.8); border-radius: 16px; padding: 22px; max-height: 220px; 
-            overflow-y: auto; display: flex; flex-direction: column; gap: 15px; justify-content: flex-start; text-align: left; transition: all 0.3s;
-            box-shadow: inset 0 2px 15px rgba(0,0,0,0.9), 0 0 35px rgba(168,85,247,0.35);
+            background: rgba(0,0,0,0.8); border: 2px solid rgba(168, 85, 247, 0.6); border-radius: 12px; padding: 16px; max-height: 180px; 
+            overflow-y: auto; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; text-align: left; transition: all 0.3s;
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.9), 0 0 25px rgba(168,85,247,0.3);
         }
-        .hall-of-fame::-webkit-scrollbar { width: 6px; }
+        .hall-of-fame::-webkit-scrollbar { width: 5px; }
         .hall-of-fame::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 3px; }
         .hall-of-fame::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
-        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.95rem; text-align: center; margin: auto; }
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; margin: auto; }
         
-        .hero-item-link { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 12px; font-size: 0.95rem; width: 100%; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+        .hero-item-link { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 8px; font-size: 0.85rem; width: 100%; text-decoration: none; cursor: pointer; transition: all 0.2s; }
         .hero-item-link:last-child { border-bottom: none; padding-bottom: 0; }
         .hero-item-link:hover { opacity: 0.95; transform: translateX(6px); }
         .hero-name { color: #fff; font-weight: 600; }
-        .hero-icon-group { display: flex; align-items: center; gap: 10px; }
-        .tg-icon { color: #229ED9; font-size: 1.2rem; transition: transform 0.3s; text-shadow: 0 0 12px #229ED9; }
+        .hero-icon-group { display: flex; align-items: center; gap: 8px; }
+        .tg-icon { color: #229ED9; font-size: 1rem; transition: transform 0.3s; text-shadow: 0 0 12px #229ED9; }
         .hero-item-link:hover .tg-icon { transform: scale(1.3); }
-        .hero-badge { font-size: 1.1rem; }
+        .hero-badge { font-size: 1rem; }
+        /* ========================================================== */
 
         /* ==========================================================
            TRUST CARDS (KİLİT KARTLARI)
@@ -674,7 +678,8 @@
             .buy-box-body { padding: 24px 20px; }
             .buy-box-header { padding: 20px; }
             .distribution-note { padding: 20px; }
-            .donation-card { padding: 32px 20px; }
+            .donation-layout { grid-template-columns: 1fr; gap: 20px; } /* Mobilede alt alta daha kompakt */
+            .donation-card { padding: 20px 15px; }
             .vision-box { padding: 30px 20px; }
             .section-title { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 30px; padding: 0; }
             .roadmap-item { min-width: 220px; max-width: 220px; padding: 26px; }
@@ -810,6 +815,7 @@
         </div>
 
         <div class="donation-layout">
+            <!-- SIKIŞTIRILMIŞ BAĞIŞ KARTI -->
             <div class="donation-card">
                 <h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
                 
@@ -825,9 +831,10 @@
                 <a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
                     Verify My Donation
                 </a>
-                <div class="donate-note" style="margin-top: 15px;">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
+                <div class="donate-note" style="margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">Contact our team on Telegram with your TXID to confirm and claim your badge.</div>
             </div>
 
+            <!-- SIKIŞTIRILMIŞ ROZET KARTI -->
             <div class="donation-card">
                 <h3><i class="fas fa-medal"></i> Hero Badges</h3>
                 <table class="badge-table">
@@ -837,7 +844,7 @@
                     <tr><td>10,000 ZNK</td><td>🥇 Gold</td></tr>
                     <tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
                 </table>
-                <h3 style="font-size: 0.9rem; margin-top: 20px;"><i class="fas fa-star"></i> Hall of Fame</h3>
+                <h3 style="font-size: 0.9rem; margin-top: 15px; margin-bottom: 10px;"><i class="fas fa-star"></i> Hall of Fame</h3>
                 <div class="hall-of-fame" id="hallOfFame">
                     <p>Be the first hero!</p>
                 </div>
