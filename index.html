@@ -177,35 +177,23 @@
             z-index: -1;
         }
 
-        .socials-hero { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 40px; }
+        /* SOSYAL MEDYA İKONLARI (MARKA RENKLERİYLE) */
+        .socials-hero { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 40px; }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
-            width: 45px; height: 45px; border-radius: 50%; text-decoration: none; 
-            color: var(--text-muted); font-size: 1.2rem;
-            transition: all 0.3s ease; 
-            border: 1px solid rgba(255,255,255,0.1);
-            background: transparent;
+            width: 50px; height: 50px; border-radius: 50%; text-decoration: none; color: #fff; font-size: 1.35rem;
+            transition: all 0.3s ease; border: 2.5px solid rgba(255,255,255,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
         }
         .socials-hero a:hover { 
-            color: var(--gold-light); 
-            border-color: var(--gold-light); 
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.2);
+            transform: translateY(-5px) scale(1.15); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.95), 0 0 25px rgba(255,255,255,0.6); 
+            border-color: rgba(255,255,255,1); 
         }
-        
-        /* INSTAGRAM ESKİ RENKLERİNE DÖNDÜ */
-        .btn-tg, .btn-x, .btn-yt { background: transparent; }
-        .btn-ig { 
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; 
-            border: none !important; 
-            color: #fff !important; 
-        }
-        .btn-ig:hover {
-            color: #fff !important;
-            box-shadow: 0 5px 20px rgba(220, 39, 67, 0.5) !important;
-            border: none !important;
-        }
-        /* ========================================================== */
+        .btn-tg { background: #229ED9; }
+        .btn-x { background: #000000; border: 2.5px solid rgba(255,255,255,0.6); }
+        .btn-yt { background: #FF0000; }
+        .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 
         .buy-box-container {
             background: rgba(10, 17, 40, 0.85); 
@@ -535,15 +523,15 @@
         .hero-badge { font-size: 1.1rem; }
 
         /* ==========================================================
-           TRUST CARDS (KİLİT KARTLARI)
+           TRUST CARDS (KİLİT KARTLARI) - GÜNCELLENDİ
            ========================================================== */
         .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; margin-bottom: 20px; }
         .trust-track { display: flex; gap: 28px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; }
         
         .trust-item {
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); 
-            padding: 28px 22px; border-radius: 26px;
-            width: 340px; min-height: 440px; height: auto; flex-shrink: 0; position: relative; 
+            padding: 26px 22px; border-radius: 26px;
+            width: 340px; min-height: 450px; height: auto; flex-shrink: 0; position: relative; 
             display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
             box-shadow: 0 35px 70px rgba(0,0,0,0.9);
             overflow: hidden;
@@ -560,41 +548,42 @@
         .trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 4px solid rgba(249, 115, 22, 0.95); border-top: 6px solid #f97316; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(249, 115, 22, 0.6), inset 0 0 30px rgba(249, 115, 22, 0.2); }
         .trust-item.community:hover { border-color: rgba(249, 115, 22, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(249, 115, 22, 0.95); }
 
+        .trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 4px solid rgba(236, 72, 153, 0.95); border-top: 6px solid #ec4899; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(236, 72, 153, 0.6), inset 0 0 30px rgba(236, 72, 153, 0.2); }
+        .trust-item.marketing:hover { border-color: rgba(236, 72, 153, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(236, 72, 153, 0.95); }
+
         .trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 4px solid rgba(6, 182, 212, 0.95); border-top: 6px solid #06b6d4; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(6, 182, 212, 0.6), inset 0 0 30px rgba(6, 182, 212, 0.2); }
         .trust-item.liquidity:hover { border-color: rgba(6, 182, 212, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(6, 182, 212, 0.95); }
 
         .trust-item.transparency { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35)); border: 4px solid rgba(139, 92, 246, 0.95); border-top: 6px solid #8b5cf6; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(139, 92, 246, 0.6), inset 0 0 30px rgba(139, 92, 246, 0.2); }
         .trust-item.transparency:hover { border-color: rgba(139, 92, 246, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(139, 92, 246, 0.95); }
 
-        /* YENİ EKLENEN MARKETING KARTI RENGİ */
-        .trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 4px solid rgba(236, 72, 153, 0.95); border-top: 6px solid #ec4899; box-shadow: 0 35px 70px rgba(0,0,0,0.9), 0 0 65px rgba(236, 72, 153, 0.6), inset 0 0 30px rgba(236, 72, 153, 0.2); }
-        .trust-item.marketing:hover { border-color: rgba(236, 72, 153, 1); box-shadow: 0 40px 85px rgba(0,0,0,0.98), 0 0 95px rgba(236, 72, 153, 0.95); }
-
-        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; margin-bottom: 10px; font-weight: 800; flex-shrink: 0; }
+        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 12px; font-weight: 800; flex-shrink: 0; line-height: 1.3; }
         .trust-item.team h3 { color: #34d399; text-shadow: 0 0 16px rgba(52,211,153,0.8); }
         .trust-item.community h3 { color: #f97316; text-shadow: 0 0 16px rgba(249,115,22,0.8); }
+        .trust-item.marketing h3 { color: #ec4899; text-shadow: 0 0 16px rgba(236,72,153,0.8); }
         .trust-item.liquidity h3 { color: #06b6d4; text-shadow: 0 0 16px rgba(6,182,212,0.8); }
         .trust-item.transparency h3 { color: #8b5cf6; text-shadow: 0 0 16px rgba(139,92,246,0.8); }
         .trust-item.treasury h3 { color: #fcd34d; text-shadow: 0 0 16px rgba(252,211,77,0.8); }
-        .trust-item.marketing h3 { color: #ec4899; text-shadow: 0 0 16px rgba(236,72,153,0.8); }
 
-        .trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; flex-shrink: 0; }
+        .trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; flex-shrink: 0; }
+        
+        /* KART İÇİ DETAYLAR DÜZENLENDİ */
         .trust-details { 
-            display: flex; flex-direction: column; gap: 6px; font-size: 0.81rem; color: #fff; margin-bottom: 14px; 
-            background: rgba(0,0,0,0.8); padding: 12px; border-radius: 12px; text-align: left; 
+            display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; color: #fff; margin-bottom: 15px; 
+            background: rgba(0,0,0,0.85); padding: 14px; border-radius: 12px; text-align: left; 
             border: 1.5px solid rgba(255,255,255,0.2); box-shadow: inset 0 2px 8px rgba(0,0,0,0.9); flex-shrink: 0; 
         }
         .trust-details span { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
-        .trust-details span span.label-txt { flex: 1; min-width: 0; word-break: break-word; }
-        .trust-details strong { color: #fff; text-align: right; font-family: 'Inter', sans-serif; flex-shrink: 0; }
+        .trust-details span.label-txt { flex: 1; min-width: 0; word-break: break-word; color: #94a3b8; }
+        .trust-details strong { color: #fff; text-align: right; font-family: 'Inter', sans-serif; flex-shrink: 0; font-weight: 600; }
 
         .trust-btn {
-            display: block; width: 100%; padding: 12px; background: rgba(255,255,255,0.15); color: #fff;
-            text-align: center; text-decoration: none; border: 2px solid rgba(255,255,255,0.4); border-radius: 12px;
+            display: block; width: 100%; padding: 12px; background: rgba(255,255,255,0.1); color: #fff;
+            text-align: center; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px;
             font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5); flex-shrink: 0; margin-top: auto;
         }
-        .trust-btn:hover { background: rgba(255,255,255,0.3); border-color: #fff; box-shadow: 0 0 35px rgba(255,255,255,0.8); }
+        .trust-btn:hover { background: rgba(255,255,255,0.25); border-color: #fff; box-shadow: 0 0 25px rgba(255,255,255,0.6); }
 
         .roadmap-controls { display: flex; justify-content: center; gap: 30px; margin-top: 32px; margin-bottom: 32px; }
         .roadmap-btn { 
@@ -744,7 +733,7 @@
             .vision-box { padding: 30px 20px; }
             .roadmap-item { min-width: 220px; max-width: 220px; padding: 26px; }
             .tokenomics-item { min-width: 250px; max-width: 250px; padding: 26px; }
-            .trust-item { width: 320px; min-height: 420px; padding: 24px 18px; }
+            .trust-item { width: 320px; min-height: 450px; padding: 24px 18px; }
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; gap: 8px; }
             .feedback-modal-content { width: 95%; height: 88vh; }
@@ -768,7 +757,6 @@
         </div>
     </div>
 
-    <!-- YENİ PREMIUM ÜST KISIM (HERO) -->
     <section class="hero">
         <h1>ZONKA</h1>
         <h2>GUARDIANS OF LIFE</h2>
@@ -781,7 +769,6 @@
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
             <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
-            <!-- INSTAGRAM ESKİ RENKLERİNE DÖNDÜ -->
             <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
         </div>
 
@@ -837,7 +824,6 @@
             </div>
         </div>
     </section>
-    <!-- YENİ PREMIUM ÜST KISIM (HERO) BİTİŞ -->
 
     <section class="section" id="transmissions">
         <div class="transmissions-wrapper">
@@ -1026,10 +1012,10 @@
                     <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
                     <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Total Locked:</span> <strong>6,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Status:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">Lock Period:</span> <strong>24 Months</strong></span>
-                        <span><span class="label-txt">Gradual Release:</span> <strong>36 Months</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>24 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>36 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1038,10 +1024,10 @@
                     <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
                     <p>Team's 6M ZNK locked for long-term success and community protection.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Total Locked:</span> <strong>6,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Status:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">Lock Period:</span> <strong>4 Months</strong></span>
-                        <span><span class="label-txt">Gradual Release:</span> <strong>24 Months</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>4 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>24 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1050,23 +1036,22 @@
                     <h3><i class="fas fa-users"></i> Community Rewards</h3>
                     <p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Total Locked:</span> <strong>7,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Status:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">First 6 Months:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">Next 60 Months:</span> <strong>Gradual Release</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>7,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>6 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>60 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
-                <!-- YENİ EKLENEN MARKETING KARTI BURADA -->
                 <div class="trust-item marketing">
                     <h3><i class="fas fa-chart-line"></i> Marketing Locked</h3>
                     <p>1.5M ZNK stays liquid for immediate needs, while the remaining 7.5M ZNK (including supporter rewards) is securely locked.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Total Locked:</span> <strong>7,500,000 ZNK</strong></span>
-                        <span><span class="label-txt">Status:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">Lock Period:</span> <strong>3 Months</strong></span>
-                        <span><span class="label-txt">Gradual Release:</span> <strong>40 Months</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>7,500,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>40 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1075,10 +1060,10 @@
                     <h3><i class="fas fa-water"></i> Liquidity Verified</h3>
                     <p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Total Locked:</span> <strong>5,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Pool Status:</span> <strong>Fully Locked</strong></span>
-                        <span><span class="label-txt">Lock Period:</span> <strong>3 Months</strong></span>
-                        <span><span class="label-txt">Gradual Release:</span> <strong>65 Months</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>5,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>65 Months</strong></span>
                     </div>
                     <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
@@ -1087,9 +1072,9 @@
                     <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
                     <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Network:</span> <strong>Solana</strong></span>
-                        <span><span class="label-txt">Contract:</span> <strong>Verified</strong></span>
-                        <span><span class="label-txt">Audit:</span> <strong>Public</strong></span>
+                        <span><span class="label-txt">Network</span> <strong>Solana</strong></span>
+                        <span><span class="label-txt">Contract</span> <strong>Verified</strong></span>
+                        <span><span class="label-txt">Audit</span> <strong>Public</strong></span>
                     </div>
                     <a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
                 </div>
@@ -1100,9 +1085,6 @@
             <button class="roadmap-btn" onclick="moveTrust(-1)"><i class="fas fa-chevron-left"></i></button>
             <button class="roadmap-btn" onclick="moveTrust(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
-
-        <!-- ESKİ DEV MARKETING KUTUSU BURADAN TAMAMEN SİLİNDİ -->
-        
     </section>
 
     <section class="section" id="contract">
