@@ -22,7 +22,7 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
     <script type="application/ld+json">
     {
@@ -232,7 +232,7 @@
         }
 
         .buy-box-header {
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             display: flex; justify-content: space-between; align-items: center;
         }
@@ -248,7 +248,7 @@
         }
         .live-dot-small { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
-        .buy-box-body { padding: 26px 24px 24px; }
+        .buy-box-body { padding: 20px 20px 18px; }
 
         .price-info {
             display: flex; gap: 12px;
@@ -260,9 +260,9 @@
             background: rgba(0, 0, 0, 0.38);
             border: 1px solid rgba(245, 158, 11, 0.45);
             border-radius: 12px;
-            padding: 16px 18px;
+            padding: 13px 15px;
         }
-        .price-info span { display: block; font-size: 0.72rem; color: #d3ddeb; text-transform: uppercase; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .price-info span { display: block; font-size: 0.68rem; color: #f0c95a; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; letter-spacing: 1px; }
         .price-info strong { 
             font-family: 'Inter', sans-serif; font-size: 1.4rem; color: var(--gold-light); 
             font-weight: 600;
@@ -273,10 +273,10 @@
             background: transparent; border-radius: 0; padding: 0;
             margin-bottom: 20px; border: none; box-shadow: none;
         }
-        .calculator-box label { font-size: 0.75rem; color: #d3ddeb; display: block; margin-bottom: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        .calculator-box label { font-size: 0.68rem; color: #f0c95a; display: block; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
         .calculator-box input {
-            width: 100%; padding: 16px 20px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3);
-            background: rgba(0,0,0,0.25); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
+            width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3);
+            background: rgba(0,0,0,0.25); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.05rem;
             outline: none; transition: 0.2s;
         }
         .calculator-box input:focus { 
@@ -295,10 +295,10 @@
         .calc-note { font-size: 0.75rem; color: #b9c5d8; text-align: right; margin-top: 6px; }
 
         .buy-btn {
-            display: block; width: 100%; padding: 17px;
+            display: block; width: 100%; padding: 15px;
             background: linear-gradient(135deg, var(--gold), #d97706); color: #000;
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem;
-            letter-spacing: 0.3px;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.95rem;
+            letter-spacing: 0.8px;
             text-decoration: none; text-transform: none; border-radius: 12px; border: none;
             cursor: pointer; transition: all 0.2s ease; 
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35); text-align: center;
@@ -313,11 +313,11 @@
         .warning-box {
             background: rgba(239, 68, 68, 0.08); 
             border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
-            padding: 15px 16px; margin-bottom: 0; margin-top: 20px;
+            padding: 12px 14px; margin-bottom: 0; margin-top: 16px;
             border-radius: 10px;
             box-shadow: none;
         }
-        .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
+        .warning-box p { color: #fca5a5; font-size: 0.8rem; font-weight: 400; line-height: 1.55; margin: 0; }
         .warning-box i { display: none; }
 
         .wallet-address-box {
@@ -352,8 +352,8 @@
         .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
 
         .distribution-note {
-            padding: 20px 26px; background: rgba(245, 158, 11, 0.08); border-top: 1px solid rgba(245, 158, 11, 0.2);
-            color: #dde6f5; font-size: 0.8rem; text-align: left;
+            padding: 14px 18px; background: rgba(245, 158, 11, 0.08); border-top: 1px solid rgba(245, 158, 11, 0.2);
+            color: #dde6f5; font-size: 0.78rem; text-align: left;
             display: block; box-shadow: none;
         }
         .distribution-note span { display: block; line-height: 1.6; }
@@ -784,6 +784,15 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; gap: 8px; }
             .feedback-modal-content { width: 95%; height: 88vh; }
+            /* Performance: lighten heavy effects on mobile */
+            .buy-box-container, .referral-box-container, .vision-box, .contract-box {
+                backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            }
+            .donation-card, .trust-item, .roadmap-item, .tokenomics-item {
+                backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            }
+            .roadmap-track, .tokenomics-track, .trust-track { transform: translateZ(0); }
         }
     </style>
 </head>
@@ -837,15 +846,13 @@
                     <label for="solInput">ENTER SOL AMOUNT</label>
                     <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
                     <div class="calc-result" id="calcResult">0 ZNK</div>
-                    <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
+                    <div class="calc-note">1 SOL = 14,866 ZNK</div>
                 </div>
 
                 <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>PROCEED TO PURCHASE</button>
 
                 <div class="warning-box">
-                    <p>
-                        Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
-                    </p>
+                    <p><strong>Web3 wallets only</strong> (Phantom, Solflare). <strong>Never send from exchanges</strong> — transfers are lost.</p>
                 </div>
 
                 <div id="addressBox" class="wallet-address-box">
@@ -861,7 +868,7 @@
             </div>
             
             <div class="distribution-note">
-                <span>Once your deposit is successfully verified, your $ZNK tokens will be credited to your Web3 wallet within 30 minutes. Contact our Telegram support if your tokens do not arrive within this time.</span>
+                <span><strong>Instant delivery:</strong> your $ZNK is credited to your wallet automatically after verification. <strong>Need help?</strong> Telegram support 24/7.</span>
             </div>
         </div>
 
