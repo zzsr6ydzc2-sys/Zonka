@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Zonka v1.1.2 — Community Bot update (fresh deploy) -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -129,16 +128,16 @@
            YENİ PREMIUM, SADE VE FERAH ÜST KISIM (HERO)
            ========================================================== */
         .hero {
-            text-align: center; padding: 56px 20px 44px;
+            text-align: center; padding: 80px 20px 60px;
             display: flex; flex-direction: column;
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
         }
 
         .hero h1 {
             font-family: 'Cinzel', serif; 
-            font-size: 4.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
+            font-size: 5.5rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
             color: #ffffff; 
-            letter-spacing: 12px; margin-bottom: 12px;
+            letter-spacing: 15px; margin-bottom: 15px;
             display: inline-block;
             background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
             background-size: 200% auto;
@@ -151,18 +150,18 @@
 
         .hero h2 {
             font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700;
-            margin-bottom: 28px; color: var(--text-muted); letter-spacing: 12px;
+            margin-bottom: 40px; color: var(--text-muted); letter-spacing: 12px;
             text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.08rem; max-width: 600px; margin: 0 auto 32px;
+            font-size: 1.15rem; max-width: 600px; margin: 0 auto 45px;
             font-weight: 300; color: #cbd5e1; line-height: 1.8;
         }
         .hero p strong { color: var(--gold-light); font-weight: 600; }
 
         .hero-image-container {
-            width: 145px; height: 145px; margin: 0 auto 36px; position: relative;
+            width: 170px; height: 170px; margin: 0 auto 50px; position: relative;
             display: flex; justify-content: center; align-items: center;
             background-image: url('logo.jpg'); 
             background-size: cover; background-position: center;
@@ -173,7 +172,7 @@
         }
         .hero-image-container::after {
             content: ''; position: absolute; 
-            width: 190px; height: 190px; border-radius: 50%;
+            width: 220px; height: 220px; border-radius: 50%;
             background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
             z-index: -1;
         }
@@ -183,12 +182,12 @@
            ========================================================== */
         .socials-hero { 
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
-            margin-top: 0px; margin-bottom: 30px; 
+            margin-top: 0px; margin-bottom: 40px; 
         }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
-            width: 50px; height: 50px; border-radius: 50%; text-decoration: none; 
-            color: #cbd5e1; font-size: 1.35rem;
+            width: 46px; height: 46px; border-radius: 50%; text-decoration: none; 
+            color: var(--text-muted); font-size: 1.2rem;
             transition: all 0.3s ease; 
             border: 1.5px solid rgba(6, 182, 212, 0.3); /* İnce Buz Mavisi Çerçeve */
             background: rgba(10, 17, 40, 0.4); /* Hafif Şeffaf Arka Plan */
@@ -209,80 +208,60 @@
            BUY BOX (SATIN ALMA KUTUSU) ESKİ PREMIUM HALİNE DÖNDÜ
            ========================================================== */
         .buy-box-container {
-            background: linear-gradient(160deg, rgba(10, 17, 40, 0.95), rgba(6, 182, 212, 0.22));
+            background: rgba(10, 17, 40, 0.85); 
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(6, 182, 212, 0.55); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             border-radius: 16px;
             padding: 0; 
             width: 100%; max-width: 520px;
             margin: 0 auto 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 55px rgba(6, 182, 212, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
             text-align: left; 
             position: relative; overflow: hidden;
-            transition: all 0.4s;
-        }
-        .buy-box-container:hover {
-            border-color: rgba(6, 182, 212, 0.8);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 60px rgba(6, 182, 212, 0.45);
-        }
-        .buy-box-container::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            box-shadow: 0 0 20px var(--cyan);
         }
 
         .buy-box-header {
-            padding: 16px 20px;
+            padding: 24px 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
             display: flex; justify-content: space-between; align-items: center;
         }
         .buy-box-header h3 {
-            font-family: 'Inter', sans-serif; font-size: 1.15rem; margin: 0;
+            font-family: 'Inter', sans-serif; font-size: 1.25rem; margin: 0;
             color: #ffffff; font-weight: 600;
-            display: flex; align-items: center; gap: 10px;
         }
-        .buy-box-header h3 i { color: var(--cyan); text-shadow: 0 0 16px rgba(6, 182, 212, 0.8); }
         .live-indicator {
             display: flex; align-items: center; gap: 6px;
             font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #10b981; font-weight: 600;
         }
         .live-dot-small { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
-        .buy-box-body { padding: 18px 20px 16px; }
+        .buy-box-body { padding: 30px; }
 
         .price-info {
-            display: flex; gap: 12px;
-            background: transparent; padding: 0; margin-bottom: 16px; 
+            display: flex; justify-content: space-between; 
+            background: transparent; padding: 0; margin-bottom: 24px; 
             border: none; box-shadow: none;
         }
-        .price-info div { 
-            flex: 1;
-            background: rgba(0, 0, 0, 0.38);
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            border-radius: 12px;
-            padding: 13px 15px;
-        }
-        .price-info span { display: block; font-size: 0.68rem; color: #7dd3fc; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; letter-spacing: 1px; }
+        .price-info div { width: 50%; }
+        .price-info div:first-child { border-right: 1px solid rgba(255, 255, 255, 0.08); padding-right: 20px; }
+        .price-info div:last-child { padding-left: 20px; }
+        .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.5px; }
         .price-info strong { 
-            font-family: 'Inter', sans-serif; font-size: 1.4rem; color: #ffffff; 
+            font-family: 'Inter', sans-serif; font-size: 1.6rem; color: var(--gold-light); 
             font-weight: 600;
-            text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
         }
 
         .calculator-box {
             background: transparent; border-radius: 0; padding: 0;
-            margin-bottom: 16px; border: none; box-shadow: none;
+            margin-bottom: 24px; border: none; box-shadow: none;
         }
-        .calculator-box label { font-size: 0.68rem; color: #7dd3fc; display: block; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .calculator-box label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
         .calculator-box input {
-            width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(6, 182, 212, 0.35);
-            background: rgba(0,0,0,0.25); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.05rem;
+            width: 100%; padding: 16px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0,0,0,0.2); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
             outline: none; transition: 0.2s;
         }
-        .calculator-box input:focus { 
-            border-color: rgba(6, 182, 212, 0.8);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-        }
+        .calculator-box input:focus { border-color: rgba(255, 255, 255, 0.4); }
         
         .calc-result {
             margin-top: 12px; font-size: 1rem; font-weight: 500; color: #ffffff;
@@ -291,45 +270,38 @@
             font-family: 'Inter', sans-serif;
             display: flex; justify-content: space-between;
         }
-        .calc-result::before { content: "You receive"; color: #d3ddeb; font-weight: 400; font-size: 0.9rem; }
-        .calc-note { font-size: 0.75rem; color: #d5e1f5; font-weight: 500; text-align: right; margin-top: 6px; }
+        .calc-result::before { content: "You receive"; color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
+        .calc-note { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 6px; }
 
         .buy-btn {
-            display: block; width: 100%; padding: 15px;
-            background: linear-gradient(135deg, #22d3ee, #0ea5e9); color: #02121f;
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.95rem;
-            letter-spacing: 0.8px;
-            text-decoration: none; text-transform: none; border-radius: 12px; border: none;
+            display: block; width: 100%; padding: 18px;
+            background: var(--gold); color: #000;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
+            text-decoration: none; text-transform: none; border-radius: 8px; border: none;
             cursor: pointer; transition: all 0.2s ease; 
-            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4); text-align: center;
+            box-shadow: none; text-align: center;
         }
-        .buy-btn:hover:not(:disabled) { 
-            background: linear-gradient(135deg, #67e8f9, #22d3ee);
-            box-shadow: 0 10px 35px rgba(6, 182, 212, 0.6);
-            transform: translateY(-1px);
-        }
-        .buy-btn:disabled { background: linear-gradient(135deg, rgba(34, 211, 238, 0.45), rgba(14, 165, 233, 0.45)); color: rgba(240, 250, 255, 0.9); cursor: not-allowed; box-shadow: none; }
+        .buy-btn:hover:not(:disabled) { background: var(--gold-light); }
+        .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0,0,0,0.5); cursor: not-allowed; }
 
         .warning-box {
             background: rgba(239, 68, 68, 0.08); 
             border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
-            padding: 12px 14px; margin-bottom: 0; margin-top: 14px;
-            border-radius: 10px;
+            padding: 16px; margin-bottom: 0; margin-top: 24px;
             box-shadow: none;
         }
-        .warning-box p { color: #fecdd3; font-size: 0.82rem; font-weight: 500; line-height: 1.5; margin: 0; }
-        .warning-box p strong { color: #fecaca; }
+        .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
         .warning-box i { display: none; }
 
         .wallet-address-box {
             background: rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px; border-radius: 12px; margin-top: 18px; display: none;
+            padding: 24px; border-radius: 12px; margin-top: 24px; display: none;
         }
         .wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; text-align: left; }
         .wallet-address-box p strong { color: #fff; }
         .wallet-address-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 1rem;
-            color: #67e8f9; font-weight: 600; user-select: all;
+            color: var(--gold-light); font-weight: 600; user-select: all;
             background: rgba(255,255,255,0.05); padding: 14px; border-radius: 8px;
             border: 1px dashed rgba(255, 255, 255, 0.2); text-align: center; margin-bottom: 12px;
             cursor: pointer; transition: 0.2s;
@@ -353,76 +325,11 @@
         .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
 
         .distribution-note {
-            padding: 13px 18px; background: rgba(6, 182, 212, 0.12); border-top: 1px solid rgba(6, 182, 212, 0.25);
-            color: #eaf2ff; font-size: 0.82rem; font-weight: 500; text-align: left;
+            padding: 24px 30px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted); font-size: 0.8rem; text-align: left;
             display: block; box-shadow: none;
         }
         .distribution-note span { display: block; line-height: 1.6; }
-
-        /* ==========================================================
-           REFERRAL / COMMUNITY BOT BOX
-           ========================================================== */
-        .referral-box-container {
-            background: linear-gradient(145deg, rgba(10, 17, 40, 0.9), rgba(6, 182, 212, 0.18));
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(6, 182, 212, 0.45);
-            border-radius: 16px;
-            width: 100%; max-width: 480px;
-            margin: 32px auto 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(6, 182, 212, 0.15);
-            text-align: left;
-            position: relative; overflow: hidden;
-            transition: all 0.4s;
-        }
-        .referral-box-container:hover {
-            border-color: rgba(6, 182, 212, 0.8);
-            box-shadow: 0 25px 55px rgba(0,0,0,0.9), 0 0 55px rgba(6, 182, 212, 0.35);
-        }
-        .referral-box-container::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            box-shadow: 0 0 20px var(--cyan);
-        }
-        .referral-box-header {
-            padding: 18px 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .referral-box-header h3 {
-            font-family: 'Inter', sans-serif; font-size: 1.1rem; margin: 0;
-            color: #ffffff; font-weight: 600; display: flex; align-items: center; gap: 10px;
-        }
-        .referral-box-header h3 i { color: var(--cyan); text-shadow: 0 0 16px var(--cyan); }
-        .referral-box-body { padding: 22px 24px 24px; text-align: center; }
-        .referral-desc {
-            color: #cbd5e1; font-size: 0.9rem; font-weight: 300; line-height: 1.7;
-            margin: 0 0 16px;
-        }
-        .referral-desc strong { color: var(--gold-light); font-weight: 600; }
-        .referral-features { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
-        .referral-features li {
-            color: #e2e8f0; font-size: 0.85rem; font-weight: 400;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .referral-features li i { color: var(--cyan); width: 16px; text-align: center; text-shadow: 0 0 12px rgba(6,182,212,0.8); }
-        .referral-btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            width: auto; max-width: 100%; padding: 16px 44px; margin: 4px auto 4px;
-            background: linear-gradient(135deg, var(--cyan), #0e7490); color: #ffffff;
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem;
-            letter-spacing: 0.3px;
-            text-decoration: none; border-radius: 12px; border: none;
-            transition: all 0.2s ease; text-align: center;
-            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.35);
-        }
-            .referral-btn:hover { background: #67e8f9; box-shadow: 0 0 35px rgba(6, 182, 212, 0.6); }
-        .referral-btn i { font-size: 1.1rem; }
-        .referral-note {
-            margin-top: 12px; font-size: 0.72rem; color: var(--text-muted);
-            display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
-        }
-        .referral-note i { color: #34d399; }
-        .referral-note span { color: var(--gold-light); font-weight: 600; }
 
         .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
@@ -766,18 +673,11 @@
         .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); text-shadow: 0 0 16px rgba(245,158,11,0.8); }
 
         @media (max-width: 768px) {
-            body { zoom: 0.9; }
-            .hero h1 { font-size: 3rem; letter-spacing: 7px; }
-            .hero h2 { font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 22px;}
-            .hero p { font-size: 1rem; margin: 0 auto 24px; }
-            .hero-image-container { width: 128px; height: 128px; margin: 0 auto 26px; }
-            .hero-image-container::after { width: 165px; height: 165px; }
-            .socials-hero { margin-bottom: 24px; }
-            .buy-box-body { padding: 20px 18px; }
-            .buy-box-header { padding: 16px 18px; }
-            .distribution-note { padding: 16px 18px; }
-            .referral-box-header { padding: 16px 18px; }
-            .referral-box-body { padding: 20px 18px; }
+            .hero h1 { font-size: 3.8rem; letter-spacing: 10px; }
+            .hero h2 { font-size: 0.9rem; letter-spacing: 6px;}
+            .buy-box-body { padding: 24px 20px; }
+            .buy-box-header { padding: 20px; }
+            .distribution-note { padding: 20px; }
             .donation-layout { grid-template-columns: 1fr; gap: 20px; } /* Mobilede alt alta daha kompakt */
             .donation-card { padding: 20px 15px; }
             .vision-box { padding: 30px 20px; }
@@ -800,7 +700,7 @@
 
     <div class="news-banner">
         <div class="marquee-content">
-            ZONKA PRESALE IS LIVE <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; TEAM &amp; LIQUIDITY LOCKED <i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp;&nbsp; GUARDIANS OF LIFE <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; ZONKA PRESALE IS LIVE <i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp;&nbsp; TEAM &amp; LIQUIDITY LOCKED <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; GUARDIANS OF LIFE <i class="fas fa-snowflake"></i>
+            BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i> &nbsp;&nbsp;&nbsp;&nbsp; BREAKING: ZONKA PRESALE IS LIVE! <i class="fas fa-snowflake"></i>
         </div>
     </div>
 
@@ -815,11 +715,13 @@
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
         </div>
 
         <div class="buy-box-container">
             <div class="buy-box-header">
-                <h3><i class="fas fa-shopping-bag"></i> Buy $ZNK</h3>
+                <h3>Buy $ZNK</h3>
                 <div class="live-indicator">
                     <div class="live-dot-small"></div> LIVE
                 </div>
@@ -841,17 +743,19 @@
                     <label for="solInput">ENTER SOL AMOUNT</label>
                     <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
                     <div class="calc-result" id="calcResult">0 ZNK</div>
-                    <div class="calc-note">Fixed rate · 1 SOL = 14,866 ZNK</div>
+                    <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
                 </div>
 
                 <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>PROCEED TO PURCHASE</button>
 
                 <div class="warning-box">
-                    <p><strong>Exchanges don't work.</strong> Use a Web3 wallet — Phantom or Solflare.</p>
+                    <p>
+                        Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
+                    </p>
                 </div>
 
                 <div id="addressBox" class="wallet-address-box">
-                    <p><strong>Send SOL only</strong> to this address — any other token is lost.</p>
+                    <p><strong>Send ONLY SOL</strong> to this address.<br><span style="font-size: 0.75rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
                     
                     <code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
                     <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
@@ -863,22 +767,7 @@
             </div>
             
             <div class="distribution-note">
-                <span><strong>Instant delivery.</strong> Your $ZNK lands in your wallet right after verification.</span>
-            </div>
-        </div>
-
-        <!-- REFERRAL / COMMUNITY BOT BOX -->
-        <div class="referral-box-container">
-            <div class="referral-box-header">
-                <h3><i class="fas fa-robot"></i> Community Bot</h3>
-                <div class="live-indicator">
-                    <div class="live-dot-small"></div> ACTIVE
-                </div>
-            </div>
-            <div class="referral-box-body">
-                <a href="https://t.me/znkcommunitybot" target="_blank" class="referral-btn">
-                    <i class="fab fa-telegram-plane"></i> Launch Bot on Telegram
-                </a>
+                <span>Once your deposit is successfully verified, your $ZNK tokens will be credited to your Web3 wallet within 30 minutes. Contact our Telegram support if your tokens do not arrive within this time.</span>
             </div>
         </div>
     </section>
@@ -1217,7 +1106,7 @@
                     btn.innerText = "Copy Address"; 
                     btn.style.color = "#fff";
                     btn.style.borderColor = "rgba(255, 255, 255, 0.2)";
-                    codeEl.style.color = "var(--cyan)";
+                    codeEl.style.color = "var(--gold-light)";
                 }, 2000);
             });
         }
