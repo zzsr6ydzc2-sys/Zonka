@@ -22,7 +22,7 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
     <script type="application/ld+json">
     {
@@ -61,7 +61,6 @@
                 radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.98) 0%, transparent 70%);
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
-            touch-action: pan-y;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
@@ -407,13 +406,15 @@
         .referral-features li i { color: var(--cyan); width: 16px; text-align: center; text-shadow: 0 0 12px rgba(6,182,212,0.8); }
         .referral-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            width: auto; max-width: 100%; padding: 14px 36px; margin: 0 auto;
-            background: var(--gold); color: #000;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
-            text-decoration: none; border-radius: 10px; border: none;
+            width: auto; max-width: 100%; padding: 16px 44px; margin: 4px auto 4px;
+            background: linear-gradient(135deg, var(--gold), #d97706); color: #000;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            text-decoration: none; border-radius: 12px; border: none;
             transition: all 0.2s ease; text-align: center;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
         }
-        .referral-btn:hover { background: var(--gold-light); box-shadow: 0 0 35px rgba(245, 158, 11, 0.6); }
+            .referral-btn:hover { background: var(--gold-light); box-shadow: 0 0 35px rgba(245, 158, 11, 0.6); }
         .referral-btn i { font-size: 1.1rem; }
         .referral-note {
             margin-top: 12px; font-size: 0.72rem; color: var(--text-muted);
@@ -785,15 +786,6 @@
             .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
             .floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; gap: 8px; }
             .feedback-modal-content { width: 95%; height: 88vh; }
-            /* Performance: REMOVE blur on mobile (iOS pinch-zoom crash fix) */
-            .buy-box-container, .referral-box-container, .vision-box, .contract-box,
-            .donation-card, .trust-item, .roadmap-item, .tokenomics-item,
-            .impact-card, .hero-image-container {
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
-            }
-            .roadmap-track, .tokenomics-track, .trust-track { transform: translateZ(0); }
         }
     </style>
 </head>
@@ -801,7 +793,7 @@
 
     <div class="snow-container">
         <div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div>
-        <div class="snow">❆</div>
+        <div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div>
     </div>
 
     <div class="news-banner">
@@ -882,20 +874,9 @@
                 </div>
             </div>
             <div class="referral-box-body">
-                <p class="referral-desc">
-                    Meet the official <strong>Zonka Community Bot</strong>. Invite friends, track your referrals, claim your Hero rewards and stay updated — all in one place, directly on Telegram.
-                </p>
-                <ul class="referral-features">
-                    <li><i class="fas fa-user-plus"></i> Invite friends &amp; earn rewards</li>
-                    <li><i class="fas fa-chart-bar"></i> Track your referrals live</li>
-                    <li><i class="fas fa-medal"></i> Claim badges &amp; exclusive perks</li>
-                </ul>
                 <a href="https://t.me/znkcommunitybot" target="_blank" class="referral-btn">
                     <i class="fab fa-telegram-plane"></i> Launch Bot on Telegram
                 </a>
-                <div class="referral-note">
-                    <i class="fas fa-shield-alt"></i> Official bot only: <span>@znkcommunitybot</span> — beware of fakes.
-                </div>
             </div>
         </div>
     </section>
