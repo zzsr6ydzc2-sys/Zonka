@@ -128,52 +128,58 @@
            YENİ PREMIUM, SADE VE FERAH ÜST KISIM (HERO)
            ========================================================== */
         .hero {
-            text-align: center; padding: 80px 20px 60px;
+            text-align: center; padding: 60px 20px 52px;
             display: flex; flex-direction: column;
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
         }
 
         .hero h1 {
-            font-family: 'Cinzel', serif; 
+            font-family: 'Cinzel', serif;
             font-size: 5.5rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
-            color: #ffffff; 
-            letter-spacing: 15px; margin-bottom: 15px;
-            display: inline-block;
-            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
+            letter-spacing: 15px; margin-bottom: 12px; display: inline-block;
+            background: linear-gradient(180deg, #fffdf2 0%, #fde68a 34%, #fbbf24 72%, #d97706 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shineText 8s linear infinite;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 8px 24px rgba(245, 158, 11, 0.35));
         }
         @keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
 
         .hero h2 {
-            font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700;
-            margin-bottom: 40px; color: var(--text-muted); letter-spacing: 12px;
-            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800;
+            margin-bottom: 26px; color: #f8fafc; letter-spacing: 8px;
+            text-shadow: 0 0 18px rgba(56, 189, 248, 0.28); text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.15rem; max-width: 600px; margin: 0 auto 45px;
-            font-weight: 300; color: #cbd5e1; line-height: 1.8;
+            font-size: 1.12rem; max-width: 620px; margin: 0 auto 34px;
+            font-weight: 500; color: #f1f5f9; line-height: 1.65;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.28);
         }
-        .hero p strong { color: var(--gold-light); font-weight: 600; }
+        .hero p strong { color: var(--gold-light); font-weight: 700; }
 
         .hero-image-container {
-            width: 170px; height: 170px; margin: 0 auto 50px; position: relative;
-            display: flex; justify-content: center; align-items: center;
-            background-image: url('logo.jpg'); 
-            background-size: cover; background-position: center;
-            border-radius: 50%; 
-            border: 2px solid rgba(245, 158, 11, 0.4); 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.8); 
+            width: 132px; height: 132px; margin: 0 auto 38px; position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: radial-gradient(circle at 35% 28%, rgba(255, 241, 196, 0.2), rgba(10, 17, 40, 0.98) 68%);
+            border-radius: 50%; border: 2px solid rgba(252, 211, 77, 0.88);
+            box-shadow: 0 0 0 5px rgba(245, 158, 11, 0.1), 0 18px 42px rgba(0, 0, 0, 0.55), inset 0 0 24px rgba(245, 158, 11, 0.13);
             z-index: 10;
         }
+        .hero-emblem-mark {
+            color: #fde68a; font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900;
+            letter-spacing: 0.12em; padding-left: 0.12em; line-height: 1;
+            text-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+        }
+        .hero-emblem-label {
+            margin-top: 7px; color: #e2e8f0; font-family: 'Montserrat', sans-serif;
+            font-size: 0.43rem; font-weight: 800; letter-spacing: 0.13em; padding-left: 0.13em;
+            white-space: nowrap;
+        }
         .hero-image-container::after {
-            content: ''; position: absolute; 
-            width: 220px; height: 220px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            content: ''; position: absolute; width: 176px; height: 176px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
             z-index: -1;
         }
 
@@ -686,6 +692,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.8rem; letter-spacing: 10px; }
             .hero h2 { font-size: 0.9rem; letter-spacing: 6px;}
+            .hero-image-container { width: 118px; height: 118px; margin-bottom: 30px; }
             .buy-box-body { padding: 18px 16px; }
             .buy-box-header { padding: 16px 18px; }
             .distribution-note { padding: 14px 18px; }
@@ -719,9 +726,12 @@
         <h1>ZONKA</h1>
         <h2>GUARDIANS OF LIFE</h2>
         
-        <p>True power isn't about what you hold, but what you protect. We are the <strong>Guardians of Life</strong>, standing strong for vulnerable children, innocent animals, and our planet.</p>
+        <p>Together, we protect vulnerable children, animals, and our planet.</p>
 
-        <div class="hero-image-container"></div>
+        <div class="hero-image-container" role="img" aria-label="ZNK Guardians of Life emblem">
+            <span class="hero-emblem-mark">ZNK</span>
+            <span class="hero-emblem-label">GUARDIANS OF LIFE</span>
+        </div>
 
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" rel="noopener noreferrer" class="btn-tg" aria-label="Zonka on Telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -760,7 +770,7 @@
 
                 <div class="warning-box">
                     <p>
-                        Use a Web3 wallet like Phantom or Solflare. Do not send SOL from an exchange.
+                        Use any Solana-compatible Web3 wallet to send SOL. Do not send from an exchange.
                     </p>
                 </div>
 
