@@ -193,6 +193,17 @@
             background: rgba(10, 17, 40, 0.4); /* Hafif Şeffaf Arka Plan */
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
+        .socials-hero a.btn-tg {
+            color: #38bdf8;
+            border-color: rgba(56, 189, 248, 0.45);
+            background: rgba(56, 189, 248, 0.1);
+        }
+        .socials-hero a.btn-x {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .socials-hero a.btn-x svg { width: 18px; height: 18px; }
         .socials-hero a:hover { 
             color: var(--gold-light); /* Üzerine gelince Altın Rengi */
             border-color: var(--gold-light); /* Çerçeve Altın Rengi */
@@ -200,136 +211,136 @@
             transform: translateY(-4px) scale(1.05); 
             box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 20px rgba(245, 158, 11, 0.4); 
         }
-        
-        /* Tüm renkli arka planları iptal ediyoruz */
-        .btn-tg, .btn-x, .btn-yt, .btn-ig { background: transparent; }
 
         /* ==========================================================
-           BUY BOX (SATIN ALMA KUTUSU) ESKİ PREMIUM HALİNE DÖNDÜ
+           BUY BOX (SATIN ALMA KUTUSU)
            ========================================================== */
         .buy-box-container {
-            background: rgba(10, 17, 40, 0.85); 
+            background: linear-gradient(155deg, rgba(13, 22, 48, 0.98), rgba(5, 10, 25, 0.98));
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 16px;
-            padding: 0; 
-            width: 100%; max-width: 520px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 18px; padding: 0; width: 100%; max-width: 500px;
             margin: 0 auto 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); 
-            text-align: left; 
-            position: relative; overflow: hidden;
+            box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.9), 0 0 24px rgba(245, 158, 11, 0.08);
+            text-align: left; position: relative; overflow: hidden;
         }
-
+        .buy-box-container::before {
+            content: ''; position: absolute; top: 0; left: 24px; right: 24px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+            pointer-events: none;
+        }
         .buy-box-header {
-            padding: 24px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+            padding: 18px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex; justify-content: space-between; align-items: center;
         }
         .buy-box-header h3 {
             font-family: 'Inter', sans-serif; font-size: 1.25rem; margin: 0;
-            color: #ffffff; font-weight: 600;
+            color: #ffffff; font-weight: 700;
         }
         .live-indicator {
-            display: flex; align-items: center; gap: 6px;
-            font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #10b981; font-weight: 600;
+            display: flex; align-items: center; gap: 7px;
+            padding: 6px 10px; border: 1px solid rgba(16, 185, 129, 0.28); border-radius: 999px;
+            background: rgba(16, 185, 129, 0.08);
+            font-family: 'Inter', sans-serif; font-size: 0.68rem; color: #34d399; font-weight: 700;
+            letter-spacing: 0.08em;
         }
-        .live-dot-small { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+        .live-dot-small { width: 7px; height: 7px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
-        .buy-box-body { padding: 30px; }
-
+        .buy-box-body { padding: 22px; }
         .price-info {
-            display: flex; justify-content: space-between; 
-            background: transparent; padding: 0; margin-bottom: 24px; 
-            border: none; box-shadow: none;
+            display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
+            margin-bottom: 16px; padding: 0; background: transparent; border: none; box-shadow: none;
         }
-        .price-info div { width: 50%; }
-        .price-info div:first-child { border-right: 1px solid rgba(255, 255, 255, 0.08); padding-right: 20px; }
-        .price-info div:last-child { padding-left: 20px; }
-        .price-info span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.5px; }
-        .price-info strong { 
-            font-family: 'Inter', sans-serif; font-size: 1.6rem; color: var(--gold-light); 
-            font-weight: 600;
+        .price-info div {
+            min-width: 0; width: auto; padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+        }
+        .price-info span {
+            display: block; margin-bottom: 5px; color: var(--text-muted);
+            font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
+        }
+        .price-info strong {
+            font-family: 'Inter', sans-serif; color: var(--gold-light);
+            font-size: 1.05rem; font-weight: 700; line-height: 1.3;
         }
 
         .calculator-box {
-            background: transparent; border-radius: 0; padding: 0;
-            margin-bottom: 24px; border: none; box-shadow: none;
+            display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 12px;
+            margin-bottom: 16px; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px; background: rgba(0, 0, 0, 0.2);
         }
-        .calculator-box label { font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        .calculator-box label {
+            grid-column: 1 / -1; align-self: end; margin: 0; color: var(--text-muted);
+            font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
+        }
         .calculator-box input {
-            width: 100%; padding: 16px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(0,0,0,0.2); color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
-            outline: none; transition: 0.2s;
+            grid-column: 1; min-width: 0; width: 100%; padding: 13px 14px; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.28);
+            color: #fff; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: 0.2s;
         }
-        .calculator-box input:focus { border-color: rgba(255, 255, 255, 0.4); }
-        
+        .calculator-box input:focus { border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12); }
         .calc-result {
-            margin-top: 12px; font-size: 1rem; font-weight: 500; color: #ffffff;
-            text-align: right; background: transparent;
-            padding: 0; border-radius: 0; border: none;
-            font-family: 'Inter', sans-serif;
-            display: flex; justify-content: space-between;
+            grid-column: 2; min-width: 0; margin: 0; padding: 8px 12px; min-height: 48px;
+            border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 10px;
+            background: rgba(245, 158, 11, 0.08); color: #fff; font-family: 'Inter', sans-serif;
+            font-size: 1rem; font-weight: 700; text-align: left;
+            display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 2px;
         }
-        .calc-result::before { content: "You receive"; color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
-        .calc-note { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 6px; }
+        .calc-result::before {
+            content: "You receive"; color: var(--text-muted); font-size: 0.64rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+        }
 
         .buy-btn {
-            display: block; width: 100%; padding: 18px;
-            background: var(--gold); color: #000;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
-            text-decoration: none; text-transform: none; border-radius: 8px; border: none;
-            cursor: pointer; transition: all 0.2s ease; 
-            box-shadow: none; text-align: center;
+            display: block; width: 100%; padding: 15px 18px; border: none; border-radius: 12px;
+            background: linear-gradient(135deg, #fbbf24, var(--gold)); color: #111;
+            font-family: 'Inter', sans-serif; font-weight: 800; font-size: 0.92rem;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em;
+            cursor: pointer; transition: all 0.2s ease; box-shadow: 0 8px 20px rgba(245, 158, 11, 0.16); text-align: center;
         }
-        .buy-btn:hover:not(:disabled) { background: var(--gold-light); }
-        .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0,0,0,0.5); cursor: not-allowed; }
+        .buy-btn:hover:not(:disabled) { background: linear-gradient(135deg, #fde68a, var(--gold-light)); transform: translateY(-1px); }
+        .buy-btn:disabled { background: rgba(245, 158, 11, 0.3); color: rgba(0, 0, 0, 0.5); cursor: not-allowed; box-shadow: none; }
 
         .warning-box {
-            background: rgba(239, 68, 68, 0.08); 
-            border: none; border-left: 3px solid #ef4444; border-radius: 0 6px 6px 0;
-            padding: 16px; margin-bottom: 0; margin-top: 24px;
-            box-shadow: none;
+            margin: 14px 0 0; padding: 10px 12px; border: 1px solid rgba(239, 68, 68, 0.16);
+            border-left: 3px solid #ef4444; border-radius: 8px; background: rgba(239, 68, 68, 0.07);
         }
-        .warning-box p { color: #fca5a5; font-size: 0.85rem; font-weight: 400; line-height: 1.6; margin: 0; }
+        .warning-box p { color: #fca5a5; font-size: 0.76rem; font-weight: 500; line-height: 1.45; margin: 0; }
         .warning-box i { display: none; }
 
         .wallet-address-box {
-            background: rgba(0,0,0,0.2); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px; border-radius: 12px; margin-top: 24px; display: none;
+            background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px; border-radius: 12px; margin-top: 16px; display: none;
         }
         .wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; text-align: left; }
         .wallet-address-box p strong { color: #fff; }
         .wallet-address-box code {
             display: block; font-family: 'Courier New', monospace; font-size: 1rem;
             color: var(--gold-light); font-weight: 600; user-select: all;
-            background: rgba(255,255,255,0.05); padding: 14px; border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05); padding: 14px; border-radius: 8px;
             border: 1px dashed rgba(255, 255, 255, 0.2); text-align: center; margin-bottom: 12px;
             cursor: pointer; transition: 0.2s;
         }
-        .wallet-address-box code:hover { background: rgba(255,255,255,0.1); }
-
+        .wallet-address-box code:hover { background: rgba(255, 255, 255, 0.1); }
         .copy-wallet-btn {
-            background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px;
-            border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500;
-            font-family: 'Inter', sans-serif; transition: 0.2s; width: 100%; margin-bottom: 12px;
+            width: 100%; margin-bottom: 12px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px; background: transparent; color: #fff; font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: 0.2s;
         }
-        .copy-wallet-btn:hover { background: rgba(255,255,255,0.1); }
-
+        .copy-wallet-btn:hover { background: rgba(255, 255, 255, 0.1); }
         .telegram-support-btn {
             display: flex; align-items: center; justify-content: center; gap: 8px;
-            background: transparent; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; 
-            font-weight: 500; font-family: 'Inter', sans-serif;
-            text-decoration: none; transition: 0.2s;
+            padding: 12px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;
+            background: transparent; color: var(--text-muted); font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: 0.2s;
         }
-        .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
-
+        .telegram-support-btn:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
         .distribution-note {
-            padding: 24px 30px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-muted); font-size: 0.8rem; text-align: left;
-            display: block; box-shadow: none;
+            padding: 14px 22px; border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.2); color: var(--text-muted); font-size: 0.75rem; text-align: left;
         }
-        .distribution-note span { display: block; line-height: 1.6; }
+        .distribution-note span { display: block; line-height: 1.5; }
 
         .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
@@ -675,9 +686,9 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.8rem; letter-spacing: 10px; }
             .hero h2 { font-size: 0.9rem; letter-spacing: 6px;}
-            .buy-box-body { padding: 24px 20px; }
-            .buy-box-header { padding: 20px; }
-            .distribution-note { padding: 20px; }
+            .buy-box-body { padding: 18px 16px; }
+            .buy-box-header { padding: 16px 18px; }
+            .distribution-note { padding: 14px 18px; }
             .donation-layout { grid-template-columns: 1fr; gap: 20px; } /* Mobilede alt alta daha kompakt */
             .donation-card { padding: 20px 15px; }
             .vision-box { padding: 30px 20px; }
@@ -713,10 +724,10 @@
         <div class="hero-image-container"></div>
 
         <div class="socials-hero">
-            <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
-            <a href="https://youtube.com/@zonkacoin" target="_blank" class="btn-yt"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/zonkacoin" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/zonkacoin" target="_blank" rel="noopener noreferrer" class="btn-tg" aria-label="Zonka on Telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://x.com/zonka_coin" target="_blank" rel="noopener noreferrer" class="btn-x" aria-label="Zonka on X" title="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.681l7.73-8.835L1.254 2.25h6.826l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
         </div>
 
         <div class="buy-box-container">
@@ -730,27 +741,26 @@
             <div class="buy-box-body">
                 <div class="price-info">
                     <div>
-                        <span>Current Price</span>
+                        <span>Token Price</span>
                         <strong>$0.007</strong>
                     </div>
                     <div>
-                        <span>1 SOL Equals</span>
+                        <span>1 SOL =</span>
                         <strong>14,866 ZNK</strong>
                     </div>
                 </div>
 
                 <div class="calculator-box">
-                    <label for="solInput">ENTER SOL AMOUNT</label>
+                    <label for="solInput">You Pay (SOL)</label>
                     <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
                     <div class="calc-result" id="calcResult">0 ZNK</div>
-                    <div class="calc-note">Fixed rate: 1 SOL = 14,866 ZNK</div>
                 </div>
 
-                <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>PROCEED TO PURCHASE</button>
+                <button class="buy-btn" id="buyNowBtn" onclick="showAddress()" disabled>Show Deposit Address</button>
 
                 <div class="warning-box">
                     <p>
-                        Do not send funds directly from centralized exchanges (like Binance or Coinbase). Please use a Web3 wallet (Phantom, Solflare) to participate.
+                        Use a Web3 wallet like Phantom or Solflare. Do not send SOL from an exchange.
                     </p>
                 </div>
 
@@ -767,7 +777,7 @@
             </div>
             
             <div class="distribution-note">
-                <span>Once your deposit is successfully verified, your $ZNK tokens will be credited to your Web3 wallet within 30 minutes. Contact our Telegram support if your tokens do not arrive within this time.</span>
+                <span>ZNK tokens arrive in your wallet within 30 minutes after payment confirmation.</span>
             </div>
         </div>
     </section>
@@ -1072,7 +1082,7 @@
                 buyNowBtn.disabled = true;
                 buyNowBtn.style.opacity = '0.5';
                 buyNowBtn.style.cursor = 'not-allowed';
-                document.getElementById('calcResult').innerText = "You will receive: 0 ZNK";
+                document.getElementById('calcResult').innerText = "0 ZNK";
             } else {
                 buyNowBtn.disabled = false;
                 buyNowBtn.style.opacity = '1';
