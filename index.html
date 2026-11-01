@@ -128,37 +128,52 @@
            YENİ PREMIUM, SADE VE FERAH ÜST KISIM (HERO)
            ========================================================== */
         .hero {
-            text-align: center; padding: 56px 20px 40px;
-            display: flex; flex-direction: column;
-            align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
+            text-align: center; padding: 0 0 40px; width: 100%; max-width: none;
+            display: flex; flex-direction: column; align-items: center;
+            margin: 0 auto; position: relative; z-index: 10;
+        }
+        .hero-intro {
+            width: 100%; padding: 48px 20px 24px; display: flex; flex-direction: column; align-items: center;
+            background:
+                radial-gradient(ellipse at 18% 0%, rgba(6, 182, 212, 0.18), transparent 44%),
+                radial-gradient(ellipse at 82% 8%, rgba(168, 85, 247, 0.16), transparent 42%),
+                linear-gradient(180deg, #071426 0%, #0a1c30 58%, #081827 100%);
+            border-bottom: 1px solid rgba(34, 211, 238, 0.18);
+            box-shadow: inset 0 -20px 48px rgba(3, 7, 18, 0.28);
         }
 
         .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 5.7rem; font-weight: 900; line-height: 1.08; text-transform: uppercase;
-            letter-spacing: 15px; margin-bottom: 16px; display: inline-block;
-            background: linear-gradient(180deg, #fff8dc 0%, #fcd34d 42%, #eab308 76%, #b45309 100%);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.35rem; font-weight: 900; line-height: 1.05; text-transform: uppercase;
+            letter-spacing: 0.22em; margin: 0 0 14px; padding-left: 0.22em; display: inline-block;
+            background: linear-gradient(110deg, #a5f3fc 0%, #22d3ee 28%, #c4b5fd 68%, #e879f9 100%);
+            background-size: 240% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 8px 24px rgba(245, 158, 11, 0.38));
+            animation: heroTitleFlow 6s ease-in-out infinite alternate;
+            filter: drop-shadow(0 5px 22px rgba(34, 211, 238, 0.28));
         }
+        @keyframes heroTitleFlow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 
         .hero h2 {
-            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800;
-            display: inline-block; margin-bottom: 24px; color: #fff1bd; letter-spacing: 8px;
-            text-shadow: 0 0 18px rgba(245, 158, 11, 0.22); text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-size: 0.92rem; font-weight: 800;
+            display: inline-block; margin-bottom: 20px; color: #e0f2fe; letter-spacing: 0.36em;
+            text-shadow: 0 0 16px rgba(34, 211, 238, 0.2); text-transform: uppercase;
         }
         .hero h2::after {
-            content: ''; display: block; width: 72px; height: 2px; margin: 14px auto 0;
-            border-radius: 2px; background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            content: ''; display: block; width: 60px; height: 2px; margin: 12px auto 0;
+            border-radius: 2px; background: linear-gradient(90deg, #22d3ee, #c4b5fd);
         }
 
         .hero p {
-            font-size: 1.1rem; max-width: 620px; margin: 0 auto 34px;
-            font-weight: 500; color: #f8fafc; line-height: 1.6;
+            font-size: 1.02rem; max-width: 620px; margin: 0 auto 26px;
+            font-weight: 500; color: #f1f5f9; line-height: 1.55;
             text-shadow: 0 1px 12px rgba(0, 0, 0, 0.28);
         }
-        .hero p strong { color: #fde68a; font-weight: 700; }
+        .hero p strong { color: #a5f3fc; font-weight: 700; }
+        @media (prefers-reduced-motion: reduce) {
+            .hero h1 { animation: none; }
+        }
 
 
         /* ==========================================================
@@ -166,7 +181,7 @@
            ========================================================== */
         .socials-hero { 
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
-            margin-top: 0px; margin-bottom: 40px; 
+            margin-top: 0px; margin-bottom: 0px; 
         }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
@@ -204,7 +219,7 @@
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(245, 158, 11, 0.3);
             border-radius: 18px; padding: 0; width: 100%; max-width: 500px;
-            margin: 0 auto 24px;
+            margin: 24px auto 24px;
             box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.9), 0 0 24px rgba(245, 158, 11, 0.08);
             text-align: left; position: relative; overflow: hidden;
         }
@@ -218,9 +233,11 @@
             display: flex; justify-content: space-between; align-items: center;
         }
         .buy-box-header h3 {
-            font-family: 'Inter', sans-serif; font-size: 1.25rem; margin: 0;
+            display: flex; align-items: center; gap: 9px;
+            font-family: 'Inter', sans-serif; font-size: 1.05rem; margin: 0;
             color: #ffffff; font-weight: 700;
         }
+        .buy-box-header h3 i { color: var(--gold-light); font-size: 0.9em; }
         .live-indicator {
             display: flex; align-items: center; gap: 7px;
             padding: 6px 10px; border: 1px solid rgba(16, 185, 129, 0.28); border-radius: 999px;
@@ -668,10 +685,14 @@
         .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); text-shadow: 0 0 16px rgba(245,158,11,0.8); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.8rem; letter-spacing: 10px; }
-            .hero h2 { font-size: 0.9rem; letter-spacing: 6px;}
+            .hero-intro { padding: 42px 16px 22px; }
+            .hero h1 { font-size: 2.85rem; letter-spacing: 0.16em; padding-left: 0.16em; }
+            .hero h2 { font-size: 0.78rem; letter-spacing: 0.26em; }
+            .hero p { font-size: 0.98rem; margin-bottom: 22px; }
+            .buy-box-container { margin-top: 20px; }
             .buy-box-body { padding: 18px 16px; }
             .buy-box-header { padding: 16px 18px; }
+            .buy-box-header h3 { font-size: 0.98rem; }
             .distribution-note { padding: 14px 18px; }
             .donation-layout { grid-template-columns: 1fr; gap: 20px; } /* Mobilede alt alta daha kompakt */
             .donation-card { padding: 20px 15px; }
@@ -700,21 +721,23 @@
     </div>
 
     <section class="hero">
-        <h1>ZONKA</h1>
-        <h2>GUARDIANS OF LIFE</h2>
-        
-        <p>Our mission: <strong>protect children and animals.</strong></p>
+        <div class="hero-intro">
+            <h1>ZONKA</h1>
+            <h2>GUARDIANS OF LIFE</h2>
+            
+            <p>Our mission: <strong>protect children and animals.</strong></p>
 
-        <div class="socials-hero">
-            <a href="https://t.me/zonkacoin" target="_blank" rel="noopener noreferrer" class="btn-tg" aria-label="Zonka on Telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://x.com/zonka_coin" target="_blank" rel="noopener noreferrer" class="btn-x" aria-label="Zonka on X" title="X">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.681l7.73-8.835L1.254 2.25h6.826l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
+            <div class="socials-hero">
+                <a href="https://t.me/zonkacoin" target="_blank" rel="noopener noreferrer" class="btn-tg" aria-label="Zonka on Telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://x.com/zonka_coin" target="_blank" rel="noopener noreferrer" class="btn-x" aria-label="Zonka on X" title="X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.967 6.817H1.681l7.73-8.835L1.254 2.25h6.826l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
         </div>
 
         <div class="buy-box-container">
             <div class="buy-box-header">
-                <h3>Buy $ZNK</h3>
+                <h3><i class="fas fa-shopping-bag" aria-hidden="true"></i> Buy $ZNK</h3>
                 <div class="live-indicator">
                     <div class="live-dot-small"></div> LIVE
                 </div>
