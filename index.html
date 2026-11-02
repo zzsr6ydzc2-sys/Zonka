@@ -70,7 +70,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- KUSURSUZ KAYAN YAZI (TAKILMA YOK) --- */
+        /* --- JAVASCRIPT DESTEKLİ KUSURSUZ KAYAN YAZI --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
@@ -85,7 +85,6 @@
         .ticker {
             display: flex;
             white-space: nowrap;
-            animation: marquee 30s linear infinite;
             width: max-content;
             will-change: transform;
         }
@@ -98,17 +97,13 @@
             color: var(--gold-light);
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 0 30px; /* Aralığı açtık ki birbirine yapışmasın */
+            padding: 0 30px;
             text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
         }
         .ticker-item i {
             color: var(--cyan);
             margin-right: 8px;
             font-size: 0.8rem;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
 
         /* --- KAR ANİMASYONU --- */
@@ -285,12 +280,12 @@
         }
 
         /* ==========================================================
-           YENİ PROFESYONEL / KURUMSAL BUY BOX
+           KURUMSAL BUY BOX
            ========================================================== */
         .buy-box-container {
             background: linear-gradient(180deg, #0d1424 0%, #070b14 100%);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 2px solid var(--gold); /* Kurumsal üst çizgi */
+            border-top: 2px solid var(--gold);
             border-radius: 16px;
             padding: 0; 
             width: 100%; max-width: 480px;
@@ -759,14 +754,9 @@
 </head>
 <body>
 
-    <!-- KUSURSUZ KAYAN YAZI -->
+    <!-- JAVASCRIPT İLE KUSURSUZ KAYAN YAZI -->
     <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item"><i class="fas fa-rocket"></i> PRESALE IS LIVE</div>
-            <div class="ticker-item"><i class="fas fa-bullseye"></i> TARGET: 15M ZNK PRESALE CAP</div>
-            <div class="ticker-item"><i class="fas fa-chart-line"></i> LISTING IMMEDIATELY AFTER</div>
-            <div class="ticker-item"><i class="fas fa-shield-alt"></i> JOIN THE GUARDIANS OF LIFE</div>
-            <!-- Kusursuz döngü için tekrar ediyoruz -->
+        <div class="ticker" id="ticker">
             <div class="ticker-item"><i class="fas fa-rocket"></i> PRESALE IS LIVE</div>
             <div class="ticker-item"><i class="fas fa-bullseye"></i> TARGET: 15M ZNK PRESALE CAP</div>
             <div class="ticker-item"><i class="fas fa-chart-line"></i> LISTING IMMEDIATELY AFTER</div>
@@ -833,7 +823,7 @@
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <!-- YENİ PROFESYONEL / KURUMSAL BUY BOX -->
+        <!-- KURUMSAL BUY BOX -->
         <div class="buy-box-container">
             <div class="buy-box-header">
                 <h3><i class="fas fa-bolt"></i> Buy $ZNK</h3>
@@ -1209,6 +1199,41 @@
             }
         });
 
+        // KUSURSUZ KAYAN YAZI (JAVASCRIPT SİSTEMİ)
+        const ticker = document.getElementById('ticker');
+        const tickerWrap = document.querySelector('.ticker-wrap');
+        
+        // Kusursuz döngü için içeriği iki katına çıkarıyoruz
+        ticker.innerHTML += ticker.innerHTML;
+        
+        let posX = 0;
+        let speed = 0.8; // Hızı buradan ayarlayabilirsin (şu an ideal)
+        let isPaused = false;
+
+        // Ne kadar kaydırılacağını hesaplamak için orijinal genişliği alıyoruz
+        // (İçerik ikiye katlandığı için yarısı bizim bir tam turumuz oluyor)
+        const getSingleWidth = () => ticker.scrollWidth / 2;
+
+        function animateTicker() {
+            if (!isPaused) {
+                posX -= speed;
+                // Eğer bir tam tur (orijinal genişlik) kadar kaydıysa sıfırla
+                if (Math.abs(posX) >= getSingleWidth()) {
+                    posX = 0;
+                }
+                ticker.style.transform = `translateX(${posX}px)`;
+            }
+            requestAnimationFrame(animateTicker);
+        }
+
+        // Fareyle üzerine gelince dursun (Okumak isteyenler için)
+        tickerWrap.addEventListener('mouseenter', () => { isPaused = true; });
+        tickerWrap.addEventListener('mouseleave', () => { isPaused = false; });
+
+        // Animasyonu başlat
+        animateTicker();
+
+        // --- DİĞER FONKSİYONLAR ---
         const modal = document.getElementById('feedbackModal');
         const openBtn = document.getElementById('openFeedbackBtn');
         const closeBtn = document.getElementById('closeFeedbackBtn');
