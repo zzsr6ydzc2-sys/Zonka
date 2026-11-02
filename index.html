@@ -51,6 +51,8 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+        
         body {
             background-color: var(--bg-base);
             background-image: 
@@ -98,14 +100,8 @@
 
         /* --- TOP NAV HEADER BAR --- */
         .top-navbar {
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; justify-content: flex-end; align-items: center;
             padding: 20px 24px; max-width: 940px; margin: 0 auto; position: relative; z-index: 100;
-        }
-        .nav-brand {
-            font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-decoration: none; letter-spacing: 2px;
         }
         .nav-right-actions {
             display: flex; align-items: center; gap: 12px;
@@ -119,12 +115,13 @@
         .join-community-nav-btn:hover { background: rgba(6, 182, 212, 0.3); border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.5); }
         
         .hamburger-menu-btn {
-            background: rgba(255, 255, 255, 0.08); border: 1.5px solid rgba(255, 255, 255, 0.2);
-            color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex;
+            background: rgba(10, 17, 40, 0.8); border: 1.5px solid rgba(6, 182, 212, 0.5);
+            color: var(--cyan); width: 40px; height: 40px; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; cursor: pointer; font-size: 1rem;
             transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
         }
-        .hamburger-menu-btn:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--gold); color: var(--gold-light); }
+        .hamburger-menu-btn:hover { background: rgba(6, 182, 212, 0.2); border-color: var(--cyan); color: #fff; box-shadow: 0 0 20px rgba(6, 182, 212, 0.6); }
 
         /* --- MOBILE DRAWER MENU WITH FROSTED GLASS BACKDROP --- */
         .mobile-menu-overlay {
@@ -135,8 +132,8 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         .mobile-drawer {
-            width: 100%; max-width: 340px; height: 100%; background: rgba(10, 17, 40, 0.96);
-            border-left: 2px solid rgba(6, 182, 212, 0.4); padding: 30px;
+            width: 100%; max-width: 340px; height: 100%; background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.15));
+            border-left: 2px solid rgba(6, 182, 212, 0.5); padding: 30px;
             display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9);
             position: relative; overflow-y: auto; animation: slideInRight 0.3s ease;
         }
@@ -154,18 +151,20 @@
             font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold-light);
             margin-bottom: 25px; font-weight: 800; letter-spacing: 1px;
             border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;
+            text-shadow: 0 0 10px rgba(252,211,77,0.4);
         }
         .drawer-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
         .drawer-links a {
             color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500;
             display: flex; align-items: center; gap: 12px; padding: 10px 14px;
             border-radius: 10px; background: rgba(255,255,255,0.03); transition: 0.2s;
+            border: 1px solid transparent;
         }
-        .drawer-links a:hover { background: rgba(6, 182, 212, 0.15); color: var(--cyan); transform: translateX(4px); }
+        .drawer-links a:hover { background: rgba(6, 182, 212, 0.15); color: var(--cyan); transform: translateX(4px); border-color: rgba(6, 182, 212, 0.3); }
         .drawer-links a i { color: var(--cyan); width: 20px; text-align: center; }
 
         .drawer-contract-box {
-            background: rgba(0,0,0,0.4); border: 1.5px dashed rgba(245, 158, 11, 0.5);
+            background: rgba(0,0,0,0.5); border: 1.5px dashed rgba(245, 158, 11, 0.5);
             padding: 16px; border-radius: 12px; margin-top: auto;
         }
         .drawer-contract-box p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
@@ -182,32 +181,51 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            text-align: center; padding: 40px 20px 60px;
+            text-align: center; padding: 20px 20px 60px;
             display: flex; flex-direction: column;
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
+        }
+
+        .presale-badge-container {
+            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px;
         }
 
         .hero-badge-top {
             display: inline-flex; align-items: center; gap: 8px;
             background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.4);
             color: #38bdf8; padding: 6px 18px; border-radius: 20px; font-size: 0.75rem;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
         }
         .hero-badge-top span { width: 7px; height: 7px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 8px #38bdf8; }
 
+        .presale-started-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5);
+            color: var(--gold-light); padding: 6px 18px; border-radius: 20px; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+            animation: pulseGold 2s infinite;
+        }
+        .presale-started-badge i { font-size: 0.9rem; }
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+        }
+
         .hero h1 {
             font-family: 'Cinzel', serif; 
-            font-size: 4.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
+            font-size: 4.2rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
             color: #ffffff; 
-            letter-spacing: 12px; margin-bottom: 15px;
+            letter-spacing: 10px; margin-bottom: 15px;
             display: inline-block;
             background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shineText 8s linear infinite;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 0 15px rgba(252, 211, 77, 0.6)) drop-shadow(0 10px 20px rgba(0,0,0,0.8));
         }
         @keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
 
@@ -577,14 +595,12 @@
         .trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 4px solid rgba(249, 115, 22, 0.95); border-top: 6px solid #f97316; }
         .trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 4px solid rgba(236, 72, 153, 0.95); border-top: 6px solid #ec4899; }
         .trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 4px solid rgba(6, 182, 212, 0.95); border-top: 6px solid #06b6d4; }
-        .trust-item.transparency { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35)); border: 4px solid rgba(139, 92, 246, 0.95); border-top: 6px solid #8b5cf6; }
 
         .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 12px; font-weight: 800; }
         .trust-item.team h3 { color: #34d399; }
         .trust-item.community h3 { color: #f97316; }
         .trust-item.marketing h3 { color: #ec4899; }
         .trust-item.liquidity h3 { color: #06b6d4; }
-        .trust-item.transparency h3 { color: #8b5cf6; }
         .trust-item.treasury h3 { color: #fcd34d; }
 
         .trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; }
@@ -709,7 +725,7 @@
         .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.6rem; letter-spacing: 8px; }
+            .hero h1 { font-size: 3rem; letter-spacing: 6px; }
             .hero h2 { font-size: 0.85rem; letter-spacing: 5px;}
             .buy-box-body { padding: 22px 18px; }
             .buy-box-header { padding: 18px; }
@@ -734,7 +750,6 @@
 
     <!-- TOP NAVBAR -->
     <header class="top-navbar">
-        <a href="#" class="nav-brand">ZONKA</a>
         <div class="nav-right-actions">
             <a href="https://t.me/zonkacoin" target="_blank" class="join-community-nav-btn">
                 <i class="fab fa-telegram-plane"></i> Join Community
@@ -768,8 +783,13 @@
     </div>
 
     <section class="hero">
-        <div class="hero-badge-top">
-            <span></span> BUILDING A BRIGHTER WEB3
+        <div class="presale-badge-container">
+            <div class="presale-started-badge">
+                <i class="fas fa-rocket"></i> PRESALE STARTED - 15M GOAL
+            </div>
+            <div class="hero-badge-top">
+                <span></span> BUILDING A BRIGHTER WEB3
+            </div>
         </div>
 
         <h1>ZONKA</h1>
@@ -971,28 +991,28 @@
                     <div class="roadmap-icon">1</div>
                     <div class="roadmap-content">
                         <h4>Phase 1: Awakening</h4>
-                        <p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
+                        <p>Website Launch, Smart Contract Deployment, and Presale Launch.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">2</div>
                     <div class="roadmap-content">
                         <h4>Phase 2: The Thaw</h4>
-                        <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First Guardians of Life Donation.</p>
+                        <p>15M Presale Sell-out, Raydium Liquidity Pool & Listing, CoinGecko/CMC Listings.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">3</div>
                     <div class="roadmap-content">
                         <h4>Phase 3: Arctic Empire</h4>
-                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Early Community Airdrop Rewards.</p>
+                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">4</div>
                     <div class="roadmap-content">
                         <h4>Phase 4: Ecosystem</h4>
-                        <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
+                        <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards.</p>
                     </div>
                 </div>
             </div>
@@ -1109,17 +1129,6 @@
                     </div>
                     <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
-
-                <div class="trust-item transparency">
-                    <h3><i class="fas fa-eye"></i> Transparent</h3>
-                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
-                    <div class="trust-details">
-                        <span><span class="label-txt">Network</span> <strong>Solana</strong></span>
-                        <span><span class="label-txt">Contract</span> <strong>Verified</strong></span>
-                        <span><span class="label-txt">Audit</span> <strong>Public</strong></span>
-                    </div>
-                    <a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
-                </div>
             </div>
         </div>
         
@@ -1163,6 +1172,17 @@
     </div>
 
     <script>
+        // Fix scroll issues on reload by clearing hash
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.onload = function() {
+            window.scrollTo(0, 0);
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+        };
+
         const modal = document.getElementById('feedbackModal');
         const openBtn = document.getElementById('openFeedbackBtn');
         const closeBtn = document.getElementById('closeFeedbackBtn');
@@ -1339,7 +1359,7 @@
                 }
 
             } catch (error) {
-                console.error("Hall of Fame verisi yüklenemedi:", error);
+                console.error("Hall of Fame data could not be loaded:", error);
             }
         }
 
