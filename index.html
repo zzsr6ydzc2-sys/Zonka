@@ -1,1298 +1,1402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!1;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1149062927541486');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1149062927541486&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "WebSite",
-"name": "Zonka",
-"url": "https://zonkacoin.com/"
-}
-</script>
-<title>Zonka (ZNK) | The Arctic Awakens</title>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-:root {
---bg-base: #030712;
---bg-surface: #0a1128;
---gold: #f59e0b;
---gold-light: #fcd34d;
---cyan: #06b6d4;
---text-light: #ffffff;
---text-muted: #94a3b8;
---glass-bg: rgba(10, 17, 40, 0.96);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-box-sizing: border-box; }
-body {
-background-color: var(--bg-base);
-background-image:
-radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.45) 0%, transparent 50%),
-radial-gradient(circle at 90% 30%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
-radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 55%),
-radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.98) 0%, transparent 70%);
-color: var(--text-light);
-font-family: 'Poppins', sans-serif;
-overflow-x: hidden;
-min-height: 100vh;
-position: relative;
-line-height: 1.6;
--webkit-text-size-adjust: 100%;
--webkit-font-smoothing: antialiased;
-}
-/* --- TOP TICKER / MARQUEE BANNER --- */
-.top-ticker-bar {
-background: linear-gradient(90deg, rgba(6,182,212,0.2), rgba(245,158,11,0.2), rgba(168,85,247,0.2));
-border-bottom: 1px solid rgba(6,182,212,0.3);
-color: var(--gold-light);
-font-family: 'Montserrat', sans-serif;
-font-size: 0.78rem;
-font-weight: 700;
-padding: 6px 0;
-overflow: hidden;
-white-space: nowrap;
-position: relative;
-z-index: 101;
-letter-spacing: 1px;
-}
-.top-ticker-content {
-display: inline-block;
-animation: tickerScroll 22s linear infinite;
-}
-.top-ticker-content span {
-margin-right: 50px;
-}
-.top-ticker-content span i {
-color: var(--cyan);
-margin-right: 6px;
-}
-@keyframes tickerScroll {
-0% { transform: translateX(100%); }
-100% { transform: translateX(-100%); }
-}
-/* --- SNOW ANIMATION --- */
-.snow-container {
-position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-pointer-events: none; z-index: 1; overflow: hidden;
-}
-.snow {
-position: absolute; top: -10px; color: #fff; opacity: 0.85;
-text-shadow: 0 0 15px rgba(255,255,255,0.95);
-animation: fall linear infinite;
-}
-.snow:nth-child(1) { left: 5%; font-size: 0.6em; animation-duration: 12s; }
-.snow:nth-child(2) { left: 15%; font-size: 0.8em; animation-duration: 15s; animation-delay: -2s; }
-.snow:nth-child(3) { left: 25%; font-size: 0.4em; animation-duration: 10s; animation-delay: -4s; }
-.snow:nth-child(4) { left: 35%; font-size: 0.9em; animation-duration: 18s; animation-delay: -5s; }
-.snow:nth-child(5) { left: 45%; font-size: 0.7em; animation-duration: 11s; animation-delay: -1s; }
-.snow:nth-child(6) { left: 55%; font-size: 0.5em; animation-duration: 14s; animation-delay: -6s; }
-.snow:nth-child(7) { left: 65%; font-size: 0.8em; animation-duration: 16s; animation-delay: -3s; }
-.snow:nth-child(8) { left: 75%; font-size: 0.6em; animation-duration: 13s; animation-delay: -7s; }
-.snow:nth-child(9) { left: 85%; font-size: 0.9em; animation-duration: 17s; animation-delay: -2s; }
-.snow:nth-child(10){ left: 95%; font-size: 0.5em; animation-duration: 12s; animation-delay: -8s; }
-@keyframes fall {
-0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-10% { opacity: 0.9; }
-90% { opacity: 0.9; }
-100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
-}
-/* --- TOP NAV HEADER BAR --- */
-.top-navbar {
-display: flex; justify-content: space-between; align-items: center;
-padding: 20px 24px; max-width: 940px; margin: 0 auto; position: relative; z-index: 100;
-}
-.nav-brand {
-font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 900;
-background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 100%);
--webkit-background-clip: text; -webkit-text-fill-color: transparent;
-text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
-}
-.nav-brand span.sub-brand-badge {
-font-size: 0.6rem; font-family: 'Montserrat', sans-serif;
-background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);
-color: var(--gold-light); padding: 2px 6px; border-radius: 6px; -webkit-text-fill-color: var(--gold-light);
-letter-spacing: 0.5px; text-transform: uppercase;
-}
-.nav-right-actions {
-display: flex; align-items: center; gap: 12px;
-}
-.join-community-nav-btn {
-background: rgba(6, 182, 212, 0.15); border: 1.5px solid rgba(6, 182, 212, 0.5);
-color: #38bdf8; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;
-font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px;
-transition: all 0.3s;
-}
-.join-community-nav-btn:hover { background: rgba(6, 182, 212, 0.3); border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.5); }
-.hamburger-menu-btn {
-background: rgba(255, 255, 255, 0.08); border: 1.5px solid rgba(255, 255, 255, 0.2);
-color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex;
-align-items: center; justify-content: center; cursor: pointer; font-size: 1rem;
-transition: all 0.3s;
-}
-.hamburger-menu-btn:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--gold); color: var(--gold-light); }
-/* --- MOBILE DRAWER MENU WITH FROSTED GLASS BACKDROP --- */
-.mobile-menu-overlay {
-display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-background: rgba(3, 7, 18, 0.65); z-index: 9999; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-justify-content: flex-end; animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.mobile-drawer {
-width: 100%; max-width: 340px; height: 100%; background: rgba(10, 17, 40, 0.96);
-border-left: 2px solid rgba(6, 182, 212, 0.4); padding: 30px;
-display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9);
-position: relative; overflow-y: auto; animation: slideInRight 0.3s ease;
-}
-@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
-.drawer-close {
-position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1);
-color: #fff; border: 1px solid rgba(255,255,255,0.2); width: 36px; height: 36px;
-border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex;
-align-items: center; justify-content: center; transition: 0.2s;
-}
-.drawer-close:hover { background: #ef4444; border-color: #ef4444; }
-.drawer-title {
-font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold-light);
-margin-bottom: 25px; font-weight: 800; letter-spacing: 1px;
-border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;
-}
-.drawer-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
-.drawer-links a {
-color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500;
-display: flex; align-items: center; gap: 12px; padding: 10px 14px;
-border-radius: 10px; background: rgba(255,255,255,0.03); transition: 0.2s;
-}
-.drawer-links a:hover { background: rgba(6, 182, 212, 0.15); color: var(--cyan); transform: translateX(4px); }
-.drawer-links a i { color: var(--cyan); width: 20px; text-align: center; }
-.drawer-contract-box {
-background: rgba(0,0,0,0.4); border: 1.5px dashed rgba(245, 158, 11, 0.5);
-padding: 16px; border-radius: 12px; margin-top: auto;
-}
-.drawer-contract-box p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
-.drawer-contract-box code {
-display: block; font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--gold-light);
-word-break: break-all; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;
-margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1); user-select: all;
-}
-.drawer-copy-btn {
-width: 100%; background: var(--gold); color: #000; border: none; padding: 10px;
-border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
-}
-.drawer-copy-btn:hover { background: var(--gold-light); }
-/* --- HERO SECTION --- */
-.hero {
-text-align: center; padding: 40px 20px 60px;
-display: flex; flex-direction: column;
-align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
-}
-.hero-badge-top {
-display: inline-flex; align-items: center; gap: 8px;
-background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.4);
-color: #38bdf8; padding: 6px 18px; border-radius: 20px; font-size: 0.75rem;
-font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
-box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
-}
-.hero-badge-top span { width: 7px; height: 7px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 8px #38bdf8; }
-.hero h1 {
-font-family: 'Cinzel', serif;
-font-size: 4.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
-color: #ffffff;
-letter-spacing: 12px; margin-bottom: 15px;
-display: inline-block;
-background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shineText 8s linear infinite;
-filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
-}
-@keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
-.hero h2 {
-font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700;
-margin-bottom: 25px; color: var(--text-muted); letter-spacing: 10px;
-text-transform: uppercase;
-}
-.hero p {
-font-size: 1.05rem; max-width: 600px; margin: 0 auto 35px;
-font-weight: 400; color: #cbd5e1; line-height: 1.7;
-}
-.hero p strong { color: var(--gold-light); font-weight: 600; }
-/* --- SOCIALS HERO (TELEGRAM & X ONLY) --- */
-.socials-hero {
-display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-margin-top: 0px; margin-bottom: 40px;
-}
-.socials-hero a {
-display: flex; align-items: center; justify-content: center;
-width: 48px; height: 48px; border-radius: 50%; text-decoration: none;
-color: var(--text-muted); font-size: 1.25rem;
-transition: all 0.3s ease;
-border: 1.5px solid rgba(6, 182, 212, 0.3);
-background: rgba(10, 17, 40, 0.4);
-box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-}
-.socials-hero a:hover {
-color: var(--gold-light);
-border-color: var(--gold-light);
-background: rgba(245, 158, 11, 0.1);
-transform: translateY(-4px) scale(1.05);
-box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 20px rgba(245, 158, 11, 0.4);
-}
-/* ==========================================================
-BUY BOX (EXACT MATCH REFERENCE DESIGN WITH INTEGRATED WARNING)
-========================================================== */
-.buy-box-container {
-background: rgba(10, 17, 40, 0.88);
-backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-border: 2px solid rgba(245, 158, 11, 0.6);
-border-radius: 24px;
-padding: 0;
-width: 100%; max-width: 520px;
-margin: 0 auto 24px;
-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(245, 158, 11, 0.2);
-text-align: left;
-position: relative; overflow: hidden;
-}
-.buy-box-header {
-padding: 22px 28px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-display: flex; justify-content: space-between; align-items: center;
-background: rgba(3, 7, 18, 0.4);
-}
-.buy-box-header h3 {
-font-family: 'Cinzel', serif; font-size: 1.3rem; margin: 0;
-color: var(--gold-light); font-weight: 700; display: flex; align-items: center; gap: 8px;
-}
-.live-indicator {
-display: flex; align-items: center; gap: 6px;
-font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #10b981; font-weight: 700;
-background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 12px;
-border: 1px solid rgba(16, 185, 129, 0.3);
-}
-.live-dot-small { width: 7px; height: 7px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
-.buy-box-body { padding: 28px; background: rgba(3, 7, 18, 0.4); }
-/* PRICE CARDS GRID */
-.price-cards-grid {
-display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;
-}
-.price-card-box {
-background: rgba(0,0,0,0.65); padding: 14px 16px; border-radius: 14px;
-border: 1.5px solid rgba(255, 255, 255, 0.12);
-box-shadow: inset 0 2px 10px rgba(0,0,0,0.9);
-position: relative; overflow: hidden;
-display: flex; flex-direction: column; justify-content: space-between;
-}
-.price-card-box span.card-label {
-display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;
-font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px;
-}
-.price-card-box .card-val-row {
-display: flex; align-items: center; justify-content: space-between; gap: 6px;
-}
-.price-card-box strong {
-font-family: 'Inter', sans-serif; font-size: 1.25rem; color: var(--gold-light);
-font-weight: 700; text-shadow: 0 0 10px rgba(252,211,77,0.4);
-white-space: nowrap;
-}
-.price-card-box .plus-badge {
-font-size: 0.68rem; font-weight: 700; color: #34d399; background: rgba(52,211,153,0.15);
-padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(52,211,153,0.3);
-white-space: nowrap;
-}
-.sol-coin-icon {
-width: 26px; height: 26px; background: linear-gradient(135deg, #9945FF, #14F195);
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
-color: #000; font-size: 0.8rem; font-weight: 900; box-shadow: 0 0 10px rgba(20,241,149,0.5);
-flex-shrink: 0;
-}
-.input-group-section { margin-bottom: 18px; }
-.input-group-section label {
-font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 8px;
-font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
-}
-.sol-input-wrapper {
-position: relative; display: flex; align-items: center;
-background: rgba(0,0,0,0.6); border: 1.5px solid rgba(255, 255, 255, 0.15);
-border-radius: 12px; padding: 4px 12px; transition: 0.2s;
-}
-.sol-input-wrapper:focus-within { border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.3); }
-.sol-mini-icon {
-width: 24px; height: 24px; background: linear-gradient(135deg, #9945FF, #14F195);
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
-color: #000; font-size: 0.75rem; font-weight: 900; margin-right: 10px; flex-shrink: 0;
-}
-.sol-input-wrapper input {
-width: 100%; padding: 12px 0; border: none; background: transparent;
-color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
-outline: none; font-weight: 600;
-}
-.max-btn-badge {
-background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
-color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700;
-cursor: pointer; transition: 0.2s; flex-shrink: 0;
-}
-.max-btn-badge:hover { background: var(--cyan); color: #000; border-color: var(--cyan); }
-.receive-group-section { margin-bottom: 22px; }
-.receive-group-section label {
-font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 8px;
-font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
-}
-.receive-box-display {
-background: rgba(0,0,0,0.6); border: 1.5px solid rgba(255, 255, 255, 0.15);
-border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;
-}
-.receive-box-left { display: flex; align-items: center; gap: 10px; }
-.znk-token-badge-img {
-width: 28px; height: 28px; background: linear-gradient(135deg, var(--cyan), #a855f7);
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
-font-family: 'Cinzel', serif; font-weight: 900; font-size: 0.8rem; color: #fff;
-box-shadow: 0 0 12px rgba(6,182,212,0.6);
-}
-.receive-box-left span { font-size: 0.85rem; font-weight: 600; color: #cbd5e1; }
-.receive-amount-text {
-font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-light);
-text-shadow: 0 0 10px rgba(252,211,77,0.4);
-}
-.buy-now-action-btn {
-display: flex; align-items: center; justify-content: center; gap: 10px;
-width: 100%; padding: 16px;
-background: linear-gradient(135deg, #06b6d4 0%, #a855f7 50%, #f59e0b 100%);
-background-size: 200% auto;
-color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem;
-text-decoration: none; border-radius: 12px; border: none;
-cursor: pointer; transition: all 0.3s ease;
-box-shadow: 0 10px 30px rgba(6,182,212,0.4); text-transform: uppercase; letter-spacing: 1px;
-}
-.buy-now-action-btn:hover:not(:disabled) {
-background-position: right center;
-box-shadow: 0 15px 40px rgba(168,85,247,0.6), 0 0 30px rgba(245,158,11,0.5);
-transform: translateY(-2px);
-}
-.buy-now-action-btn:disabled { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); cursor: not-allowed; box-shadow: none; }
-.secure-transparent-tag {
-display: flex; align-items: center; justify-content: center; gap: 6px;
-margin-top: 14px; font-size: 0.75rem; color: #34d399; font-weight: 600; text-transform: uppercase;
-letter-spacing: 1px;
-}
-/* INTEGRATED BUY BOX WALLET WARNING */
-.buybox-wallet-notice {
-margin-top: 18px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35);
-border-radius: 12px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;
-}
-.buybox-wallet-notice i { color: var(--gold-light); font-size: 0.95rem; margin-top: 2px; flex-shrink: 0; }
-.buybox-wallet-notice p { font-size: 0.76rem; color: #cbd5e1; line-height: 1.45; margin: 0; }
-.buybox-wallet-notice p strong { color: var(--gold-light); font-weight: 600; }
-.wallet-address-box {
-background: rgba(0,0,0,0.85); border: 2px dashed rgba(245,158,11,0.6);
-padding: 22px; border-radius: 14px; margin-top: 20px; display: none;
-box-shadow: inset 0 2px 10px rgba(0,0,0,0.9);
-}
-.wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; text-align: left; }
-.wallet-address-box p strong { color: #fff; }
-.wallet-address-box code {
-display: block; font-family: 'Courier New', monospace; font-size: 1rem;
-color: var(--gold-light); font-weight: 600; user-select: all;
-background: rgba(255,255,255,0.05); padding: 14px; border-radius: 8px;
-border: 1px dashed rgba(255, 255, 255, 0.2); text-align: center; margin-bottom: 12px;
-cursor: pointer; transition: 0.2s;
-}
-.wallet-address-box code:hover { background: rgba(255,255,255,0.1); }
-.copy-wallet-btn {
-background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px;
-border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500;
-font-family: 'Inter', sans-serif; transition: 0.2s; width: 100%; margin-bottom: 12px;
-}
-.copy-wallet-btn:hover { background: rgba(255,255,255,0.1); }
-.telegram-support-btn {
-display: flex; align-items: center; justify-content: center; gap: 8px;
-background: transparent; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1);
-padding: 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;
-font-weight: 500; font-family: 'Inter', sans-serif;
-text-decoration: none; transition: 0.2s;
-}
-.telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
-.distribution-note {
-padding: 18px 28px; background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255, 255, 255, 0.08);
-color: var(--text-muted); font-size: 0.8rem; text-align: left; display: block;
-}
-.distribution-note span { display: block; line-height: 1.5; color: #cbd5e1; }
-.distribution-note span strong { color: var(--gold-light); }
-/* --- 4 GRID FEATURE CARDS --- */
-.features-grid-4 {
-display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
-max-width: 940px; margin: 40px auto 20px; padding: 0 15px; position: relative; z-index: 10;
-}
-.feature-box-item {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.95), rgba(6, 182, 212, 0.15));
-backdrop-filter: blur(20px); border: 1.5px solid rgba(6, 182, 212, 0.35);
-border-radius: 18px; padding: 22px 18px; text-align: left; transition: all 0.3s;
-box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-}
-.feature-box-item:hover { transform: translateY(-5px); border-color: var(--cyan); box-shadow: 0 25px 50px rgba(0,0,0,0.85), 0 0 25px rgba(6,182,212,0.3); }
-.feature-box-item i { font-size: 1.5rem; color: var(--cyan); margin-bottom: 12px; text-shadow: 0 0 15px rgba(6,182,212,0.6); }
-.feature-box-item h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
-.feature-box-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
-.section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
-.section-title {
-font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900;
-text-align: center; margin-bottom: 45px; text-transform: uppercase;
-letter-spacing: 3px;
-background: linear-gradient(180deg, #ffffff 0%, #fef08a 40%, #fcd34d 70%, #d97706 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-filter: drop-shadow(0 0 20px rgba(252, 211, 77, 0.7));
-word-wrap: break-word;
-padding: 0 10px;
-}
-.section-title::after {
-content: ''; display: block; width: 150px; height: 3px;
-background: linear-gradient(90deg, transparent, #fef08a, #fcd34d, transparent);
-margin: 20px auto 0; box-shadow: 0 0 35px #fcd34d;
-border-radius: 50%;
-}
-.vision-box {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
-backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-padding: 40px 30px; border-radius: 24px; border: 2px solid rgba(6, 182, 212, 0.5);
-font-size: 1.05rem; line-height: 1.8; text-align: center; color: #e2e8f0; font-weight: 400;
-margin-bottom: 40px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 40px rgba(6, 182, 212, 0.2);
-position: relative; overflow: hidden;
-max-width: 760px; margin-left: auto; margin-right: auto;
-}
-.vision-box strong { color: var(--gold-light); font-weight: 600; text-shadow: 0 0 15px rgba(252,211,77,0.6); }
-.vision-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0 0 0; flex-wrap: wrap; }
-.vision-icon-item { text-align: center; }
-.vision-icon-item i { font-size: 1.8rem; color: var(--cyan); margin-bottom: 10px; text-shadow: 0 0 20px rgba(6,182,212,0.8); }
-.vision-icon-item span { display: block; font-size: 0.8rem; font-weight: 600; color: #fff; letter-spacing: 1px; }
-.impact-gallery { display: flex; justify-content: center; margin: 40px 0; }
-.impact-card {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(245, 158, 11, 0.25));
-backdrop-filter: blur(30px); border: 4px solid rgba(245, 158, 11, 0.9); border-radius: 28px;
-overflow: hidden; width: 100%; max-width: 660px; position: relative; text-align: center;
-box-shadow: 0 40px 80px -12px rgba(0,0,0,0.98), 0 0 85px rgba(245, 158, 11, 0.65);
-}
-.impact-image-placeholder { width: 100%; height: auto; background: #000; display: flex; justify-content: center; align-items: center; overflow: hidden; border-bottom: 2px solid rgba(255,255,255,0.18); }
-.impact-image-placeholder img { width: 100%; height: auto; display: block; }
-.impact-content { padding: 32px; }
-.impact-content h4 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.5rem; margin-bottom: 16px; letter-spacing: 1px; text-shadow: 0 0 20px rgba(245,158,11,0.85); }
-.impact-content p { font-size: 1rem; color: #e2e8f0; line-height: 1.85; }
-.donation-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 30px; }
-.donation-card:nth-child(1) {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.3));
-border: 2px solid rgba(6, 182, 212, 0.8);
-box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(6, 182, 212, 0.3);
-}
-.donation-card:nth-child(2) {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(168, 85, 247, 0.3));
-border: 2px solid rgba(168, 85, 247, 0.8);
-box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(168, 85, 247, 0.3);
-}
-.donation-card {
-backdrop-filter: blur(30px); padding: 24px 20px; border-radius: 20px;
-text-align: center; position: relative; overflow: hidden;
-display: flex; flex-direction: column; justify-content: space-between;
-}
-.donation-card h3 { color: var(--gold-light); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 0 14px rgba(245,158,11,0.6); }
-.hope-counter {
-font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 10px;
-text-shadow: 0 0 30px rgba(245,158,11,0.95); letter-spacing: 2px;
-}
-.counter-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; font-weight: 400; }
-.donation-wallet-box { background: rgba(0,0,0,0.8); border: 2px dashed rgba(255,255,255,0.4); padding: 16px; border-radius: 12px; margin-bottom: 20px; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.9); }
-.donation-wallet-box p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 600; }
-.donation-wallet-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #fff; word-break: break-all; font-weight: 700; user-select: all; background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
-.copy-donate-btn { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 10px 14px; border-radius: 8px; font-size: 0.78rem; cursor: pointer; margin-top: 12px; font-weight: bold; width: 100%; transition: 0.3s; }
-.copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
-.verify-donation-btn {
-display: block; width: 100%; padding: 12px;
-background: var(--gold); color: #000;
-font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
-text-decoration: none; border-radius: 8px; border: none; cursor: pointer; text-align: center;
-}
-.verify-donation-btn:hover { background: var(--gold-light); }
-.badge-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-.badge-table th, .badge-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.15); text-align: left; font-size: 0.85rem; color: #fff; }
-.badge-table th { color: var(--cyan); font-weight: 600; }
-.hall-of-fame {
-background: rgba(0,0,0,0.8); border: 2px solid rgba(168, 85, 247, 0.6); border-radius: 12px; padding: 16px; max-height: 180px;
-overflow-y: auto; display: flex; flex-direction: column; gap: 10px; text-align: left;
-box-shadow: inset 0 2px 15px rgba(0,0,0,0.9);
-}
-.hall-of-fame::-webkit-scrollbar { width: 5px; }
-.hall-of-fame::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 3px; }
-.hall-of-fame::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
-.hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; margin: auto; }
-.hero-item-link { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 8px; font-size: 0.85rem; width: 100%; text-decoration: none; cursor: pointer; }
-.hero-name { color: #fff; font-weight: 600; }
-.hero-icon-group { display: flex; align-items: center; gap: 8px; }
-.tg-icon { color: #229ED9; font-size: 1rem; }
-.hero-badge { font-size: 1rem; }
-/* TRUST CARDS */
-.trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; margin-bottom: 20px; }
-.trust-track { display: flex; gap: 28px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; }
-.trust-item {
-backdrop-filter: blur(25px); padding: 26px 22px; border-radius: 26px;
-width: 340px; min-height: 450px; flex-shrink: 0; position: relative;
-display: flex; flex-direction: column; justify-content: space-between;
-box-shadow: 0 35px 70px rgba(0,0,0,0.9); overflow: hidden;
-}
-.trust-item.treasury { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35)); border: 4px solid rgba(245, 158, 11, 0.95); border-top: 6px solid #fcd34d; }
-.trust-item.team { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35)); border: 4px solid rgba(52, 211, 153, 0.95); border-top: 6px solid #34d399; }
-.trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 4px solid rgba(249, 115, 22, 0.95); border-top: 6px solid #f97316; }
-.trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 4px solid rgba(236, 72, 153, 0.95); border-top: 6px solid #ec4899; }
-.trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 4px solid rgba(6, 182, 212, 0.95); border-top: 6px solid #06b6d4; }
-.trust-item.transparency { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35)); border: 4px solid rgba(139, 92, 246, 0.95); border-top: 6px solid #8b5cf6; }
-.trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 12px; font-weight: 800; }
-.trust-item.team h3 { color: #34d399; }
-.trust-item.community h3 { color: #f97316; }
-.trust-item.marketing h3 { color: #ec4899; }
-.trust-item.liquidity h3 { color: #06b6d4; }
-.trust-item.transparency h3 { color: #8b5cf6; }
-.trust-item.treasury h3 { color: #fcd34d; }
-.trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; }
-.trust-details {
-display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; color: #fff; margin-bottom: 15px;
-background: rgba(0,0,0,0.85); padding: 14px; border-radius: 12px; text-align: left;
-border: 1.5px solid rgba(255,255,255,0.2);
-}
-.trust-details span { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
-.trust-details span.label-txt { flex: 1; color: #94a3b8; }
-.trust-details strong { color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; }
-.trust-btn {
-display: block; width: 100%; padding: 12px; background: rgba(255,255,255,0.1); color: #fff;
-text-align: center; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px;
-font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; transition: 0.3s;
-}
-.trust-btn:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
-.roadmap-controls { display: flex; justify-content: center; gap: 30px; margin: 32px 0; }
-.roadmap-btn {
-background: rgba(255,255,255,0.15); border: 2.5px solid rgba(255,255,255,0.4); color: var(--gold);
-width: 58px; height: 58px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-font-size: 1.45rem; transition: 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-}
-.roadmap-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); transform: scale(1.12); }
-.roadmap-wrapper { position: relative; width: 100%; overflow: hidden; padding: 40px 0; }
-.roadmap-track { display: flex; gap: 30px; padding: 20px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; }
-.roadmap-item {
-backdrop-filter: blur(25px); padding: 34px; border-radius: 24px;
-min-width: 270px; max-width: 270px; flex-shrink: 0; position: relative; transition: 0.4s ease;
-box-shadow: 0 35px 70px rgba(0,0,0,0.9);
-}
-.roadmap-item:nth-child(5n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); }
-.roadmap-item:nth-child(5n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); }
-.roadmap-item:nth-child(5n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); }
-.roadmap-item:nth-child(5n+4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); }
-.roadmap-item:nth-child(5n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 4px solid rgba(236,72,153,0.95); }
-.roadmap-item:hover { transform: translateY(-8px); }
-.roadmap-icon {
-width: 44px; height: 44px; border-radius: 50%;
-display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900;
-margin-bottom: 18px; font-size: 1.1rem;
-}
-.roadmap-item:nth-child(5n+1) .roadmap-icon { background: rgba(6,182,212,0.4); border: 2px solid var(--cyan); color: var(--cyan); }
-.roadmap-item:nth-child(5n+2) .roadmap-icon { background: rgba(52,211,153,0.4); border: 2px solid #34d399; color: #34d399; }
-.roadmap-item:nth-child(5n+3) .roadmap-icon { background: rgba(245,158,11,0.4); border: 2px solid var(--gold); color: var(--gold); }
-.roadmap-item:nth-child(5n+4) .roadmap-icon { background: rgba(168,85,247,0.4); border: 2px solid #a855f7; color: #a855f7; }
-.roadmap-item:nth-child(5n+0) .roadmap-icon { background: rgba(236,72,153,0.4); border: 2px solid #ec4899; color: #ec4899; }
-.roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700; }
-.roadmap-content p { color: #e2e8f0; font-size: 0.9rem; line-height: 1.75; }
-.tokenomics-wrapper { position: relative; width: 100%; overflow: hidden; padding: 25px 0; margin-bottom: 40px; }
-.tokenomics-track { display: flex; gap: 26px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; }
-.tokenomics-item {
-backdrop-filter: blur(25px); padding: 32px; border-radius: 22px;
-min-width: 295px; max-width: 295px; flex-shrink: 0; position: relative; text-align: left;
-box-shadow: 0 30px 60px rgba(0,0,0,0.9);
-}
-.tokenomics-item:nth-child(6n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); }
-.tokenomics-item:nth-child(6n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); }
-.tokenomics-item:nth-child(6n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); }
-.tokenomics-item:nth-child(6n+4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); }
-.tokenomics-item:nth-child(6n+5) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 4px solid rgba(236,72,153,0.95); }
-.tokenomics-item:nth-child(6n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(59,130,246,0.35)); border: 4px solid rgba(59,130,246,0.95); }
-.tokenomics-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
-.tokenomics-title span { font-size: 1.25rem; font-family: 'Inter', sans-serif; }
-.tokenomics-item:nth-child(6n+1) .tokenomics-title span { color: var(--gold); }
-.tokenomics-item:nth-child(6n+2) .tokenomics-title span { color: var(--cyan); }
-.tokenomics-item:nth-child(6n+3) .tokenomics-title span { color: #a855f7; }
-.tokenomics-item:nth-child(6n+4) .tokenomics-title span { color: #34d399; }
-.tokenomics-item:nth-child(6n+5) .tokenomics-title span { color: #ec4899; }
-.tokenomics-item:nth-child(6n+0) .tokenomics-title span { color: #3b82f6; }
-.tokenomics-desc { color: #e2e8f0; font-size: 0.88rem; line-height: 1.7; }
-.tokenomics-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.12); border-radius: 4px; margin-top: 20px; overflow: hidden; }
-.tokenomics-bar-fill { height: 100%; border-radius: 4px; }
-.tokenomics-item:nth-child(6n+1) .tokenomics-bar-fill { background: linear-gradient(90deg, #d97706, var(--gold)); }
-.tokenomics-item:nth-child(6n+2) .tokenomics-bar-fill { background: linear-gradient(90deg, #0e7490, var(--cyan)); }
-.tokenomics-item:nth-child(6n+3) .tokenomics-bar-fill { background: linear-gradient(90deg, #7e22ce, #a855f7); }
-.tokenomics-item:nth-child(6n+4) .tokenomics-bar-fill { background: linear-gradient(90deg, #065f46, #34d399); }
-.tokenomics-item:nth-child(6n+5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); }
-.tokenomics-item:nth-child(6n+0) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); }
-.contract-box {
-background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
-backdrop-filter: blur(30px); padding: 38px; border-radius: 24px; text-align: center; margin: 0 auto;
-border: 4px solid rgba(6, 182, 212, 0.9); max-width: 620px; box-shadow: 0 40px 80px -10px rgba(0,0,0,0.98);
-}
-.contract-box code { display: block; font-family: 'Courier New', monospace; font-size: 1.02rem; background: rgba(0,0,0,0.8); padding: 18px; border-radius: 12px; margin-bottom: 25px; word-break: break-all; color: var(--gold-light); font-weight: 700; border: 2px dashed rgba(245,158,11,0.8); }
-.copy-btn { background: var(--gold); color: #000; padding: 14px 30px; border-radius: 12px; font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.92rem; transition: 0.3s; }
-.copy-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-footer { text-align: center; padding: 50px 15px; background: rgba(0, 0, 0, 0.85); color: var(--text-muted); font-size: 0.82rem; margin-top: 60px; border-top: 2px solid rgba(255, 255, 255, 0.2); }
-.footer-verified { color: var(--gold-light); display: block; margin-top: 14px; margin-bottom: 22px; font-weight: 600; letter-spacing: 1px; }
-.ssl-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 10px 22px; border-radius: 24px; font-size: 0.78rem; font-weight: 700; border: 2px solid rgba(16, 185, 129, 0.7); }
-.floating-feedback-btn {
-position: fixed; bottom: 35px; right: 35px;
-background: linear-gradient(135deg, #06b6d4, #a855f7, #ec4899, #f59e0b);
-background-size: 300% 300%; animation: neonGradientPulse 6s ease infinite;
-color: #ffffff; padding: 12px 22px; border-radius: 30px;
-font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem;
-text-decoration: none; box-shadow: 0 20px 50px rgba(0,0,0,0.95);
-z-index: 9999; display: flex; align-items: center; gap: 10px; cursor: pointer;
-border: 2.5px solid rgba(255, 255, 255, 0.7); transition: 0.3s;
-}
-@keyframes neonGradientPulse { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-.floating-feedback-btn:hover { transform: translateY(-6px) scale(1.05); border-color: #ffffff; }
-.feedback-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); z-index: 99999; justify-content: center; align-items: center; backdrop-filter: blur(16px); }
-.feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #030712; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 95px rgba(0,0,0,0.99); display: flex; flex-direction: column; border: 4px solid rgba(168,85,247,0.9); }
-.feedback-iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
-.close-modal-btn { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.85); color: #fff; border: 2px solid rgba(255,255,255,0.5); width: 42px; height: 42px; border-radius: 50%; font-size: 1.35rem; cursor: pointer; z-index: 10; display: flex; justify-content: center; align-items: center; transition: 0.3s; }
-.close-modal-btn:hover { background: #ef4444; border-color: #ef4444; }
-.zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #030712; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(255,255,255,0.18); pointer-events: none; z-index: 5; }
-.zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); }
-@media (max-width: 768px) {
-.hero h1 { font-size: 3.6rem; letter-spacing: 8px; }
-.hero h2 { font-size: 0.85rem; letter-spacing: 5px;}
-.buy-box-body { padding: 22px 18px; }
-.buy-box-header { padding: 18px; }
-.distribution-note { padding: 16px 18px; }
-.donation-layout { grid-template-columns: 1fr; gap: 20px; }
-.vision-box { padding: 30px 20px; }
-.section-title { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 30px; }
-.roadmap-item { min-width: 220px; max-width: 220px; padding: 26px; }
-.tokenomics-item { min-width: 250px; max-width: 250px; padding: 26px; }
-.trust-item { width: 320px; min-height: 450px; padding: 24px 18px; }
-.roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
-.floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; }
-}
-</style>
+    <meta charset="UTF-8">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!1;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1149062927541486');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1149062927541486&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Zonka",
+      "url": "https://zonkacoin.com/"
+    }
+    </script>
+
+    <title>Zonka (ZNK) | The Arctic Awakens</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #030712; 
+            --bg-surface: #0a1128;
+            --gold: #f59e0b;
+            --gold-light: #fcd34d;
+            --cyan: #06b6d4;
+            --text-light: #ffffff;
+            --text-muted: #94a3b8; 
+            --glass-bg: rgba(10, 17, 40, 0.96); 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.45) 0%, transparent 50%),
+                radial-gradient(circle at 90% 30%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 55%),
+                radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.98) 0%, transparent 70%);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- SNOW ANIMATION --- */
+        .snow-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1; overflow: hidden;
+        }
+        .snow {
+            position: absolute; top: -10px; color: #fff; opacity: 0.85;
+            text-shadow: 0 0 15px rgba(255,255,255,0.95);
+            animation: fall linear infinite;
+        }
+        .snow:nth-child(1) { left: 5%; font-size: 0.6em; animation-duration: 12s; }
+        .snow:nth-child(2) { left: 15%; font-size: 0.8em; animation-duration: 15s; animation-delay: -2s; }
+        .snow:nth-child(3) { left: 25%; font-size: 0.4em; animation-duration: 10s; animation-delay: -4s; }
+        .snow:nth-child(4) { left: 35%; font-size: 0.9em; animation-duration: 18s; animation-delay: -5s; }
+        .snow:nth-child(5) { left: 45%; font-size: 0.7em; animation-duration: 11s; animation-delay: -1s; }
+        .snow:nth-child(6) { left: 55%; font-size: 0.5em; animation-duration: 14s; animation-delay: -6s; }
+        .snow:nth-child(7) { left: 65%; font-size: 0.8em; animation-duration: 16s; animation-delay: -3s; }
+        .snow:nth-child(8) { left: 75%; font-size: 0.6em; animation-duration: 13s; animation-delay: -7s; }
+        .snow:nth-child(9) { left: 85%; font-size: 0.9em; animation-duration: 17s; animation-delay: -2s; }
+        .snow:nth-child(10){ left: 95%; font-size: 0.5em; animation-duration: 12s; animation-delay: -8s; }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- TOP NAV HEADER BAR --- */
+        .top-navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 24px; max-width: 940px; margin: 0 auto; position: relative; z-index: 100;
+        }
+        .nav-brand {
+            font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none; letter-spacing: 2px;
+        }
+        .nav-right-actions {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .join-community-nav-btn {
+            background: rgba(6, 182, 212, 0.15); border: 1.5px solid rgba(6, 182, 212, 0.5);
+            color: #38bdf8; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px;
+            transition: all 0.3s;
+        }
+        .join-community-nav-btn:hover { background: rgba(6, 182, 212, 0.3); border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.5); }
+        
+        .hamburger-menu-btn {
+            background: rgba(255, 255, 255, 0.08); border: 1.5px solid rgba(255, 255, 255, 0.2);
+            color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; cursor: pointer; font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .hamburger-menu-btn:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--gold); color: var(--gold-light); }
+
+        /* --- MOBILE DRAWER MENU WITH FROSTED GLASS BACKDROP --- */
+        .mobile-menu-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 7, 18, 0.65); z-index: 9999; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            justify-content: flex-end; animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .mobile-drawer {
+            width: 100%; max-width: 340px; height: 100%; background: rgba(10, 17, 40, 0.96);
+            border-left: 2px solid rgba(6, 182, 212, 0.4); padding: 30px;
+            display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9);
+            position: relative; overflow-y: auto; animation: slideInRight 0.3s ease;
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+        .drawer-close {
+            position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1);
+            color: #fff; border: 1px solid rgba(255,255,255,0.2); width: 36px; height: 36px;
+            border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; transition: 0.2s;
+        }
+        .drawer-close:hover { background: #ef4444; border-color: #ef4444; }
+
+        .drawer-title {
+            font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold-light);
+            margin-bottom: 25px; font-weight: 800; letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;
+        }
+        .drawer-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
+        .drawer-links a {
+            color: #cbd5e1; text-decoration: none; font-size: 0.95krem; font-weight: 500;
+            display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+            border-radius: 10px; background: rgba(255,255,255,0.03); transition: 0.2s;
+        }
+        .drawer-links a:hover { background: rgba(6, 182, 212, 0.15); color: var(--cyan); transform: translateX(4px); }
+        .drawer-links a i { color: var(--cyan); width: 20px; text-align: center; }
+
+        .drawer-contract-box {
+            background: rgba(0,0,0,0.4); border: 1.5px dashed rgba(245, 158, 11, 0.5);
+            padding: 16px; border-radius: 12px; margin-top: auto;
+        }
+        .drawer-contract-box p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+        .drawer-contract-box code {
+            display: block; font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--gold-light);
+            word-break: break-all; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;
+            margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1); user-select: all;
+        }
+        .drawer-copy-btn {
+            width: 100%; background: var(--gold); color: #000; border: none; padding: 10px;
+            border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
+        }
+        .drawer-copy-btn:hover { background: var(--gold-light); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center; padding: 40px 20px 60px;
+            display: flex; flex-direction: column;
+            align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
+        }
+
+        .hero-badge-top {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.4);
+            color: #38bdf8; padding: 6px 18px; border-radius: 20px; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+        }
+        .hero-badge-top span { width: 7px; height: 7px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 8px #38bdf8; }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif; 
+            font-size: 4.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
+            color: #ffffff; 
+            letter-spacing: 12px; margin-bottom: 15px;
+            display: inline-block;
+            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 70%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 8s linear infinite;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+        }
+        @keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
+
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700;
+            margin-bottom: 25px; color: var(--text-muted); letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.05rem; max-width: 600px; margin: 0 auto 35px;
+            font-weight: 400; color: #cbd5e1; line-height: 1.7;
+        }
+        .hero p strong { color: var(--gold-light); font-weight: 600; }
+
+        /* --- SOCIALS HERO (TELEGRAM & X ONLY) --- */
+        .socials-hero { 
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; 
+            margin-top: 0px; margin-bottom: 40px; 
+        }
+        .socials-hero a {
+            display: flex; align-items: center; justify-content: center;
+            width: 48px; height: 48px; border-radius: 50%; text-decoration: none; 
+            color: var(--text-muted); font-size: 1.25rem;
+            transition: all 0.3s ease; 
+            border: 1.5px solid rgba(6, 182, 212, 0.3);
+            background: rgba(10, 17, 40, 0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .socials-hero a:hover { 
+            color: var(--gold-light);
+            border-color: var(--gold-light);
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-4px) scale(1.05); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 20px rgba(245, 158, 11, 0.4); 
+        }
+
+        /* ==========================================================
+           BUY BOX (EXACT MATCH REFERENCE DESIGN WITH INTEGRATED WARNING)
+           ========================================================== */
+        .buy-box-container {
+            background: rgba(10, 17, 40, 0.88); 
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(245, 158, 11, 0.6); 
+            border-radius: 24px;
+            padding: 0; 
+            width: 100%; max-width: 520px;
+            margin: 0 auto 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(245, 158, 11, 0.2); 
+            text-align: left; 
+            position: relative; overflow: hidden;
+        }
+
+        .buy-box-header {
+            padding: 22px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.4);
+        }
+        .buy-box-header h3 {
+            font-family: 'Cinzel', serif; font-size: 1.3rem; margin: 0;
+            color: var(--gold-light); font-weight: 700; display: flex; align-items: center; gap: 8px;
+        }
+        .live-indicator {
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #10b981; font-weight: 700;
+            background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .live-dot-small { width: 7px; height: 7px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+
+        .buy-box-body { padding: 28px; background: rgba(3, 7, 18, 0.4); }
+
+        /* PRICE CARDS GRID */
+        .price-cards-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;
+        }
+        .price-card-box {
+            background: rgba(0,0,0,0.65); padding: 14px 16px; border-radius: 14px;
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.9);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .price-card-box span.card-label {
+            display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;
+            font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px;
+        }
+        .price-card-box .card-val-row {
+            display: flex; align-items: center; justify-content: space-between; gap: 6px;
+        }
+        .price-card-box strong {
+            font-family: 'Inter', sans-serif; font-size: 1.25rem; color: var(--gold-light);
+            font-weight: 700; text-shadow: 0 0 10px rgba(252,211,77,0.4);
+            white-space: nowrap;
+        }
+        .price-card-box .plus-badge {
+            font-size: 0.68rem; font-weight: 700; color: #34d399; background: rgba(52,211,153,0.15);
+            padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(52,211,153,0.3);
+            white-space: nowrap;
+        }
+        .sol-coin-icon {
+            width: 26px; height: 26px; background: linear-gradient(135deg, #9945FF, #14F195);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #000; font-size: 0.8rem; font-weight: 900; box-shadow: 0 0 10px rgba(20,241,149,0.5);
+            flex-shrink: 0;
+        }
+
+        .input-group-section { margin-bottom: 18px; }
+        .input-group-section label {
+            font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 8px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .sol-input-wrapper {
+            position: relative; display: flex; align-items: center;
+            background: rgba(0,0,0,0.6); border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px; padding: 4px 12px; transition: 0.2s;
+        }
+        .sol-input-wrapper:focus-within { border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.3); }
+        .sol-mini-icon {
+            width: 24px; height: 24px; background: linear-gradient(135deg, #9945FF, #14F195);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #000; font-size: 0.75rem; font-weight: 900; margin-right: 10px; flex-shrink: 0;
+        }
+        .sol-input-wrapper input {
+            width: 100%; padding: 12px 0; border: none; background: transparent;
+            color: #fff; font-family: 'Inter', sans-serif; font-size: 1.1rem;
+            outline: none; font-weight: 600;
+        }
+        .max-btn-badge {
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700;
+            cursor: pointer; transition: 0.2s; flex-shrink: 0;
+        }
+        .max-btn-badge:hover { background: var(--cyan); color: #000; border-color: var(--cyan); }
+
+        .receive-group-section { margin-bottom: 22px; }
+        .receive-group-section label {
+            font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 8px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .receive-box-display {
+            background: rgba(0,0,0,0.6); border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .receive-box-left { display: flex; align-items: center; gap: 10px; }
+        .znk-token-badge-img {
+            width: 28px; height: 28px; background: linear-gradient(135deg, var(--cyan), #a855f7);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: 'Cinzel', serif; font-weight: 900; font-size: 0.8rem; color: #fff;
+            box-shadow: 0 0 12px rgba(6,182,212,0.6);
+        }
+        .receive-box-left span { font-size: 0.85rem; font-weight: 600; color: #cbd5e1; }
+        .receive-amount-text {
+            font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(252,211,77,0.4);
+        }
+
+        .buy-now-action-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 16px;
+            background: linear-gradient(135deg, #06b6d4 0%, #a855f7 50%, #f59e0b 100%);
+            background-size: 200% auto;
+            color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem;
+            text-decoration: none; border-radius: 12px; border: none;
+            cursor: pointer; transition: all 0.3s ease; 
+            box-shadow: 0 10px 30px rgba(6,182,212,0.4); text-transform: uppercase; letter-spacing: 1px;
+        }
+        .buy-now-action-btn:hover:not(:disabled) {
+            background-position: right center;
+            box-shadow: 0 15px 40px rgba(168,85,247,0.6), 0 0 30px rgba(245,158,11,0.5);
+            transform: translateY(-2px);
+        }
+        .buy-now-action-btn:disabled { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); cursor: not-allowed; box-shadow: none; }
+
+        .secure-transparent-tag {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            margin-top: 14px; font-size: 0.75rem; color: #34d399; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* INTEGRATED BUY BOX WALLET WARNING */
+        .buybox-wallet-notice {
+            margin-top: 18px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 12px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;
+        }
+        .buybox-wallet-notice i { color: var(--gold-light); font-size: 0.95rem; margin-top: 2px; flex-shrink: 0; }
+        .buybox-wallet-notice p { font-size: 0.76rem; color: #cbd5e1; line-height: 1.45; margin: 0; }
+        .buybox-wallet-notice p strong { color: var(--gold-light); font-weight: 600; }
+
+        .wallet-address-box {
+            background: rgba(0,0,0,0.85); border: 2px dashed rgba(245,158,11,0.6);
+            padding: 22px; border-radius: 14px; margin-top: 20px; display: none;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.9);
+        }
+        .wallet-address-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; text-align: left; }
+        .wallet-address-box p strong { color: #fff; }
+        .wallet-address-box code {
+            display: block; font-family: 'Courier New', monospace; font-size: 1rem;
+            color: var(--gold-light); font-weight: 600; user-select: all;
+            background: rgba(255,255,255,0.05); padding: 14px; border-radius: 8px;
+            border: 1px dashed rgba(255, 255, 255, 0.2); text-align: center; margin-bottom: 12px;
+            cursor: pointer; transition: 0.2s;
+        }
+        .wallet-address-box code:hover { background: rgba(255,255,255,0.1); }
+
+        .copy-wallet-btn {
+            background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px;
+            border-radius: 8px; font-size: 0.85rem; cursor: pointer; font-weight: 500;
+            font-family: 'Inter', sans-serif; transition: 0.2s; width: 100%; margin-bottom: 12px;
+        }
+        .copy-wallet-btn:hover { background: rgba(255,255,255,0.1); }
+
+        .telegram-support-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: transparent; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; 
+            font-weight: 500; font-family: 'Inter', sans-serif;
+            text-decoration: none; transition: 0.2s;
+        }
+        .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
+
+        .distribution-note {
+            padding: 18px 28px; background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted); font-size: 0.8rem; text-align: left; display: block;
+        }
+        .distribution-note span { display: block; line-height: 1.5; color: #cbd5e1; }
+        .distribution-note span strong { color: var(--gold-light); }
+
+        /* --- 4 GRID FEATURE CARDS --- */
+        .features-grid-4 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
+            max-width: 940px; margin: 40px auto 20px; padding: 0 15px; position: relative; z-index: 10;
+        }
+        .feature-box-item {
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.95), rgba(6, 182, 212, 0.15));
+            backdrop-filter: blur(20px); border: 1.5px solid rgba(6, 182, 212, 0.35);
+            border-radius: 18px; padding: 22px 18px; text-align: left; transition: all 0.3s;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
+        .feature-box-item:hover { transform: translateY(-5px); border-color: var(--cyan); box-shadow: 0 25px 50px rgba(0,0,0,0.85), 0 0 25px rgba(6,182,212,0.3); }
+        .feature-box-item i { font-size: 1.5rem; color: var(--cyan); margin-bottom: 12px; text-shadow: 0 0 15px rgba(6,182,212,0.6); }
+        .feature-box-item h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
+        .feature-box-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+        .section { padding: 60px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
+        
+        .section-title {
+            font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900;
+            text-align: center; margin-bottom: 45px; text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(180deg, #ffffff 0%, #fef08a 40%, #fcd34d 70%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(252, 211, 77, 0.7));
+            word-wrap: break-word;
+            padding: 0 10px;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 150px; height: 3px;
+            background: linear-gradient(90deg, transparent, #fef08a, #fcd34d, transparent);
+            margin: 20px auto 0; box-shadow: 0 0 35px #fcd34d;
+            border-radius: 50%;
+        }
+
+        .vision-box {
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            padding: 40px 30px; border-radius: 24px; border: 2px solid rgba(6, 182, 212, 0.5);
+            font-size: 1.05rem; line-height: 1.8; text-align: center; color: #e2e8f0; font-weight: 400;
+            margin-bottom: 40px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 40px rgba(6, 182, 212, 0.2);
+            position: relative; overflow: hidden;
+            max-width: 760px; margin-left: auto; margin-right: auto;
+        }
+        .vision-box strong { color: var(--gold-light); font-weight: 600; text-shadow: 0 0 15px rgba(252,211,77,0.6); }
+        
+        .vision-icons { display: flex; justify-content: center; gap: 40px; margin: 30px 0 0 0; flex-wrap: wrap; }
+        .vision-icon-item { text-align: center; }
+        .vision-icon-item i { font-size: 1.8rem; color: var(--cyan); margin-bottom: 10px; text-shadow: 0 0 20px rgba(6,182,212,0.8); }
+        .vision-icon-item span { display: block; font-size: 0.8rem; font-weight: 600; color: #fff; letter-spacing: 1px; }
+
+        .impact-gallery { display: flex; justify-content: center; margin: 40px 0; }
+        .impact-card {
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(245, 158, 11, 0.25));
+            backdrop-filter: blur(30px); border: 4px solid rgba(245, 158, 11, 0.9); border-radius: 28px;
+            overflow: hidden; width: 100%; max-width: 660px; position: relative; text-align: center;
+            box-shadow: 0 40px 80px -12px rgba(0,0,0,0.98), 0 0 85px rgba(245, 158, 11, 0.65);
+        }
+        .impact-image-placeholder { width: 100%; height: auto; background: #000; display: flex; justify-content: center; align-items: center; overflow: hidden; border-bottom: 2px solid rgba(255,255,255,0.18); }
+        .impact-image-placeholder img { width: 100%; height: auto; display: block; }
+        .impact-content { padding: 32px; }
+        .impact-content h4 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.5rem; margin-bottom: 16px; letter-spacing: 1px; text-shadow: 0 0 20px rgba(245,158,11,0.85); }
+        .impact-content p { font-size: 1rem; color: #e2e8f0; line-height: 1.85; }
+
+        .donation-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 30px; }
+        
+        .donation-card:nth-child(1) {
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.3));
+            border: 2px solid rgba(6, 182, 212, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(6, 182, 212, 0.3);
+        }
+        .donation-card:nth-child(2) {
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(168, 85, 247, 0.3));
+            border: 2px solid rgba(168, 85, 247, 0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 40px rgba(168, 85, 247, 0.3);
+        }
+
+        .donation-card {
+            backdrop-filter: blur(30px); padding: 24px 20px; border-radius: 20px;
+            text-align: center; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .donation-card h3 { color: var(--gold-light); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 15px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 0 14px rgba(245,158,11,0.6); }
+        
+        .hope-counter {
+            font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: var(--gold); margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(245,158,11,0.95); letter-spacing: 2px;
+        }
+        .counter-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; font-weight: 400; }
+        
+        .donation-wallet-box { background: rgba(0,0,0,0.8); border: 2px dashed rgba(255,255,255,0.4); padding: 16px; border-radius: 12px; margin-bottom: 20px; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.9); }
+        .donation-wallet-box p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 600; }
+        .donation-wallet-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #fff; word-break: break-all; font-weight: 700; user-select: all; background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
+        .copy-donate-btn { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 10px 14px; border-radius: 8px; font-size: 0.78rem; cursor: pointer; margin-top: 12px; font-weight: bold; width: 100%; transition: 0.3s; }
+        .copy-donate-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+
+        .verify-donation-btn {
+            display: block; width: 100%; padding: 12px;
+            background: var(--gold); color: #000;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
+            text-decoration: none; border-radius: 8px; border: none; cursor: pointer; text-align: center;
+        }
+        .verify-donation-btn:hover { background: var(--gold-light); }
+
+        .badge-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .badge-table th, .badge-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.15); text-align: left; font-size: 0.85rem; color: #fff; }
+        .badge-table th { color: var(--cyan); font-weight: 600; }
+        
+        .hall-of-fame { 
+            background: rgba(0,0,0,0.8); border: 2px solid rgba(168, 85, 247, 0.6); border-radius: 12px; padding: 16px; max-height: 180px; 
+            overflow-y: auto; display: flex; flex-direction: column; gap: 10px; text-align: left;
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.9);
+        }
+        .hall-of-fame::-webkit-scrollbar { width: 5px; }
+        .hall-of-fame::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 3px; }
+        .hall-of-fame::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+        .hall-of-fame p { color: var(--text-muted); font-style: italic; font-size: 0.85rem; text-align: center; margin: auto; }
+        
+        .hero-item-link { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 8px; font-size: 0.85rem; width: 100%; text-decoration: none; cursor: pointer; }
+        .hero-name { color: #fff; font-weight: 600; }
+        .hero-icon-group { display: flex; align-items: center; gap: 8px; }
+        .tg-icon { color: #229ED9; font-size: 1rem; }
+        .hero-badge { font-size: 1rem; }
+
+        /* TRUST CARDS */
+        .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; margin-bottom: 20px; }
+        .trust-track { display: flex; gap: 28px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; }
+        
+        .trust-item {
+            backdrop-filter: blur(25px); padding: 26px 22px; border-radius: 26px;
+            width: 340px; min-height: 450px; flex-shrink: 0; position: relative; 
+            display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.9); overflow: hidden;
+        }
+        .trust-item.treasury { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35)); border: 4px solid rgba(245, 158, 11, 0.95); border-top: 6px solid #fcd34d; }
+        .trust-item.team { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35)); border: 4px solid rgba(52, 211, 153, 0.95); border-top: 6px solid #34d399; }
+        .trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 4px solid rgba(249, 115, 22, 0.95); border-top: 6px solid #f97316; }
+        .trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 4px solid rgba(236, 72, 153, 0.95); border-top: 6px solid #ec4899; }
+        .trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 4px solid rgba(6, 182, 212, 0.95); border-top: 6px solid #06b6d4; }
+        .trust-item.transparency { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(139, 92, 246, 0.35)); border: 4px solid rgba(139, 92, 246, 0.95); border-top: 6px solid #8b5cf6; }
+
+        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 12px; font-weight: 800; }
+        .trust-item.team h3 { color: #34d399; }
+        .trust-item.community h3 { color: #f97316; }
+        .trust-item.marketing h3 { color: #ec4899; }
+        .trust-item.liquidity h3 { color: #06b6d4; }
+        .trust-item.transparency h3 { color: #8b5cf6; }
+        .trust-item.treasury h3 { color: #fcd34d; }
+
+        .trust-item p { color: #e2e8f0; font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; }
+        
+        .trust-details { 
+            display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; color: #fff; margin-bottom: 15px; 
+            background: rgba(0,0,0,0.85); padding: 14px; border-radius: 12px; text-align: left; 
+            border: 1.5px solid rgba(255,255,255,0.2); 
+        }
+        .trust-details span { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+        .trust-details span.label-txt { flex: 1; color: #94a3b8; }
+        .trust-details strong { color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+        .trust-btn {
+            display: block; width: 100%; padding: 12px; background: rgba(255,255,255,0.1); color: #fff;
+            text-align: center; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; transition: 0.3s;
+        }
+        .trust-btn:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
+
+        .roadmap-controls { display: flex; justify-content: center; gap: 30px; margin: 32px 0; }
+        .roadmap-btn { 
+            background: rgba(255,255,255,0.15); border: 2.5px solid rgba(255,255,255,0.4); color: var(--gold); 
+            width: 58px; height: 58px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.45rem; transition: 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+        }
+        .roadmap-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); transform: scale(1.12); }
+
+        .roadmap-wrapper { position: relative; width: 100%; overflow: hidden; padding: 40px 0; }
+        .roadmap-track { display: flex; gap: 30px; padding: 20px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; }
+        
+        .roadmap-item {
+            backdrop-filter: blur(25px); padding: 34px; border-radius: 24px;
+            min-width: 270px; max-width: 270px; flex-shrink: 0; position: relative; transition: 0.4s ease;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.9);
+        }
+        .roadmap-item:nth-child(4n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); }
+        .roadmap-item:nth-child(4n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); }
+        .roadmap-item:nth-child(4n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); }
+        .roadmap-item:nth-child(4n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); }
+        .roadmap-item:hover { transform: translateY(-8px); }
+
+        .roadmap-icon { 
+            width: 44px; height: 44px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; 
+            margin-bottom: 18px; font-size: 1.1rem; 
+        }
+        .roadmap-item:nth-child(4n+1) .roadmap-icon { background: rgba(6,182,212,0.4); border: 2px solid var(--cyan); color: var(--cyan); }
+        .roadmap-item:nth-child(4n+2) .roadmap-icon { background: rgba(52,211,153,0.4); border: 2px solid #34d399; color: #34d399; }
+        .roadmap-item:nth-child(4n+3) .roadmap-icon { background: rgba(245,158,11,0.4); border: 2px solid var(--gold); color: var(--gold); }
+        .roadmap-item:nth-child(4n+0) .roadmap-icon { background: rgba(168,85,247,0.4); border: 2px solid #a855f7; color: #a855f7; }
+
+        .roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700; }
+        .roadmap-content p { color: #e2e8f0; font-size: 0.9rem; line-height: 1.75; }
+
+        .tokenomics-wrapper { position: relative; width: 100%; overflow: hidden; padding: 25px 0; margin-bottom: 40px; }
+        .tokenomics-track { display: flex; gap: 26px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; }
+        
+        .tokenomics-item {
+            backdrop-filter: blur(25px); padding: 32px; border-radius: 22px;
+            min-width: 295px; max-width: 295px; flex-shrink: 0; position: relative; text-align: left;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+        }
+        .tokenomics-item:nth-child(6n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 4px solid rgba(245,158,11,0.95); }
+        .tokenomics-item:nth-child(6n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 4px solid rgba(6,182,212,0.95); }
+        .tokenomics-item:nth-child(6n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 4px solid rgba(168,85,247,0.95); }
+        .tokenomics-item:nth-child(6n+4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 4px solid rgba(52,211,153,0.95); }
+        .tokenomics-item:nth-child(6n+5) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 4px solid rgba(236,72,153,0.95); }
+        .tokenomics-item:nth-child(6n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(59,130,246,0.35)); border: 4px solid rgba(59,130,246,0.95); }
+
+        .tokenomics-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+        .tokenomics-title span { font-size: 1.25rem; font-family: 'Inter', sans-serif; }
+        .tokenomics-item:nth-child(6n+1) .tokenomics-title span { color: var(--gold); }
+        .tokenomics-item:nth-child(6n+2) .tokenomics-title span { color: var(--cyan); }
+        .tokenomics-item:nth-child(6n+3) .tokenomics-title span { color: #a855f7; }
+        .tokenomics-item:nth-child(6n+4) .tokenomics-title span { color: #34d399; }
+        .tokenomics-item:nth-child(6n+5) .tokenomics-title span { color: #ec4899; }
+        .tokenomics-item:nth-child(6n+0) .tokenomics-title span { color: #3b82f6; }
+
+        .tokenomics-desc { color: #e2e8f0; font-size: 0.88rem; line-height: 1.7; }
+        .tokenomics-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.12); border-radius: 4px; margin-top: 20px; overflow: hidden; }
+        .tokenomics-bar-fill { height: 100%; border-radius: 4px; }
+        .tokenomics-item:nth-child(6n+1) .tokenomics-bar-fill { background: linear-gradient(90deg, #d97706, var(--gold)); }
+        .tokenomics-item:nth-child(6n+2) .tokenomics-bar-fill { background: linear-gradient(90deg, #0e7490, var(--cyan)); }
+        .tokenomics-item:nth-child(6n+3) .tokenomics-bar-fill { background: linear-gradient(90deg, #7e22ce, #a855f7); }
+        .tokenomics-item:nth-child(6n+4) .tokenomics-bar-fill { background: linear-gradient(90deg, #065f46, #34d399); }
+        .tokenomics-item:nth-child(6n+5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); }
+        .tokenomics-item:nth-child(6n+0) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+
+        .contract-box { 
+            background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
+            backdrop-filter: blur(30px); padding: 38px; border-radius: 24px; text-align: center; margin: 0 auto; 
+            border: 4px solid rgba(6, 182, 212, 0.9); max-width: 620px; box-shadow: 0 40px 80px -10px rgba(0,0,0,0.98); 
+        }
+        .contract-box code { display: block; font-family: 'Courier New', monospace; font-size: 1.02rem; background: rgba(0,0,0,0.8); padding: 18px; border-radius: 12px; margin-bottom: 25px; word-break: break-all; color: var(--gold-light); font-weight: 700; border: 2px dashed rgba(245,158,11,0.8); }
+        .copy-btn { background: var(--gold); color: #000; padding: 14px 30px; border-radius: 12px; font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.92rem; transition: 0.3s; }
+        .copy-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+        footer { text-align: center; padding: 50px 15px; background: rgba(0, 0, 0, 0.85); color: var(--text-muted); font-size: 0.82rem; margin-top: 60px; border-top: 2px solid rgba(255, 255, 255, 0.2); }
+        .footer-verified { color: var(--gold-light); display: block; margin-top: 14px; margin-bottom: 22px; font-weight: 600; letter-spacing: 1px; }
+        .ssl-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 10px 22px; border-radius: 24px; font-size: 0.78rem; font-weight: 700; border: 2px solid rgba(16, 185, 129, 0.7); }
+
+        .floating-feedback-btn { 
+            position: fixed; bottom: 35px; right: 35px; 
+            background: linear-gradient(135deg, #06b6d4, #a855f7, #ec4899, #f59e0b);
+            background-size: 300% 300%; animation: neonGradientPulse 6s ease infinite;
+            color: #ffffff; padding: 12px 22px; border-radius: 30px; 
+            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem; 
+            text-decoration: none; box-shadow: 0 20px 50px rgba(0,0,0,0.95); 
+            z-index: 9999; display: flex; align-items: center; gap: 10px; cursor: pointer; 
+            border: 2.5px solid rgba(255, 255, 255, 0.7); transition: 0.3s; 
+        }
+        @keyframes neonGradientPulse { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .floating-feedback-btn:hover { transform: translateY(-6px) scale(1.05); border-color: #ffffff; }
+
+        .feedback-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); z-index: 99999; justify-content: center; align-items: center; backdrop-filter: blur(16px); }
+        .feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #030712; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 95px rgba(0,0,0,0.99); display: flex; flex-direction: column; border: 4px solid rgba(168,85,247,0.9); }
+        .feedback-iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
+        .close-modal-btn { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.85); color: #fff; border: 2px solid rgba(255,255,255,0.5); width: 42px; height: 42px; border-radius: 50%; font-size: 1.35rem; cursor: pointer; z-index: 10; display: flex; justify-content: center; align-items: center; transition: 0.3s; }
+        .close-modal-btn:hover { background: #ef4444; border-color: #ef4444; }
+        .zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #030712; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(255,255,255,0.18); pointer-events: none; z-index: 5; }
+        .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.6rem; letter-spacing: 8px; }
+            .hero h2 { font-size: 0.85rem; letter-spacing: 5px;}
+            .buy-box-body { padding: 22px 18px; }
+            .buy-box-header { padding: 18px; }
+            .distribution-note { padding: 16px 18px; }
+            .donation-layout { grid-template-columns: 1fr; gap: 20px; }
+            .vision-box { padding: 30px 20px; }
+            .section-title { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 30px; }
+            .roadmap-item { min-width: 220px; max-width: 220px; padding: 26px; }
+            .tokenomics-item { min-width: 250px; max-width: 250px; padding: 26px; }
+            .trust-item { width: 320px; min-height: 450px; padding: 24px 18px; }
+            .roadmap-btn { width: 50px; height: 50px; font-size: 1.35rem; }
+            .floating-feedback-btn { bottom: 25px; right: 20px; padding: 10px 20px; font-size: 0.8rem; }
+        }
+    </style>
 </head>
 <body>
-<!-- TOP TICKER / MARQUEE BANNER -->
-<div class="top-ticker-bar">
-<div class="top-ticker-content">
-<span><i class="fas fa-bolt"></i> ZONKA ÖN SATIŞI RESMEN BAŞLADI!</span>
-<span><i class="fas fa-shield-alt"></i> ÇOCUKLAR VE HAYVANLAR İÇİN GÜÇLERİMİZİ BİRLEŞTİRİYORUZ</span>
-<span><i class="fas fa-coins"></i> ERKEN KATILIM FIRSATINI KAÇIRMAYIN</span>
-<span><i class="fas fa-bolt"></i> ZONKA ÖN SATIŞI RESMEN BAŞLADI!</span>
-<span><i class="fas fa-shield-alt"></i> ÇOCUKLAR VE HAYVANLAR İÇİN GÜÇLERİMİZİ BİRLEŞTİRİYORUZ</span>
-</div>
-</div>
-<div class="snow-container">
-<div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div>
-<div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div>
-</div>
-<!-- TOP NAVBAR -->
-<header class="top-navbar">
-<a href="#" class="nav-brand">ZONKA <span class="sub-brand-badge">SOLANA</span></a>
-<div class="nav-right-actions">
-<a href="https://t.me/zonkacoin" target="_blank" class="join-community-nav-btn">
-<i class="fab fa-telegram-plane"></i> Join Community
-</a>
-<button class="hamburger-menu-btn" onclick="toggleMobileMenu()">
-<i class="fas fa-bars"></i>
-</button>
-</div>
-</header>
-<!-- MOBILE FROSTED GLASS DRAWER MENU -->
-<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenuOnOutside(event)">
-<div class="mobile-drawer">
-<button class="drawer-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
-<div class="drawer-title">ZONKA ECOSYSTEM</div>
-<div class="drawer-links">
-<a href="#vision" onclick="navigateToSection(event, 'vision')"><i class="fas fa-heart"></i> Guardians of Life</a>
-<a href="#roadmap" onclick="navigateToSection(event, 'roadmap')"><i class="fas fa-map"></i> Roadmap</a>
-<a href="#token" onclick="navigateToSection(event, 'token')"><i class="fas fa-coins"></i> Tokenomics & Locks</a>
-<a href="https://t.me/zonkacoin" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Community</a>
-<a href="https://x.com/zonka_coin" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a>
-</div>
-<div class="drawer-contract-box">
-<p>Contract Address:</p>
-<code id="drawerContractCode">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-<button class="drawer-copy-btn" onclick="copyDrawerContract()">Copy Contract</button>
-</div>
-</div>
-</div>
-<section class="hero">
-<div class="hero-badge-top">
-<span></span> BUILDING A BRIGHTER WEB3
-</div>
-<h1>ZONKA</h1>
-<h2>GUARDIANS OF LIFE</h2>
-<p>Our mission: <strong>protect children and animals</strong>. True power isn't about what you hold, but what you protect.</p>
-<!-- SOCIALS HERO (TELEGRAM & X ONLY) -->
-<div class="socials-hero">
-<a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
-<a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
-</div>
-<!-- BUY BOX WITH INTEGRATED WALLET WARNING -->
-<div class="buy-box-container">
-<div class="buy-box-header">
-<h3><i class="fas fa-bolt"></i> Buy $ZNK</h3>
-<div class="live-indicator">
-<div class="live-dot-small"></div> LIVE
-</div>
-</div>
-<div class="buy-box-body">
-<!-- PRICE CARDS GRID -->
-<div class="price-cards-grid">
-<div class="price-card-box">
-<span class="card-label">Token Price</span>
-<div class="card-val-row">
-<strong>$0.007</strong>
-<span class="plus-badge">+12.5%</span>
-</div>
-</div>
-<div class="price-card-box">
-<span class="card-label">1 SOL Equals</span>
-<div class="card-val-row">
-<strong>14,866</strong>
-<div class="sol-coin-icon">◎</div>
-</div>
-</div>
-</div>
-<!-- YOU PAY (SOL) INPUT -->
-<div class="input-group-section">
-<label for="solInput">You Pay (SOL)</label>
-<div class="sol-input-wrapper">
-<div class="sol-mini-icon">◎</div>
-<input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
-<button type="button" class="max-btn-badge" onclick="setSolMax()">MAX</button>
-</div>
-</div>
-<!-- YOU RECEIVE -->
-<div class="receive-group-section">
-<label>You Receive</label>
-<div class="receive-box-display">
-<div class="receive-box-left">
-<div class="znk-token-badge-img">Z</div>
-<span>ZNK Tokens</span>
-</div>
-<div class="receive-amount-text" id="calcResult">0 ZNK</div>
-</div>
-</div>
-<button class="buy-now-action-btn" id="buyNowBtn" onclick="showAddress()" disabled>
-<i class="fas fa-shopping-cart"></i> Buy Now
-</button>
-<div class="secure-transparent-tag">
-<i class="fas fa-shield-alt"></i> Secure & Transparent
-</div>
-<!-- INTEGRATED WALLET WARNING INSIDE BUY BOX -->
-<div class="buybox-wallet-notice">
-<i class="fas fa-wallet"></i>
-<p>Use Web3 wallets (Phantom, Solflare). <strong>Do not send from exchanges (Binance, Coinbase).</strong></p>
-</div>
-<div id="addressBox" class="wallet-address-box">
-<p><strong>Send ONLY SOL</strong> to this address.
-<span style="font-size: 0.75rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
-<code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
-<button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
-<a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn">
-<i class="fab fa-telegram-plane"></i> Contact Support on Telegram
-</a>
-</div>
-</div>
-<div class="distribution-note">
-<span>⚡ <strong>ZNK tokens arrive in your wallet within 30 minutes</strong> after purchase verification.</span>
-</div>
-</div>
-</section>
-<!-- 4-GRID FEATURE CARDS -->
-<div class="features-grid-4">
-<div class="feature-box-item">
-<i class="fas fa-shield-check"></i>
-<h4>Audited Contract</h4>
-<p>100% verified & secure smart contract on Solana.</p>
-</div>
-<div class="feature-box-item">
-<i class="fas fa-bolt"></i>
-<h4>Instant Purchase</h4>
-<p>Fast distribution directly to your Web3 wallet.</p>
-</div>
-<div class="feature-box-item">
-<i class="fas fa-users-crown"></i>
-<h4>Community Driven</h4>
-<p>Governed and supported by passionate guardians.</p>
-</div>
-<div class="feature-box-item">
-<i class="fas fa-heart-pulse"></i>
-<h4>Real World Impact</h4>
-<p>Direct support for children & animals in need.</p>
-</div>
-</div>
-<section class="section" id="vision">
-<h2 class="section-title">MORE THAN A COMMUNITY</h2>
-<div class="vision-box">
-<p style="margin-bottom: 18px; font-size: 1.05rem; line-height: 1.7;">
-Zonka is not just a presale; it's a community. We stand together for a single purpose: to make a real difference in the world.
-</p>
-<p style="font-size: 1.05rem; line-height: 1.7;">
-By joining us, you become part of the <strong>'Guardians of Life'</strong>. Together, we build a community that directly supports vulnerable animals, children in need, and our planet.
-</p>
-<div class="vision-icons">
-<div class="vision-icon-item">
-<i class="fas fa-paw"></i>
-<span>Animals</span>
-</div>
-<div class="vision-icon-item">
-<i class="fas fa-child"></i>
-<span>Children</span>
-</div>
-<div class="vision-icon-item">
-<i class="fas fa-globe-americas"></i>
-<span>Nature</span>
-</div>
-</div>
-</div>
-<div class="impact-gallery">
-<div class="impact-card">
-<div class="impact-image-placeholder">
-<img src="yardim.jpg" alt="Hope and Care" onerror="this.src='https://placehold.co/600x400/0a1128/fcd34d?text=Guardians+of+Life'">
-</div>
-<div class="impact-content">
-<h4>A Bond of Hope</h4>
-<p>Every contribution creates a ripple of hope. Together, we provide shelter, food, and a better future for vulnerable lives across the globe.</p>
-</div>
-</div>
-</div>
-<div class="donation-layout">
-<div class="donation-card">
-<h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
-<div class="hope-counter">HOPE IS GROWING</div>
-<div class="counter-desc">Every contribution changes a life.</div>
-<div class="donation-wallet-box">
-<p>Send ONLY SOL or ZNK to this address:</p>
-<code id="donationAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
-<button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
-</div>
-<a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
-Verify My Donation
-</a>
-</div>
-<div class="donation-card">
-<h3><i class="fas fa-medal"></i> Hero Badges</h3>
-<table class="badge-table">
-<tr><th>Amount</th><th>Badge</th></tr>
-<tr><td>1,000 ZNK</td><td>🥉 Bronze</td></tr>
-<tr><td>5,000 ZNK</td><td>🥈 Silver</td></tr>
-<tr><td>10,000 ZNK</td><td>🥇 Gold</td></tr>
-<tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
-</table>
-<h3 style="font-size: 0.9rem; margin-top: 15px; margin-bottom: 10px;"><i class="fas fa-star"></i> Hall of Fame</h3>
-<div class="hall-of-fame" id="hallOfFame">
-<p>Be the first hero!</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="roadmap">
-<h2 class="section-title">Roadmap</h2>
-<div class="roadmap-wrapper">
-<div class="roadmap-track" id="roadmapTrack">
-<div class="roadmap-item">
-<div class="roadmap-icon">1</div>
-<div class="roadmap-content">
-<h4>Phase 1: Awakening</h4>
-<p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
-</div>
-</div>
-<div class="roadmap-item">
-<div class="roadmap-icon">2</div>
-<div class="roadmap-content">
-<h4>Phase 2: Presale Allocation</h4>
-<p>15M tokens allocated for presale. Once sold out, presale concludes and public listing takes place.</p>
-</div>
-</div>
-<div class="roadmap-item">
-<div class="roadmap-icon">3</div>
-<div class="roadmap-content">
-<h4>Phase 3: The Thaw</h4>
-<p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First Guardians of Life Donation.</p>
-</div>
-</div>
-<div class="roadmap-item">
-<div class="roadmap-icon">4</div>
-<div class="roadmap-content">
-<h4>Phase 4: Arctic Empire</h4>
-<p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Early Community Airdrop Rewards.</p>
-</div>
-</div>
-<div class="roadmap-item">
-<div class="roadmap-icon">5</div>
-<div class="roadmap-content">
-<h4>Phase 5: Ecosystem</h4>
-<p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="roadmap-controls">
-<button class="roadmap-btn" onclick="moveRoadmap(-1)"><i class="fas fa-chevron-left"></i></button>
-<button class="roadmap-btn" onclick="moveRoadmap(1)"><i class="fas fa-chevron-right"></i></button>
-</div>
-</section>
-<section class="section" id="token">
-<h2 class="section-title">Tokenomics</h2>
-<div class="tokenomics-wrapper">
-<div class="tokenomics-track" id="tokenomicsTrack">
-<div class="tokenomics-item">
-<div class="tokenomics-title">Presale <span>25.42%</span></div>
-<p class="tokenomics-desc">Reserved for the early community to participate in the project's growth and secure initial liquidity.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 25.42%;"></div></div>
-</div>
-<div class="tokenomics-item">
-<div class="tokenomics-title">DEX Liquidity <span>16.95%</span></div>
-<p class="tokenomics-desc">Allocated to ensure smooth trading and market stability on decentralized exchanges like Raydium.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 16.95%;"></div></div>
-</div>
-<div class="tokenomics-item">
-<div class="tokenomics-title">Treasury <span>20.34%</span></div>
-<p class="tokenomics-desc">A strategic reserve to fund future development, partnerships, and global expansion of the Zonka ecosystem.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 20.34%;"></div></div>
-</div>
-<div class="tokenomics-item">
-<div class="tokenomics-title">Marketing <span>15.25%</span></div>
-<p class="tokenomics-desc">Dedicated to spreading awareness, building the community, and driving global adoption of ZNK.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 15.25%;"></div></div>
-</div>
-<div class="tokenomics-item">
-<div class="tokenomics-title">Community <span>11.86%</span></div>
-<p class="tokenomics-desc">Used for the "Guardians of Life" fund, supporting animals, vulnerable children, and nature conservation.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 11.86%;"></div></div>
-</div>
-<div class="tokenomics-item">
-<div class="tokenomics-title">Team <span>10.17%</span></div>
-<p class="tokenomics-desc">Securely locked to align the team's long-term interests with the project's success and the community.</p>
-<div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 10.17%;"></div></div>
-</div>
-</div>
-</div>
-<div class="roadmap-controls">
-<button class="roadmap-btn" onclick="moveTokenomics(-1)"><i class="fas fa-chevron-left"></i></button>
-<button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
-</div>
-<h2 class="section-title" style="margin-top: 40px;">Locked & Verified</h2>
-<div class="trust-slider-wrapper">
-<div class="trust-track" id="trustTrack">
-<div class="trust-item treasury">
-<h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
-<p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
-<div class="trust-details">
-<span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
-<span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
-<span><span class="label-txt">Initial Lock</span> <strong>24 Months</strong></span>
-<span><span class="label-txt">Linear Release</span> <strong>36 Months</strong></span>
-</div>
-<a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
-</div>
-<div class="trust-item team">
-<h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
-<p>Team's 6M ZNK locked for long-term success and community protection.</p>
-<div class="trust-details">
-<span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
-<span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
-<span><span class="label-txt">Initial Lock</span> <strong>4 Months</strong></span>
-<span><span class="label-txt">Linear Release</span> <strong>24 Months</strong></span>
-</div>
-<a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
-</div>
-<div class="trust-item community">
-<h3><i class="fas fa-users"></i> Community Rewards</h3>
-<p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
-<div class="trust-details">
-<span><span class="label-txt">Total Locked</span> <strong>7,000,000 ZNK</strong></span>
-<span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
-<span><span class="label-txt">Initial Lock</span> <strong>6 Months</strong></span>
-<span><span class="label-txt">Linear Release</span> <strong>60 Months</strong></span>
-</div>
-<a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
-</div>
-<div class="trust-item marketing">
-<h3><i class="fas fa-chart-line"></i> Marketing Locked</h3>
-<p>1.5M ZNK stays liquid for immediate needs, while the remaining 7.5M ZNK is securely locked.</p>
-<div class="trust-details">
-<span><span class="label-txt">Total Locked</span> <strong>7,500,000 ZNK</strong></span>
-<span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
-<span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
-<span><span class="label-txt">Linear Release</span> <strong>40 Months</strong></span>
-</div>
-<a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="trust-btn">View Lock Proof</a>
-</div>
-<div class="trust-item liquidity">
-<h3><i class="fas fa-water"></i> Liquidity Verified</h3>
-<p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
-<div class="trust-details">
-<span><span class="label-txt">Total Locked</span> <strong>5,000,000 ZNK</strong></span>
-<span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
-<span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
-<span><span class="label-txt">Linear Release</span> <strong>65 Months</strong></span>
-</div>
-<a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
-</div>
-<div class="trust-item transparency">
-<h3><i class="fas fa-eye"></i> 100% Transparent</h3>
-<p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
-<div class="trust-details">
-<span><span class="label-txt">Network</span> <strong>Solana</strong></span>
-<span><span class="label-txt">Contract</span> <strong>Verified</strong></span>
-<span><span class="label-txt">Audit</span> <strong>Public</strong></span>
-</div>
-<a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
-</div>
-</div>
-</div>
-<div class="roadmap-controls">
-<button class="roadmap-btn" onclick="moveTrust(-1)"><i class="fas fa-chevron-left"></i></button>
-<button class="roadmap-btn" onclick="moveTrust(1)"><i class="fas fa-chevron-right"></i></button>
-</div>
-</section>
-<section class="section" id="contract">
-<h2 class="section-title">Contract Address</h2>
-<div class="contract-box">
-<p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.8rem;">Copy the address to add ZNK to your wallet.</p>
-<code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-<button class="copy-btn" onclick="copyAddress()">Copy Address</button>
-</div>
-</section>
-<footer>
-<p style="margin-bottom: 20px; color: #64748b; font-size: 0.75rem; line-height: 1.5; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
-<strong>Disclaimer:</strong> Cryptocurrency investments carry high risk. $ZNK is a community-driven project. This website does not constitute financial advice. Please do your own research (DYOR) before participating.
-</p>
-© 2026 Zonka (ZNK) Ecosystem. All rights reserved. 
 
-<span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
-<div class="ssl-badge">🔒 256-bit SSL Secured</div>
-</footer>
-<button class="floating-feedback-btn" id="openFeedbackBtn">
-<i class="fas fa-comment-dots"></i> Report Issue
-</button>
-<div class="feedback-modal-overlay" id="feedbackModal">
-<div class="feedback-modal-content">
-<button class="close-modal-btn" id="closeFeedbackBtn"><i class="fas fa-times"></i></button>
-<iframe class="feedback-iframe" src="https://form.jotform.com/262944764497071" allowfullscreen></iframe>
-<div class="zonka-modal-cover">
-<span>ZONKA</span>
-</div>
-</div>
-</div>
-<script>
-const modal = document.getElementById('feedbackModal');
-const openBtn = document.getElementById('openFeedbackBtn');
-const closeBtn = document.getElementById('closeFeedbackBtn');
-openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
-closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
-modal.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; } });
-function toggleMobileMenu() {
-const overlay = document.getElementById('mobileMenuOverlay');
-if (overlay.style.display === 'flex') {
-overlay.style.display = 'none';
-} else {
-overlay.style.display = 'flex';
-}
-}
-function closeMobileMenuOnOutside(event) {
-const overlay = document.getElementById('mobileMenuOverlay');
-if (event.target === overlay) {
-overlay.style.display = 'none';
-}
-}
-function navigateToSection(event, sectionId) {
-event.preventDefault();
-toggleMobileMenu();
-const targetSection = document.getElementById(sectionId);
-if (targetSection) {
-targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-}
-function copyDrawerContract() {
-const code = document.getElementById('drawerContractCode').innerText;
-navigator.clipboard.writeText(code).then(() => {
-const btn = document.querySelector('.drawer-drawer-copy-btn');
-const drawerBtn = document.querySelector('.drawer-copy-btn');
-drawerBtn.innerText = "Copied!";
-drawerBtn.style.background = "#34d399";
-drawerBtn.style.color = "#000";
-setTimeout(() => {
-drawerBtn.innerText = "Copy Contract";
-drawerBtn.style.background = "var(--gold)";
-drawerBtn.style.color = "#000";
-}, 2000);
-});
-}
-</script>
-<script>
-const solInput = document.getElementById('solInput');
-const buyNowBtn = document.getElementById('buyNowBtn');
-solInput.addEventListener('input', () => {
-const solAmount = parseFloat(solInput.value);
-if (isNaN(solAmount) || solAmount <= 0) {
-buyNowBtn.disabled = true;
-document.getElementById('calcResult').innerText = "0 ZNK";
-} else {
-buyNowBtn.disabled = false;
-const zknAmount = solAmount * 14866;
-document.getElementById('calcResult').innerText = ⁠${zknAmount.toLocaleString('en-US')} ZNK⁠;
-}
-});
-function setSolMax() {
-solInput.value = "1";
-solInput.dispatchEvent(new Event('input'));
-}
-function showAddress() {
-const addressBox = document.getElementById('addressBox');
-if (addressBox.style.display === 'none' || addressBox.style.display === '') {
-addressBox.style.display = 'block';
-addressBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-} else {
-addressBox.style.display = 'none';
-}
-}
-const fullDepositAddress = "3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A";
-function copyDepositAddress() {
-navigator.clipboard.writeText(fullDepositAddress).then(() => {
-const btn = document.querySelector(".copy-wallet-btn");
-const codeEl = document.getElementById("depositAddress");
-btn.innerText = "Copied!";
-btn.style.color = "#34d399";
-btn.style.borderColor = "#34d399";
-codeEl.style.color = "#34d399";
-setTimeout(() => {
-btn.innerText = "Copy Address";
-btn.style.color = "#fff";
-btn.style.borderColor = "rgba(255, 255, 255, 0.2)";
-codeEl.style.color = "var(--gold-light)";
-}, 2000);
-});
-}
-function copyAddress() {
-const address = document.getElementById("address").innerText;
-navigator.clipboard.writeText(address).then(() => {
-const btn = document.querySelector(".copy-btn");
-btn.innerText = "Copied!";
-setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
-});
-}
-function copyDonationAddress() {
-const address = document.getElementById("donationAddress").innerText;
-navigator.clipboard.writeText(address).then(() => {
-const btn = document.querySelector(".copy-donate-btn");
-btn.innerText = "Copied!";
-setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
-});
-}
-const sheetURL = "https://docs.google.com/spreadsheets/d/1-CIXynhu_qimqlIZBmiOiXOsB5Sn7Q83Pg3eZX3ST-o/export?format=csv";
-async function loadHallOfFame() {
-try {
-const response = await fetch(sheetURL);
-const data = await response.text();
-const rows = data.split('\n');
-const hallOfFameDiv = document.getElementById('hallOfFame');
-let htmlContent = '';
-let heroCount = 0;
-for (let i = 1; i < rows.length; i++) {
-const row = rows[i].trim();
-if (row) {
-const columns = row.split(',');
-if (columns[0] && columns[0].trim() !== "") {
-const name = columns[0].trim().replace(/"/g, '');
-const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
-let telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
-let nameHTML = '';
-if (telegram) {
-if (telegram.startsWith('@')) {
-telegram = telegram.substring(1);
-} else if (telegram.includes('t.me/')) {
-telegram = telegram.split('t.me/')[1];
-}
-const messageText = encodeURIComponent("Hero Support");
-const tgURL = ⁠https://t.me/${telegram}?text=${messageText}⁠;
-nameHTML = ⁠<a href="${tgURL}" target="_blank" class="hero-item-link"> <span class="hero-name">${name}</span> <div class="hero-icon-group"> <i class="fab fa-telegram-plane tg-icon"></i> <span class="hero-badge">${badge}</span> </div> </a>⁠;
-} else {
-nameHTML = ⁠<div class="hero-item-link" style="cursor: default;"> <span class="hero-name">${name}</span> <div class="hero-icon-group"> <span class="hero-badge">${badge}</span> </div> </div>⁠;
-}
-htmlContent += nameHTML;
-heroCount++;
-}
-}
-}
-if (heroCount === 0) {
-hallOfFameDiv.innerHTML = ⁠<p>Be the first hero!</p>⁠;
-} else {
-hallOfFameDiv.innerHTML = htmlContent;
-}
-} catch (error) {
-console.error("Hall of Fame verisi yüklenemedi:", error);
-}
-}
-document.addEventListener('DOMContentLoaded', loadHallOfFame);
-function initInfiniteCarousel(trackId, itemGap) {
-const track = document.getElementById(trackId);
-if(!track) return () => {};
-const originalItems = Array.from(track.children);
-const count = originalItems.length;
-originalItems.forEach(item => {
-track.appendChild(item.cloneNode(true));
-});
-originalItems.slice().reverse().forEach(item => {
-track.prepend(item.cloneNode(true));
-});
-let currentIndex = count;
-const getItemWidth = () => originalItems[0].offsetWidth + itemGap;
-const applyTransform = (smooth = true) => {
-track.style.transition = smooth ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
-track.style.transform = ⁠translateX(${-currentIndex * getItemWidth()}px)⁠;
-};
-setTimeout(() => applyTransform(false), 50);
-const move = (direction) => {
-currentIndex += direction;
-applyTransform(true);
-setTimeout(() => {
-if (currentIndex >= count * 2) {
-track.style.transition = 'none';
-currentIndex -= count;
-track.style.transform = ⁠translateX(${-currentIndex * getItemWidth()}px)⁠;
-} else if (currentIndex < count) {
-track.style.transition = 'none';
-currentIndex += count;
-track.style.transform = ⁠translateX(${-currentIndex * getItemWidth()}px)⁠;
-}
-}, 400);
-};
-window.addEventListener('resize', () => {
-applyTransform(false);
-});
-return move;
-}
-const moveTrust = initInfiniteCarousel('trustTrack', 28);
-const moveRoadmap = initInfiniteCarousel('roadmapTrack', 30);
-const moveTokenomics = initInfiniteCarousel('tokenomicsTrack', 26);
-</script>
+    <div class="snow-container">
+        <div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div>
+        <div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div>
+    </div>
+
+    <!-- TOP NAVBAR -->
+    <header class="top-navbar">
+        <a href="#" class="nav-brand">ZONKA</a>
+        <div class="nav-right-actions">
+            <a href="https://t.me/zonkacoin" target="_blank" class="join-community-nav-btn">
+                <i class="fab fa-telegram-plane"></i> Join Community
+            </a>
+            <button class="hamburger-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE FROSTED GLASS DRAWER MENU -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenuOnOutside(event)">
+        <div class="mobile-drawer">
+            <button class="drawer-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+            <div class="drawer-title">ZONKA ECOSYSTEM</div>
+            
+            <div class="drawer-links">
+                <a href="#vision" onclick="toggleMobileMenu()"><i class="fas fa-heart"></i> Guardians of Life</a>
+                <a href="#roadmap" onclick="toggleMobileMenu()"><i class="fas fa-map"></i> Roadmap</a>
+                <a href="#token" onclick="toggleMobileMenu()"><i class="fas fa-coins"></i> Tokenomics & Locks</a>
+                <a href="https://t.me/zonkacoin" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Community</a>
+                <a href="https://x.com/zonka_coin" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a>
+            </div>
+
+            <div class="drawer-contract-box">
+                <p>Contract Address:</p>
+                <code id="drawerContractCode">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
+                <button class="drawer-copy-btn" onclick="copyDrawerContract()">Copy Contract</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-badge-top">
+            <span></span> BUILDING A BRIGHTER WEB3
+        </div>
+
+        <h1>ZONKA</h1>
+        <h2>GUARDIANS OF LIFE</h2>
+        
+        <p>Our mission: <strong>protect children and animals</strong>. True power isn't about what you hold, but what you protect.</p>
+
+        <!-- SOCIALS HERO (TELEGRAM & X ONLY) -->
+        <div class="socials-hero">
+            <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <!-- BUY BOX WITH INTEGRATED WALLET WARNING -->
+        <div class="buy-box-container">
+            <div class="buy-box-header">
+                <h3><i class="fas fa-bolt"></i> Buy $ZNK</h3>
+                <div class="live-indicator">
+                    <div class="live-dot-small"></div> LIVE
+                </div>
+            </div>
+            
+            <div class="buy-box-body">
+                <!-- PRICE CARDS GRID -->
+                <div class="price-cards-grid">
+                    <div class="price-card-box">
+                        <span class="card-label">Token Price</span>
+                        <div class="card-val-row">
+                            <strong>$0.007</strong>
+                            <span class="plus-badge">+12.5%</span>
+                        </div>
+                    </div>
+                    <div class="price-card-box">
+                        <span class="card-label">1 SOL Equals</span>
+                        <div class="card-val-row">
+                            <strong>14,866</strong>
+                            <div class="sol-coin-icon">◎</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YOU PAY (SOL) INPUT -->
+                <div class="input-group-section">
+                    <label for="solInput">You Pay (SOL)</label>
+                    <div class="sol-input-wrapper">
+                        <div class="sol-mini-icon">◎</div>
+                        <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
+                        <button type="button" class="max-btn-badge" onclick="setSolMax()">MAX</button>
+                    </div>
+                </div>
+
+                <!-- YOU RECEIVE -->
+                <div class="receive-group-section">
+                    <label>You Receive</label>
+                    <div class="receive-box-display">
+                        <div class="receive-box-left">
+                            <div class="znk-token-badge-img">Z</div>
+                            <span>ZNK Tokens</span>
+                        </div>
+                        <div class="receive-amount-text" id="calcResult">0 ZNK</div>
+                    </div>
+                </div>
+
+                <button class="buy-now-action-btn" id="buyNowBtn" onclick="showAddress()" disabled>
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+
+                <div class="secure-transparent-tag">
+                    <i class="fas fa-shield-alt"></i> Secure & Transparent
+                </div>
+
+                <!-- INTEGRATED WALLET WARNING INSIDE BUY BOX -->
+                <div class="buybox-wallet-notice">
+                    <i class="fas fa-wallet"></i>
+                    <p>Use Web3 wallets (Phantom, Solflare). <strong>Do not send from exchanges (Binance, Coinbase).</strong></p>
+                </div>
+
+                <div id="addressBox" class="wallet-address-box">
+                    <p><strong>Send ONLY SOL</strong> to this address.<br><span style="font-size: 0.75rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
+                    
+                    <code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
+                    <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
+                    
+                    <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn">
+                        <i class="fab fa-telegram-plane"></i> Contact Support on Telegram
+                    </a>
+                </div>
+            </div>
+            
+            <div class="distribution-note">
+                <span>⚡ <strong>ZNK tokens arrive in your wallet within 30 minutes</strong> after purchase verification.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-GRID FEATURE CARDS -->
+    <div class="features-grid-4">
+        <div class="feature-box-item">
+            <i class="fas fa-shield-check"></i>
+            <h4>Audited Contract</h4>
+            <p>100% verified & secure smart contract on Solana.</p>
+        </div>
+        <div class="feature-box-item">
+            <i class="fas fa-bolt"></i>
+            <h4>Instant Purchase</h4>
+            <p>Fast distribution directly to your Web3 wallet.</p>
+        </div>
+        <div class="feature-box-item">
+            <i class="fas fa-users-crown"></i>
+            <h4>Community Driven</h4>
+            <p>Governed and supported by passionate guardians.</p>
+        </div>
+        <div class="feature-box-item">
+            <i class="fas fa-heart-pulse"></i>
+            <h4>Real World Impact</h4>
+            <p>Direct support for children & animals in need.</p>
+        </div>
+    </div>
+
+    <section class="section" id="vision">
+        <h2 class="section-title">MORE THAN A COMMUNITY</h2>
+        
+        <div class="vision-box">
+            <p style="margin-bottom: 18px; font-size: 1.05rem; line-height: 1.7;">
+                Zonka is not just a presale; it's a community. We stand together for a single purpose: to make a real difference in the world.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.7;">
+                By joining us, you become part of the <strong>'Guardians of Life'</strong>. Together, we build a community that directly supports vulnerable animals, children in need, and our planet.
+            </p>
+            
+            <div class="vision-icons">
+                <div class="vision-icon-item">
+                    <i class="fas fa-paw"></i>
+                    <span>Animals</span>
+                </div>
+                <div class="vision-icon-item">
+                    <i class="fas fa-child"></i>
+                    <span>Children</span>
+                </div>
+                <div class="vision-icon-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Nature</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-gallery">
+            <div class="impact-card">
+                <div class="impact-image-placeholder">
+                    <img src="yardim.jpg" alt="Hope and Care" onerror="this.src='https://placehold.co/600x400/0a1128/fcd34d?text=Guardians+of+Life'">
+                </div>
+                <div class="impact-content">
+                    <h4>A Bond of Hope</h4>
+                    <p>Every contribution creates a ripple of hope. Together, we provide shelter, food, and a better future for vulnerable lives across the globe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="donation-layout">
+            <div class="donation-card">
+                <h3><i class="fas fa-hand-holding-heart"></i> Guardians of Life Fund</h3>
+                
+                <div class="hope-counter">HOPE IS GROWING</div>
+                <div class="counter-desc">Every contribution changes a life.</div>
+
+                <div class="donation-wallet-box">
+                    <p>Send ONLY SOL or ZNK to this address:</p>
+                    <code id="donationAddress">D7cNwd1m1jUib1hWJRD3NAa4GjAmX9YTRBtvvyrE7PVF</code>
+                    <button class="copy-donate-btn" onclick="copyDonationAddress()">Copy Address</button>
+                </div>
+
+                <a href="https://t.me/zonka_coin" target="_blank" class="verify-donation-btn">
+                    Verify My Donation
+                </a>
+            </div>
+
+            <div class="donation-card">
+                <h3><i class="fas fa-medal"></i> Hero Badges</h3>
+                <table class="badge-table">
+                    <tr><th>Amount</th><th>Badge</th></tr>
+                    <tr><td>1,000 ZNK</td><td>🥉 Bronze</td></tr>
+                    <tr><td>5,000 ZNK</td><td>🥈 Silver</td></tr>
+                    <tr><td>10,000 ZNK</td><td>🥇 Gold</td></tr>
+                    <tr><td>50,000 ZNK</td><td>💎 Diamond</td></tr>
+                </table>
+                <h3 style="font-size: 0.9rem; margin-top: 15px; margin-bottom: 10px;"><i class="fas fa-star"></i> Hall of Fame</h3>
+                <div class="hall-of-fame" id="hallOfFame">
+                    <p>Be the first hero!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="roadmap">
+        <h2 class="section-title">Roadmap</h2>
+        <div class="roadmap-wrapper">
+            <div class="roadmap-track" id="roadmapTrack">
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">1</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 1: Awakening</h4>
+                        <p>Website Launch, Smart Contract Deployment, Presale Launch, and Community Building.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">2</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 2: The Thaw</h4>
+                        <p>Presale Sell-out, Raydium Liquidity Pool, CoinGecko/CMC Listings, and First Guardians of Life Donation.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">3</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 3: Arctic Empire</h4>
+                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships, and Early Community Airdrop Rewards.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-icon">4</div>
+                    <div class="roadmap-content">
+                        <h4>Phase 4: Ecosystem</h4>
+                        <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards for Heroes, and Full Ecosystem Growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveRoadmap(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveRoadmap(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="section" id="token">
+        <h2 class="section-title">Tokenomics</h2>
+        
+        <div class="tokenomics-wrapper">
+            <div class="tokenomics-track" id="tokenomicsTrack">
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Presale <span>25.42%</span></div>
+                    <p class="tokenomics-desc">Reserved for the early community to participate in the project's growth and secure initial liquidity.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 25.42%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">DEX Liquidity <span>16.95%</span></div>
+                    <p class="tokenomics-desc">Allocated to ensure smooth trading and market stability on decentralized exchanges like Raydium.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 16.95%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Treasury <span>20.34%</span></div>
+                    <p class="tokenomics-desc">A strategic reserve to fund future development, partnerships, and global expansion of the Zonka ecosystem.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 20.34%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Marketing <span>15.25%</span></div>
+                    <p class="tokenomics-desc">Dedicated to spreading awareness, building the community, and driving global adoption of ZNK.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 15.25%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Community <span>11.86%</span></div>
+                    <p class="tokenomics-desc">Used for the "Guardians of Life" fund, supporting animals, vulnerable children, and nature conservation.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 11.86%;"></div></div>
+                </div>
+                <div class="tokenomics-item">
+                    <div class="tokenomics-title">Team <span>10.17%</span></div>
+                    <p class="tokenomics-desc">Securely locked to align the team's long-term interests with the project's success and the community.</p>
+                    <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 10.17%;"></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveTokenomics(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 40px;">Locked & Verified</h2>
+
+        <div class="trust-slider-wrapper">
+            <div class="trust-track" id="trustTrack">
+                <div class="trust-item treasury">
+                    <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
+                    <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>24 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>36 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
+                <div class="trust-item team">
+                    <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
+                    <p>Team's 6M ZNK locked for long-term success and community protection.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>4 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>24 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
+                <div class="trust-item community">
+                    <h3><i class="fas fa-users"></i> Community Rewards</h3>
+                    <p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Total Locked</span> <strong>7,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>6 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>60 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
+                <div class="trust-item marketing">
+                    <h3><i class="fas fa-chart-line"></i> Marketing Locked</h3>
+                    <p>1.5M ZNK stays liquid for immediate needs, while the remaining 7.5M ZNK is securely locked.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Total Locked</span> <strong>7,500,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>40 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
+                <div class="trust-item liquidity">
+                    <h3><i class="fas fa-water"></i> Liquidity Verified</h3>
+                    <p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Total Locked</span> <strong>5,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>65 Months</strong></span>
+                    </div>
+                    <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
+                </div>
+
+                <div class="trust-item transparency">
+                    <h3><i class="fas fa-eye"></i> 100% Transparent</h3>
+                    <p>Zonka operates transparently on Solana. All transactions and locks are publicly verifiable.</p>
+                    <div class="trust-details">
+                        <span><span class="label-txt">Network</span> <strong>Solana</strong></span>
+                        <span><span class="label-txt">Contract</span> <strong>Verified</strong></span>
+                        <span><span class="label-txt">Audit</span> <strong>Public</strong></span>
+                    </div>
+                    <a href="https://solscan.io/token/2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc" target="_blank" class="trust-btn">View on Solscan</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveTrust(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveTrust(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="section" id="contract">
+        <h2 class="section-title">Contract Address</h2>
+        <div class="contract-box">
+            <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.8rem;">Copy the address to add ZNK to your wallet.</p>
+            <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
+            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+        </div>
+    </section>
+
+    <footer>
+        <p style="margin-bottom: 20px; color: #64748b; font-size: 0.75rem; line-height: 1.5; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+            <strong>Disclaimer:</strong> Cryptocurrency investments carry high risk. $ZNK is a community-driven project. This website does not constitute financial advice. Please do your own research (DYOR) before participating.
+        </p>
+
+        &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
+        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
+        <div class="ssl-badge">🔒 256-bit SSL Secured</div>
+    </footer>
+
+    <button class="floating-feedback-btn" id="openFeedbackBtn">
+        <i class="fas fa-comment-dots"></i> Report Issue
+    </button>
+
+    <div class="feedback-modal-overlay" id="feedbackModal">
+        <div class="feedback-modal-content">
+            <button class="close-modal-btn" id="closeFeedbackBtn"><i class="fas fa-times"></i></button>
+            <iframe class="feedback-iframe" src="https://form.jotform.com/262944764497071" allowfullscreen></iframe>
+            <div class="zonka-modal-cover">
+                <span>ZONKA</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('feedbackModal');
+        const openBtn = document.getElementById('openFeedbackBtn');
+        const closeBtn = document.getElementById('closeFeedbackBtn');
+
+        openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+        closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; } });
+
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            if (overlay.style.display === 'flex') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'flex';
+            }
+        }
+
+        function closeMobileMenuOnOutside(event) {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            if (event.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function copyDrawerContract() {
+            const code = document.getElementById('drawerContractCode').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.drawer-copy-btn');
+                btn.innerText = "Copied!";
+                btn.style.background = "#34d399";
+                btn.style.color = "#000";
+                setTimeout(() => {
+                    btn.innerText = "Copy Contract";
+                    btn.style.background = "var(--gold)";
+                    btn.style.color = "#000";
+                }, 2000);
+            });
+        }
+    </script>
+
+    <script>
+        const solInput = document.getElementById('solInput');
+        const buyNowBtn = document.getElementById('buyNowBtn');
+
+        solInput.addEventListener('input', () => {
+            const solAmount = parseFloat(solInput.value);
+            if (isNaN(solAmount) || solAmount <= 0) {
+                buyNowBtn.disabled = true;
+                document.getElementById('calcResult').innerText = "0 ZNK";
+            } else {
+                buyNowBtn.disabled = false;
+                const zknAmount = solAmount * 14866;
+                document.getElementById('calcResult').innerText = `${zknAmount.toLocaleString('en-US')} ZNK`;
+            }
+        });
+
+        function setSolMax() {
+            solInput.value = "1";
+            solInput.dispatchEvent(new Event('input'));
+        }
+
+        function showAddress() {
+            const addressBox = document.getElementById('addressBox');
+            if (addressBox.style.display === 'none' || addressBox.style.display === '') {
+                addressBox.style.display = 'block';
+                addressBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                addressBox.style.display = 'none';
+            }
+        }
+
+        const fullDepositAddress = "3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A";
+
+        function copyDepositAddress() {
+            navigator.clipboard.writeText(fullDepositAddress).then(() => {
+                const btn = document.querySelector(".copy-wallet-btn");
+                const codeEl = document.getElementById("depositAddress");
+                btn.innerText = "Copied!";
+                btn.style.color = "#34d399";
+                btn.style.borderColor = "#34d399";
+                codeEl.style.color = "#34d399";
+                setTimeout(() => { 
+                    btn.innerText = "Copy Address"; 
+                    btn.style.color = "#fff";
+                    btn.style.borderColor = "rgba(255, 255, 255, 0.2)";
+                    codeEl.style.color = "var(--gold-light)";
+                }, 2000);
+            });
+        }
+
+        function copyAddress() {
+            const address = document.getElementById("address").innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+            });
+        }
+
+        function copyDonationAddress() {
+            const address = document.getElementById("donationAddress").innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector(".copy-donate-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
+            });
+        }
+
+        const sheetURL = "https://docs.google.com/spreadsheets/d/1-CIXynhu_qimqlIZBmiOiXOsB5Sn7Q83Pg3eZX3ST-o/export?format=csv";
+
+        async function loadHallOfFame() {
+            try {
+                const response = await fetch(sheetURL);
+                const data = await response.text();
+                
+                const rows = data.split('\n');
+                const hallOfFameDiv = document.getElementById('hallOfFame');
+                
+                let htmlContent = ''; 
+                let heroCount = 0;
+
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i].trim();
+                    if (row) {
+                        const columns = row.split(',');
+                        
+                        if (columns[0] && columns[0].trim() !== "") {
+                            const name = columns[0].trim().replace(/"/g, '');
+                            const badge = columns[1] ? columns[1].trim().replace(/"/g, '') : '';
+                            let telegram = columns[2] ? columns[2].trim().replace(/"/g, '') : '';
+                            
+                            let nameHTML = '';
+                            
+                            if (telegram) {
+                                if (telegram.startsWith('@')) {
+                                    telegram = telegram.substring(1);
+                                } else if (telegram.includes('t.me/')) {
+                                    telegram = telegram.split('t.me/')[1];
+                                }
+                                
+                                const messageText = encodeURIComponent("Hero Support");
+                                const tgURL = `https://t.me/${telegram}?text=${messageText}`;
+
+                                nameHTML = `
+                                    <a href="${tgURL}" target="_blank" class="hero-item-link">
+                                        <span class="hero-name">${name}</span>
+                                        <div class="hero-icon-group">
+                                            <i class="fab fa-telegram-plane tg-icon"></i>
+                                            <span class="hero-badge">${badge}</span>
+                                        </div>
+                                    </a>
+                                `;
+                            } else {
+                                nameHTML = `
+                                    <div class="hero-item-link" style="cursor: default;">
+                                        <span class="hero-name">${name}</span>
+                                        <div class="hero-icon-group">
+                                            <span class="hero-badge">${badge}</span>
+                                        </div>
+                                    </div>
+                                `;
+                            }
+
+                            htmlContent += nameHTML;
+                            heroCount++;
+                        }
+                    }
+                }
+
+                if (heroCount === 0) {
+                    hallOfFameDiv.innerHTML = `<p>Be the first hero!</p>`;
+                } else {
+                    hallOfFameDiv.innerHTML = htmlContent;
+                }
+
+            } catch (error) {
+                console.error("Hall of Fame verisi yüklenemedi:", error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadHallOfFame);
+
+        function initInfiniteCarousel(trackId, itemGap) {
+            const track = document.getElementById(trackId);
+            if(!track) return () => {};
+            
+            const originalItems = Array.from(track.children);
+            const count = originalItems.length;
+            
+            originalItems.forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+            originalItems.slice().reverse().forEach(item => {
+                track.prepend(item.cloneNode(true));
+            });
+
+            let currentIndex = count; 
+            
+            const getItemWidth = () => originalItems[0].offsetWidth + itemGap;
+
+            const applyTransform = (smooth = true) => {
+                track.style.transition = smooth ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+                track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+            };
+
+            setTimeout(() => applyTransform(false), 50);
+
+            const move = (direction) => {
+                currentIndex += direction;
+                applyTransform(true);
+
+                setTimeout(() => {
+                    if (currentIndex >= count * 2) {
+                        track.style.transition = 'none';
+                        currentIndex -= count;
+                        track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+                    } else if (currentIndex < count) {
+                        track.style.transition = 'none';
+                        currentIndex += count;
+                        track.style.transform = `translateX(${-currentIndex * getItemWidth()}px)`;
+                    }
+                }, 400);
+            };
+
+            window.addEventListener('resize', () => {
+                applyTransform(false);
+            });
+
+            return move;
+        }
+
+        const moveTrust = initInfiniteCarousel('trustTrack', 28);
+        const moveRoadmap = initInfiniteCarousel('roadmapTrack', 30);
+        const moveTokenomics = initInfiniteCarousel('tokenomicsTrack', 26);
+    </script>
 </body>
 </html>
