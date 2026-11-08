@@ -280,7 +280,7 @@
         }
 
         /* ==========================================================
-           KURUMSAL BUY BOX
+           KURUMSAL BUY BOX (GELİŞMİŞ ÖDEME EKRANI)
            ========================================================== */
         .buy-box-container {
             background: linear-gradient(180deg, #0d1424 0%, #070b14 100%);
@@ -428,36 +428,57 @@
         .buybox-wallet-notice p { font-size: 0.7rem; color: #94a3b8; line-height: 1.5; margin: 0; }
         .buybox-wallet-notice p strong { color: #cbd5e1; font-weight: 600; }
 
+        /* YENİ ÖDEME EKRANI TASARIMI */
         .wallet-address-box {
-            background: #030712; border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px; border-radius: 8px; margin-top: 20px; display: none;
+            background: #030712; border: 1px solid var(--gold); 
+            padding: 20px; border-radius: 10px; margin-top: 20px; display: none;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+            animation: fadeIn 0.3s ease;
         }
-        .wallet-address-box p { font-size: 0.75rem; color: #94a3b8; margin-bottom: 12px; line-height: 1.5; text-align: left; }
-        .wallet-address-box p strong { color: #fff; }
+        .wallet-address-box .pay-title {
+            font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #fff; font-weight: 700;
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;
+        }
+        .wallet-address-box .pay-title i { color: var(--gold); }
+
+        .wallet-address-box .pay-info {
+            font-size: 0.75rem; color: #94a3b8; margin-bottom: 15px; line-height: 1.5; text-align: left;
+        }
+        .wallet-address-box .pay-info strong { color: #fff; }
+        
+        .wallet-address-box .pay-warning {
+            background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5; font-size: 0.7rem; padding: 10px; border-radius: 6px; margin-bottom: 15px;
+            display: flex; align-items: flex-start; gap: 6px; text-align: left;
+        }
+        .wallet-address-box .pay-warning i { margin-top: 2px; }
+
         .wallet-address-box code {
-            display: block; font-family: 'Courier New', monospace; font-size: 0.85rem;
-            color: var(--gold); font-weight: 600; user-select: all;
-            background: rgba(255,255,255,0.03); padding: 14px; border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; margin-bottom: 12px;
-            cursor: pointer; transition: 0.2s;
+            display: block; font-family: 'Courier New', monospace; font-size: 0.9rem;
+            color: var(--gold); font-weight: 700; user-select: all;
+            background: rgba(245, 158, 11, 0.05); padding: 16px; border-radius: 6px;
+            border: 1px dashed rgba(245, 158, 11, 0.4); text-align: center; margin-bottom: 16px;
+            cursor: pointer; transition: 0.2s; word-break: break-all;
         }
-        .wallet-address-box code:hover { background: rgba(255,255,255,0.06); }
+        .wallet-address-box code:hover { background: rgba(245, 158, 11, 0.1); }
 
         .copy-wallet-btn {
-            background: #1e293b; color: #fff; border: 1px solid #334155; padding: 12px;
-            border-radius: 6px; font-size: 0.8rem; cursor: pointer; font-weight: 500;
+            background: var(--gold); color: #000; border: none; padding: 14px;
+            border-radius: 6px; font-size: 0.9rem; cursor: pointer; font-weight: 700;
             font-family: 'Inter', sans-serif; transition: 0.2s; width: 100%; margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
         }
-        .copy-wallet-btn:hover { background: #334155; }
+        .copy-wallet-btn:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); }
 
         .telegram-support-btn {
             display: flex; align-items: center; justify-content: center; gap: 6px;
-            background: transparent; color: #64748b; border: 1px solid rgba(255, 255, 255, 0.05); 
+            background: transparent; color: #64748b; border: 1px solid rgba(255, 255, 255, 0.1); 
             padding: 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; 
             font-weight: 500; font-family: 'Inter', sans-serif;
             text-decoration: none; transition: 0.2s;
         }
-        .telegram-support-btn:hover { background: rgba(255,255,255,0.03); color: #fff; }
+        .telegram-support-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
 
         .distribution-note {
             padding: 15px 24px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -833,65 +854,78 @@
             </div>
             
             <div class="buy-box-body">
-                <div class="price-cards-grid">
-                    <div class="price-card-box">
-                        <span class="card-label">Token Price</span>
-                        <div class="card-val-row">
-                            <strong>$0.007</strong>
-                            <span class="plus-badge">+12.5%</span>
+                <!-- Miktar Seçim Ekranı -->
+                <div id="calcScreen">
+                    <div class="price-cards-grid">
+                        <div class="price-card-box">
+                            <span class="card-label">Token Price</span>
+                            <div class="card-val-row">
+                                <strong>$0.007</strong>
+                                <span class="plus-badge">+12.5%</span>
+                            </div>
+                        </div>
+                        <div class="price-card-box">
+                            <span class="card-label">1 SOL Equals</span>
+                            <div class="card-val-row">
+                                <strong>14,866</strong>
+                                <div class="sol-coin-icon">◎</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="price-card-box">
-                        <span class="card-label">1 SOL Equals</span>
-                        <div class="card-val-row">
-                            <strong>14,866</strong>
-                            <div class="sol-coin-icon">◎</div>
+
+                    <div class="input-group-section">
+                        <label for="solInput">You Pay (SOL)</label>
+                        <div class="sol-input-wrapper">
+                            <div class="sol-mini-icon">◎</div>
+                            <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
+                            <button type="button" class="max-btn-badge" onclick="setSolMax()">MAX</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="input-group-section">
-                    <label for="solInput">You Pay (SOL)</label>
-                    <div class="sol-input-wrapper">
-                        <div class="sol-mini-icon">◎</div>
-                        <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
-                        <button type="button" class="max-btn-badge" onclick="setSolMax()">MAX</button>
-                    </div>
-                </div>
-
-                <div class="receive-group-section">
-                    <label>You Receive</label>
-                    <div class="receive-box-display">
-                        <div class="receive-box-left">
-                            <div class="znk-token-badge-img">Z</div>
-                            <span>ZNK Tokens</span>
+                    <div class="receive-group-section">
+                        <label>You Receive</label>
+                        <div class="receive-box-display">
+                            <div class="receive-box-left">
+                                <div class="znk-token-badge-img">Z</div>
+                                <span>ZNK Tokens</span>
+                            </div>
+                            <div class="receive-amount-text" id="calcResult">0 ZNK</div>
                         </div>
-                        <div class="receive-amount-text" id="calcResult">0 ZNK</div>
+                    </div>
+
+                    <button class="buy-now-action-btn" id="buyNowBtn" onclick="showAddress()" disabled>
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+
+                    <div class="secure-transparent-tag">
+                        <i class="fas fa-shield-alt"></i> Secure & Transparent
                     </div>
                 </div>
 
-                <button class="buy-now-action-btn" id="buyNowBtn" onclick="showAddress()" disabled>
-                    <i class="fas fa-shopping-cart"></i> Buy Now
-                </button>
-
-                <div class="secure-transparent-tag">
-                    <i class="fas fa-shield-alt"></i> Secure & Transparent
-                </div>
-
-                <div class="buybox-wallet-notice">
-                    <i class="fas fa-wallet"></i>
-                    <p>Use Web3 wallets (Phantom, Solflare). <strong>Do not send from exchanges (Binance, Coinbase).</strong></p>
-                </div>
-
+                <!-- Profesyonel Ödeme Ekranı (Başlangıçta Gizli) -->
                 <div id="addressBox" class="wallet-address-box">
-                    <p><strong>Send ONLY SOL</strong> to this address.<br><span style="font-size: 0.7rem; color: #fca5a5;">Sending other tokens may result in permanent loss.</span></p>
+                    <div class="pay-title"><i class="fas fa-wallet"></i> Complete Your Payment</div>
+                    
+                    <p class="pay-info">Please send <strong>exactly</strong> <span id="amountToSendText" style="color:var(--gold); font-weight:bold;">0 SOL</span> to the address below.</p>
+                    
+                    <div class="pay-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span><strong>Important:</strong> Send ONLY SOL on the Solana network. Do NOT send from exchanges (e.g., Binance). Sending other tokens may result in permanent loss.</span>
+                    </div>
                     
                     <code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
-                    <button class="copy-wallet-btn" onclick="copyDepositAddress()">Copy Address</button>
                     
+                    <button class="copy-wallet-btn" onclick="copyDepositAddress()">
+                        <i class="fas fa-copy"></i> Copy Address
+                    </button>
+
                     <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn">
-                        <i class="fab fa-telegram-plane"></i> Contact Support on Telegram
+                        <i class="fab fa-telegram-plane"></i> Need Help? Contact Support
                     </a>
+                    
+                    <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; margin-top: 15px; box-shadow:none;" onclick="goBackToCalc()">
+                        <i class="fas fa-arrow-left"></i> Go Back
+                    </button>
                 </div>
             </div>
             
@@ -1277,6 +1311,9 @@
     <script>
         const solInput = document.getElementById('solInput');
         const buyNowBtn = document.getElementById('buyNowBtn');
+        const calcScreen = document.getElementById('calcScreen');
+        const addressBox = document.getElementById('addressBox');
+        const amountToSendText = document.getElementById('amountToSendText');
 
         solInput.addEventListener('input', () => {
             const solAmount = parseFloat(solInput.value);
@@ -1295,14 +1332,22 @@
             solInput.dispatchEvent(new Event('input'));
         }
 
+        // Yeni Profesyonel Akış Fonksiyonları
         function showAddress() {
-            const addressBox = document.getElementById('addressBox');
-            if (addressBox.style.display === 'none' || addressBox.style.display === '') {
-                addressBox.style.display = 'block';
-                addressBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                addressBox.style.display = 'none';
-            }
+            const solAmount = parseFloat(solInput.value);
+            if (isNaN(solAmount) || solAmount <= 0) return;
+            
+            // Miktarı ödeme ekranına yazdır
+            amountToSendText.innerText = `${solAmount} SOL`;
+
+            // Ekranları değiştir (Sayfa kaydırma yok, sadece içerik değişimi)
+            calcScreen.style.display = 'none';
+            addressBox.style.display = 'block';
+        }
+
+        function goBackToCalc() {
+            addressBox.style.display = 'none';
+            calcScreen.style.display = 'block';
         }
 
         const fullDepositAddress = "3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A";
@@ -1311,15 +1356,18 @@
             navigator.clipboard.writeText(fullDepositAddress).then(() => {
                 const btn = document.querySelector(".copy-wallet-btn");
                 const codeEl = document.getElementById("depositAddress");
-                btn.innerText = "Copied!";
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 btn.style.color = "#34d399";
                 btn.style.borderColor = "#34d399";
                 codeEl.style.color = "#34d399";
+                
                 setTimeout(() => { 
-                    btn.innerText = "Copy Address"; 
+                    btn.innerHTML = originalText; 
                     btn.style.color = "#fff";
                     btn.style.borderColor = "rgba(255, 255, 255, 0.2)";
-                    codeEl.style.color = "var(--gold-light)";
+                    codeEl.style.color = "var(--gold)";
                 }, 2000);
             });
         }
