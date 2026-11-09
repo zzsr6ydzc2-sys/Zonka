@@ -617,6 +617,48 @@
         .tokenomics-item:nth-child(6n+5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); }
         .tokenomics-item:nth-child(6n+0) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); }
 
+        /* --- LOCKED & VERIFIED BÖLÜMÜ (KİLİT KARTLARI) --- */
+        .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 15px; }
+        .trust-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; will-change: transform; }
+        
+        .trust-item {
+            padding: 20px 18px; border-radius: 20px;
+            width: 300px; min-height: 400px; flex-shrink: 0; position: relative; 
+            display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9); overflow: hidden;
+            backdrop-filter: blur(25px); /* Arka plan bulanıklığı geri eklendi */
+        }
+        .trust-item.treasury { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35)); border: 3px solid rgba(245, 158, 11, 0.95); border-top: 5px solid #fcd34d; }
+        .trust-item.team { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35)); border: 3px solid rgba(52, 211, 153, 0.95); border-top: 5px solid #34d399; }
+        .trust-item.community { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(234, 88, 12, 0.35)); border: 3px solid rgba(249, 115, 22, 0.95); border-top: 5px solid #f97316; }
+        .trust-item.marketing { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(236, 72, 153, 0.35)); border: 3px solid rgba(236, 72, 153, 0.95); border-top: 5px solid #ec4899; }
+        .trust-item.liquidity { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.35)); border: 3px solid rgba(6, 182, 212, 0.95); border-top: 5px solid #06b6d4; }
+
+        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 10px; font-weight: 800; }
+        .trust-item.team h3 { color: #34d399; }
+        .trust-item.community h3 { color: #f97316; }
+        .trust-item.marketing h3 { color: #ec4899; }
+        .trust-item.liquidity h3 { color: #06b6d4; }
+        .trust-item.treasury h3 { color: #fcd34d; }
+
+        .trust-item p { color: #e2e8f0; font-size: 0.8rem; line-height: 1.5; margin-bottom: 12px; }
+        
+        .trust-details { 
+            display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; color: #fff; margin-bottom: 12px; 
+            background: rgba(0,0,0,0.85); padding: 12px; border-radius: 10px; text-align: left; 
+            border: 1px solid rgba(255,255,255,0.2); 
+        }
+        .trust-details span { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+        .trust-details span.label-txt { flex: 1; color: #94a3b8; }
+        .trust-details strong { color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+        .trust-btn {
+            display: block; width: 100%; padding: 10px; background: rgba(255,255,255,0.1); color: #fff;
+            text-align: center; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 10px;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; transition: 0.3s;
+        }
+        .trust-btn:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
+
         .contract-box { 
             background: linear-gradient(145deg, rgba(10, 17, 40, 0.98), rgba(6, 182, 212, 0.25));
             padding: 30px; border-radius: 20px; text-align: center; margin: 0 auto; 
