@@ -548,76 +548,31 @@
         .impact-content h4 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.3rem; margin-bottom: 12px; letter-spacing: 1px; text-shadow: 0 0 15px rgba(245,158,11,0.85); }
         .impact-content p { font-size: 0.9rem; color: #e2e8f0; line-height: 1.7; }
 
-        .roadmap-controls { display: flex; justify-content: center; gap: 20px; margin: 25px 0; }
-        .roadmap-btn { 
-            background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: var(--gold); 
-            width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; 
-            font-size: 1.2rem; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-        }
-        .roadmap-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); transform: scale(1.1); }
-
-        .roadmap-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; }
-        .roadmap-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
+        /* YENİ IMPACT JOURNEY BÖLÜMÜ */
+        .impact-journey-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 30px; }
+        .impact-journey-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
         
-        .roadmap-item {
-            padding: 25px; border-radius: 18px;
-            min-width: 240px; max-width: 240px; flex-shrink: 0; position: relative; transition: 0.4s ease;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
-        }
-        .roadmap-item:nth-child(4n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 3px solid rgba(6,182,212,0.95); }
-        .roadmap-item:nth-child(4n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 3px solid rgba(52,211,153,0.95); }
-        .roadmap-item:nth-child(4n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 3px solid rgba(245,158,11,0.95); }
-        .roadmap-item:nth-child(4n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 3px solid rgba(168,85,247,0.95); }
-        .roadmap-item:hover { transform: translateY(-5px); }
-
-        .roadmap-icon { 
-            width: 36px; height: 36px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; 
-            margin-bottom: 12px; font-size: 0.95rem; 
-        }
-        .roadmap-item:nth-child(4n+1) .roadmap-icon { background: rgba(6,182,212,0.4); border: 2px solid var(--cyan); color: var(--cyan); }
-        .roadmap-item:nth-child(4n+2) .roadmap-icon { background: rgba(52,211,153,0.4); border: 2px solid #34d399; color: #34d399; }
-        .roadmap-item:nth-child(4n+3) .roadmap-icon { background: rgba(245,158,11,0.4); border: 2px solid var(--gold); color: var(--gold); }
-        .roadmap-item:nth-child(4n+0) .roadmap-icon { background: rgba(168,85,247,0.4); border: 2px solid #a855f7; color: #a855f7; }
-
-        .roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.95rem; margin-bottom: 8px; font-weight: 700; }
-        .roadmap-content p { color: #e2e8f0; font-size: 0.8rem; line-height: 1.6; }
-
-        .tokenomics-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 30px; }
-        .tokenomics-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
-        
-        .tokenomics-item {
+        .journey-item {
             padding: 25px; border-radius: 18px;
             min-width: 260px; max-width: 260px; flex-shrink: 0; position: relative; text-align: left;
             box-shadow: 0 25px 50px rgba(0,0,0,0.9);
         }
-        .tokenomics-item:nth-child(6n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 3px solid rgba(245,158,11,0.95); }
-        .tokenomics-item:nth-child(6n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 3px solid rgba(6,182,212,0.95); }
-        .tokenomics-item:nth-child(6n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 3px solid rgba(168,85,247,0.95); }
-        .tokenomics-item:nth-child(6n+4) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 3px solid rgba(52,211,153,0.95); }
-        .tokenomics-item:nth-child(6n+5) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(236,72,153,0.35)); border: 3px solid rgba(236,72,153,0.95); }
-        .tokenomics-item:nth-child(6n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(59,130,246,0.35)); border: 3px solid rgba(59,130,246,0.95); }
+        .journey-item:nth-child(4n+1) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(6,182,212,0.35)); border: 3px solid rgba(6,182,212,0.95); }
+        .journey-item:nth-child(4n+2) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(52,211,153,0.35)); border: 3px solid rgba(52,211,153,0.95); }
+        .journey-item:nth-child(4n+3) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(245,158,11,0.35)); border: 3px solid rgba(245,158,11,0.95); }
+        .journey-item:nth-child(4n+0) { background: linear-gradient(145deg, rgba(10,17,40,0.98), rgba(168,85,247,0.35)); border: 3px solid rgba(168,85,247,0.95); }
 
-        .tokenomics-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .tokenomics-title span { font-size: 1.1rem; font-family: 'Inter', sans-serif; }
-        .tokenomics-item:nth-child(6n+1) .tokenomics-title span { color: var(--gold); }
-        .tokenomics-item:nth-child(6n+2) .tokenomics-title span { color: var(--cyan); }
-        .tokenomics-item:nth-child(6n+3) .tokenomics-title span { color: #a855f7; }
-        .tokenomics-item:nth-child(6n+4) .tokenomics-title span { color: #34d399; }
-        .tokenomics-item:nth-child(6n+5) .tokenomics-title span { color: #ec4899; }
-        .tokenomics-item:nth-child(6n+0) .tokenomics-title span { color: #3b82f6; }
+        .journey-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 12px; }
+        .journey-desc { color: #e2e8f0; font-size: 0.8rem; line-height: 1.6; margin-bottom: 15px; }
+        
+        .journey-btn {
+            display: block; width: 100%; padding: 10px; background: rgba(255,255,255,0.1); color: #fff;
+            text-align: center; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 10px;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; transition: 0.3s;
+        }
+        .journey-btn:hover { background: rgba(255,255,255,0.25); border-color: #fff; }
 
-        .tokenomics-desc { color: #e2e8f0; font-size: 0.8rem; line-height: 1.6; }
-        .tokenomics-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.12); border-radius: 3px; margin-top: 15px; overflow: hidden; }
-        .tokenomics-bar-fill { height: 100%; border-radius: 3px; }
-        .tokenomics-item:nth-child(6n+1) .tokenomics-bar-fill { background: linear-gradient(90deg, #d97706, var(--gold)); }
-        .tokenomics-item:nth-child(6n+2) .tokenomics-bar-fill { background: linear-gradient(90deg, #0e7490, var(--cyan)); }
-        .tokenomics-item:nth-child(6n+3) .tokenomics-bar-fill { background: linear-gradient(90deg, #7e22ce, #a855f7); }
-        .tokenomics-item:nth-child(6n+4) .tokenomics-bar-fill { background: linear-gradient(90deg, #065f46, #34d399); }
-        .tokenomics-item:nth-child(6n+5) .tokenomics-bar-fill { background: linear-gradient(90deg, #be185d, #ec4899); }
-        .tokenomics-item:nth-child(6n+0) .tokenomics-bar-fill { background: linear-gradient(90deg, #1e40af, #3b82f6); }
-
-        /* --- LOCKED & VERIFIED BÖLÜMÜ (KİLİT KARTLARI) --- */
+        /* YENİ KİLİT KARTLARI TASARIMI */
         .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 15px; }
         .trust-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; will-change: transform; }
         
@@ -626,7 +581,7 @@
             width: 300px; min-height: 400px; flex-shrink: 0; position: relative; 
             display: flex; flex-direction: column; justify-content: space-between;
             box-shadow: 0 25px 50px rgba(0,0,0,0.9); overflow: hidden;
-            backdrop-filter: blur(25px); /* Arka plan bulanıklığı geri eklendi */
+            backdrop-filter: blur(25px);
         }
         .trust-item.treasury { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(217, 119, 6, 0.35)); border: 3px solid rgba(245, 158, 11, 0.95); border-top: 5px solid #fcd34d; }
         .trust-item.team { background: linear-gradient(150deg, rgba(10, 17, 40, 0.98), rgba(16, 185, 129, 0.35)); border: 3px solid rgba(52, 211, 153, 0.95); border-top: 5px solid #34d399; }
@@ -752,6 +707,7 @@
             
             <div class="drawer-links">
                 <a href="#vision" onclick="toggleMobileMenu()"><i class="fas fa-heart"></i> Guardians of Life</a>
+                <a href="#impact-journey" onclick="toggleMobileMenu()"><i class="fas fa-globe"></i> Impact Journey</a>
                 <a href="#roadmap" onclick="toggleMobileMenu()"><i class="fas fa-map"></i> Roadmap</a>
                 <a href="#token" onclick="toggleMobileMenu()"><i class="fas fa-coins"></i> Tokenomics & Locks</a>
                 <a href="https://t.me/zonkacoin" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Community</a>
@@ -933,9 +889,42 @@
         </div>
     </section>
 
+    <!-- YENİ IMPACT JOURNEY BÖLÜMÜ -->
+    <section class="section" id="impact-journey">
+        <h2 class="section-title">THE IMPACT JOURNEY</h2>
+        <div class="impact-journey-wrapper">
+            <div class="impact-journey-track" id="journeyTrack">
+                <div class="journey-item">
+                    <div class="journey-title">Phase 1: The First Step</div>
+                    <p class="journey-desc">Completion of the presale and establishing our global community of Guardians.</p>
+                    <a href="#" class="journey-btn">Read Our Vision</a>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-title">Phase 2: First Impact</div>
+                    <p class="journey-desc">First animal shelter and children's charity donations funded directly by the community.</p>
+                    <a href="#" class="journey-btn">View Donations</a>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-title">Phase 3: Global Reach</div>
+                    <p class="journey-desc">Expanding our support to global nature conservation projects and wildlife protection.</p>
+                    <a href="#" class="journey-btn">See Partners</a>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-title">Phase 4: The Legacy</div>
+                    <p class="journey-desc">Building a permanent, transparent, and community-governed impact fund for the future.</p>
+                    <a href="#" class="journey-btn">Join The DAO</a>
+                </div>
+            </div>
+        </div>
+        <div class="roadmap-controls">
+            <button class="roadmap-btn" onclick="moveJourney(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="roadmap-btn" onclick="moveJourney(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
     <section class="section" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
-        <div class="roadmap-wrapper">
+        <div class="roadmap-wrapper" style="margin-top: 20px;">
             <div class="roadmap-track" id="roadmapTrack">
                 <div class="roadmap-item">
                     <div class="roadmap-icon">1</div>
@@ -1335,9 +1324,10 @@
             return move;
         }
 
-        const moveTrust = initInfiniteCarousel('trustTrack', 20);
+        const moveJourney = initInfiniteCarousel('journeyTrack', 20);
         const moveRoadmap = initInfiniteCarousel('roadmapTrack', 20);
         const moveTokenomics = initInfiniteCarousel('tokenomicsTrack', 20);
+        const moveTrust = initInfiniteCarousel('trustTrack', 20);
     </script>
 </body>
 </html>
