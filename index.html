@@ -319,31 +319,38 @@
 
         .buy-box-body { padding: 24px; }
 
-        /* GERİ SAYIM EKRANI (YENİ) */
+        /* PROFESYONEL GERİ SAYIM EKRANI */
         .countdown-container {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.4);
             border-radius: 12px;
-            padding: 12px;
+            padding: 16px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: inset 0 0 15px rgba(245, 158, 11, 0.1);
+            box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.1);
+            position: relative;
         }
         .countdown-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
-            color: var(--gold-light);
+            color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
+        .countdown-title i { color: var(--gold); font-size: 0.9rem; }
+        
         .countdown-timer {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             font-family: 'Inter', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #fff;
         }
@@ -351,13 +358,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            min-width: 60px;
         }
         .countdown-timer small {
-            font-size: 0.6rem;
-            color: #64748b;
+            font-size: 0.55rem;
+            color: var(--gold-light);
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: 2px;
+            margin-top: 4px;
+            letter-spacing: 1px;
         }
 
         .price-cards-grid {
@@ -854,9 +867,9 @@
             
             <div class="buy-box-body">
                 
-                <!-- YENİ GERİ SAYIM (5 GÜN) -->
+                <!-- YENİ PROFESYONEL GERİ SAYIM -->
                 <div class="countdown-container">
-                    <div class="countdown-title">Price Increases In:</div>
+                    <div class="countdown-title"><i class="fas fa-chart-line"></i> PRICE INCREASE IN:</div>
                     <div class="countdown-timer" id="countdown">
                         <span><span id="days">00</span><small>Days</small></span>
                         <span><span id="hours">00</span><small>Hrs</small></span>
@@ -872,7 +885,7 @@
                             <span class="card-label">Token Price</span>
                             <div class="card-val-row">
                                 <strong>$0.007</strong>
-                                <span class="plus-badge">Next: $0.0071</span>
+                                <span class="plus-badge">+12.5%</span>
                             </div>
                         </div>
                         <div class="price-card-box">
@@ -1315,7 +1328,7 @@
     </script>
 
     <script>
-        // --- YENİ GERİ SAYIM FONKSİYONU (5 GÜN) ---
+        // --- YENİ PROFESYONEL GERİ SAYIM FONKSİYONU (5 GÜN) ---
         // Süreyi milisaniye cinsinden ayarlıyoruz: 5 Gün * 24 Saat * 60 Dakika * 60 Saniye * 1000 Milisaniye
         const countdownDuration = 5 * 24 * 60 * 60 * 1000;
         let countdownEndTime = localStorage.getItem('zonkaCountdownEnd');
@@ -1331,7 +1344,7 @@
             const distance = countdownEndTime - now;
 
             if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "<span>EXPIRED</span>";
+                document.getElementById("countdown").innerHTML = "<span style='font-size:1rem; color:var(--gold);'>PRICE UPDATED!</span>";
                 return;
             }
 
