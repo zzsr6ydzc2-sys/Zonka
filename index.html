@@ -145,6 +145,7 @@
             font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--cyan); text-transform: uppercase; letter-spacing: 1px;
             text-decoration: none; text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); transition: 0.3s;
+            cursor: default; /* Tıklanma özelliğini kaldırdık */
         }
         .nav-brand:hover { color: #fff; text-shadow: 0 0 15px rgba(6, 182, 212, 1); }
         .nav-brand i { font-size: 0.9rem; }
@@ -748,9 +749,9 @@
 
     <!-- TOP NAVBAR -->
     <header class="top-navbar">
-        <a href="#" class="nav-brand">
+        <div class="nav-brand">
             <i class="fas fa-cube"></i> SOLANA NETWORK
-        </a>
+        </div>
         <div class="nav-right-actions">
             <a href="https://t.me/zonkacoin" target="_blank" class="join-community-nav-btn">
                 <i class="fab fa-telegram-plane"></i> Join Community
