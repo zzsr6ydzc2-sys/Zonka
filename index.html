@@ -145,7 +145,7 @@
             font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--cyan); text-transform: uppercase; letter-spacing: 1px;
             text-decoration: none; text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); transition: 0.3s;
-            cursor: pointer; /* Tıklanabilir olduğunu belli eder */
+            cursor: pointer;
         }
         .nav-brand:hover { color: #fff; text-shadow: 0 0 15px rgba(6, 182, 212, 1); }
         .nav-brand i { font-size: 0.9rem; }
@@ -318,6 +318,47 @@
         .live-dot-small { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
 
         .buy-box-body { padding: 24px; }
+
+        /* GERİ SAYIM EKRANI (YENİ) */
+        .countdown-container {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: inset 0 0 15px rgba(245, 158, 11, 0.1);
+        }
+        .countdown-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .countdown-timer span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-timer small {
+            font-size: 0.6rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px;
+        }
 
         .price-cards-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;
@@ -812,6 +853,18 @@
             </div>
             
             <div class="buy-box-body">
+                
+                <!-- YENİ GERİ SAYIM (5 GÜN) -->
+                <div class="countdown-container">
+                    <div class="countdown-title">Price Increases In:</div>
+                    <div class="countdown-timer" id="countdown">
+                        <span><span id="days">00</span><small>Days</small></span>
+                        <span><span id="hours">00</span><small>Hrs</small></span>
+                        <span><span id="minutes">00</span><small>Min</small></span>
+                        <span><span id="seconds">00</span><small>Sec</small></span>
+                    </div>
+                </div>
+
                 <!-- Miktar Seçim Ekranı -->
                 <div id="calcScreen">
                     <div class="price-cards-grid">
@@ -819,7 +872,7 @@
                             <span class="card-label">Token Price</span>
                             <div class="card-val-row">
                                 <strong>$0.007</strong>
-                                <span class="plus-badge">+12.5%</span>
+                                <span class="plus-badge">Next: $0.0071</span>
                             </div>
                         </div>
                         <div class="price-card-box">
@@ -1262,6 +1315,41 @@
     </script>
 
     <script>
+        // --- YENİ GERİ SAYIM FONKSİYONU (5 GÜN) ---
+        // Süreyi milisaniye cinsinden ayarlıyoruz: 5 Gün * 24 Saat * 60 Dakika * 60 Saniye * 1000 Milisaniye
+        const countdownDuration = 5 * 24 * 60 * 60 * 1000;
+        let countdownEndTime = localStorage.getItem('zonkaCountdownEnd');
+
+        // Eğer daha önce bir geri sayım başlatılmamışsa veya süresi bitmişse yenisini başlat
+        if (!countdownEndTime || new Date().getTime() > countdownEndTime) {
+            countdownEndTime = new Date().getTime() + countdownDuration;
+            localStorage.setItem('zonkaCountdownEnd', countdownEndTime);
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownEndTime - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<span>EXPIRED</span>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        // Her saniye güncelle
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // İlk yüklemede hemen çalıştır
+
         const solInput = document.getElementById('solInput');
         const buyNowBtn = document.getElementById('buyNowBtn');
         const calcScreen = document.getElementById('calcScreen');
