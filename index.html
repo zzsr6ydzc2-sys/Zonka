@@ -1328,10 +1328,13 @@
     </script>
 
     <script>
-        // --- SABİT BİTİŞ TARİHLİ GERİ SAYIM FONKSİYONU ---
-        // Hedef bitiş tarihini buradan ayarlayabilirsin. (Örnek: 15 Kasım 2026 23:59:59)
-        // Not: Ay indeksi 0'dan başlar. Yani 10 = Kasım.
-        const targetDate = new Date(2026, 10, 15, 23, 59, 59).getTime();
+        // --- 3 GÜNLÜK SABİT BİTİŞ TARİHLİ GERİ SAYIM FONKSİYONU ---
+        // Süreyi 3 Gün (72 Saat) olarak ayarlıyoruz. 
+        // Not: Bu süre, siteye ilk giren kişiden itibaren değil, bu kodun yayına alındığı andan itibaren başlar.
+        // Eğer belirli bir tarihte bitmesini istersen, targetDate değişkenini manuel ayarlayabilirsin.
+        
+        // Şu andan itibaren 3 gün sonrasını hedef alıyoruz:
+        const targetDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000);
 
         function updateCountdown() {
             const now = new Date().getTime();
