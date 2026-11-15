@@ -1328,22 +1328,15 @@
     </script>
 
     <script>
-        // --- HAFIZALI GERİ SAYIM FONKSİYONU (SAYFA YENİLENSE DE SIFIRLANMAZ) ---
-        // Bu fonksiyon, süreyi kullanıcının tarayıcısında saklar.
-        // Böylece sayfa yenilense bile süre kaldığı yerden devam eder.
-        
-        const countdownDuration = 3 * 24 * 60 * 60 * 1000; // 3 Gün (Milisaniye cinsinden)
-        let countdownEndTime = localStorage.getItem('zonkaCountdownEnd');
-
-        // Eğer hafızada kayıtlı bir bitiş zamanı yoksa veya süre bitmişse yeni bir tane başlat
-        if (!countdownEndTime || new Date().getTime() > countdownEndTime) {
-            countdownEndTime = new Date().getTime() + countdownDuration;
-            localStorage.setItem('zonkaCountdownEnd', countdownEndTime);
-        }
+        // --- KESİN SABİT TARİHLİ GERİ SAYIM FONKSİYONU ---
+        // Hedef bitiş tarihini burada belirliyoruz. 
+        // Not: Ay indeksi 0'dan başlar (0=Ocak, 10=Kasım).
+        // Örnek: 18 Kasım 2026, saat 23:59:59
+        const targetDate = new Date(2026, 10, 18, 23, 59, 59).getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = countdownEndTime - now;
+            const distance = targetDate - now;
 
             if (distance < 0) {
                 document.getElementById("countdown").innerHTML = "<span style='font-size:1rem; color:var(--gold);'>PRICE UPDATED!</span>";
