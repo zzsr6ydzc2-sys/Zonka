@@ -867,7 +867,7 @@
             
             <div class="buy-box-body">
                 
-                <!-- YENİ PROFESYONEL GERİ SAYIM -->
+                <!-- PROFESYONEL GERİ SAYIM -->
                 <div class="countdown-container">
                     <div class="countdown-title"><i class="fas fa-chart-line"></i> PRICE INCREASE IN:</div>
                     <div class="countdown-timer" id="countdown">
@@ -1328,20 +1328,14 @@
     </script>
 
     <script>
-        // --- YENİ PROFESYONEL GERİ SAYIM FONKSİYONU (5 GÜN) ---
-        // Süreyi milisaniye cinsinden ayarlıyoruz: 5 Gün * 24 Saat * 60 Dakika * 60 Saniye * 1000 Milisaniye
-        const countdownDuration = 5 * 24 * 60 * 60 * 1000;
-        let countdownEndTime = localStorage.getItem('zonkaCountdownEnd');
-
-        // Eğer daha önce bir geri sayım başlatılmamışsa veya süresi bitmişse yenisini başlat
-        if (!countdownEndTime || new Date().getTime() > countdownEndTime) {
-            countdownEndTime = new Date().getTime() + countdownDuration;
-            localStorage.setItem('zonkaCountdownEnd', countdownEndTime);
-        }
+        // --- SABİT BİTİŞ TARİHLİ GERİ SAYIM FONKSİYONU ---
+        // Hedef bitiş tarihini buradan ayarlayabilirsin. (Örnek: 15 Kasım 2026 23:59:59)
+        // Not: Ay indeksi 0'dan başlar. Yani 10 = Kasım.
+        const targetDate = new Date(2026, 10, 15, 23, 59, 59).getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = countdownEndTime - now;
+            const distance = targetDate - now;
 
             if (distance < 0) {
                 document.getElementById("countdown").innerHTML = "<span style='font-size:1rem; color:var(--gold);'>PRICE UPDATED!</span>";
