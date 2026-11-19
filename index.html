@@ -884,7 +884,7 @@
                         <div class="price-card-box">
                             <span class="card-label">Token Price</span>
                             <div class="card-val-row">
-                                <strong>$0.007</strong>
+                                <strong>$0.0071</strong>
                                 <span class="plus-badge">+12.5%</span>
                             </div>
                         </div>
@@ -1331,8 +1331,8 @@
         // --- KESİN SABİT TARİHLİ GERİ SAYIM FONKSİYONU ---
         // Hedef bitiş tarihini burada belirliyoruz. 
         // Not: Ay indeksi 0'dan başlar (0=Ocak, 10=Kasım).
-        // Örnek: 18 Kasım 2026, saat 23:59:59
-        const targetDate = new Date(2026, 10, 18, 23, 59, 59).getTime();
+        // Örnek: 24 Kasım 2026, saat 23:59:59 (5 gün sonrası sabit tarih)
+        const targetDate = new Date(2026, 10, 24, 23, 59, 59).getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
