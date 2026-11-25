@@ -21,7 +21,6 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- ZOOM SORUNU DÜZELTİLDİ (user-scalable=no eklendi) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
     <script type="application/ld+json">
@@ -40,7 +39,7 @@
     
     <style>
         :root {
-            --bg-base: #030712; 
+            --bg-base: #02040a; /* Daha derin bir siyah-lacivert */
             --bg-surface: #0a1128;
             --gold: #f59e0b;
             --gold-light: #fcd34d;
@@ -56,11 +55,12 @@
         
         body {
             background-color: var(--bg-base);
+            /* DAHA PROFESYONEL KRİPTO ARKA PLANI */
             background-image: 
-                radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.45) 0%, transparent 50%),
-                radial-gradient(circle at 90% 30%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
-                radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 55%),
-                radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.98) 0%, transparent 70%);
+                radial-gradient(ellipse at 50% -20%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 100% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 0% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #02040a 0%, #0a1128 100%);
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -75,8 +75,8 @@
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background: linear-gradient(90deg, rgba(3,7,18,1) 0%, rgba(6,182,212,0.15) 50%, rgba(3,7,18,1) 100%);
-            border-bottom: 1px solid rgba(6, 182, 212, 0.4);
+            background: linear-gradient(90deg, rgba(2,4,10,1) 0%, rgba(6,182,212,0.1) 50%, rgba(2,4,10,1) 100%);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.3);
             padding: 6px 0;
             position: relative;
             z-index: 1000;
@@ -107,34 +107,35 @@
             font-size: 0.8rem;
         }
 
-        /* --- KAR ANİMASYONU --- */
-        .snow-container {
+        /* --- MODERN PARTİKÜL ANİMASYONU (KAR TANESİ YERİNE) --- */
+        .particle-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 1; overflow: hidden;
         }
-        .snow {
-            position: absolute; top: -10px; color: #fff; opacity: 0.85;
-            text-shadow: 0 0 15px rgba(255,255,255,0.95);
-            animation: fall linear infinite;
-            will-change: transform;
+        .particle {
+            position: absolute; bottom: -10px; background: #fff; border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(6, 182, 212, 0.8), 0 0 20px 4px rgba(245, 158, 11, 0.3);
+            animation: floatUp linear infinite;
+            will-change: transform, opacity;
         }
-        .snow:nth-child(1) { left: 5%; font-size: 0.6em; animation-duration: 12s; }
-        .snow:nth-child(2) { left: 15%; font-size: 0.8em; animation-duration: 15s; animation-delay: -2s; }
-        .snow:nth-child(3) { left: 25%; font-size: 0.4em; animation-duration: 10s; animation-delay: -4s; }
-        .snow:nth-child(4) { left: 35%; font-size: 0.9em; animation-duration: 18s; animation-delay: -5s; }
-        .snow:nth-child(5) { left: 45%; font-size: 0.7em; animation-duration: 11s; animation-delay: -1s; }
-        .snow:nth-child(6) { left: 55%; font-size: 0.5em; animation-duration: 14s; animation-delay: -6s; }
-        .snow:nth-child(7) { left: 65%; font-size: 0.8em; animation-duration: 16s; animation-delay: -3s; }
-        .snow:nth-child(8) { left: 75%; font-size: 0.6em; animation-duration: 13s; animation-delay: -7s; }
-        .snow:nth-child(9) { left: 85%; font-size: 0.9em; animation-duration: 17s; animation-delay: -2s; }
-        .snow:nth-child(10){ left: 95%; font-size: 0.5em; animation-duration: 12s; animation-delay: -8s; }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+        }
 
-        @keyframes fall {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.9; }
-            90% { opacity: 0.9; }
-            100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
-        }
+        /* Dinamik partikül boyutları ve konumları */
+        .particle:nth-child(1) { left: 10%; width: 3px; height: 3px; animation-duration: 15s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; width: 5px; height: 5px; animation-duration: 25s; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 35%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 50%; width: 6px; height: 6px; animation-duration: 30s; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 65%; width: 4px; height: 4px; animation-duration: 22s; animation-delay: 5s; }
+        .particle:nth-child(6) { left: 80%; width: 3px; height: 3px; animation-duration: 16s; animation-delay: 3s; }
+        .particle:nth-child(7) { left: 90%; width: 5px; height: 5px; animation-duration: 28s; animation-delay: 7s; }
+        .particle:nth-child(8) { left: 15%; width: 2px; height: 2px; animation-duration: 20s; animation-delay: 8s; }
+        .particle:nth-child(9) { left: 45%; width: 4px; height: 4px; animation-duration: 24s; animation-delay: 6s; }
+        .particle:nth-child(10) { left: 75%; width: 3px; height: 3px; animation-duration: 19s; animation-delay: 9s; }
 
         /* --- TOP NAV HEADER BAR --- */
         .top-navbar {
@@ -171,7 +172,7 @@
         /* --- MOBILE DRAWER MENU --- */
         .mobile-menu-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 7, 18, 0.85); z-index: 9999; 
+            background: rgba(2, 4, 10, 0.85); z-index: 9999; 
             justify-content: flex-end; animation: fadeIn 0.3s ease;
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -224,57 +225,58 @@
         }
         .drawer-copy-btn:hover { background: var(--gold-light); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (ÜST KISIM DAHA PROFESYONEL) --- */
         .hero {
-            text-align: center; padding: 10px 20px 50px;
+            text-align: center; padding: 20px 20px 60px;
             display: flex; flex-direction: column;
             align-items: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 10;
         }
 
         .presale-badge-container {
-            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px;
         }
 
         .hero-badge-top {
             display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.4);
-            color: #38bdf8; padding: 4px 14px; border-radius: 20px; font-size: 0.65rem;
+            background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.3);
+            color: #38bdf8; padding: 5px 16px; border-radius: 20px; font-size: 0.65rem;
             font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
         }
         .hero-badge-top span { width: 6px; height: 6px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 8px #38bdf8; }
 
         .hero h1 {
-            font-family: 'Cinzel', serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
-            color: #ffffff; letter-spacing: 8px; margin-bottom: 10px; display: inline-block;
-            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 30%, #06b6d4 70%, #ffffff 100%);
+            font-family: 'Cinzel', serif; font-size: 3.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
+            color: #ffffff; letter-spacing: 10px; margin-bottom: 15px; display: inline-block;
+            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 40%, #06b6d4 80%, #ffffff 100%);
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shineText 8s linear infinite;
-            filter: drop-shadow(0 0 15px rgba(252, 211, 77, 0.5)) drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 0 20px rgba(252, 211, 77, 0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.9));
         }
         @keyframes shineText { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
 
         .hero h2 {
-            font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700;
-            margin-bottom: 20px; color: var(--text-muted); letter-spacing: 6px; text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 800;
+            margin-bottom: 25px; color: #cbd5e1; letter-spacing: 8px; text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
         }
 
         .hero p {
-            font-size: 0.95rem; max-width: 550px; margin: 0 auto 25px;
-            font-weight: 400; color: #cbd5e1; line-height: 1.7;
+            font-size: 1rem; max-width: 550px; margin: 0 auto 30px;
+            font-weight: 400; color: #94a3b8; line-height: 1.8;
         }
-        .hero p strong { color: var(--gold-light); font-weight: 600; }
+        .hero p strong { color: var(--gold-light); font-weight: 600; text-shadow: 0 0 10px rgba(252,211,77,0.4); }
 
         .socials-hero { 
-            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; 
-            margin-top: 0px; margin-bottom: 30px; 
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+            margin-top: 0px; margin-bottom: 35px; 
         }
         .socials-hero a {
             display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 50%; text-decoration: none; 
-            color: var(--text-muted); font-size: 1.1rem; transition: all 0.3s ease; 
-            border: 1.5px solid rgba(6, 182, 212, 0.3); background: rgba(10, 17, 40, 0.4);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            width: 44px; height: 44px; border-radius: 50%; text-decoration: none; 
+            color: #94a3b8; font-size: 1.2rem; transition: all 0.3s ease; 
+            border: 1.5px solid rgba(6, 182, 212, 0.2); background: rgba(10, 17, 40, 0.6);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         .socials-hero a:hover { 
             color: var(--gold-light); border-color: var(--gold-light); background: rgba(245, 158, 11, 0.1);
@@ -536,7 +538,7 @@
         }
         .txid-input-group input:focus { border-color: var(--gold); }
         .txid-error-msg {
-            display: none; color: #ef4444; font-size: 0.7rem; margin-top: 6px; font-weight: 600;
+            display: none; color: #ef4444; font-size: 0.7rem; margin-top: 6px; font-weight: 600; line-height: 1.3;
         }
 
         .telegram-support-btn {
@@ -587,7 +589,6 @@
         }
         .conf-tx-link:hover { text-decoration: underline; }
 
-        /* 30 DAKİKA YAZISI KALDIRILDI */
         .distribution-note {
             padding: 15px 24px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: #64748b; font-size: 0.7rem; text-align: left; display: block;
@@ -811,16 +812,16 @@
         .floating-feedback-btn:hover { transform: translateY(-6px) scale(1.05); border-color: #ffffff; }
 
         .feedback-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.92); z-index: 99999; justify-content: center; align-items: center; }
-        .feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #030712; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 95px rgba(0,0,0,0.99); display: flex; flex-direction: column; border: 4px solid rgba(168,85,247,0.9); }
+        .feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #020617; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 95px rgba(0,0,0,0.99); display: flex; flex-direction: column; border: 4px solid rgba(168,85,247,0.9); }
         .feedback-iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
         .close-modal-btn { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.85); color: #fff; border: 2px solid rgba(255,255,255,0.5); width: 42px; height: 42px; border-radius: 50%; font-size: 1.35rem; cursor: pointer; z-index: 10; display: flex; justify-content: center; align-items: center; transition: 0.3s; }
         .close-modal-btn:hover { background: #ef4444; border-color: #ef4444; }
-        .zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #030712; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(255,255,255,0.18); pointer-events: none; z-index: 5; }
+        .zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #020617; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(255,255,255,0.18); pointer-events: none; z-index: 5; }
         .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; letter-spacing: 5px; }
-            .hero h2 { font-size: 0.75rem; letter-spacing: 4px;}
+            .hero h1 { font-size: 2.8rem; letter-spacing: 6px; }
+            .hero h2 { font-size: 0.8rem; letter-spacing: 5px;}
             .buy-box-body { padding: 18px 15px; }
             .buy-box-header { padding: 15px 18px; }
             .distribution-note { padding: 12px 15px; }
@@ -849,9 +850,12 @@
         </div>
     </div>
 
-    <div class="snow-container">
-        <div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div>
-        <div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div><div class="snow">❅</div><div class="snow">❆</div>
+    <!-- MODERN PARTİKÜL EFEKTİ -->
+    <div class="particle-container">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
     <!-- TOP NAVBAR -->
@@ -1017,11 +1021,11 @@
                         <i class="fab fa-telegram-plane"></i> Need Help? Contact Support
                     </a>
 
-                    <!-- TXID DOĞRULAMA KUTUSU -->
+                    <!-- TXID DOĞRULAMA KUTUSU (KESİN KURAL EKLENDİ) -->
                     <div class="txid-input-group">
                         <label for="txidInput">Enter Transaction ID (TXID) *</label>
-                        <input type="text" id="txidInput" placeholder="Paste your transaction hash here...">
-                        <div class="txid-error-msg" id="txidError">Please enter your Transaction ID to proceed.</div>
+                        <input type="text" id="txidInput" placeholder="Paste transaction hash (min. 40 chars)...">
+                        <div class="txid-error-msg" id="txidError">Invalid TXID. Please enter a valid Solana transaction hash.</div>
                     </div>
                     
                     <button class="buy-now-action-btn" style="margin-top: 5px;" onclick="showConfirmation()">
@@ -1070,7 +1074,7 @@
                 </div>
             </div>
             
-            <!-- 30 DAKİKA YAZISI KALDIRILDI, KURUMSAL METİN EKLENDİ -->
+            <!-- KURUMSAL METİN -->
             <div class="distribution-note">
                 <span>⚡ <strong>Transactions are processed securely.</strong> Token distribution is handled automatically after verification.</span>
             </div>
@@ -1516,13 +1520,17 @@
             updateStepper(1);
         }
 
-        // TXID KONTROLLÜ ONAY GEÇİŞİ
+        // TXID KONTROLLÜ ONAY GEÇİŞİ (KESİN KURALLAR)
         function showConfirmation() {
             const txidValue = txidInput.value.trim();
-            if (!txidValue) {
-                txidError.style.display = "block"; // Kutu boşsa hata göster ve geçişi engelle
+            
+            // TXID Uzunluk ve Format Kontrolü (En az 40 karakter ve sadece harf/rakam)
+            const txidRegex = /^[a-zA-Z0-9]{40,100}$/;
+            
+            if (!txidRegex.test(txidValue)) {
+                txidError.style.display = "block"; // Hatalıysa kırmızı uyarı göster
                 txidInput.style.borderColor = "#ef4444";
-                return;
+                return; // Geçişi engelle
             }
             
             txidError.style.display = "none";
