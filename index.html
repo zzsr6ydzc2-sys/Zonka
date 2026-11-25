@@ -39,15 +39,11 @@
     
     <style>
         :root {
-            /* MAVİ TEMA RENKLERİ */
-            --bg-base: #1e4d8c; /* Ana mavi arka plan */
-            --bg-surface: #3b82f6; 
-            --gold: #fcd34d; /* Butonlar için sarı vurgu korundu */
-            --gold-light: #fef08a;
-            --cyan: #60a5fa;
+            --bg-base: #0f1015; /* Koyu, göz yormayan asil antrasit */
+            --gold: #f59e0b;
+            --gold-light: #fcd34d;
             --text-light: #ffffff;
-            --text-muted: #bfdbfe; 
-            --glass-bg: rgba(30, 77, 140, 0.96); 
+            --text-muted: #94a3b8; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-box-sizing: border-box; }
@@ -56,8 +52,10 @@
         
         body {
             background-color: var(--bg-base);
-            /* TEMİZ MAVİ ARKA PLAN - HAREKETSİZ */
-            background-image: linear-gradient(180deg, #1e4d8c 0%, #0f2a4d 100%);
+            /* PROFESYONEL ALTIN/ANTRASİT ARKA PLAN (HAREKETSİZ) */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 60%),
+                linear-gradient(180deg, #0f1015 0%, #050508 100%);
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -68,12 +66,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- KAYAN YAZI --- */
+        /* --- KAYAN YAZI (İNGİLİZCE) --- */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background: #c61a1a; /* Kırmızı son dakika bandı */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(90deg, #0f1015 0%, rgba(245, 158, 11, 0.15) 50%, #0f1015 100%);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
             padding: 6px 0;
             position: relative;
             z-index: 1000;
@@ -91,13 +89,13 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--gold-light);
             letter-spacing: 1px;
             text-transform: uppercase;
             padding: 0 30px;
         }
         .ticker-item i {
-            color: #fff;
+            color: var(--gold);
             margin-right: 8px;
             font-size: 0.8rem;
         }
@@ -106,46 +104,45 @@
         .top-navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 24px; max-width: 940px; margin: 0 auto; position: relative; z-index: 100;
-            background: #4f8de6; /* Üst bar için daha açık mavi */
         }
         .nav-brand {
             display: flex; align-items: center; gap: 6px;
             font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
-            color: #fff; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--gold); text-transform: uppercase; letter-spacing: 1px;
             text-decoration: none; transition: 0.3s; cursor: pointer;
         }
-        .nav-brand:hover { color: var(--gold-light); }
+        .nav-brand:hover { color: #fff; }
         .nav-brand i { font-size: 0.9rem; }
 
         .nav-right-actions { display: flex; align-items: center; gap: 12px; }
         .join-community-nav-btn {
-            background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.5);
-            color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.7rem;
+            background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.4);
+            color: var(--gold); padding: 6px 14px; border-radius: 20px; font-size: 0.7rem;
             font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px;
             transition: all 0.3s;
         }
-        .join-community-nav-btn:hover { background: rgba(255, 255, 255, 0.4); }
+        .join-community-nav-btn:hover { background: rgba(245, 158, 11, 0.2); border-color: var(--gold); }
         
         .hamburger-menu-btn {
-            background: transparent; border: 1px solid rgba(255, 255, 255, 0.5);
-            color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex;
+            background: transparent; border: 1px solid rgba(245, 158, 11, 0.4);
+            color: var(--gold); width: 32px; height: 32px; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; cursor: pointer; font-size: 0.85rem;
             transition: all 0.3s;
         }
-        .hamburger-menu-btn:hover { background: rgba(255, 255, 255, 0.2); }
+        .hamburger-menu-btn:hover { background: rgba(245, 158, 11, 0.2); }
 
         /* --- MOBILE DRAWER MENU --- */
         .mobile-menu-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); z-index: 9999; 
+            background: rgba(0, 0, 0, 0.85); z-index: 9999; 
             justify-content: flex-end; animation: fadeIn 0.3s ease;
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
         .mobile-drawer {
-            width: 100%; max-width: 320px; height: 100%; background: #2558a0;
-            border-left: 2px solid rgba(255, 255, 255, 0.2); padding: 25px;
-            display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+            width: 100%; max-width: 320px; height: 100%; background: linear-gradient(145deg, #16171d 0%, #0f1015 100%);
+            border-left: 2px solid rgba(245, 158, 11, 0.3); padding: 25px;
+            display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9);
             position: relative; overflow-y: auto; animation: slideInRight 0.3s ease;
         }
         @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
@@ -159,28 +156,28 @@
         .drawer-close:hover { background: #ef4444; border-color: #ef4444; }
 
         .drawer-title {
-            font-family: 'Cinzel', serif; font-size: 1.1rem; color: #fff;
+            font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold-light);
             margin-bottom: 20px; font-weight: 800; letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;
         }
         .drawer-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
         .drawer-links a {
             color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500;
             display: flex; align-items: center; gap: 10px; padding: 8px 12px;
-            border-radius: 8px; background: rgba(255,255,255,0.05); transition: 0.2s;
+            border-radius: 8px; background: rgba(255,255,255,0.03); transition: 0.2s;
             border: 1px solid transparent;
         }
-        .drawer-links a:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(4px); }
-        .drawer-links a i { color: var(--gold-light); width: 18px; text-align: center; }
+        .drawer-links a:hover { background: rgba(245, 158, 11, 0.1); color: var(--gold); transform: translateX(4px); }
+        .drawer-links a i { color: var(--gold); width: 18px; text-align: center; }
 
         .drawer-contract-box {
-            background: rgba(0,0,0,0.2); border: 1.5px dashed rgba(255, 255, 255, 0.4);
+            background: rgba(0,0,0,0.5); border: 1.5px dashed rgba(245, 158, 11, 0.5);
             padding: 14px; border-radius: 10px; margin-top: auto;
         }
         .drawer-contract-box p { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
         .drawer-contract-box code {
-            display: block; font-family: 'Courier New', monospace; font-size: 0.7rem; color: #fff;
-            word-break: break-all; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;
+            display: block; font-family: 'Courier New', monospace; font-size: 0.7rem; color: var(--gold-light);
+            word-break: break-all; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;
             margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.1); user-select: all;
         }
         .drawer-copy-btn {
@@ -202,28 +199,28 @@
 
         .hero-badge-top {
             display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff; padding: 5px 16px; border-radius: 20px; font-size: 0.65rem;
+            background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--gold); padding: 5px 16px; border-radius: 20px; font-size: 0.65rem;
             font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
         }
-        .hero-badge-top span { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .hero-badge-top span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
 
         .hero h1 {
             font-family: 'Cinzel', serif; font-size: 3.8rem; font-weight: 900; line-height: 1.1; text-transform: uppercase;
             color: #ffffff; letter-spacing: 10px; margin-bottom: 15px; display: inline-block;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
         }
 
         .hero h2 {
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 800;
-            margin-bottom: 25px; color: #fff; letter-spacing: 8px; text-transform: uppercase;
+            margin-bottom: 25px; color: var(--gold-light); letter-spacing: 8px; text-transform: uppercase;
         }
 
         .hero p {
             font-size: 1rem; max-width: 550px; margin: 0 auto 30px;
-            font-weight: 400; color: #fff; line-height: 1.8;
+            font-weight: 400; color: #cbd5e1; line-height: 1.8;
         }
-        .hero p strong { color: var(--gold-light); font-weight: 600; }
+        .hero p strong { color: var(--gold); font-weight: 600; }
 
         .socials-hero { 
             display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
@@ -233,15 +230,15 @@
             display: flex; align-items: center; justify-content: center;
             width: 44px; height: 44px; border-radius: 50%; text-decoration: none; 
             color: #fff; font-size: 1.2rem; transition: all 0.3s ease; 
-            border: 1.5px solid rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.1);
+            border: 1.5px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);
         }
         .socials-hero a:hover { 
-            color: #fff; border-color: #fff; background: rgba(255, 255, 255, 0.3);
+            color: #fff; border-color: var(--gold); background: rgba(245, 158, 11, 0.3);
             transform: translateY(-3px); 
         }
 
         /* ==========================================================
-           MAVİ TEMA ALIM SATIM PANELİ
+           ALIM SATIM PANELİ (Mavi Tema Korundu)
            ========================================================== */
         .buy-box-container {
             background: #3b82f6; /* Açık mavi panel */
@@ -250,7 +247,7 @@
             padding: 0; 
             width: 100%; max-width: 480px;
             margin: 0 auto 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
             text-align: left; 
             position: relative; overflow: hidden;
         }
@@ -533,51 +530,51 @@
             max-width: 940px; margin: 30px auto 20px; padding: 0 15px; position: relative; z-index: 10;
         }
         .feature-box-item {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.1));
+            border: 1.5px solid rgba(245, 158, 11, 0.3);
             border-radius: 16px; padding: 20px 18px; text-align: center;
         }
-        .feature-box-item i { font-size: 1.5rem; color: #fff; margin-bottom: 12px; }
+        .feature-box-item i { font-size: 1.5rem; color: var(--gold); margin-bottom: 12px; }
         .feature-box-item h4 { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
-        .feature-box-item p { font-size: 0.75rem; color: #bfdbfe; line-height: 1.6; }
+        .feature-box-item p { font-size: 0.75rem; color: #cbd5e1; line-height: 1.6; }
 
         .section { padding: 50px 15px; max-width: 940px; margin: 0 auto; position: relative; z-index: 10;}
         
         .section-title {
             font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900;
             text-align: center; margin-bottom: 35px; text-transform: uppercase;
-            letter-spacing: 2px; color: #fff;
+            letter-spacing: 2px; color: var(--gold-light);
         }
         .section-title::after {
             content: ''; display: block; width: 120px; height: 2px;
-            background: #fff; margin: 15px auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 15px auto 0;
         }
 
         .vision-box {
-            background: rgba(0,0,0,0.2);
-            padding: 30px 24px; border-radius: 20px; border: 2px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.95rem; line-height: 1.7; text-align: center; color: #fff; font-weight: 400;
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.1));
+            padding: 30px 24px; border-radius: 20px; border: 2px solid rgba(245, 158, 11, 0.3);
+            font-size: 0.95rem; line-height: 1.7; text-align: center; color: #cbd5e1; font-weight: 400;
             margin-bottom: 30px;
             max-width: 760px; margin-left: auto; margin-right: auto;
         }
-        .vision-box strong { color: var(--gold-light); font-weight: 600; }
+        .vision-box strong { color: var(--gold); font-weight: 600; }
         
         .vision-icons { display: flex; justify-content: center; gap: 30px; margin: 20px 0 0 0; flex-wrap: wrap; }
         .vision-icon-item { text-align: center; }
-        .vision-icon-item i { font-size: 1.5rem; color: #fff; margin-bottom: 8px; }
+        .vision-icon-item i { font-size: 1.5rem; color: var(--gold); margin-bottom: 8px; }
         .vision-icon-item span { display: block; font-size: 0.75rem; font-weight: 600; color: #fff; letter-spacing: 1px; }
 
         .impact-gallery { display: flex; justify-content: center; margin: 30px 0; }
         .impact-card {
-            background: rgba(0,0,0,0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 20px;
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(245, 158, 11, 0.5); border-radius: 20px;
             overflow: hidden; width: 100%; max-width: 600px; position: relative; text-align: center;
         }
-        .impact-image-placeholder { width: 100%; height: auto; background: #000; display: flex; justify-content: center; align-items: center; overflow: hidden; border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .impact-image-placeholder { width: 100%; height: auto; background: #000; display: flex; justify-content: center; align-items: center; overflow: hidden; border-bottom: 2px solid rgba(245,158,11,0.3); }
         .impact-image-placeholder img { width: 100%; height: auto; display: block; }
         .impact-content { padding: 24px; }
-        .impact-content h4 { font-family: 'Cinzel', serif; color: #fff; font-size: 1.3rem; margin-bottom: 12px; letter-spacing: 1px; }
-        .impact-content p { font-size: 0.9rem; color: #bfdbfe; line-height: 1.7; }
+        .impact-content h4 { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.3rem; margin-bottom: 12px; letter-spacing: 1px; }
+        .impact-content p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.7; }
 
         .impact-journey-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 30px; }
         .impact-journey-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
@@ -585,19 +582,20 @@
         .journey-item {
             padding: 25px; border-radius: 18px;
             min-width: 260px; max-width: 260px; flex-shrink: 0; position: relative; text-align: left;
-            background: rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2);
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(245, 158, 11, 0.3);
         }
 
         .journey-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 12px; }
-        .journey-desc { color: #bfdbfe; font-size: 0.8rem; line-height: 1.6; margin-bottom: 15px; }
+        .journey-desc { color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; margin-bottom: 15px; }
 
         .roadmap-controls { display: flex; justify-content: center; gap: 20px; margin: 25px 0; }
         .roadmap-btn { 
-            background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.4); color: #fff; 
+            background: rgba(245, 158, 11, 0.1); border: 2px solid rgba(245, 158, 11, 0.4); color: var(--gold); 
             width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; 
             font-size: 1.2rem; transition: 0.3s;
         }
-        .roadmap-btn:hover { background: rgba(255,255,255,0.3); }
+        .roadmap-btn:hover { background: rgba(245, 158, 11, 0.3); }
 
         .roadmap-wrapper { position: relative; width: 100%; overflow: hidden; padding: 30px 0; }
         .roadmap-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
@@ -605,18 +603,19 @@
         .roadmap-item {
             padding: 25px; border-radius: 18px;
             min-width: 240px; max-width: 240px; flex-shrink: 0; position: relative;
-            background: rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2);
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(245, 158, 11, 0.3);
         }
 
         .roadmap-icon { 
             width: 36px; height: 36px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; 
             margin-bottom: 12px; font-size: 0.95rem; 
-            background: #fff; color: #3b82f6;
+            background: var(--gold); color: #000;
         }
 
         .roadmap-content h4 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 0.95rem; margin-bottom: 8px; font-weight: 700; }
-        .roadmap-content p { color: #bfdbfe; font-size: 0.8rem; line-height: 1.6; }
+        .roadmap-content p { color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; }
 
         .tokenomics-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 30px; }
         .tokenomics-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); width: max-content; will-change: transform; }
@@ -624,14 +623,15 @@
         .tokenomics-item {
             padding: 25px; border-radius: 18px;
             min-width: 260px; max-width: 260px; flex-shrink: 0; position: relative; text-align: left;
-            background: rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2);
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(245, 158, 11, 0.3);
         }
 
         .tokenomics-title { font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
         .tokenomics-title span { font-size: 1.1rem; font-family: 'Inter', sans-serif; color: var(--gold-light); }
-        .tokenomics-desc { color: #bfdbfe; font-size: 0.8rem; line-height: 1.6; }
-        .tokenomics-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; margin-top: 15px; overflow: hidden; }
-        .tokenomics-bar-fill { height: 100%; border-radius: 3px; background: #fff; }
+        .tokenomics-desc { color: #cbd5e1; font-size: 0.8rem; line-height: 1.6; }
+        .tokenomics-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 15px; overflow: hidden; }
+        .tokenomics-bar-fill { height: 100%; border-radius: 3px; background: var(--gold); }
 
         .trust-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 15px; }
         .trust-track { display: flex; gap: 20px; padding: 10px 0; transition: transform 0.4s ease-out; width: max-content; will-change: transform; }
@@ -640,11 +640,12 @@
             padding: 20px 18px; border-radius: 20px;
             width: 300px; min-height: 400px; flex-shrink: 0; position: relative; 
             display: flex; flex-direction: column; justify-content: space-between;
-            overflow: hidden; background: rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2);
+            overflow: hidden; background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(245, 158, 11, 0.3);
         }
 
-        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 10px; font-weight: 800; color: #fff; }
-        .trust-item p { color: #bfdbfe; font-size: 0.8rem; line-height: 1.5; margin-bottom: 12px; }
+        .trust-item h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 10px; font-weight: 800; color: var(--gold-light); }
+        .trust-item p { color: #cbd5e1; font-size: 0.8rem; line-height: 1.5; margin-bottom: 12px; }
         
         .trust-details { 
             display: flex; flex-direction: column; gap: 6px; font-size: 0.75rem; color: #fff; margin-bottom: 12px; 
@@ -652,43 +653,43 @@
             border: 1px solid rgba(255,255,255,0.1); 
         }
         .trust-details span { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
-        .trust-details span.label-txt { flex: 1; color: #bfdbfe; }
+        .trust-details span.label-txt { flex: 1; color: #cbd5e1; }
 
         .trust-btn {
-            display: block; width: 100%; padding: 10px; background: rgba(255,255,255,0.1); color: #fff;
-            text-align: center; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 10px;
+            display: block; width: 100%; padding: 10px; background: rgba(245, 158, 11, 0.1); color: var(--gold);
+            text-align: center; text-decoration: none; border: 1.5px solid rgba(245, 158, 11, 0.3); border-radius: 10px;
             font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; transition: 0.3s;
         }
-        .trust-btn:hover { background: rgba(255,255,255,0.3); }
+        .trust-btn:hover { background: rgba(245, 158, 11, 0.3); }
 
         .contract-box { 
-            background: rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, rgba(22, 23, 29, 0.95), rgba(245, 158, 11, 0.15));
             padding: 30px; border-radius: 20px; text-align: center; margin: 0 auto; 
-            border: 2px solid rgba(255,255,255,0.3); max-width: 600px; 
+            border: 2px solid rgba(245, 158, 11, 0.3); max-width: 600px; 
         }
-        .contract-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.95rem; background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 20px; word-break: break-all; color: #000; font-weight: 700; }
+        .contract-box code { display: block; font-family: 'Courier New', monospace; font-size: 0.95rem; background: #000; padding: 15px; border-radius: 10px; margin-bottom: 20px; word-break: break-all; color: var(--gold-light); font-weight: 700; }
         .copy-btn { background: var(--gold); color: #000; padding: 12px 25px; border-radius: 30px; font-weight: 800; font-family: 'Montserrat', sans-serif; border: none; cursor: pointer; font-size: 0.85rem; transition: 0.3s; }
 
-        footer { text-align: center; padding: 40px 15px; background: rgba(0, 0, 0, 0.3); color: #bfdbfe; font-size: 0.75rem; margin-top: 40px; border-top: 2px solid rgba(255, 255, 255, 0.1); }
+        footer { text-align: center; padding: 40px 15px; background: rgba(0, 0, 0, 0.5); color: #cbd5e1; font-size: 0.75rem; margin-top: 40px; border-top: 2px solid rgba(245, 158, 11, 0.2); }
         .footer-verified { color: var(--gold-light); display: block; margin-top: 10px; margin-bottom: 15px; font-weight: 600; letter-spacing: 1px; }
         .ssl-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.2); color: #fff; padding: 8px 18px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1.5px solid rgba(16, 185, 129, 0.5); }
 
         .floating-feedback-btn { 
             position: fixed; bottom: 35px; right: 35px; 
-            background: #fff; color: #3b82f6; padding: 12px 22px; border-radius: 30px; 
+            background: var(--gold); color: #000; padding: 12px 22px; border-radius: 30px; 
             font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem; 
-            text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
             z-index: 9999; display: flex; align-items: center; gap: 10px; cursor: pointer; 
-            border: 2.5px solid #fff; transition: 0.3s; 
+            border: 2.5px solid var(--gold-light); transition: 0.3s; 
         }
         .floating-feedback-btn:hover { transform: translateY(-6px) scale(1.05); }
 
-        .feedback-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 99999; justify-content: center; align-items: center; }
-        .feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #2558a0; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; border: 2px solid rgba(255,255,255,0.2); }
+        .feedback-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center; }
+        .feedback-modal-content { position: relative; width: 90%; max-width: 560px; height: 86vh; max-height: 760px; background: #0f1015; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; border: 2px solid rgba(245, 158, 11, 0.3); }
         .feedback-iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
         .close-modal-btn { position: absolute; top: 20px; right: 20px; background: #ef4444; color: #fff; border: 2px solid rgba(255,255,255,0.3); width: 42px; height: 42px; border-radius: 50%; font-size: 1.35rem; cursor: pointer; z-index: 10; display: flex; justify-content: center; align-items: center; transition: 0.3s; }
-        .zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #2558a0; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(255,255,255,0.2); pointer-events: none; z-index: 5; }
-        .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: #fff; }
+        .zonka-modal-cover { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: #0f1015; display: flex; justify-content: center; align-items: center; border-top: 1px solid rgba(245, 158, 11, 0.3); pointer-events: none; z-index: 5; }
+        .zonka-modal-cover span { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; color: var(--gold-light); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; letter-spacing: 6px; }
@@ -711,23 +712,24 @@
 </head>
 <body>
 
-    <!-- KAYAN YAZI (Kırmızı Bant) -->
+    <!-- KAYAN YAZI -->
     <div class="ticker-wrap">
         <div class="ticker" id="ticker">
-            <div class="ticker-item"><i class="fas fa-bullhorn"></i> SON DAKİKA: ÖN SATIŞ YAYINDA</div>
-            <div class="ticker-item"><i class="fas fa-bullseye"></i> HEDEF: 15M ZNK</div>
-            <div class="ticker-item"><i class="fas fa-chart-line"></i> HEMEN SONRA LISTELEME</div>
+            <div class="ticker-item"><i class="fas fa-rocket"></i> PRESALE IS LIVE</div>
+            <div class="ticker-item"><i class="fas fa-bullseye"></i> TARGET: 15M ZNK PRESALE VOLUME</div>
+            <div class="ticker-item"><i class="fas fa-chart-line"></i> LISTING IMMEDIATELY AFTER</div>
+            <div class="ticker-item"><i class="fas fa-shield-alt"></i> JOIN THE GUARDIANS OF LIFE</div>
         </div>
     </div>
 
     <!-- TOP NAVBAR -->
     <header class="top-navbar">
         <a href="https://solana.com" target="_blank" class="nav-brand">
-            <i class="fas fa-cube"></i> SOLANA AĞI
+            <i class="fas fa-cube"></i> SOLANA NETWORK
         </a>
         <div class="nav-right-actions">
             <a href="https://t.me/zonkacoin" target="_blank" class="join-community-nav-btn">
-                <i class="fab fa-telegram-plane"></i> Topluluğa Katıl
+                <i class="fab fa-telegram-plane"></i> Join Community
             </a>
             <button class="hamburger-menu-btn" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
@@ -739,21 +741,21 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenuOnOutside(event)">
         <div class="mobile-drawer">
             <button class="drawer-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
-            <div class="drawer-title">ZONKA EKOSİSTEMİ</div>
+            <div class="drawer-title">ZONKA ECOSYSTEM</div>
             
             <div class="drawer-links">
-                <a href="#vision" onclick="toggleMobileMenu()"><i class="fas fa-heart"></i> Hayatın Koruyucuları</a>
-                <a href="#impact-journey" onclick="toggleMobileMenu()"><i class="fas fa-globe"></i> Etki Yolculuğu</a>
-                <a href="#roadmap" onclick="toggleMobileMenu()"><i class="fas fa-map"></i> Yol Haritası</a>
-                <a href="#token" onclick="toggleMobileMenu()"><i class="fas fa-coins"></i> Tokenomik & Kilitler</a>
-                <a href="https://t.me/zonkacoin" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Topluluğu</a>
+                <a href="#vision" onclick="toggleMobileMenu()"><i class="fas fa-heart"></i> Guardians of Life</a>
+                <a href="#impact-journey" onclick="toggleMobileMenu()"><i class="fas fa-globe"></i> Impact Journey</a>
+                <a href="#roadmap" onclick="toggleMobileMenu()"><i class="fas fa-map"></i> Roadmap</a>
+                <a href="#token" onclick="toggleMobileMenu()"><i class="fas fa-coins"></i> Tokenomics & Locks</a>
+                <a href="https://t.me/zonkacoin" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Community</a>
                 <a href="https://x.com/zonka_coin" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a>
             </div>
 
             <div class="drawer-contract-box">
-                <p>Sözleşme Adresi:</p>
+                <p>Contract Address:</p>
                 <code id="drawerContractCode">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-                <button class="drawer-copy-btn" onclick="copyDrawerContract()">Sözleşmeyi Kopyala</button>
+                <button class="drawer-copy-btn" onclick="copyDrawerContract()">Copy Contract</button>
             </div>
         </div>
     </div>
@@ -761,26 +763,26 @@
     <section class="hero">
         <div class="presale-badge-container">
             <div class="hero-badge-top">
-                <span></span> DAHA PARLAK BİR WEB3 İNŞA ETMEK
+                <span></span> BUILDING A BRIGHTER WEB3
             </div>
         </div>
 
         <h1>ZONKA</h1>
-        <h2>HAYATIN KORUYUCULARI</h2>
+        <h2>GUARDIANS OF LIFE</h2>
         
-        <p>Misyonumuz: <strong>çocukları ve hayvanları korumak</strong>. Gerçek güç, neyi tuttuğunuzla değil, neyi koruduğunuzla ilgilidir.</p>
+        <p>Our mission: <strong>protect children and animals</strong>. True power isn't about what you hold, but what you protect.</p>
 
         <div class="socials-hero">
             <a href="https://t.me/zonkacoin" target="_blank" class="btn-tg"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://x.com/zonka_coin" target="_blank" class="btn-x"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <!-- MAVİ TEMA ALIM SATIM PANELİ -->
+        <!-- ALIM SATIM PANELİ -->
         <div class="buy-box-container">
             <div class="buy-box-header">
-                <h3><i class="fas fa-bolt"></i> $ZNK satın al</h3>
+                <h3><i class="fas fa-bolt"></i> Buy $ZNK</h3>
                 <div class="live-indicator">
-                    <div class="live-dot-small"></div> CANLI
+                    <div class="live-dot-small"></div> LIVE
                 </div>
             </div>
             
@@ -790,15 +792,15 @@
                 <div class="stepper" id="stepper">
                     <div class="step-item active" id="step1">
                         <div class="step-circle">1</div>
-                        <div class="step-label">MİKTAR</div>
+                        <div class="step-label">AMOUNT</div>
                     </div>
                     <div class="step-item" id="step2">
                         <div class="step-circle">2</div>
-                        <div class="step-label">ÖDEME</div>
+                        <div class="step-label">PAYMENT</div>
                     </div>
                     <div class="step-item" id="step3">
                         <div class="step-circle">3</div>
-                        <div class="step-label">CONFİRM</div>
+                        <div class="step-label">CONFIRM</div>
                     </div>
                 </div>
 
@@ -806,96 +808,96 @@
                 <div id="calcScreen">
                     <div class="price-cards-grid">
                         <div class="price-card-box">
-                            <span class="card-label">TOKEN FİYATI</span>
+                            <span class="card-label">TOKEN PRICE</span>
                             <div class="card-val-row">
-                                <strong>0,0071$</strong>
-                                <span class="plus-badge">+%12,5</span>
+                                <strong>$0.0071</strong>
+                                <span class="plus-badge">+12.5%</span>
                             </div>
                         </div>
                         <div class="price-card-box">
-                            <span class="card-label">1 SOL EŞİTTİR</span>
+                            <span class="card-label">1 SOL EQUALS</span>
                             <div class="card-val-row">
-                                <strong>14.866</strong>
+                                <strong>14,866</strong>
                                 <div class="sol-coin-icon">◎</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="input-group-section">
-                        <label for="solInput">SEN ÖDERSİN (SOL)</label>
+                        <label for="solInput">YOU PAY (SOL)</label>
                         <div class="sol-input-wrapper">
                             <div class="sol-mini-icon">◎</div>
-                            <input type="number" id="solInput" placeholder="örn. 1" min="0" step="0.1">
-                            <button type="button" class="max-btn-badge" onclick="setSolMax()">MAKS.</button>
+                            <input type="number" id="solInput" placeholder="e.g. 1" min="0" step="0.1">
+                            <button type="button" class="max-btn-badge" onclick="setSolMax()">MAX</button>
                         </div>
                     </div>
 
                     <div class="receive-group-section">
-                        <label>SEN AL</label>
+                        <label>YOU RECEIVE</label>
                         <div class="receive-box-display">
                             <div class="receive-box-left">
                                 <div class="znk-token-badge-img">Z</div>
-                                <span>ZNK Tokenleri</span>
+                                <span>ZNK Tokens</span>
                             </div>
                             <div class="receive-amount-text" id="calcResult">0 ZNK</div>
                         </div>
                     </div>
 
                     <button class="buy-now-action-btn" id="buyNowBtn" onclick="showAddress()" disabled>
-                        <i class="fas fa-shopping-cart"></i> Şimdi Satın Al
+                        <i class="fas fa-shopping-cart"></i> Buy Now
                     </button>
 
                     <div class="secure-transparent-tag">
-                        <i class="fas fa-shield-alt"></i> Güvenli ve Şeffaf
+                        <i class="fas fa-shield-alt"></i> Secure & Transparent
                     </div>
 
                     <!-- CANLI ALIM ALANI -->
                     <div class="live-purchases-dummy">
-                        <p><i class="fas fa-chart-line"></i> Canlı alım verileri, akıllı kontrat bağlandığında burada gerçek zamanlı olarak görüntülenecektir.</p>
+                        <p><i class="fas fa-chart-line"></i> Live purchase data will be displayed here in real-time once the smart contract is connected.</p>
                     </div>
 
                     <!-- GÜVEN ROZETLERİ -->
                     <div class="trust-badges-inline">
-                        <div class="trust-badge-mini"><i class="fas fa-shield-alt"></i> KYC Doğrulandı</div>
-                        <div class="trust-badge-mini"><i class="fas fa-lock"></i> Kilitli Likidite</div>
-                        <div class="trust-badge-mini"><i class="fas fa-check-circle"></i> SSL Korumalı</div>
+                        <div class="trust-badge-mini"><i class="fas fa-shield-alt"></i> KYC Verified</div>
+                        <div class="trust-badge-mini"><i class="fas fa-lock"></i> Locked Liquidity</div>
+                        <div class="trust-badge-mini"><i class="fas fa-check-circle"></i> SSL Secured</div>
                     </div>
                 </div>
 
                 <!-- Profesyonel Ödeme Ekranı -->
                 <div id="addressBox" class="wallet-address-box">
-                    <div class="pay-title"><i class="fas fa-wallet"></i> Ödemenizi Tamamlayın</div>
+                    <div class="pay-title"><i class="fas fa-wallet"></i> Complete Your Payment</div>
                     
-                    <p class="pay-info">Lütfen aşağıdaki adrese <strong>tam olarak</strong> <span id="amountToSendText" style="color:var(--gold); font-weight:bold;">0 SOL</span> gönderin.</p>
+                    <p class="pay-info">Please send <strong>exactly</strong> <span id="amountToSendText" style="color:var(--gold); font-weight:bold;">0 SOL</span> to the address below.</p>
                     
                     <div class="pay-warning">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <span>Önemli: Güvenilir Web3 cüzdanlarını (Phantom, Trust Wallet) kullanın. Sadece SOL gönderin. Borsalardan göndermeyin.</span>
+                        <span>Important: Use trusted Web3 wallets (Phantom, Trust Wallet, MetaMask). Send SOL only. Do not send from exchanges.</span>
                     </div>
                     
                     <code id="depositAddress" onclick="copyDepositAddress()">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                     
                     <button class="copy-wallet-btn" onclick="copyDepositAddress()">
-                        <i class="fas fa-copy"></i> Adresi Kopyala
+                        <i class="fas fa-copy"></i> Copy Address
                     </button>
 
                     <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn" style="margin-bottom: 15px;">
-                        <i class="fab fa-telegram-plane"></i> Yardıma mı ihtiyacınız var? Destek
+                        <i class="fab fa-telegram-plane"></i> Need Help? Contact Support
                     </a>
 
                     <!-- TXID DOĞRULAMA KUTUSU -->
                     <div class="txid-input-group">
-                        <label for="txidInput">İşlem Kimliğini (TXID) Girin *</label>
-                        <input type="text" id="txidInput" placeholder="İşlem kodunu buraya yapıştırın...">
-                        <div class="txid-error-msg" id="txidError">Geçersiz TXID. Lütfen geçerli bir Solana işlem kodu girin.</div>
+                        <label for="txidInput">Enter Transaction ID (TXID) *</label>
+                        <input type="text" id="txidInput" placeholder="Paste transaction hash here...">
+                        <div class="txid-error-msg" id="txidError">Invalid TXID. Please enter a valid Solana transaction hash.</div>
                     </div>
                     
                     <button class="buy-now-action-btn" style="margin-top: 5px;" onclick="showConfirmation()">
-                        <i class="fas fa-check"></i> Ödemeyi Gönderdim
+                        <i class="fas fa-check"></i> I've Sent The Payment
                     </button>
 
                     <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff; margin-top: 10px;" onclick="goBackToCalc()">
-                        <i class="fas fa-arrow-left"></i> Geri Dön
+                        <i class="fas fa-arrow-left"></i> Go Back
                     </button>
                 </div>
 
@@ -904,16 +906,16 @@
                     <div class="confirmation-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <h4>Alım Talebi Alındı!</h4>
-                    <p>Talebiniz başarıyla iletildi. Ekibimiz işleminizi doğrulayacak ve tokenleriniz cüzdanınıza gönderilecektir.</p>
+                    <h4>Purchase Submitted!</h4>
+                    <p>Your purchase request has been received. The team will verify your transaction and tokens will be distributed.</p>
                     
                     <div class="conf-detail">
                         <div class="conf-detail-row">
-                            <span>Gönderilen Miktar</span>
+                            <span>Amount Sent</span>
                             <strong class="gold" id="confAmount">0 SOL</strong>
                         </div>
                         <div class="conf-detail-row">
-                            <span>Alınacak ZNK</span>
+                            <span>ZNK to Receive</span>
                             <strong class="gold" id="confZNK">0 ZNK</strong>
                         </div>
                         <div class="conf-detail-row">
@@ -921,23 +923,23 @@
                             <strong id="confTXID" style="font-family:'Courier New', monospace; font-size:0.65rem; word-break:break-all;">...</strong>
                         </div>
                         <div class="conf-detail-row">
-                            <span>Durum</span>
-                            <strong style="color:#10b981;">İşleniyor</strong>
+                            <span>Status</span>
+                            <strong style="color:#10b981;">Processing</strong>
                         </div>
                     </div>
 
                     <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn" style="margin-bottom: 12px;">
-                        <i class="fab fa-telegram-plane"></i> Siparişini Telegram'da Takip Et
+                        <i class="fab fa-telegram-plane"></i> Track Your Order on Telegram
                     </a>
 
                     <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff;" onclick="resetBuyBox()">
-                        <i class="fas fa-arrow-left"></i> Geri Dön
+                        <i class="fas fa-arrow-left"></i> Go Back
                     </button>
                 </div>
             </div>
             
             <div class="distribution-note">
-                <span>⚡ <strong>İşlemler güvenli bir şekilde işlenir.</strong> Token dağıtımı doğrulama sonrası otomatik olarak yapılır.</span>
+                <span>⚡ <strong>Transactions are processed securely.</strong> Token distribution is handled automatically after verification.</span>
             </div>
         </div>
     </section>
@@ -946,44 +948,44 @@
     <div class="features-grid-3">
         <div class="feature-box-item">
             <i class="fas fa-bolt"></i>
-            <h4>Anında Satın Alma</h4>
-            <p>Web3 cüzdanınıza doğrudan hızlı dağıtım.</p>
+            <h4>Instant Purchase</h4>
+            <p>Fast distribution directly to your Web3 wallet.</p>
         </div>
         <div class="feature-box-item">
             <i class="fas fa-users"></i>
-            <h4>Topluluk Odaklı</h4>
-            <p>Tutkulu koruyucular tarafından yönetilir ve desteklenir.</p>
+            <h4>Community Driven</h4>
+            <p>Governed and supported by passionate guardians.</p>
         </div>
         <div class="feature-box-item">
             <i class="fas fa-heart"></i>
-            <h4>Gerçek Dünya Etkisi</h4>
-            <p>İhtiyaç sahibi çocuklar ve hayvanlar için doğrudan destek.</p>
+            <h4>Real World Impact</h4>
+            <p>Direct support for children & animals in need.</p>
         </div>
     </div>
 
     <section class="section" id="vision">
-        <h2 class="section-title">BİR TOPLULUKTAN FAZLASI</h2>
+        <h2 class="section-title">MORE THAN A COMMUNITY</h2>
         
         <div class="vision-box">
             <p style="margin-bottom: 12px; font-size: 0.95rem; line-height: 1.6;">
-                Zonka sadece bir ön satış değil; bir topluluktur. Dünyada gerçek bir fark yaratmak gibi tek bir amaç için bir araya geliyoruz.
+                Zonka is not just a presale; it's a community. We stand together for a single purpose: to make a real difference in the world.
             </p>
             <p style="font-size: 0.95rem; line-height: 1.6;">
-                Bize katılarak <strong>'Hayatın Koruyucuları'</strong> nın bir parçası olursunuz. Birlikte, savunmasız hayvanları, ihtiyaç sahibi çocukları ve gezegenimizi doğrudan destekleyen bir topluluk inşa ediyoruz.
+                By joining us, you become part of the <strong>'Guardians of Life'</strong>. Together, we build a community that directly supports vulnerable animals, children in need, and our planet.
             </p>
             
             <div class="vision-icons">
                 <div class="vision-icon-item">
                     <i class="fas fa-paw"></i>
-                    <span>Hayvanlar</span>
+                    <span>Animals</span>
                 </div>
                 <div class="vision-icon-item">
                     <i class="fas fa-child"></i>
-                    <span>Çocuklar</span>
+                    <span>Children</span>
                 </div>
                 <div class="vision-icon-item">
                     <i class="fas fa-globe-americas"></i>
-                    <span>Doğa</span>
+                    <span>Nature</span>
                 </div>
             </div>
         </div>
@@ -991,35 +993,35 @@
         <div class="impact-gallery">
             <div class="impact-card">
                 <div class="impact-image-placeholder">
-                    <img src="yardim.jpg" alt="Hope and Care" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Guardians+of+Life'">
+                    <img src="yardim.jpg" alt="Hope and Care" onerror="this.src='https://placehold.co/600x400/0f1015/fcd34d?text=Guardians+of+Life'">
                 </div>
                 <div class="impact-content">
-                    <h4>Bir Umut Bağı</h4>
-                    <p>Her katkı bir umut dalgası yaratır. Birlikte, dünya çapında savunmasız hayatlar için barınak, gıda ve daha iyi bir gelecek sağlıyoruz.</p>
+                    <h4>A Bond of Hope</h4>
+                    <p>Every contribution creates a ripple of hope. Together, we provide shelter, food, and a better future for vulnerable lives across the globe.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="impact-journey">
-        <h2 class="section-title">ETKİ YOLCULUĞU</h2>
+        <h2 class="section-title">THE IMPACT JOURNEY</h2>
         <div class="impact-journey-wrapper">
             <div class="impact-journey-track" id="journeyTrack">
                 <div class="journey-item">
-                    <div class="journey-title">Aşama 1: İlk Adım</div>
-                    <p class="journey-desc">Ön satışın tamamlanması ve küresel Koruyucular topluluğumuzun kurulması.</p>
+                    <div class="journey-title">Phase 1: The First Step</div>
+                    <p class="journey-desc">Completion of the presale and establishing our global community of Guardians.</p>
                 </div>
                 <div class="journey-item">
-                    <div class="journey-title">Aşama 2: İlk Etki</div>
-                    <p class="journey-desc">Doğrudan topluluk tarafından finanse edilen ilk hayvan barınağı ve çocuk yardımı bağışları.</p>
+                    <div class="journey-title">Phase 2: First Impact</div>
+                    <p class="journey-desc">First animal shelter and children's charity donations funded directly by the community.</p>
                 </div>
                 <div class="journey-item">
-                    <div class="journey-title">Aşama 3: Küresel Erişim</div>
-                    <p class="journey-desc">Desteğimizi küresel doğa koruma projelerine ve yaban hayatı korumaya genişletmek.</p>
+                    <div class="journey-title">Phase 3: Global Reach</div>
+                    <p class="journey-desc">Expanding our support to global nature conservation projects and wildlife protection.</p>
                 </div>
                 <div class="journey-item">
-                    <div class="journey-title">Aşama 4: Miras</div>
-                    <p class="journey-desc">Gelecek için kalıcı, şeffaf ve topluluk tarafından yönetilen bir etki fonu oluşturmak.</p>
+                    <div class="journey-title">Phase 4: The Legacy</div>
+                    <p class="journey-desc">Building a permanent, transparent, and community-governed impact fund for the future.</p>
                 </div>
             </div>
         </div>
@@ -1030,35 +1032,35 @@
     </section>
 
     <section class="section" id="roadmap">
-        <h2 class="section-title">Yol Haritası</h2>
+        <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-wrapper" style="margin-top: 20px;">
             <div class="roadmap-track" id="roadmapTrack">
                 <div class="roadmap-item">
                     <div class="roadmap-icon">1</div>
                     <div class="roadmap-content">
-                        <h4>Aşama 1: Uyanış</h4>
-                        <p>Web Sitesi Lansmanı, Akıllı Sözleşme Dağıtımı ve Ön Satış Lansmanı.</p>
+                        <h4>Phase 1: Awakening</h4>
+                        <p>Website Launch, Smart Contract Deployment, and Presale Launch.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">2</div>
                     <div class="roadmap-content">
-                        <h4>Aşama 2: Çözülme</h4>
-                        <p>15M Ön Satış Tükenmesi, Raydium Likidite Havuzu ve Listeleme, CoinGecko/CMC Listelemeleri.</p>
+                        <h4>Phase 2: The Thaw</h4>
+                        <p>15M Presale Sell-out, Raydium Liquidity Pool & Listing, CoinGecko/CMC Listings.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">3</div>
                     <div class="roadmap-content">
-                        <h4>Aşama 3: Arktik İmparatorluğu</h4>
-                        <p>CEX Listelemeleri (MEXC, Gate.io), Zonka Staking Platformu, Küresel Ortaklıklar.</p>
+                        <h4>Phase 3: Arctic Empire</h4>
+                        <p>CEX Listings (MEXC, Gate.io), Zonka Staking Platform, Global Partnerships.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
                     <div class="roadmap-icon">4</div>
                     <div class="roadmap-content">
-                        <h4>Aşama 4: Ekosistem</h4>
-                        <p>Hayatın Koruyucuları Küresel Fonu, Topluluk DAO Yönetişimi, Özel NFT Ödülleri.</p>
+                        <h4>Phase 4: Ecosystem</h4>
+                        <p>Guardians of Life Global Fund, Community DAO Governance, Exclusive NFT Rewards.</p>
                     </div>
                 </div>
             </div>
@@ -1070,38 +1072,38 @@
     </section>
 
     <section class="section" id="token">
-        <h2 class="section-title">Tokenomik</h2>
+        <h2 class="section-title">Tokenomics</h2>
         
         <div class="tokenomics-wrapper">
             <div class="tokenomics-track" id="tokenomicsTrack">
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">Ön Satış <span>25.42%</span></div>
-                    <p class="tokenomics-desc">Projenin büyümesine katılmak ve ilk likiditeyi güvence altına almak için erken topluluğa ayrılmıştır.</p>
+                    <div class="tokenomics-title">Presale <span>25.42%</span></div>
+                    <p class="tokenomics-desc">Reserved for the early community to participate in the project's growth and secure initial liquidity.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 25.42%;"></div></div>
                 </div>
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">DEX Likiditesi <span>16.95%</span></div>
-                    <p class="tokenomics-desc">Raydium gibi merkezi olmayan borsalarda sorunsuz ticaret ve piyasa istikrarı sağlamak için tahsis edilmiştir.</p>
+                    <div class="tokenomics-title">DEX Liquidity <span>16.95%</span></div>
+                    <p class="tokenomics-desc">Allocated to ensure smooth trading and market stability on decentralized exchanges like Raydium.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 16.95%;"></div></div>
                 </div>
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">Hazine <span>20.34%</span></div>
-                    <p class="tokenomics-desc">Gelecekteki geliştirmeleri, ortaklıkları ve Zonka ekosisteminin küresel genişlemesini finanse etmek için stratejik bir rezerv.</p>
+                    <div class="tokenomics-title">Treasury <span>20.34%</span></div>
+                    <p class="tokenomics-desc">A strategic reserve to fund future development, partnerships, and global expansion of the Zonka ecosystem.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 20.34%;"></div></div>
                 </div>
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">Pazarlama <span>15.25%</span></div>
-                    <p class="tokenomics-desc">Farkındalık yaratmaya, topluluk oluşturmaya ve ZNK'nın küresel olarak benimsenmesini sağlamaya adanmıştır.</p>
+                    <div class="tokenomics-title">Marketing <span>15.25%</span></div>
+                    <p class="tokenomics-desc">Dedicated to spreading awareness, building the community, and driving global adoption of ZNK.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 15.25%;"></div></div>
                 </div>
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">Topluluk <span>11.86%</span></div>
-                    <p class="tokenomics-desc">Hayvanları, savunmasız çocukları ve doğa korumayı destekleyen "Hayatın Koruyucuları" fonu için kullanılır.</p>
+                    <div class="tokenomics-title">Community <span>11.86%</span></div>
+                    <p class="tokenomics-desc">Used for the "Guardians of Life" fund, supporting animals, vulnerable children, and nature conservation.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 11.86%;"></div></div>
                 </div>
                 <div class="tokenomics-item">
-                    <div class="tokenomics-title">Ekip <span>10.17%</span></div>
-                    <p class="tokenomics-desc">Ekibin uzun vadeli çıkarlarını projenin başarısı ve toplulukla uyumlu hale getirmek için güvenli bir şekilde kilitlenmiştir.</p>
+                    <div class="tokenomics-title">Team <span>10.17%</span></div>
+                    <p class="tokenomics-desc">Securely locked to align the team's long-term interests with the project's success and the community.</p>
                     <div class="tokenomics-bar"><div class="tokenomics-bar-fill" style="width: 10.17%;"></div></div>
                 </div>
             </div>
@@ -1112,68 +1114,68 @@
             <button class="roadmap-btn" onclick="moveTokenomics(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-        <h2 class="section-title" style="margin-top: 30px;">Kilitli ve Doğrulanmış</h2>
+        <h2 class="section-title" style="margin-top: 30px;">Locked & Verified</h2>
 
         <div class="trust-slider-wrapper">
             <div class="trust-track" id="trustTrack">
                 <div class="trust-item treasury">
-                    <h3><i class="fas fa-shield-alt"></i> Hazine Kilitli</h3>
-                    <p>Uzun vadeli istikrarı ve proje büyümesini garanti etmek için 6M ZNK hazine rezervi 5 yıl boyunca kilitlendi.</p>
+                    <h3><i class="fas fa-shield-alt"></i> Treasury Locked</h3>
+                    <p>6M ZNK treasury reserve locked for 5 years to guarantee long-term stability and project growth.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Toplam Kilitli</span> <strong>6,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Durum</span> <strong>Tamamen Kilitli</strong></span>
-                        <span><span class="label-txt">İlk Kilit</span> <strong>24 Ay</strong></span>
-                        <span><span class="label-txt">Doğrusal Salınım</span> <strong>36 Ay</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>24 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>36 Months</strong></span>
                     </div>
-                    <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">Kilit Kanıtını Gör</a>
+                    <a href="https://solscan.io/tx/5gXjtusnePbR9Hydczbk5C2KANyFsbx1mH5qtfRMauo2A8AGNXgk6CFQUaJ3qCqn8bgT9FGDxXYzqAvdn7yFs6Rv" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
                 <div class="trust-item team">
-                    <h3><i class="fas fa-lock"></i> Ekip Kilitli</h3>
-                    <p>Ekibin 6M ZNK'sı uzun vadeli başarı ve topluluk koruması için kilitlendi.</p>
+                    <h3><i class="fas fa-lock"></i> Team Tokens Locked</h3>
+                    <p>Team's 6M ZNK locked for long-term success and community protection.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Toplam Kilitli</span> <strong>6,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Durum</span> <strong>Tamamen Kilitli</strong></span>
-                        <span><span class="label-txt">İlk Kilit</span> <strong>4 Ay</strong></span>
-                        <span><span class="label-txt">Doğrusal Salınım</span> <strong>24 Ay</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>6,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>4 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>24 Months</strong></span>
                     </div>
-                    <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">Kilit Kanıtını Gör</a>
+                    <a href="https://solscan.io/tx/5SpWPBuHbuFXUgK1YvFUQYNyL91Y5NrPyycbmgP2xjSzYF57CSGyMVnFbKxpopkG9KwMnyfFKxrVfSf4fSDee9Te" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
                 <div class="trust-item community">
-                    <h3><i class="fas fa-users"></i> Topluluk Ödülleri</h3>
-                    <p>Satış baskısını önlemek ve sağlıklı büyümeyi sağlamak için 7M ZNK ödül havuzu uzun vadeli kilitlendi.</p>
+                    <h3><i class="fas fa-users"></i> Community Rewards</h3>
+                    <p>7M ZNK reward pool locked long-term to prevent sell pressure and ensure healthy growth.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Toplam Kilitli</span> <strong>7,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Durum</span> <strong>Tamamen Kilitli</strong></span>
-                        <span><span class="label-txt">İlk Kilit</span> <strong>6 Ay</strong></span>
-                        <span><span class="label-txt">Doğrusal Salınım</span> <strong>60 Ay</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>7,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>6 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>60 Months</strong></span>
                     </div>
-                    <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">Kilit Kanıtını Gör</a>
+                    <a href="https://solscan.io/tx/5ec6nRsJMFQ2kzrqXHj539bvvKeNTWEDAkQSRjNqmCnVT7MrVYr3T6WYoAnDA1YmwgHZoC1Yj9WyNn9hZbukFGPM" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
                 <div class="trust-item marketing">
-                    <h3><i class="fas fa-chart-line"></i> Pazarlama Kilitli</h3>
-                    <p>1.5M ZNK acil ihtiyaçlar için likit kalırken, kalan 7.5M ZNK güvenli bir şekilde kilitlendi.</p>
+                    <h3><i class="fas fa-chart-line"></i> Marketing Locked</h3>
+                    <p>1.5M ZNK stays liquid for immediate needs, while the remaining 7.5M ZNK is securely locked.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Toplam Kilitli</span> <strong>7,500,000 ZNK</strong></span>
-                        <span><span class="label-txt">Durum</span> <strong>Tamamen Kilitli</strong></span>
-                        <span><span class="label-txt">İlk Kilit</span> <strong>3 Ay</strong></span>
-                        <span><span class="label-txt">Doğrusal Salınım</span> <strong>40 Ay</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>7,500,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>40 Months</strong></span>
                     </div>
-                    <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="trust-btn">Kilit Kanıtını Gör</a>
+                    <a href="https://solscan.io/tx/35XpxNq2rYnNDqugmjuiPbtDfK4XxiuCMqPCAypN8GPj4v92PiabhEV2NN8f3LAbiLqqJLNqhFZgmhJ73vSv41wX" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
 
                 <div class="trust-item liquidity">
-                    <h3><i class="fas fa-water"></i> Likidite Doğrulandı</h3>
-                    <p>5M ZNK likidite rezervi kalıcı olarak kilitlendi. Rug pull yok, sadece durdurulamaz piyasa ivmesi.</p>
+                    <h3><i class="fas fa-water"></i> Liquidity Verified</h3>
+                    <p>5M ZNK liquidity reserve permanently locked. No rug pulls, just unstoppable market momentum.</p>
                     <div class="trust-details">
-                        <span><span class="label-txt">Toplam Kilitli</span> <strong>5,000,000 ZNK</strong></span>
-                        <span><span class="label-txt">Durum</span> <strong>Tamamen Kilitli</strong></span>
-                        <span><span class="label-txt">İlk Kilit</span> <strong>3 Ay</strong></span>
-                        <span><span class="label-txt">Doğrusal Salınım</span> <strong>65 Ay</strong></span>
+                        <span><span class="label-txt">Total Locked</span> <strong>5,000,000 ZNK</strong></span>
+                        <span><span class="label-txt">Status</span> <strong>Fully Locked</strong></span>
+                        <span><span class="label-txt">Initial Lock</span> <strong>3 Months</strong></span>
+                        <span><span class="label-txt">Linear Release</span> <strong>65 Months</strong></span>
                     </div>
-                    <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">Kilit Kanıtını Gör</a>
+                    <a href="https://solscan.io/tx/5kR9Y1AYBUevG7EaS7UsjHuDMsqU3WJr5UpEeyvtXZqhhwWgjR471Rd3xzRz5ECR1nbjuUYJAhKjqqmtyHaW1y8e" target="_blank" class="trust-btn">View Lock Proof</a>
                 </div>
             </div>
         </div>
@@ -1185,33 +1187,33 @@
     </section>
 
     <section class="section" id="contract">
-        <h2 class="section-title">Sözleşme Adresi</h2>
+        <h2 class="section-title">Contract Address</h2>
 
         <div style="text-align: center; margin-bottom: 30px;">
             <a href="https://widget.verifilite.com/?token=zfWxFmDWSlD%2Bf%2B4js4%2Fafg%3D%3D%3A5ATq%2BAwRMm%2BcPWt%2Bk%2FRQ3g%3D%3D%3AbHTy%2Fde5sRiW%2BJrAZM5UjlSRwoeOpx7uSXdTm4Mj3fEIdkKG3oPnCA2rodiCqYbGgZ8Wem59cu6bOC0THl22xpGMm2RkHVwYAvZq8GHDxutITYGVoDV6G%2FegqxhphqOBObia1F0p2F72XB%2F0jsx33xgXjwtlXzyXxBO9Xfc47QuC&id=zonka-kyc-01" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #10b981; color: white; padding: 12px 24px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; text-decoration: none; border: 2px solid #fff;">
-                <i class="fas fa-shield-alt" style="font-size: 1.2rem;"></i> Doğrulanmış Ekip KYC
+                <i class="fas fa-shield-alt" style="font-size: 1.2rem;"></i> Verified Team KYC
             </a>
         </div>
 
         <div class="contract-box">
-            <p style="margin-bottom: 10px; color: #bfdbfe; font-size: 0.75rem;">ZNK'yı cüzdanınıza eklemek için adresi kopyalayın.</p>
+            <p style="margin-bottom: 10px; color: #cbd5e1; font-size: 0.75rem;">Copy the address to add ZNK to your wallet.</p>
             <code id="address">2tKoVFGcRiYvNff5VYTSu6WPpNVAzYXQ19UuHstq6yBc</code>
-            <button class="copy-btn" onclick="copyAddress()">Adresi Kopyala</button>
+            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
         </div>
     </section>
 
     <footer>
-        <p style="margin-bottom: 15px; color: #bfdbfe; font-size: 0.7rem; line-height: 1.5; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
-            <strong>Yasal Uyarı:</strong> Kripto para yatırımları yüksek risk taşır. $ZNK topluluk odaklı bir projedir. Bu web sitesi finansal tavsiye niteliği taşımaz. Lütfen katılmadan önce kendi araştırmanızı yapın (DYOR).
+        <p style="margin-bottom: 15px; color: #cbd5e1; font-size: 0.7rem; line-height: 1.5; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+            <strong>Disclaimer:</strong> Cryptocurrency investments carry high risk. $ZNK is a community-driven project. This website does not constitute financial advice. Please do your own research (DYOR) before participating.
         </p>
 
-        &copy; 2026 Zonka (ZNK) Ekosistemi. Tüm hakları saklıdır. <br>
-        <span class="footer-verified">Solana Blok Zincirinde Akıllı Sözleşme Doğrulandı.</span>
-        <div class="ssl-badge">🔒 256-bit SSL Korumalı</div>
+        &copy; 2026 Zonka (ZNK) Ecosystem. All rights reserved. <br>
+        <span class="footer-verified">Smart Contract Verified on Solana Blockchain.</span>
+        <div class="ssl-badge">🔒 256-bit SSL Secured</div>
     </footer>
 
     <button class="floating-feedback-btn" id="openFeedbackBtn">
-        <i class="fas fa-comment-dots"></i> Sorunu Bildir
+        <i class="fas fa-comment-dots"></i> Report Issue
     </button>
 
     <div class="feedback-modal-overlay" id="feedbackModal">
@@ -1282,11 +1284,11 @@
             const code = document.getElementById('drawerContractCode').innerText;
             navigator.clipboard.writeText(code).then(() => {
                 const btn = document.querySelector('.drawer-copy-btn');
-                btn.innerText = "Kopyalandı!";
+                btn.innerText = "Copied!";
                 btn.style.background = "#10b981";
                 btn.style.color = "#fff";
                 setTimeout(() => {
-                    btn.innerText = "Sözleşmeyi Kopyala";
+                    btn.innerText = "Copy Contract";
                     btn.style.background = "var(--gold)";
                     btn.style.color = "#000";
                 }, 2000);
@@ -1399,7 +1401,7 @@
                 const codeEl = document.getElementById("depositAddress");
                 const originalText = btn.innerHTML;
                 
-                btn.innerHTML = '<i class="fas fa-check"></i> Kopyalandı!';
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 btn.style.background = "#10b981";
                 btn.style.color = "#fff";
                 
@@ -1415,8 +1417,8 @@
             const address = document.getElementById("address").innerText;
             navigator.clipboard.writeText(address).then(() => {
                 const btn = document.querySelector(".copy-btn");
-                btn.innerText = "Kopyalandı!";
-                setTimeout(() => { btn.innerText = "Adresi Kopyala"; }, 2000);
+                btn.innerText = "Copied!";
+                setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
 
