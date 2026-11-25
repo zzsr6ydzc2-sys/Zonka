@@ -454,37 +454,15 @@
         }
         .secure-transparent-tag i { color: #10b981; }
 
-        /* SOSYAL KANIT (SOCIAL PROOF) */
-        .social-proof-box {
-            margin-top: 20px; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 10px; padding: 14px 16px;
+        /* DÜRÜST CANLI ALIM ALANI */
+        .live-purchases-dummy {
+            margin-top: 20px; background: rgba(0, 0, 0, 0.15); border: 1px dashed rgba(148, 163, 184, 0.2);
+            border-radius: 10px; padding: 16px; text-align: center;
         }
-        .social-proof-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(148,163,184,0.1);
+        .live-purchases-dummy p {
+            font-size: 0.75rem; color: #64748b; margin: 0; line-height: 1.5;
         }
-        .social-proof-header span {
-            font-size: 0.7rem; color: #cbd5e1; font-weight: 600; display: flex; align-items: center; gap: 6px;
-        }
-        .social-proof-header span i { color: var(--gold); font-size: 0.75rem; }
-        .viewing-now {
-            font-size: 0.65rem; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 4px;
-        }
-        .viewing-dot {
-            width: 6px; height: 6px; background: #10b981; border-radius: 50%;
-            box-shadow: 0 0 8px #10b981; animation: pulseDot 1.5s infinite;
-        }
-        @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-        .recent-buys-list { display: flex; flex-direction: column; gap: 6px; }
-        .recent-buy-item {
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.7rem; padding: 6px 8px; border-radius: 6px;
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(148,163,184,0.05);
-        }
-        .recent-buy-wallet { color: #94a3b8; font-family: 'Courier New', monospace; font-size: 0.68rem; }
-        .recent-buy-amount { color: var(--gold-light); font-weight: 600; font-size: 0.7rem; }
-        .recent-buy-time { color: #64748b; font-size: 0.6rem; }
+        .live-purchases-dummy p i { color: var(--gold); margin-right: 4px; }
 
         /* GÜVEN ROZETLERİ (BUY BOX İÇİNDE) */
         .trust-badges-inline {
@@ -498,14 +476,6 @@
             text-transform: uppercase; letter-spacing: 0.3px;
         }
         .trust-badge-mini i { color: #10b981; font-size: 0.75rem; }
-
-        .buybox-wallet-notice {
-            margin-top: 20px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;
-        }
-        .buybox-wallet-notice i { color: #64748b; font-size: 0.85rem; margin-top: 2px; flex-shrink: 0; }
-        .buybox-wallet-notice p { font-size: 0.7rem; color: #94a3b8; line-height: 1.5; margin: 0; }
-        .buybox-wallet-notice p strong { color: #cbd5e1; font-weight: 600; }
 
         /* YENİ ÖDEME EKRANI TASARIMI */
         .wallet-address-box {
@@ -549,6 +519,25 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
         }
         .copy-wallet-btn:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); }
+
+        /* TXID INPUT VE HATA MESAJI */
+        .txid-input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .txid-input-group label {
+            font-size: 0.7rem; color: #cbd5e1; font-weight: 600; margin-bottom: 6px; display: block;
+        }
+        .txid-input-group input {
+            width: 100%; padding: 12px; border-radius: 6px;
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #fff; font-family: 'Courier New', monospace; font-size: 0.85rem;
+            outline: none; transition: 0.2s;
+        }
+        .txid-input-group input:focus { border-color: var(--gold); }
+        .txid-error-msg {
+            display: none; color: #ef4444; font-size: 0.7rem; margin-top: 6px; font-weight: 600;
+        }
 
         .telegram-support-btn {
             display: flex; align-items: center; justify-content: center; gap: 6px;
@@ -594,7 +583,8 @@
         .conf-tx-link {
             display: inline-flex; align-items: center; gap: 6px;
             color: var(--cyan); font-size: 0.75rem; text-decoration: none; font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 16px; word-break: break-all; text-align: left;
+            justify-content: flex-start; width: 100%;
         }
         .conf-tx-link:hover { text-decoration: underline; }
 
@@ -993,32 +983,9 @@
                         <i class="fas fa-shield-alt"></i> Secure & Transparent
                     </div>
 
-                    <!-- SOSYAL KANIT -->
-                    <div class="social-proof-box">
-                        <div class="social-proof-header">
-                            <span><i class="fas fa-clock"></i> Recent Purchases</span>
-                            <div class="viewing-now">
-                                <div class="viewing-dot"></div>
-                                <span id="viewingCount">42</span> viewing now
-                            </div>
-                        </div>
-                        <div class="recent-buys-list" id="recentBuysList">
-                            <div class="recent-buy-item">
-                                <span class="recent-buy-wallet">7xKq...3fRp</span>
-                                <span class="recent-buy-amount">+2,450 ZNK</span>
-                                <span class="recent-buy-time">2m ago</span>
-                            </div>
-                            <div class="recent-buy-item">
-                                <span class="recent-buy-wallet">9mNv...8dLk</span>
-                                <span class="recent-buy-amount">+1,120 ZNK</span>
-                                <span class="recent-buy-time">5m ago</span>
-                            </div>
-                            <div class="recent-buy-item">
-                                <span class="recent-buy-wallet">4pWz...2aQs</span>
-                                <span class="recent-buy-amount">+3,890 ZNK</span>
-                                <span class="recent-buy-time">8m ago</span>
-                            </div>
-                        </div>
+                    <!-- DÜRÜST CANLI ALIM ALANI (SAHTE LİSTE KALDIRILDI) -->
+                    <div class="live-purchases-dummy">
+                        <p><i class="fas fa-chart-line"></i> Canlı alım verileri, akıllı kontrat bağlandığında burada gerçek zamanlı olarak görüntülenecektir.</p>
                     </div>
 
                     <!-- GÜVEN ROZETLERİ -->
@@ -1029,7 +996,7 @@
                     </div>
                 </div>
 
-                <!-- Profesyonel Ödeme Ekranı (Başlangıçta Gizli) -->
+                <!-- Profesyonel Ödeme Ekranı -->
                 <div id="addressBox" class="wallet-address-box">
                     <div class="pay-title"><i class="fas fa-wallet"></i> Complete Your Payment</div>
                     
@@ -1040,22 +1007,29 @@
                         <span>Important: Use trusted Web3 wallets (Phantom, Trust Wallet, MetaMask). Send SOL only. Do not send from exchanges.</span>
                     </div>
                     
-                    <code id="depositAddress" onclick="copyDepositAddress()">3jVZeM...J9d3A</code>
+                    <code id="depositAddress" onclick="copyDepositAddress()">3jVZeMGYfV4c5t9W7HHYLTmtVXTX1Kgvugd6Ea4J9d3A</code>
                     
                     <button class="copy-wallet-btn" onclick="copyDepositAddress()">
                         <i class="fas fa-copy"></i> Copy Address
                     </button>
 
-                    <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn">
+                    <a href="https://t.me/zonka_coin" target="_blank" class="telegram-support-btn" style="margin-bottom: 15px;">
                         <i class="fab fa-telegram-plane"></i> Need Help? Contact Support
                     </a>
+
+                    <!-- TXID DOĞRULAMA KUTUSU -->
+                    <div class="txid-input-group">
+                        <label for="txidInput">Enter Transaction ID (TXID) *</label>
+                        <input type="text" id="txidInput" placeholder="Paste your transaction hash here...">
+                        <div class="txid-error-msg" id="txidError">Please enter your Transaction ID to proceed.</div>
+                    </div>
                     
-                    <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; margin-top: 15px; box-shadow:none;" onclick="goBackToCalc()">
-                        <i class="fas fa-arrow-left"></i> Go Back
+                    <button class="buy-now-action-btn" style="margin-top: 5px;" onclick="showConfirmation()">
+                        <i class="fas fa-check"></i> I've Sent The Payment
                     </button>
 
-                    <button class="buy-now-action-btn" style="margin-top: 10px;" onclick="showConfirmation()">
-                        <i class="fas fa-check"></i> I've Sent The Payment
+                    <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; margin-top: 10px; box-shadow:none;" onclick="goBackToCalc()">
+                        <i class="fas fa-arrow-left"></i> Go Back
                     </button>
                 </div>
 
@@ -1077,6 +1051,10 @@
                             <strong class="gold" id="confZNK">0 ZNK</strong>
                         </div>
                         <div class="conf-detail-row">
+                            <span>TXID</span>
+                            <strong id="confTXID" style="font-family:'Courier New', monospace; font-size:0.65rem; word-break:break-all;">...</strong>
+                        </div>
+                        <div class="conf-detail-row">
                             <span>Status</span>
                             <strong style="color:#10b981;">Processing</strong>
                         </div>
@@ -1087,7 +1065,7 @@
                     </a>
 
                     <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; box-shadow:none;" onclick="resetBuyBox()">
-                        <i class="fas fa-plus"></i> Make Another Purchase
+                        <i class="fas fa-arrow-left"></i> Go Back (Yeni Alım)
                     </button>
                 </div>
             </div>
@@ -1344,7 +1322,7 @@
     <section class="section" id="contract">
         <h2 class="section-title">Contract Address</h2>
 
-        <!-- Zonka Doğrulanmış Ekip Rozeti (Buraya Eklendi) -->
+        <!-- Zonka Doğrulanmış Ekip Rozeti -->
         <div style="text-align: center; margin-bottom: 30px;">
             <a href="https://widget.verifilite.com/?token=zfWxFmDWSlD%2Bf%2B4js4%2Fafg%3D%3D%3A5ATq%2BAwRMm%2BcPWt%2Bk%2FRQ3g%3D%3D%3AbHTy%2Fde5sRiW%2BJrAZM5UjlSRwoeOpx7uSXdTm4Mj3fEIdkKG3oPnCA2rodiCqYbGgZ8Wem59cu6bOC0THl22xpGMm2RkHVwYAvZq8GHDxutITYGVoDV6G%2FegqxhphqOBObia1F0p2F72XB%2F0jsx33xgXjwtlXzyXxBO9Xfc47QuC&id=zonka-kyc-01" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 12px 24px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; text-decoration: none; border: 2px solid #34d399; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4); transition: all 0.3s ease;">
                 <i class="fas fa-shield-alt" style="font-size: 1.2rem;"></i> Verified Team KYC
@@ -1503,6 +1481,8 @@
         const addressBox = document.getElementById('addressBox');
         const confirmationBox = document.getElementById('confirmationBox');
         const amountToSendText = document.getElementById('amountToSendText');
+        const txidInput = document.getElementById('txidInput');
+        const txidError = document.getElementById('txidError');
 
         solInput.addEventListener('input', () => {
             const solAmount = parseFloat(solInput.value);
@@ -1521,7 +1501,6 @@
             solInput.dispatchEvent(new Event('input'));
         }
 
-        // ADIM GÖSTERGESİ GÜNCELLEME
         function updateStepper(step) {
             const steps = [document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
             steps.forEach((el, i) => {
@@ -1547,15 +1526,29 @@
             addressBox.style.display = 'none';
             confirmationBox.style.display = 'none';
             calcScreen.style.display = 'block';
+            txidInput.value = "";
+            txidError.style.display = "none";
             updateStepper(1);
         }
 
+        // TXID KONTROLLÜ ONAY GEÇİŞİ
         function showConfirmation() {
+            const txidValue = txidInput.value.trim();
+            if (!txidValue) {
+                txidError.style.display = "block"; // Kutu boşsa hata göster ve geçişi engelle
+                txidInput.style.borderColor = "#ef4444";
+                return;
+            }
+            
+            txidError.style.display = "none";
+            txidInput.style.borderColor = "rgba(148, 163, 184, 0.3)";
+            
             const solAmount = parseFloat(solInput.value);
             const zknAmount = solAmount * 14866;
             
             document.getElementById('confAmount').innerText = `${solAmount} SOL`;
             document.getElementById('confZNK').innerText = `${zknAmount.toLocaleString('en-US')} ZNK`;
+            document.getElementById('confTXID').innerText = txidValue;
 
             calcScreen.style.display = 'none';
             addressBox.style.display = 'none';
@@ -1566,6 +1559,9 @@
         function resetBuyBox() {
             solInput.value = "";
             solInput.dispatchEvent(new Event('input'));
+            txidInput.value = "";
+            txidError.style.display = "none";
+            txidInput.style.borderColor = "rgba(148, 163, 184, 0.3)";
             confirmationBox.style.display = 'none';
             addressBox.style.display = 'none';
             calcScreen.style.display = 'block';
@@ -1602,45 +1598,6 @@
                 setTimeout(() => { btn.innerText = "Copy Address"; }, 2000);
             });
         }
-
-        // SOSYAL KANIT: İzleyici sayısı ve son alımlar dinamik
-        function initSocialProof() {
-            const viewingCountEl = document.getElementById('viewingCount');
-            if (viewingCountEl) {
-                setInterval(() => {
-                    const base = 35 + Math.floor(Math.random() * 20);
-                    viewingCountEl.innerText = base;
-                }, 5000);
-            }
-
-            const wallets = ['7xKq', '9mNv', '4pWz', '2rTb', '8kLm', '5nQp', '3jVz', '6hYx'];
-            const listEl = document.getElementById('recentBuysList');
-            
-            function addRecentBuy() {
-                if (!listEl) return;
-                const randomWallet = wallets[Math.floor(Math.random() * wallets.length)];
-                const randomSuffix = Math.random().toString(36).substring(2, 6);
-                const randomAmount = (Math.floor(Math.random() * 4000) + 500).toLocaleString('en-US');
-                
-                const newItem = document.createElement('div');
-                newItem.className = 'recent-buy-item';
-                newItem.innerHTML = `
-                    <span class="recent-buy-wallet">${randomWallet}...${randomSuffix}</span>
-                    <span class="recent-buy-amount">+${randomAmount} ZNK</span>
-                    <span class="recent-buy-time">just now</span>
-                `;
-                
-                listEl.insertBefore(newItem, listEl.firstChild);
-                if (listEl.children.length > 3) {
-                    listEl.removeChild(listEl.lastChild);
-                }
-            }
-            
-            // Her 12 saniyede yeni bir "alım" ekle (gerçekçi hissettirir)
-            setInterval(addRecentBuy, 12000);
-        }
-
-        initSocialProof();
 
         function initInfiniteCarousel(trackId, itemGap) {
             const track = document.getElementById(trackId);
