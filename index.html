@@ -21,7 +21,8 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ZOOM SORUNU DÜZELTİLDİ (user-scalable=no eklendi) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="Oa4dRfqrwihUrN_ufjBpQ7nzgPtdga3oxXHLzix1rKk" />
     <script type="application/ld+json">
     {
@@ -281,26 +282,26 @@
         }
 
         /* ==========================================================
-           KURUMSAL BUY BOX (YENİ RENK: KOYU LACİVERT/GRİ SADE)
+           KURUMSAL BUY BOX (SİYAH / ANTRASİT LÜKS TASARIM)
            ========================================================== */
         .buy-box-container {
-            background: linear-gradient(180deg, #1a2332 0%, #111827 100%);
-            border: 1px solid rgba(148, 163, 184, 0.15);
-            border-top: 2px solid var(--gold);
-            border-radius: 16px;
+            background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid var(--gold);
+            border-radius: 12px;
             padding: 0; 
             width: 100%; max-width: 480px;
             margin: 0 auto 20px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255,255,255,0.05); 
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255,255,255,0.05); 
             text-align: left; 
             position: relative; overflow: hidden;
         }
 
         .buy-box-header {
             padding: 20px 24px;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.2);
         }
         .buy-box-header h3 {
             font-family: 'Inter', sans-serif; font-size: 1.1rem; margin: 0;
@@ -322,25 +323,25 @@
         /* ADIM GÖSTERGESİ (STEPPER) */
         .stepper {
             display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 20px; position: relative;
+            margin-bottom: 24px; position: relative;
         }
         .stepper::before {
             content: ''; position: absolute; top: 14px; left: 20px; right: 20px;
-            height: 2px; background: rgba(148, 163, 184, 0.2); z-index: 0;
+            height: 2px; background: rgba(255, 255, 255, 0.1); z-index: 0;
         }
         .step-item {
-            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
             position: relative; z-index: 1; flex: 1;
         }
         .step-circle {
             width: 28px; height: 28px; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
-            background: #111827; border: 2px solid rgba(148, 163, 184, 0.3); color: #64748b;
+            background: #0f172a; border: 2px solid rgba(255, 255, 255, 0.15); color: #64748b;
             transition: all 0.3s;
         }
         .step-item.active .step-circle {
             background: var(--gold); border-color: var(--gold); color: #000;
-            box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
         }
         .step-item.completed .step-circle {
             background: #10b981; border-color: #10b981; color: #000;
@@ -356,8 +357,8 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;
         }
         .price-card-box {
-            background: rgba(0,0,0,0.25); padding: 14px 16px; border-radius: 10px;
-            border: 1px solid rgba(148, 163, 184, 0.12);
+            background: #020617; padding: 14px 16px; border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative; overflow: hidden;
             display: flex; flex-direction: column; justify-content: space-between;
         }
@@ -389,7 +390,7 @@
         }
         .sol-input-wrapper {
             position: relative; display: flex; align-items: center;
-            background: #0b1220; border: 1px solid rgba(148, 163, 184, 0.18);
+            background: #020617; border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px; padding: 4px 14px; transition: 0.2s;
         }
         .sol-input-wrapper:focus-within { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
@@ -417,7 +418,7 @@
             font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
         }
         .receive-box-display {
-            background: #0b1220; border: 1px solid rgba(148, 163, 184, 0.18);
+            background: #020617; border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;
         }
         .receive-box-left { display: flex; align-items: center; gap: 10px; }
@@ -456,8 +457,8 @@
 
         /* DÜRÜST CANLI ALIM ALANI */
         .live-purchases-dummy {
-            margin-top: 20px; background: rgba(0, 0, 0, 0.15); border: 1px dashed rgba(148, 163, 184, 0.2);
-            border-radius: 10px; padding: 16px; text-align: center;
+            margin-top: 20px; background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 8px; padding: 16px; text-align: center;
         }
         .live-purchases-dummy p {
             font-size: 0.75rem; color: #64748b; margin: 0; line-height: 1.5;
@@ -467,7 +468,7 @@
         /* GÜVEN ROZETLERİ (BUY BOX İÇİNDE) */
         .trust-badges-inline {
             display: flex; justify-content: space-around; align-items: center;
-            margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(148, 163, 184, 0.1);
+            margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.05);
             flex-wrap: wrap; gap: 8px;
         }
         .trust-badge-mini {
@@ -479,9 +480,8 @@
 
         /* YENİ ÖDEME EKRANI TASARIMI */
         .wallet-address-box {
-            background: #0b1220; border: 1px solid var(--gold); 
-            padding: 20px; border-radius: 10px; margin-top: 20px; display: none;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+            background: #020617; border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 20px; border-radius: 8px; margin-top: 20px; display: none;
             animation: fadeIn 0.3s ease;
         }
         .wallet-address-box .pay-title {
@@ -530,7 +530,7 @@
         }
         .txid-input-group input {
             width: 100%; padding: 12px; border-radius: 6px;
-            background: rgba(0,0,0,0.5); border: 1px solid rgba(148, 163, 184, 0.3);
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff; font-family: 'Courier New', monospace; font-size: 0.85rem;
             outline: none; transition: 0.2s;
         }
@@ -555,10 +555,9 @@
         }
         .confirmation-icon {
             width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 16px;
-            background: rgba(16, 185, 129, 0.15); border: 2px solid #10b981;
+            background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981;
             display: flex; align-items: center; justify-content: center;
             font-size: 2rem; color: #10b981;
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
             animation: popIn 0.4s ease;
         }
         @keyframes popIn { 0% { transform: scale(0); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
@@ -570,7 +569,7 @@
             font-size: 0.8rem; color: #94a3b8; line-height: 1.6; margin-bottom: 18px;
         }
         .confirmation-box .conf-detail {
-            background: rgba(0,0,0,0.3); border: 1px solid rgba(148,163,184,0.15);
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
             border-radius: 10px; padding: 14px; margin-bottom: 16px; text-align: left;
         }
         .conf-detail-row {
@@ -588,8 +587,9 @@
         }
         .conf-tx-link:hover { text-decoration: underline; }
 
+        /* 30 DAKİKA YAZISI KALDIRILDI */
         .distribution-note {
-            padding: 15px 24px; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 15px 24px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: #64748b; font-size: 0.7rem; text-align: left; display: block;
         }
         .distribution-note span { display: block; line-height: 1.5; }
@@ -983,7 +983,7 @@
                         <i class="fas fa-shield-alt"></i> Secure & Transparent
                     </div>
 
-                    <!-- DÜRÜST CANLI ALIM ALANI (SAHTE LİSTE KALDIRILDI) -->
+                    <!-- DÜRÜST CANLI ALIM ALANI -->
                     <div class="live-purchases-dummy">
                         <p><i class="fas fa-chart-line"></i> Canlı alım verileri, akıllı kontrat bağlandığında burada gerçek zamanlı olarak görüntülenecektir.</p>
                     </div>
@@ -1039,7 +1039,7 @@
                         <i class="fas fa-check"></i>
                     </div>
                     <h4>Purchase Submitted!</h4>
-                    <p>Your purchase request has been received. ZNK tokens will arrive in your wallet within 30 minutes after verification.</p>
+                    <p>Your purchase request has been received. The team will verify your transaction and tokens will be distributed.</p>
                     
                     <div class="conf-detail">
                         <div class="conf-detail-row">
@@ -1065,13 +1065,14 @@
                     </a>
 
                     <button class="buy-now-action-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; box-shadow:none;" onclick="resetBuyBox()">
-                        <i class="fas fa-arrow-left"></i> Go Back (Yeni Alım)
+                        <i class="fas fa-arrow-left"></i> Go Back
                     </button>
                 </div>
             </div>
             
+            <!-- 30 DAKİKA YAZISI KALDIRILDI, KURUMSAL METİN EKLENDİ -->
             <div class="distribution-note">
-                <span>⚡ <strong>ZNK tokens arrive in your wallet within 30 minutes</strong> after purchase verification.</span>
+                <span>⚡ <strong>Transactions are processed securely.</strong> Token distribution is handled automatically after verification.</span>
             </div>
         </div>
     </section>
@@ -1361,22 +1362,6 @@
     </div>
 
     <script>
-        // Fix scroll issues on reload by clearing hash and forcing top
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-            }, 10);
-        });
-
-        window.addEventListener('DOMContentLoaded', function() {
-            if (window.location.hash) {
-                history.replaceState(null, null, window.location.pathname + window.location.search);
-            }
-        });
-
         // KUSURSUZ KAYAN YAZI (JAVASCRIPT SİSTEMİ)
         const ticker = document.getElementById('ticker');
         const tickerWrap = document.querySelector('.ticker-wrap');
@@ -1541,7 +1526,7 @@
             }
             
             txidError.style.display = "none";
-            txidInput.style.borderColor = "rgba(148, 163, 184, 0.3)";
+            txidInput.style.borderColor = "rgba(255, 255, 255, 0.15)";
             
             const solAmount = parseFloat(solInput.value);
             const zknAmount = solAmount * 14866;
@@ -1561,7 +1546,7 @@
             solInput.dispatchEvent(new Event('input'));
             txidInput.value = "";
             txidError.style.display = "none";
-            txidInput.style.borderColor = "rgba(148, 163, 184, 0.3)";
+            txidInput.style.borderColor = "rgba(255, 255, 255, 0.15)";
             confirmationBox.style.display = 'none';
             addressBox.style.display = 'none';
             calcScreen.style.display = 'block';
